@@ -1,0 +1,104 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const features = [
+  {
+    id: "0.001",
+    title: "Transparent Communication",
+    description: "We guide you step by step to the desired result.",
+  },
+  {
+    id: "0.002",
+    title: "Projects Completed",
+    description: "Delivering exceptional results to ensure satisfaction.",
+  },
+  {
+    id: "0.003",
+    title: "Clients Worldwide",
+    description:
+      "We work with businesses around the globe with consistency and excellence.",
+  },
+  {
+    id: "0.004",
+    title: "Revenue Generated",
+    description:
+      "We drive measurable growth, success, and revenue for every client.",
+  },
+];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
+const Features = () => {
+  return (
+    <div className="bg-black text-white w-full py-24 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20"
+        >
+          <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white">
+            FEATURES
+          </h1>
+          <div className="max-w-2xl space-y-5">
+            <p className="text-2xl font-light text-white/90">
+              We let our work speak for itself — transforming ideas into
+              results, and creativity into impact.
+            </p>
+            <p className="text-md text-gray-400">
+              Our goal is to design experiences that inspire people, spark
+              emotion, and create lasting value.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.id}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
+              className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-6 h-[300px] flex flex-col justify-between shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <div>
+                <p className="text-sm font-semibold text-white mb-2">
+                  {feature.id}
+                </p>
+                <h2 className="text-xl font-bold mb-2 text-white">
+                  {feature.title}
+                </h2>
+                <p className="text-sm text-gray-300">{feature.description}</p>
+              </div>
+              <div className="mt-6">
+                <button className="text-white hover:underline font-medium text-sm">
+                  Learn More →
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Features;
