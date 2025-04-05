@@ -21,18 +21,6 @@ const fadeInUp = {
   }),
 };
 
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  }),
-};
-
 const sections = [
   {
     title: "Art-direction & Consulting",

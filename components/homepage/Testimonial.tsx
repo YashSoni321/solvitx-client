@@ -32,6 +32,10 @@ const testimonials = [
   },
 ];
 
+const arrayOfItems = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 6, 5, 4, 3, 2, 3, 4, 6, 7, 4, 3, 2,
+];
+
 const fadeVariants = {
   initial: { opacity: 0, y: 50 },
   animate: { opacity: 1, y: 0 },
@@ -119,16 +123,14 @@ const Testimonial = () => {
             ease: "linear",
           }}
         >
-          {Array(20)
-            .fill(0)
-            .map((_, idx) => (
-              <span
-                key={idx}
-                className="mx-6 text-4xl font-bold text-white opacity-30"
-              >
-                SOLVITX
-              </span>
-            ))}
+          {arrayOfItems.map((_, idx) => (
+            <span
+              key={idx}
+              className="mx-6 text-4xl font-bold text-white opacity-30"
+            >
+              SOLVITX
+            </span>
+          ))}
         </motion.div>
       </div>
 

@@ -1,47 +1,42 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Bg1 from "../../public/images/bg1.jpg";
 
 const teamMembers = [
   {
     name: "Andrey Bolkonsky",
     role: "Lead Designer",
-    image:
-      "https://storage.googleapis.com/a1aa/image/lwkkpsLTh7NsxKLOC8EKKeqG0G5KpWG5gUyHNo_ScSM.jpg",
+    image: Bg1,
   },
   {
     name: "Sonya Kutsova",
     role: "UX/UI Designer",
-    image:
-      "https://storage.googleapis.com/a1aa/image/-h1xQhR9tuO00t-q6d_nwjTRqaldFw0LFMysv8BsEaY.jpg",
+    image: Bg1,
   },
   {
     name: "Maria Shcherbat",
     role: "HR Manager",
-    image:
-      "https://storage.googleapis.com/a1aa/image/0MttsOSULa6M1X3RxfbcShYHmnNScskK1Mvezs4WxIk.jpg",
+    image: Bg1,
   },
   {
     name: "Anatole Kuragin",
     role: "UX/UI Designer",
-    image:
-      "https://storage.googleapis.com/a1aa/image/jaP5_BZjKwEGKh9ya609TdvSbaT2yotXm8XkVCE_0O0.jpg",
+    image: Bg1,
   },
   {
     name: "Nikolay Rostov",
     role: "Webflow Developer",
-    image:
-      "https://storage.googleapis.com/a1aa/image/7aqmfZQuN7WQKTBdPW_3Oaqlpaj14UzfQHXEW__3Syc.jpg",
+    image: Bg1,
   },
   {
     name: "Pierre Bezukhov",
     role: "Motion Designer",
-    image:
-      "https://storage.googleapis.com/a1aa/image/gwqKzFr0MJ4R7eiYz5Z6sGZ2HT0OTq6F33-6vWfnPNw.jpg",
+    image: Bg1,
   },
 ];
 
-const highlightImage =
-  "https://storage.googleapis.com/a1aa/image/LAulGJhKITNSTmJzpcXQgr-2ru_Y9f5HxbkY3-F6DQA.jpg";
+const highlightImage = Bg1;
 
 export default function BestTeamSection() {
   return (
@@ -83,7 +78,7 @@ export default function BestTeamSection() {
               className="bg-gray-100 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 text-center p-6"
             >
               <div className="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full shadow-lg">
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
                   className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
@@ -102,7 +97,7 @@ export default function BestTeamSection() {
             viewport={{ once: true }}
             className="col-span-full md:col-span-2 lg:col-span-1 flex justify-center items-center"
           >
-            <img
+            <Image
               src={highlightImage}
               alt="Highlight"
               className="rounded-2xl shadow-xl w-full h-full object-cover max-h-[400px]"

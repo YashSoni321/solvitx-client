@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Bg1 from "../../public/images/bg1.jpg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -31,28 +33,28 @@ const projects = [
     title: "Magnetic AI",
     description:
       "European B2B AI Specializing in E-Commerce and Fintech Solutions",
-    src: "https://storage.googleapis.com/a1aa/image/c-liEwL95ctkD7p5b3czwB_CmCy8--mqSV3kyMw0Lrs.jpg",
+    src: Bg1,
     alt: "iPhone 14 Pro mockup with text 'PASTE DESIGN HERE' on a purple background",
   },
   {
     title: "Chip Systems",
     description:
       "European B2B AI Specializing in E-Commerce and Fintech Solutions",
-    src: "https://storage.googleapis.com/a1aa/image/qhwdBE2qRUQeUL7SQ_iVz-Gxsth0BnZ-Cgs8-RCXNL0.jpg",
+    src: Bg1,
     alt: "Tablet mockup with text 'CREATOOM' and abstract design on a purple background",
   },
   {
     title: "Chip Systems",
     description:
       "European B2B AI Specializing in E-Commerce and Fintech Solutions",
-    src: "https://storage.googleapis.com/a1aa/image/bJurzwZrOLTPh0jzNOq09pKtrYhH_RqD1RwAALFspFg.jpg",
+    src: Bg1,
     alt: "Minimalistic design with a dark background and a round table",
   },
   {
     title: "Chip Systems",
     description:
       "European B2B AI Specializing in E-Commerce and Fintech Solutions",
-    src: "https://storage.googleapis.com/a1aa/image/EEkbPlvQVewywreZQm8rB5d8Vz0BKIr-aHSmQ1FLNkc.jpg",
+    src: Bg1,
     alt: "Phone mockup with text 'European Space Week 2022' on a dark background",
   },
 ];
@@ -102,7 +104,7 @@ const OurWorks = () => {
           >
             {/* Image with hover zoom */}
             <div className="overflow-hidden">
-              <img
+              <Image
                 src={project.src}
                 alt={project.alt}
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"

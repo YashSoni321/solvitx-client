@@ -1,5 +1,15 @@
 "use client";
-export default function BriefingCard({ index, title, desc }: any) {
+
+type BriefingCardProps = {
+  index: number;
+  title: string;
+  desc: string;
+};
+export default function BriefingCard({
+  index,
+  title,
+  desc,
+}: BriefingCardProps) {
   return (
     <div className="h-[50vh] w-full max-w-2xl bg-gray-900 text-white rounded-2xl shadow-xl px-8 py-10 transition-transform duration-300 hover:scale-105 mx-auto flex flex-col justify-between">
       <div className="flex items-center mb-6">

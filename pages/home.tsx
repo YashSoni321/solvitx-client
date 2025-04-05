@@ -1,7 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import HeroImage from "../public/images/heroImg.jpg";
 import Hero from "@/components/homepage/Hero";
 import AboutSolvitx from "@/components/homepage/AboutSolvitx";
 import OurWorks from "@/components/homepage/OurWorks";
@@ -10,7 +7,7 @@ import StatisticsSection from "@/components/homepage/Statitics";
 import StagesSection from "@/components/homepage/StageOfWork";
 import Teams from "@/components/homepage/Teams";
 import Features from "@/components/homepage/Features";
-import Testimonial from "@/components/homepage/Testimonial";
+import Testimonial from "../components/homepage/Testimonial";
 import Footer from "@/components/homepage/Footer";
 
 export default function Home() {

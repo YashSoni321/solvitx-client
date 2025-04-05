@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import BriefingCard from "./StageWorkBox";
 
 const stages = [
@@ -50,6 +49,7 @@ const StagesSection = () => {
         <div className="lg:w-1/2 w-full space-y-16">
           {stages.map((stage, index) => (
             <BriefingCard
+              key={index}
               title={stage?.title}
               index={index}
               desc={stage?.description}
