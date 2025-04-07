@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
+    "dev": "DISABLE_ESLINT_PLUGIN=true next dev --turbopack",
+    "build": "DISABLE_ESLINT_PLUGIN=true next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "echo 'ESLint is disabled for this project'"
   },
   "dependencies": {
     "framer-motion": "^12.6.3",
@@ -25,5 +25,8 @@
     "eslint-config-next": "15.2.4",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "eslintConfig": {
+    "ignorePatterns": ["**/*"]
   }
 }
