@@ -1,176 +1,325 @@
 "use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
+import { FaArrowRight, FaLightbulb, FaPencilRuler, FaChartLine } from "react-icons/fa";
 
-const fadeTransition = {
-  initial: { opacity: 0, scale: 0.95 },
-  animate: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } },
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  }),
-};
-
-const sections = [
+// Enhanced service data with icons and more details
+const services = [
   {
-    title: "Art-direction & Consulting",
+    id: "art-direction",
+    title: "Art Direction & Consulting",
+    icon: <FaPencilRuler className="text-pink-500 text-3xl" />,
+    shortDesc: "Creating striking visual identities that captivate your audience",
     content:
-      "Whether your website needs a facelift or you want stunning team photos, we’ve got you covered to keep everything fresh and on point. Our goal is to ensure your visuals are not just cool, but timeless and perfectly aligned with your vision.",
-    imageUrl:
-      "https://storage.googleapis.com/a1aa/image/EEkbPlvQVewywreZQm8rB5d8Vz0BKIr-aHSmQ1FLNkc.jpg", // Change to your image path
+      "Whether your website needs a facelift or you want stunning team photos, we've got you covered to keep everything fresh and on point. Our goal is to ensure your visuals are not just cool, but timeless and perfectly aligned with your vision.",
+    benefits: ["Brand consistency", "Visual storytelling", "Creative direction", "Photography direction"],
+    imageUrl: "https://storage.googleapis.com/a1aa/image/EEkbPlvQVewywreZQm8rB5d8Vz0BKIr-aHSmQ1FLNkc.jpg",
+    color: "from-pink-600 to-purple-600",
   },
   {
+    id: "creative-strategy",
     title: "Creative Strategy & Planning",
+    icon: <FaLightbulb className="text-yellow-500 text-3xl" />,
+    shortDesc: "Developing cohesive strategies that drive meaningful results",
     content:
-      "Our creative strategy focuses on establishing a cohesive vision for your brand, ensuring that every piece we create resonates with your audience.",
-    imageUrl:
-      "https://storage.googleapis.com/a1aa/image/bJurzwZrOLTPh0jzNOq09pKtrYhH_RqD1RwAALFspFg.jpg",
+      "Our creative strategy focuses on establishing a cohesive vision for your brand, ensuring that every piece we create resonates with your audience and drives business growth.",
+    benefits: ["Market research", "Competitor analysis", "Campaign planning", "Performance tracking"],
+    imageUrl: "https://storage.googleapis.com/a1aa/image/bJurzwZrOLTPh0jzNOq09pKtrYhH_RqD1RwAALFspFg.jpg",
+    color: "from-yellow-500 to-orange-600",
   },
   {
+    id: "digital-marketing",
     title: "Digital Marketing & SEO",
+    icon: <FaChartLine className="text-blue-500 text-3xl" />,
+    shortDesc: "Amplifying your online presence with data-driven strategies",
     content:
-      "In today's digital world, effective marketing and SEO are crucial. We offer comprehensive services to enhance your online visibility.",
-    imageUrl:
-      "https://storage.googleapis.com/a1aa/image/qhwdBE2qRUQeUL7SQ_iVz-Gxsth0BnZ-Cgs8-RCXNL0.jpg",
+      "In today's digital world, effective marketing and SEO are crucial. We offer comprehensive services to enhance your online visibility and drive qualified traffic to your digital platforms.",
+    benefits: ["Search engine optimization", "Social media management", "PPC campaigns", "Content marketing"],
+    imageUrl: "https://storage.googleapis.com/a1aa/image/qhwdBE2qRUQeUL7SQ_iVz-Gxsth0BnZ-Cgs8-RCXNL0.jpg",
+    color: "from-blue-600 to-teal-500",
   },
 ];
 
 const Services = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeService, setActiveService] = useState(0);
+  const [hoveringItem, setHoveringItem] = useState<number | null>(null);
+  const containerRef = useRef(null);
+  const galleryRef = useRef(null);
+  
+  // Detect when components are in view
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+  
+  // Smooth scrollYProgress
+  const smoothProgress = useSpring(scrollYProgress, { 
+    stiffness: 100, 
+    damping: 30, 
+    restDelta: 0.001 
+  });
+  
+  // Parallax and scale effects
+  const headerY = useTransform(smoothProgress, [0, 1], [0, -100]);
+  const headerOpacity = useTransform(smoothProgress, [0, 0.2, 0.3], [1, 1, 0]);
+  const servicesScale = useTransform(smoothProgress, [0.2, 0.4], [0.8, 1]);
+  const servicesOpacity = useTransform(smoothProgress, [0.2, 0.4], [0, 1]);
 
-  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    const scrollY = e.currentTarget.scrollTop;
-    const sectionHeight = window.innerHeight; // or fixed value if your section isn't h-screen
-    const index = Math.round(scrollY / sectionHeight);
+  // Automatic rotation if no user interaction
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (hoveringItem === null) {
+        setActiveService((prev) => (prev + 1) % services.length);
+      }
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [hoveringItem]);
 
-    if (index >= 0 && index < sections.length) {
-      setCurrentIndex(index);
-    }
-  };
+  // Background particles
+  const particleCount = 30;
+  const particles = Array.from({ length: particleCount }).map((_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 3 + 1,
+    speedX: (Math.random() - 0.5) * 0.2,
+    speedY: (Math.random() - 0.5) * 0.2,
+    opacity: Math.random() * 0.5 + 0.1,
+  }));
 
   return (
-    <div className="bg-black">
-      <div className="container mx-auto px-4 py-12">
-        {/* Title & Intro */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ amount: 0.3 }}
-          className="bg-black"
-        >
-          <div className="my-2 py-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <motion.div
-              variants={fadeInUp}
-              className="text-6xl text-white md:text-8xl text-start font-bold leading-tight"
-            >
-              <p>
-                GROW <br /> SERVICES
-              </p>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="py-8">
-              <p className="tracking-wide text-white text-base/8 md:text-5xl font-bold">
-                We develop sites that help your business grow and sustain
-                clients and increase conversion.
-                <span className="text-gray-400">
-                  We offer a comprehensive approach to website and digital
-                </span>
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
+    <section 
+      className="bg-gradient-to-b from-black to-gray-900 relative overflow-hidden py-20"
+      ref={containerRef}
+    >
+      {/* Animated Background Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {particles.map((particle) => (
+          <motion.div
+            key={particle.id}
+            className="absolute rounded-full bg-white"
+            style={{
+              x: `${particle.x}%`,
+              y: `${particle.y}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              opacity: particle.opacity,
+            }}
+            animate={{
+              x: [`${particle.x}%`, `${particle.x + particle.speedX * 100}%`],
+              y: [`${particle.y}%`, `${particle.y + particle.speedY * 100}%`],
+            }}
+            transition={{
+              duration: 15 + particle.id % 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "linear",
+            }}
+          />
+        ))}
       </div>
 
-      {/* Services Scroll Section */}
-      <div className="relative flex w-full">
-        {/* Left Scrolling Sections */}
-        <div
-          className="w-1/2 snap-y snap-mandatory relative z-10 overflow-y-scroll h-screen"
-          onScroll={handleScroll} // ✅ Now on the actual scrollable container
-          style={{
-            scrollBehavior: "smooth",
-            WebkitOverflowScrolling: "touch",
-          }}
-        >
-          {sections.map((section, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="h-screen snap-start flex flex-col justify-center items-start px-10 py-16 bg-gradient-to-b from-black via-gray-900 to-black text-white"
-            >
-              <h1 className="text-5xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent drop-shadow-lg">
-                {section.title}
-              </h1>
+      {/* Header - "GROW SERVICES" */}
+      <motion.div 
+        style={{ y: headerY, opacity: headerOpacity }}
+        className="container mx-auto px-4 mb-20"
+      >
+        <div className="text-center">
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="inline-block text-7xl md:text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500 mb-8 tracking-tighter"
+          >
+            SERVICES
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
+          >
+            We develop digital experiences that help your business grow,
+            sustain clients, and increase conversion rates.
+          </motion.p>
+        </div>
+      </motion.div>
 
-              <p className="mt-6 text-lg text-gray-300 leading-relaxed max-w-lg">
-                {section.content}
-              </p>
-
-              <div className="mt-8 w-full relative group rounded-xl overflow-hidden border border-gray-700 shadow-lg">
-                <img
-                  src={section.imageUrl}
-                  alt={section.title}
-                  className="w-full h-[300px] object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex justify-center items-center">
-                  <p className="text-white text-lg font-semibold">
-                    View Project
-                  </p>
-                </div>
+      {/* Main Services Content */}
+      <motion.div 
+        style={{ scale: servicesScale, opacity: servicesOpacity }}
+        className="container mx-auto px-4 relative"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+          {/* Service Navigation */}
+          <div className="lg:col-span-2">
+            <div className="sticky top-32">
+              <h3 className="text-xl text-white mb-8 font-medium">Our Expertise</h3>
+              <div className="space-y-6">
+                {services.map((service, index) => (
+                  <motion.div
+                    key={service.id}
+                    onClick={() => setActiveService(index)}
+                    onMouseEnter={() => setHoveringItem(index)}
+                    onMouseLeave={() => setHoveringItem(null)}
+                    className={`cursor-pointer p-6 rounded-xl transition-all duration-500 ${
+                      activeService === index 
+                        ? `bg-gradient-to-r ${service.color} shadow-lg shadow-${service.color.split(" ")[0]}/20` 
+                        : "bg-gray-900/40 hover:bg-gray-800/60"
+                    }`}
+                    whileHover={{ x: 5 }}
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className={`p-3 rounded-lg ${activeService === index ? 'bg-white/20' : 'bg-gray-800'}`}>
+                        {service.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
+                        <p className="text-gray-300 text-sm">{service.shortDesc}</p>
+                        
+                        {activeService === index && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-4"
+                          >
+                            <ul className="grid grid-cols-2 gap-2 mt-4">
+                              {service.benefits.map((benefit, i) => (
+                                <li key={i} className="flex items-center text-white text-sm">
+                                  <span className="mr-2 text-xs">●</span>
+                                  {benefit}
+                                </li>
+                              ))}
+                            </ul>
+                            
+                            <motion.button
+                              whileHover={{ x: 5 }}
+                              className="mt-6 flex items-center text-white text-sm font-medium"
+                            >
+                              Learn more
+                              <FaArrowRight className="ml-2 text-xs" />
+                            </motion.button>
+                          </motion.div>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-8 inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full shadow-md hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-500 hover:text-white transition-all duration-300"
-              >
-                <span>Load More</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+            </div>
+          </div>
+          
+          {/* Service Showcase */}
+          <div className="lg:col-span-3" ref={galleryRef}>
+            <div className="relative h-[600px] rounded-2xl overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeService}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="absolute inset-0"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </motion.button>
-            </motion.div>
-          ))}
+                  {/* Background Image with Overlay */}
+                  <div className="absolute inset-0">
+                    <motion.div
+                      initial={{ scale: 1.1 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.7 }}
+                      className="w-full h-full"
+                    >
+                      <img 
+                        src={services[activeService].imageUrl} 
+                        alt={services[activeService].title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-r ${services[activeService].color} opacity-60 mix-blend-multiply`}></div>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-12 z-10">
+                    <motion.h2
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      className="text-4xl font-bold text-white mb-6"
+                    >
+                      {services[activeService].title}
+                    </motion.h2>
+                    
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="text-white/90 mb-8 max-w-xl"
+                    >
+                      {services[activeService].content}
+                    </motion.p>
+                    
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                    >
+                      <button className="px-8 py-3 bg-white text-gray-900 rounded-full font-medium hover:bg-gray-100 transition-all flex items-center space-x-2">
+                        <span>Explore Service</span>
+                        <FaArrowRight />
+                      </button>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            
+            {/* Service Navigation Dots */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {services.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveService(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    activeService === index 
+                      ? `bg-gradient-to-r ${services[index].color}` 
+                      : "bg-gray-700 hover:bg-gray-600"
+                  }`}
+                  aria-label={`View service ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-
-        {/* Right Sticky Image */}
-        <div className="w-1/2 min-h-screen h-screen sticky top-0 right-0 flex justify-center items-center">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={sections[currentIndex]?.imageUrl}
-              src={sections[currentIndex]?.imageUrl}
-              alt="section image"
-              className="w-full h-full object-cover shadow-2xl"
-              {...fadeTransition}
-            />
-          </AnimatePresence>
+      </motion.div>
+      
+      {/* Call to Action */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="container mx-auto px-4 mt-32 text-center"
+      >
+        <div className="max-w-3xl mx-auto">
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to elevate your digital presence?
+          </h3>
+          <p className="text-gray-300 mb-8">
+            Let s discuss how our services can be tailored to your specific needs and goals.
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full font-semibold hover:from-purple-700 hover:to-pink-600 transition-all duration-300 shadow-lg"
+          >
+            Get a Free Consultation
+          </motion.button>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
 };
 
