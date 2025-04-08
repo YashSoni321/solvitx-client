@@ -29,7 +29,6 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Work", path: "/work" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -46,7 +45,10 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" legacyBehavior>
           <a className="text-white text-2xl font-bold z-50">
-            Solv<span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">itx</span>
+            Solv
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+              itx
+            </span>
           </a>
         </Link>
 
@@ -112,4 +114,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
