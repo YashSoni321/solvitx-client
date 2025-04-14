@@ -252,7 +252,7 @@ const Services = () => {
                               {service.benefits.map((benefit, i) => (
                                 <li
                                   key={i}
-                                  className="flex items-center text-white text-sm"
+                                  className="flex items-center text-white text-sm font-bold"
                                 >
                                   <span className="mr-2 text-xs">●</span>
                                   {benefit}
