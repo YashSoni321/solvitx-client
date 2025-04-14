@@ -41,7 +41,7 @@ const Navbar = () => {
             <Image
               src={LogoImage}
               alt="Solvitx"
-              className="h-auto w-auto filter invert"
+              className="h-14 w-44 filter invert"
               priority
             />
           </a>
