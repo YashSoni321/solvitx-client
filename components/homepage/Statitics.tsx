@@ -25,8 +25,9 @@ export default function StatsSection() {
           variants={fadeInUp}
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-balance leading-snug text-gray-900">
-            While everything is done for all viewers, we transform people into
-            participants. Now the numbers will do it for effectiveness.
+            Solvitx is your one place solution for all your marketing and
+            technical needs. But are you still unsure on why you should choose
+            us? Then let the numbers do the work.
           </h2>
           <p className="text-lg text-gray-500 mb-6">
             Rebranding for «Good Solution»

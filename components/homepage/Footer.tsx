@@ -10,6 +10,8 @@ import {
   FaMapMarkerAlt,
   FaArrowRight,
 } from "react-icons/fa";
+import Image from "next/image";
+import LogoImage from "../../public/images/solvitx.png";
 
 const Footer = () => {
   // Current year for copyright
@@ -80,9 +82,13 @@ const Footer = () => {
           {/* Company info */}
           <div>
             <div className="mb-6">
-              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 mb-2">
-                Solvitx
-              </h3>
+              <Image
+                src={LogoImage}
+                alt="Solvitx"
+                height={100}
+                width={100}
+                className="invert"
+              />
               <p className="text-gray-400">Where vision meets technology</p>
             </div>
 
@@ -90,9 +96,9 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-purple-500 mt-1 flex-shrink-0" />
                 <p className="text-gray-300">
-                  123 Tech Avenue, Innovation District
+                  Hn. 359, Gopal Ji Ka Rasta, Tripolia Bazar,
                   <br />
-                  San Francisco, CA 94103
+                  Johari Bazar, Jaipur, Rajasthan 302003
                 </p>
               </div>
               <div className="flex items-center space-x-3">
@@ -110,7 +116,7 @@ const Footer = () => {
                   href="tel:+12345678900"
                   className="text-gray-300 hover:text-purple-400 transition-colors"
                 >
-                  +1 (234) 567-8900
+                  +91 9782025577
                 </a>
               </div>
             </div>
@@ -250,12 +256,12 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-purple-500/30">
                   <img
                     src="https://storage.googleapis.com/a1aa/image/y4k26WHpccbz-jDQha-cJAtS8QV_9_2bFDbmzIW8ips.jpg"
-                    alt="Mayank Sharma"
+                    alt="Vatsal Mittal"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium">Mayank Sharma</h4>
+                  <h4 className="text-white font-medium">Vatsal Mittal</h4>
                   <p className="text-gray-400 text-sm">Co-Founder & CTO</p>
                 </div>
               </div>

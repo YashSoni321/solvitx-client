@@ -72,8 +72,7 @@ export default function HeroSection() {
 
           <motion.div variants={fadeInUp} className="my-4">
             <p className="tracking-wide text-base/8 md:text-5xl font-bold word-spacing-2">
-              I focus on convenience and aesthetics, I have a unique 3 year
-              experience in design and marketing, with projects in 7 countries.
+              We Solve IT problems. With Expertise. That’s the SolvitX way.
             </p>
 
             <motion.div
@@ -81,12 +80,14 @@ export default function HeroSection() {
               className="mt-6 flex md:text-xl flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-gray-500"
             >
               <p>
-                I strive to make my designs better inspired people, forced them
-                to think about them and feel deep emotions.
+                At SolvitX, we don’t just build websites, apps, and campaigns —
+                we create possibilities. With 10+ years of experience in web
+                development, app development and digital marketing, we
+                strategize your ideas into a complete product.
               </p>
               <p>
-                Every project is an opportunity for me express himself and give
-                people a new one look at the surrounding world.
+                Witness the perfect blend of cutting-edge development and sharp
+                marketing tactics with us in this digital era.
               </p>
             </motion.div>
           </motion.div>

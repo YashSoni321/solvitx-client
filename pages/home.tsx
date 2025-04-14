@@ -15,7 +15,7 @@ export default function Home() {
     <>
       {/* Meta Tags for SEO */}
       <Head>
-        <title>Solvitx — We Solve IT Problems with Expertise</title>
+        <title>Solvitx — Solving IT with expertise</title>
         <meta
           name="description"
           content="Solvitx is your technology partner for scalable websites, apps, and digital solutions. We deliver results-driven IT services with precision."

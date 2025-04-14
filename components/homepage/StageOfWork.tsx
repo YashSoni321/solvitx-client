@@ -6,22 +6,21 @@ const stages = [
   {
     title: "Strategy",
     description:
-      "We analyze your business, market and goals to craft a custom digital strategy.",
+      "We analyze your business goals to build the perfect digital strategy",
   },
   {
     title: "Design",
     description:
-      "Visually appealing and user-centric designs that turn visitors into customers.",
+      "We focus highly on the user experience to create impactful campaigns.",
   },
   {
     title: "Development",
     description:
-      "Robust and scalable code to bring your ideas to life across all platforms.",
+      "With our user centric applications and websites you can reach a wider audience.",
   },
   {
     title: "Launch",
-    description:
-      "Deploy, test, and launch your project with precision and confidence.",
+    description: "The final stage that shows the actual results.",
   },
 ];
 

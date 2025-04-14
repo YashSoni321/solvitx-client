@@ -51,7 +51,7 @@ const founders = [
       "Technology should solve real problems, not create new ones. Our mission is to deliver solutions that make a tangible difference.",
   },
   {
-    name: "Mayank Sharma",
+    name: "Vatsal Mittal",
     role: "Co-Founder & CTO",
     image: "/images/user.jpg", // Replace with Pratham's image
     bio: "A technical mastermind with deep expertise in emerging technologies. Pratham leads our development team with a focus on innovation, scalability, and performance, ensuring our clients stay ahead of the technological curve.",
@@ -182,32 +182,22 @@ export default function About() {
           >
             <motion.div variants={fadeIn}>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Our Story
+                Our Mission
               </h2>
               <div className="w-20 h-2 bg-gradient-to-r from-purple-500 to-pink-500 mb-8"></div>
 
               <div className="text-gray-300 space-y-6 text-lg">
                 <p>
-                  <span className="text-pink-500 font-bold">Solvitx</span> was
-                  born from a simple yet powerful idea: technology should solve
-                  real problems, not create new ones.
+                  <span className="text-pink-500 font-bold">Solvitx</span>{" "}
+                  Founded on the idea that IT should be simple, strategic, and
+                  solution-oriented, SolvitX is built different — at the
+                  intersection of backend brilliance and brand strategy.
                 </p>
                 <p>
-                  In a digital landscape cluttered with complexity, we set out
-                  to build a company that combines technical excellence with
-                  genuine understanding of business needs.
-                </p>
-                <p>
-                  Founded by Mayank Sharma and Pratham in 2018, we have grown
-                  from a two-person operation working out of a small apartment
-                  to a full-service digital agency trusted by businesses
-                  worldwide.
-                </p>
-                <p>
-                  What sets us apart is not just what we build—it is how we
-                  build it. Every project begins with deep listening, followed
-                  by strategic thinking, and only then do we craft solutions
-                  that truly matter.
+                  We’re not your average IT service provider. While others focus
+                  on isolated solutions, we bring the whole picture together.
+                  And over the last 10 years, that’s exactly what we’ve been
+                  doing — one breakthrough at a time.
                 </p>
               </div>
             </motion.div>
@@ -243,9 +233,10 @@ export default function About() {
             </h2>
             <div className="w-20 h-2 bg-gradient-to-r from-purple-500 to-pink-500 mb-8 mx-auto"></div>
             <p className="text-xl text-gray-300">
-              We envision a world where technology empowers rather than
-              complicates—where digital solutions create meaningful connections
-              instead of barriers.
+              SolvitX was born out of a need to bridge the gap between technical
+              development and digital impact. With a vision of a world, where
+              technology and marketing aren’t separate silos — but a single
+              engine driving innovation, connection, and growth
             </p>
           </motion.div>
 

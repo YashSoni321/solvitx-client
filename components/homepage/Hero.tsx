@@ -30,10 +30,7 @@ const Hero = () => {
           <span className="text-primary underline decoration-wavy">
             Solving
           </span>{" "}
-          Tech Problems <br /> with{" "}
-          <span className="text-primary">Purpose</span>,{" "}
-          <span className="text-primary">People</span>, and{" "}
-          <span className="text-primary">Code</span>
+          Solving IT with expertise
         </motion.h1>
 
         {/* Subtitle */}
@@ -43,8 +40,8 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="max-w-3xl text-xl md:text-2xl text-gray-200"
         >
-          We don’t just build digital products, we create meaningful tech
-          journeys that inspire, connect, and evolve.
+          In this ever-changing world, we re-imagine technological solutions
+          with marketing expertise.
         </motion.p>
 
         {/* Animated Diagram */}
