@@ -34,7 +34,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     {
       name: "Services",
-      path: "#",
+      path: "/services",
       hasDropdown: true,
       dropdownItems: [
         {
@@ -86,7 +86,11 @@ const Navbar = () => {
             <div key={link.name} className="relative group">
               {link.hasDropdown ? (
                 <div className="flex items-center cursor-pointer text-white text-lg  hover:text-pink-500 transition-colors">
-                  <span>{link.name}</span>
+                  <Link href={link.path} legacyBehavior>
+                    <a className="text-white text-lg  hover:text-pink-500 transition-colors">
+                      {link.name}
+                    </a>
+                  </Link>
                   <FaChevronDown className="ml-1 text-sm group-hover:rotate-180 transition-transform duration-300" />
                 </div>
               ) : (
