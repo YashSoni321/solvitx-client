@@ -54,14 +54,10 @@ export default function BestTeamSection() {
             BEST TEAM
           </h1>
           <div className="max-w-2xl space-y-4">
-            <p className="text-3xl font-semibold text-gray-800">
+            <p className="text-2xl font-semibold text-gray-800">
               Here's a shout-out to all the brilliant members of our team who
               have contributed in building solveit from scratch to where it is
               today.
-            </p>
-            <p className="text-xl text-gray-500">
-              I strive to make my designs better, inspire people, and make them
-              feel something meaningful.
             </p>
           </div>
         </motion.div>

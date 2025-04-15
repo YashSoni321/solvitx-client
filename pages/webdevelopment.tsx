@@ -22,8 +22,11 @@ import {
   FaClock,
   FaUsers,
   FaLightbulb,
+  FaChevronUp,
+  FaChevronDown,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
+import Footer from "@/components/homepage/Footer";
 
 // Animation variants
 const fadeInUp = {
@@ -151,7 +154,46 @@ const benefits = [
   },
 ];
 
-// Portfolio projects
+// Value propositions data
+const valuePropositions = [
+  {
+    title: "User-First Design Approach",
+    description:
+      "We create interfaces that prioritize user experience and engagement.",
+    icon: <FaUsers className="text-4xl" />,
+    color: "text-purple-500",
+  },
+  {
+    title: "Scalable & Secure Code",
+    description:
+      "Our solutions grow with your business while maintaining top-level security.",
+    icon: <FaShieldAlt className="text-4xl" />,
+    color: "text-blue-500",
+  },
+  {
+    title: "Transparent Process",
+    description:
+      "Full visibility and collaboration throughout the development lifecycle.",
+    icon: <FaCheckCircle className="text-4xl" />,
+    color: "text-green-500",
+  },
+  {
+    title: "Experienced Full-Stack Team",
+    description:
+      "Skilled developers with expertise across the technology spectrum.",
+    icon: <FaCode className="text-4xl" />,
+    color: "text-red-500",
+  },
+  {
+    title: "Proven Track Record",
+    description:
+      "Successful projects delivered for startups and enterprises alike.",
+    icon: <FaChartLine className="text-4xl" />,
+    color: "text-yellow-500",
+  },
+];
+
+// Updated portfolio projects
 const portfolio = [
   {
     title: "E-commerce Platform",
@@ -191,25 +233,32 @@ const testimonials = [
   },
 ];
 
-// FAQs
+// Updated FAQs
 const faqs = [
-  {
-    question: "What is your development process?",
-    answer:
-      "We follow an agile methodology with clear milestones and regular client updates.",
-  },
   {
     question: "How long does a typical project take?",
     answer:
-      "Project timelines vary based on complexity, typically ranging from 4-12 weeks.",
+      "Project timelines vary based on complexity, typically ranging from 4-12 weeks. We provide detailed timelines during our initial consultation.",
   },
   {
-    question: "Do you provide ongoing support?",
-    answer: "Yes, we offer comprehensive maintenance and support packages.",
+    question: "Do you offer ongoing support and maintenance?",
+    answer:
+      "Yes, we offer comprehensive maintenance and support packages to ensure your website remains secure, up-to-date, and performing optimally.",
   },
   {
-    question: "What technologies do you work with?",
-    answer: "We use modern frameworks like React, Next.js, Node.js, and more.",
+    question: "What industries do you specialize in?",
+    answer:
+      "We have experience across various sectors including healthcare, finance, education, e-commerce, and technology startups.",
+  },
+  {
+    question: "What's your design and development process like?",
+    answer:
+      "Our process includes discovery, planning, design, development, testing, and launch phases with client collaboration throughout.",
+  },
+  {
+    question: "Can you help with an existing website?",
+    answer:
+      "Absolutely. We offer services for redesigns, migrations, performance optimization, and feature additions to existing websites.",
   },
 ];
 
@@ -277,6 +326,110 @@ const processSteps = [
   },
 ];
 
+// Technology categories
+const techCategories = [
+  {
+    name: "Frontend",
+    technologies: [
+      {
+        name: "React.js",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "Next.js",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-black",
+      },
+      {
+        name: "TypeScript",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-blue-600",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-blue-400",
+      },
+    ],
+  },
+  {
+    name: "Backend",
+    technologies: [
+      {
+        name: "Node.js",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "Python",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "GraphQL",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-pink-500",
+      },
+      {
+        name: "REST APIs",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-purple-500",
+      },
+    ],
+  },
+  {
+    name: "Database",
+    technologies: [
+      {
+        name: "MongoDB",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-green-600",
+      },
+      {
+        name: "PostgreSQL",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-blue-700",
+      },
+      {
+        name: "Firebase",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-orange-500",
+      },
+      {
+        name: "Redis",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-red-600",
+      },
+    ],
+  },
+  {
+    name: "DevOps",
+    technologies: [
+      {
+        name: "AWS",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-orange-400",
+      },
+      {
+        name: "Docker",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "CI/CD",
+        icon: <FaRocket className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "Kubernetes",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-blue-600",
+      },
+    ],
+  },
+];
+
 export default function WebDevelopmentService() {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -288,6 +441,11 @@ export default function WebDevelopmentService() {
     email: "",
     message: "",
   });
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -306,12 +464,7 @@ export default function WebDevelopmentService() {
       </Head>
 
       {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-hidden"
-      >
+      <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-purple-900/80 to-gray-900/80" />
           <div className="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center opacity-20" />
@@ -324,161 +477,45 @@ export default function WebDevelopmentService() {
           className="relative z-10 text-center px-4 max-w-4xl mx-auto"
         >
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">
-            Web Development
+            Achieve your business goals with web development solutions
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200">
-            Transform your digital presence with cutting-edge web solutions
+            Become a digital stand-out with a best-in-class web development
+            company
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            Get a Free Quote
+            Get a Free Consultation
           </motion.button>
         </motion.div>
       </motion.section>
 
-      {/* Service Overview */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-20 bg-gray-900 text-white"
-      >
+      {/* Why Select Solvitx Section */}
+      <div className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            variants={fadeInUp}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="text-4xl font-bold mb-6">
-              What is Web Development?
-            </h2>
-            <p className="text-xl text-gray-300">
-              Web development is the process of creating and maintaining
-              websites and web applications. It's crucial for businesses to
-              establish a strong online presence, engage with customers, and
-              drive growth in today's digital landscape.
-            </p>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Key Features */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-20 bg-gray-800"
-      >
-        <div className="container mx-auto px-4">
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl font-bold text-center mb-12 text-white"
-          >
-            Our Web Development Services
-          </motion.h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Why Select Solvitx for Web Development?
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {serviceFeatures.map((feature, index) => (
+            {valuePropositions.map((prop, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                whileHover={{ y: -10 }}
-                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className={`${feature.color} mb-4`}>{feature.icon}</div>
+                <div className={`${prop.color} mb-4`}>{prop.icon}</div>
                 <h3 className="text-xl font-semibold mb-2 text-white">
-                  {feature.title}
+                  {prop.title}
                 </h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-gray-300">{prop.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
-      </motion.section>
-
-      {/* Benefits Section */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-20 bg-gray-900"
-      >
-        <div className="container mx-auto px-4">
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl font-bold text-center mb-12 text-white"
-          >
-            Benefits for Your Business
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-800"
-              >
-                <div className="text-purple-400 mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-300">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Development Process */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-20 bg-gray-800"
-      >
-        <div className="container mx-auto px-4">
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl font-bold text-center mb-12 text-white"
-          >
-            Our Development Process
-          </motion.h2>
-          <div className="relative">
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 transform -translate-y-1/2" />
-            <div className="flex justify-between relative">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeInUp}
-                  className="flex flex-col items-center"
-                >
-                  <div className="w-16 h-16 rounded-full bg-gray-900 border-4 border-purple-500 flex items-center justify-center mb-4">
-                    <div className="text-purple-500">{step.icon}</div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-white">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-300 text-center max-w-xs mb-4">
-                    {step.description}
-                  </p>
-                  <ul className="space-y-2 text-sm text-gray-400">
-                    {step.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-center">
-                        <FaCheckCircle className="text-green-500 mr-2" />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </motion.section>
+      </div>
 
       {/* Portfolio Section */}
       <motion.section
@@ -486,22 +523,17 @@ export default function WebDevelopmentService() {
         initial="initial"
         animate={inView ? "animate" : "initial"}
         variants={staggerContainer}
-        className="py-20 bg-gray-900"
+        className="py-20 bg-gray-800"
       >
         <div className="container mx-auto px-4">
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl font-bold text-center mb-12 text-white"
-          >
-            Our Recent Projects
-          </motion.h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Our Portfolio
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolio.map((project, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
-                whileHover={{ y: -10 }}
-                className="rounded-xl overflow-hidden bg-gray-800 shadow-lg"
+                className="rounded-xl overflow-hidden bg-gray-900 shadow-lg"
               >
                 <div className="relative h-48">
                   <Image
@@ -509,6 +541,11 @@ export default function WebDevelopmentService() {
                     alt={project.title}
                     fill
                     className="object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src =
+                        "https://via.placeholder.com/150x150.png?text=" +
+                        project.title;
+                    }}
                   />
                 </div>
                 <div className="p-6">
@@ -530,48 +567,47 @@ export default function WebDevelopmentService() {
               </motion.div>
             ))}
           </div>
+          <div className="text-center mt-12">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300"
+            >
+              View Full Portfolio
+            </motion.button>
+          </div>
         </div>
       </motion.section>
 
-      {/* Testimonials Section */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-20 bg-gray-800"
-      >
+      {/* Technology Stack Section */}
+      <motion.section variants={staggerContainer} className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl font-bold text-center mb-12 text-white"
-          >
-            Client Testimonials
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Our Technology Stack
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {techCategories.map((category, categoryIndex) => (
               <motion.div
-                key={index}
+                key={categoryIndex}
                 variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-900"
+                className="p-6 rounded-xl bg-gray-800"
               >
-                <div className="flex items-center mb-4">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-gray-400">{testimonial.role}</p>
-                  </div>
+                <h3 className="text-2xl font-bold mb-6 text-center text-white">
+                  {category.name}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {category.technologies.map((tech, techIndex) => (
+                    <div
+                      key={techIndex}
+                      className="flex flex-col items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-300"
+                    >
+                      <div className={`${tech.color} mb-2`}>{tech.icon}</div>
+                      <span className="text-gray-300 text-sm font-bold text-center">
+                        {tech.name}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-gray-300">{testimonial.content}</p>
               </motion.div>
             ))}
           </div>
@@ -584,137 +620,49 @@ export default function WebDevelopmentService() {
         initial="initial"
         animate={inView ? "animate" : "initial"}
         variants={staggerContainer}
-        className="py-20 bg-gray-900"
+        className="py-20 bg-gray-800"
       >
         <div className="container mx-auto px-4">
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl font-bold text-center mb-12 text-white"
-          >
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Frequently Asked Questions
-          </motion.h2>
+          </h2>
           <div className="max-w-3xl mx-auto">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="mb-6 p-6 rounded-xl bg-gray-800"
+                className="mb-6 rounded-xl bg-gray-900 overflow-hidden"
               >
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-300">{faq.answer}</p>
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+                >
+                  <h3 className="text-xl font-semibold text-white">
+                    {faq.question}
+                  </h3>
+                  <span className="text-purple-400 transition-transform duration-300 transform">
+                    {activeFaq === index ? (
+                      <FaChevronUp className="h-5 w-5" />
+                    ) : (
+                      <FaChevronDown className="h-5 w-5" />
+                    )}
+                  </span>
+                </button>
+                <div
+                  className={`transition-all duration-300 overflow-hidden ${
+                    activeFaq === index ? "max-h-96 p-6 pt-0" : "max-h-0"
+                  }`}
+                >
+                  <p className="text-gray-300">{faq.answer}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </motion.section>
 
-      {/* Pricing Section */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-20 bg-gray-800"
-      >
-        <div className="container mx-auto px-4">
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl font-bold text-center mb-12 text-white"
-          >
-            Our Pricing Models
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pricingModels.map((model, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-900"
-              >
-                <h3 className="text-2xl font-bold mb-2 text-white">
-                  {model.title}
-                </h3>
-                <p className="text-xl font-semibold mb-4 text-purple-400">
-                  {model.price}
-                </p>
-                <p className="text-gray-300 mb-4">{model.description}</p>
-                <ul className="space-y-2">
-                  {model.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-300">
-                      <FaCheckCircle className="text-green-500 mr-2" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Contact Form */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-20 bg-gray-900"
-      >
-        <div className="container mx-auto px-4">
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl font-bold text-center mb-12 text-white"
-          >
-            Start Your Project Today
-          </motion.h2>
-          <div className="max-w-2xl mx-auto">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-gray-300 mb-2">Name</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-purple-500 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-300 mb-2">Email</label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-purple-500 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-300 mb-2">Message</label>
-                <textarea
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  rows={4}
-                  className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-purple-500 focus:outline-none"
-                />
-              </div>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Send Message
-              </motion.button>
-            </form>
-          </div>
-        </div>
-      </motion.section>
+      {/* Footer */}
+      <Footer />
     </>
   );
 }
