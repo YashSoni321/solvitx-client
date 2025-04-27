@@ -28,6 +28,8 @@ import {
   FaCheckCircle,
   FaChevronUp,
   FaChevronDown,
+  FaUserFriends,
+  FaGlobe,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
@@ -97,6 +99,7 @@ const valuePropositions = [
 const marketingServices = [
   {
     title: "Search Engine Optimization",
+    link: "/seo",
     description:
       "Boost your organic visibility and drive targeted traffic with our data-driven SEO strategies.",
     icon: <FaSearchDollar className="text-4xl" />,
@@ -104,38 +107,35 @@ const marketingServices = [
   },
   {
     title: "Social Media Marketing",
+    link: "/social-media-marketing",
     description:
       "Engage your audience and build brand presence across all relevant social platforms.",
     icon: <FaHashtag className="text-4xl" />,
     color: "text-blue-500",
   },
   {
-    title: "Content Marketing",
+    title: "Performance Marketing",
+    link: "/performance-marketing",
     description:
-      "Create compelling, SEO-optimized content that resonates with your target audience.",
-    icon: <FaFileAlt className="text-4xl" />,
+      "Drive measurable results with our data-driven performance marketing strategies.",
+    icon: <FaChartLine className="text-4xl" />,
     color: "text-green-500",
   },
   {
-    title: "PPC Campaigns",
+    title: "Influencer Marketing",
+    link: "/influencer-marketing",
     description:
-      "Maximize ROI with strategic pay-per-click advertising across search and social networks.",
-    icon: <FaAdversal className="text-4xl" />,
-    color: "text-red-500",
-  },
-  {
-    title: "Email Marketing",
-    description:
-      "Nurture leads and drive conversions with personalized, automated email campaigns.",
-    icon: <FaEnvelope className="text-4xl" />,
+      "Leverage the power of influencers to amplify your brand's reach and credibility.",
+    icon: <FaUserFriends className="text-4xl" />,
     color: "text-purple-500",
   },
   {
-    title: "Analytics & Reporting",
+    title: "360° Digital Marketing",
+    link: "/360-digital-marketing",
     description:
-      "Gain actionable insights with comprehensive data analysis and performance tracking.",
-    icon: <FaChartBar className="text-4xl" />,
-    color: "text-blue-600",
+      "Comprehensive digital marketing solutions that cover all aspects of your online presence.",
+    icon: <FaGlobe className="text-4xl" />,
+    color: "text-red-500",
   },
 ];
 

@@ -6,17 +6,85 @@ import {
   FaBars,
   FaTimes,
   FaChevronDown,
+  FaChevronRight,
   FaLaptopCode,
   FaMobileAlt,
+  FaCode,
   FaChartLine,
+  FaVideo,
+  FaPenFancy,
 } from "react-icons/fa";
 import Image from "next/image";
 import LogoImage from "../public/images/solvitx.png";
+
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "About us", path: "/about" },
+  {
+    name: "IT Services",
+    subMenu: [
+      {
+        name: "Web Development",
+        icon: <FaLaptopCode className="text-xl text-blue-500" />,
+        subMenu: ["Ecommerce Website Development"],
+      },
+      {
+        name: "App Development",
+        icon: <FaMobileAlt className="text-xl text-green-500" />,
+        subMenu: ["IOS App Development", "Android App Development"],
+      },
+      {
+        name: "API Development",
+        icon: <FaCode className="text-xl text-purple-500" />,
+      },
+      {
+        name: "Software Development",
+        icon: <FaLaptopCode className="text-xl text-red-500" />,
+        subMenu: [
+          "Salesforce Development",
+          "School Management Software",
+          "Hotel Management Software",
+          "Online Recruitment Software",
+          "HRM Software Development",
+        ],
+      },
+      {
+        name: "Video Editing",
+        icon: <FaVideo className="text-xl text-pink-500" />,
+      },
+      {
+        name: "UI UX Design",
+        icon: <FaVideo className="text-xl text-pink-500" />,
+      },
+      {
+        name: "Digital Marketing",
+        icon: <FaChartLine className="text-xl text-yellow-500" />,
+        subMenu: [
+          "SEO Services",
+          "SMM Services",
+          "PPC Marketing",
+          "ASO Services",
+        ],
+      },
+
+      {
+        name: "Content Marketing",
+        icon: <FaPenFancy className="text-xl text-indigo-500" />,
+      },
+    ],
+  },
+  // { name: "Careers", path: "/careers" },
+  // { name: "Blog", path: "/blog" },
+  { name: "Contact us", path: "/contact" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(
+    null
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,36 +96,12 @@ const Navbar = () => {
 
   const handleDropdownToggle = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name);
+    setActiveSubDropdown(null);
   };
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    {
-      name: "Services",
-      path: "/services",
-      hasDropdown: true,
-      dropdownItems: [
-        {
-          name: "Web Development",
-          path: "/webdevelopment",
-          icon: <FaLaptopCode className="text-xl text-blue-500" />,
-        },
-        {
-          name: "App Development",
-          path: "/appdevelopment",
-          icon: <FaMobileAlt className="text-xl text-green-500" />,
-        },
-        {
-          name: "Digital Marketing",
-          path: "/digitalmarketing",
-          icon: <FaChartLine className="text-xl text-purple-500" />,
-        },
-      ],
-    },
-    { name: "About", path: "/about" },
-    { name: "Portfolio", path: "/work" },
-    { name: "Contact", path: "/contact" },
-  ];
+  const handleSubDropdownToggle = (name: string) => {
+    setActiveSubDropdown(activeSubDropdown === name ? null : name);
+  };
 
   return (
     <nav
@@ -82,40 +126,76 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <div key={link.name} className="relative group">
-              {link.hasDropdown ? (
-                <div className="flex items-center cursor-pointer text-white text-lg  hover:text-pink-500 transition-colors">
-                  <Link href={link.path} legacyBehavior>
-                    <a className="text-white text-lg  hover:text-pink-500 transition-colors">
-                      {link.name}
-                    </a>
-                  </Link>
+          {navItems.map((item) => (
+            <div key={item.name} className="relative group">
+              {item.subMenu ? (
+                <div className="flex items-center cursor-pointer">
+                  <span className="text-white text-lg hover:text-pink-500 transition-colors">
+                    {item.name}
+                  </span>
                   <FaChevronDown className="ml-1 text-sm group-hover:rotate-180 transition-transform duration-300" />
                 </div>
               ) : (
-                <Link href={link.path} legacyBehavior>
-                  <a className="text-white text-lg  hover:text-pink-500 transition-colors">
-                    {link.name}
+                <Link href={item.path} legacyBehavior>
+                  <a className="text-white text-lg hover:text-pink-500 transition-colors">
+                    {item.name}
                   </a>
                 </Link>
               )}
 
               {/* Desktop Dropdown Menu */}
-              {link.hasDropdown && (
-                <div className="absolute left-0 mt-2 w-64 rounded-lg overflow-hidden bg-gray-900/95 backdrop-blur-lg shadow-lg transform origin-top scale-y-0 opacity-0 group-hover:scale-y-100 group-hover:opacity-100 transition-all duration-300">
-                  {link.dropdownItems?.map((item, idx) => (
-                    <Link key={idx} href={item.path} legacyBehavior>
-                      <a className="flex items-center px-5 py-3 hover:bg-gray-800 transition-colors">
-                        <span className="mr-3">{item.icon}</span>
-                        <span className="text-white font-medium">
-                          {item.name}
-                        </span>
-                      </a>
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <div className="relative group">
+                {/* Dropdown Menu */}
+                {item.subMenu && (
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 origin-top">
+                    {item.subMenu.map((subItem: any, idx) => (
+                      <div key={idx} className="relative group/sub">
+                        {/* Submenu Item */}
+                        <div className="flex items-center justify-between px-5 py-3 hover:bg-gray-800 cursor-pointer">
+                          <div className="flex items-center">
+                            <span className="mr-3">{subItem.icon}</span>
+                            <span className="text-white font-medium">
+                              <Link
+                                key={idx}
+                                href={`/${subItem?.name
+                                  .toLowerCase()
+                                  .replace(/\s+/g, "")}`}
+                                legacyBehavior
+                              >
+                                <a className="block p-3 hover:bg-gray-800 text-white font-medium">
+                                  {subItem.name}
+                                </a>
+                              </Link>
+                            </span>
+                          </div>
+                          {subItem.subMenu && (
+                            <FaChevronRight className="text-sm transition-transform duration-300 group-hover/sub:rotate-90" />
+                          )}
+                        </div>
+
+                        {/* Nested Submenu */}
+                        {subItem.subMenu && (
+                          <div className="absolute top-0 left-full w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg opacity-0 scale-95 group-hover/sub:opacity-100 group-hover/sub:scale-100 transition-all duration-300 origin-left">
+                            {subItem.subMenu.map((nestedItem, nestedIdx) => (
+                              <Link
+                                key={nestedIdx}
+                                href={`/${nestedItem
+                                  .toLowerCase()
+                                  .replace(/\s+/g, "-")}`}
+                                legacyBehavior
+                              >
+                                <a className="block px-5 py-3 hover:bg-gray-800 text-white font-medium">
+                                  {nestedItem}
+                                </a>
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           ))}
           <Link href="/contact" legacyBehavior>
@@ -144,54 +224,127 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="fixed top-0 right-0 bottom-0 w-screen h-screen bg-black flex flex-col items-center justify-center space-y-6 md:hidden z-40 overflow-auto"
             >
-              {navLinks.map((link) => (
-                <div key={link.name} className="w-4/5 max-w-xs">
-                  {link.hasDropdown ? (
+              {navItems.map((item) => (
+                <div key={item.name} className="w-4/5 max-w-xs">
+                  {item.subMenu ? (
                     <div className="w-full">
                       <button
-                        onClick={() => handleDropdownToggle(link.name)}
+                        onClick={() => handleDropdownToggle(item.name)}
                         className="flex items-center justify-between w-full text-white text-2xl font-semibold hover:text-pink-500 transition-colors"
                       >
-                        <span>{link.name}</span>
+                        <span>{item.name}</span>
                         <FaChevronDown
                           className={`ml-2 text-sm transition-transform duration-300 ${
-                            activeDropdown === link.name ? "rotate-180" : ""
+                            activeDropdown === item.name ? "rotate-180" : ""
                           }`}
                         />
                       </button>
 
                       {/* Mobile Dropdown */}
                       <AnimatePresence>
-                        {activeDropdown === link.name && (
+                        {activeDropdown === item.name && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                             className="mt-2 pl-4 border-l-2 border-pink-500 space-y-3"
+                            style={{ display: "block" }}
                           >
-                            {link.dropdownItems?.map((item, idx) => (
-                              <Link key={idx} href={item.path} legacyBehavior>
-                                <a
-                                  className="flex items-center py-2 text-white text-lg hover:text-pink-500 transition-colors"
-                                  onClick={() => setIsOpen(false)}
-                                >
-                                  <span className="mr-3">{item.icon}</span>
-                                  <span>{item.name}</span>
-                                </a>
-                              </Link>
+                            {item.subMenu.map((subItem, idx) => (
+                              <div key={idx}>
+                                {subItem.subMenu ? (
+                                  <div>
+                                    <button
+                                      onClick={() =>
+                                        handleSubDropdownToggle(subItem.name)
+                                      }
+                                      className="flex items-center justify-between w-full text-white text-lg hover:text-pink-500 transition-colors"
+                                    >
+                                      <div className="flex items-center">
+                                        <span className="mr-3">
+                                          {subItem.icon}
+                                        </span>
+                                        <span>{subItem.name}</span>
+                                      </div>
+                                      <FaChevronDown
+                                        className={`ml-2 text-sm transition-transform duration-300 ${
+                                          activeSubDropdown === subItem.name
+                                            ? "rotate-180"
+                                            : ""
+                                        }`}
+                                      />
+                                    </button>
+
+                                    {/* Nested Mobile Submenu */}
+                                    <AnimatePresence>
+                                      {activeSubDropdown === subItem.name && (
+                                        <motion.div
+                                          initial={{ height: 0, opacity: 0 }}
+                                          animate={{
+                                            height: "auto",
+                                            opacity: 1,
+                                          }}
+                                          exit={{ height: 0, opacity: 0 }}
+                                          transition={{ duration: 0.3 }}
+                                          className="pl-4 border-l-2 border-pink-500 space-y-2"
+                                          style={{ display: "block" }}
+                                        >
+                                          {subItem.subMenu.map(
+                                            (nestedItem, nestedIdx) => (
+                                              <Link
+                                                key={nestedIdx}
+                                                href={`/services/${nestedItem
+                                                  .toLowerCase()
+                                                  .replace(/\s+/g, "-")}`}
+                                                legacyBehavior
+                                              >
+                                                <a
+                                                  className="block py-2 text-white text-lg hover:text-pink-500 transition-colors"
+                                                  onClick={() =>
+                                                    setIsOpen(false)
+                                                  }
+                                                >
+                                                  {nestedItem}
+                                                </a>
+                                              </Link>
+                                            )
+                                          )}
+                                        </motion.div>
+                                      )}
+                                    </AnimatePresence>
+                                  </div>
+                                ) : (
+                                  <Link
+                                    href={`/services/${subItem.name
+                                      .toLowerCase()
+                                      .replace(/\s+/g, "-")}`}
+                                    legacyBehavior
+                                  >
+                                    <a
+                                      className="flex items-center py-2 text-white text-lg hover:text-pink-500 transition-colors"
+                                      onClick={() => setIsOpen(false)}
+                                    >
+                                      <span className="mr-3">
+                                        {subItem.icon}
+                                      </span>
+                                      <span>{subItem.name}</span>
+                                    </a>
+                                  </Link>
+                                )}
+                              </div>
                             ))}
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <Link href={link.path} legacyBehavior>
+                    <Link href={item.path} legacyBehavior>
                       <a
                         className="text-white text-2xl font-semibold hover:text-pink-500 transition-colors block"
                         onClick={() => setIsOpen(false)}
                       >
-                        {link.name}
+                        {item.name}
                       </a>
                     </Link>
                   )}

@@ -1,5 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import AppDevelopmentImage from "../../public/images/services/AppDevelopment.jpg";
+import DigitalMarketingImage from "../../public/images/services/Digitalmarketing.jpg";
+import SoftwareDevelopmentImage from "../../public/images/services/SoftwareDevelopment.jpg";
+import WebDevelopmentImage from "../../public/images/services/WebDevelopment.jpg";
 import {
   motion,
   useScroll,
@@ -13,6 +17,7 @@ import {
   FaPencilRuler,
   FaChartLine,
 } from "react-icons/fa";
+import Image from "next/image";
 
 // Enhanced service data with icons and more details
 const services = [
@@ -25,8 +30,7 @@ const services = [
       "Lightning fast, functional, responsive websites tailored to your brand and business goals- built to perform.",
 
     benefits: ["Ecommerce Website Development"],
-    imageUrl:
-      "https://storage.googleapis.com/a1aa/image/EEkbPlvQVewywreZQm8rB5d8Vz0BKIr-aHSmQ1FLNkc.jpg",
+    imageUrl: WebDevelopmentImage,
     color: "from-pink-600 to-purple-600",
   },
   {
@@ -41,8 +45,7 @@ const services = [
       "Android App Development",
       "API Development",
     ],
-    imageUrl:
-      "https://storage.googleapis.com/a1aa/image/bJurzwZrOLTPh0jzNOq09pKtrYhH_RqD1RwAALFspFg.jpg",
+    imageUrl: AppDevelopmentImage,
     color: "from-yellow-500 to-orange-600",
   },
   {
@@ -62,8 +65,7 @@ const services = [
       "Content Marketing",
       ,
     ],
-    imageUrl:
-      "https://storage.googleapis.com/a1aa/image/qhwdBE2qRUQeUL7SQ_iVz-Gxsth0BnZ-Cgs8-RCXNL0.jpg",
+    imageUrl: DigitalMarketingImage,
     color: "from-blue-600 to-teal-500",
   },
   {
@@ -82,8 +84,7 @@ const services = [
 
       ,
     ],
-    imageUrl:
-      "https://storage.googleapis.com/a1aa/image/qhwdBE2qRUQeUL7SQ_iVz-Gxsth0BnZ-Cgs8-RCXNL0.jpg",
+    imageUrl: SoftwareDevelopmentImage,
     color: "from-pink-600 to-purple-600",
   },
 ];
@@ -297,7 +298,12 @@ const Services = () => {
                       transition={{ duration: 0.7 }}
                       className="w-full h-full"
                     >
-                      <img
+                      {/* <img
+                        src={services[activeService].imageUrl}
+                        alt={services[activeService].title}
+                        className="w-full h-full object-cover"
+                      /> */}
+                      <Image
                         src={services[activeService].imageUrl}
                         alt={services[activeService].title}
                         className="w-full h-full object-cover"

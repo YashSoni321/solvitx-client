@@ -518,7 +518,7 @@ export default function WebDevelopmentService() {
       </div>
 
       {/* Portfolio Section */}
-      <motion.section
+      {/* <motion.section
         ref={ref}
         initial="initial"
         animate={inView ? "animate" : "initial"}
@@ -577,7 +577,7 @@ export default function WebDevelopmentService() {
             </motion.button>
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* Technology Stack Section */}
       <motion.section variants={staggerContainer} className="py-20 bg-gray-900">

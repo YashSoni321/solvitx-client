@@ -17,6 +17,7 @@ const services = [
   {
     icon: <FaLightbulb className="text-5xl text-yellow-400" />,
     title: "Digital Strategy",
+    link: "/",
     description:
       "We develop comprehensive digital strategies that align with your business goals and help you achieve sustainable growth.",
     color: "from-yellow-400 to-orange-500",
@@ -24,6 +25,7 @@ const services = [
   {
     icon: <FaCode className="text-5xl text-blue-400" />,
     title: "Web Development",
+    link: "/webdevelopment",
     description:
       "Custom, responsive, and scalable web applications built with modern technologies that deliver exceptional user experiences.",
     color: "from-blue-400 to-indigo-600",
@@ -31,6 +33,7 @@ const services = [
   {
     icon: <FaMobile className="text-5xl text-green-400" />,
     title: "Mobile Development",
+    link: "/webdevelopment",
     description:
       "Native and cross-platform mobile applications that engage users and provide seamless experiences across all devices.",
     color: "from-green-400 to-emerald-600",

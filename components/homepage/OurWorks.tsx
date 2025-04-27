@@ -1,61 +1,74 @@
-import React from "react";
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Bg1 from "../../public/images/bg1.jpg";
+import Link from "next/link";
+import Ecommerce from "../../public/images/ecommerce.jpg";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  }),
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
 };
 
 const fadeIn = {
   hidden: { opacity: 0 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  }),
+  visible: { opacity: 1 },
 };
 
 const projects = [
   {
-    title: "Magnetic AI",
+    title: "E-commerce Platform",
     description:
-      "European B2B AI Specializing in E-Commerce and Fintech Solutions",
-    src: Bg1,
-    alt: "iPhone 14 Pro mockup with text 'PASTE DESIGN HERE' on a purple background",
+      "A full-featured e-commerce solution with advanced inventory management and payment integration.",
+    src: Ecommerce,
+    alt: "E-commerce Platform",
+    category: "Web Development",
+    link: "/projects/ecommerce",
   },
   {
-    title: "Chip Systems",
+    title: "Mobile Banking App",
     description:
-      "European B2B AI Specializing in E-Commerce and Fintech Solutions",
-    src: Bg1,
-    alt: "Tablet mockup with text 'CREATOOM' and abstract design on a purple background",
+      "Secure and user-friendly mobile banking application with biometric authentication.",
+    src: "/images/banking.jpg",
+    alt: "Mobile Banking App",
+    category: "Mobile App",
+    link: "/projects/banking",
   },
   {
-    title: "Chip Systems",
+    title: "AI-Powered Analytics Dashboard",
     description:
-      "European B2B AI Specializing in E-Commerce and Fintech Solutions",
-    src: Bg1,
-    alt: "Minimalistic design with a dark background and a round table",
+      "Real-time business analytics with AI-driven insights and predictive modeling.",
+    src: "/images/dashboard.jpg",
+    alt: "Analytics Dashboard",
+    category: "AI/ML",
+    link: "/projects/analytics",
   },
   {
-    title: "Chip Systems",
+    title: "Smart Home Automation",
     description:
-      "European B2B AI Specializing in E-Commerce and Fintech Solutions",
-    src: Bg1,
-    alt: "Phone mockup with text 'European Space Week 2022' on a dark background",
+      "IoT-based home automation system with voice control and energy optimization.",
+    src: "/images/home.jpg",
+    alt: "Smart Home Automation",
+    category: "IoT",
+    link: "/projects/smart-home",
+  },
+  {
+    title: "Healthcare Management System",
+    description:
+      "Comprehensive healthcare platform for patient management and telemedicine.",
+    src: Ecommerce,
+    alt: "Healthcare System",
+    category: "Healthcare",
+    link: "/projects/healthcare",
+  },
+  {
+    title: "Educational Platform",
+    description:
+      "Interactive learning platform with virtual classrooms and progress tracking.",
+    src: Ecommerce,
+    alt: "Educational Platform",
+    category: "Education",
+    link: "/projects/education",
   },
 ];
 
@@ -66,7 +79,7 @@ const OurWorks = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.3 }}
-        className=" "
+        className=""
       >
         <div className="my-2 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div
@@ -93,60 +106,80 @@ const OurWorks = () => {
         whileInView="visible"
         variants={fadeIn}
         viewport={{ amount: 0.3 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
       >
         {projects.map((project, index) => (
           <motion.div
             key={index}
             variants={fadeInUp}
             custom={index}
-            className="group relative overflow-hidden rounded-xl   transition-shadow duration-300"
+            className="group relative overflow-hidden rounded-xl transition-shadow duration-300 hover:shadow-2xl bg-white"
           >
-            {/* Image with hover zoom */}
-            <div className="overflow-hidden">
+            {/* Image Container */}
+            <div className="relative h-64 w-full overflow-hidden">
               <Image
                 src={project.src}
                 alt={project.alt}
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                height={800}
-                width={600}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                priority={index < 3}
               />
+              {/* Category Badge */}
+              <div className="absolute top-4 right-4 bg-black bg-opacity-75 text-white px-3 py-1 rounded-full text-sm z-10">
+                {project.category}
+              </div>
             </div>
 
             {/* Info Section */}
-            {(project.title || project.description) && (
-              <div className="p-4 bg-white bg-opacity-90 backdrop-blur-md">
-                {project.title && (
-                  <p className="text-xl font-bold leading-tight">
-                    {project.title}
-                  </p>
-                )}
-                {project.description && (
-                  <p className="text-sm font-medium text-gray-600">
-                    {project.description}
-                  </p>
-                )}
-              </div>
-            )}
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-2 text-gray-900">
+                {project.title}
+              </h3>
+              <p className="text-gray-600 mb-4">{project.description}</p>
+              <Link
+                href={project.link}
+                className="inline-flex items-center text-black hover:text-gray-600 transition-colors duration-300"
+              >
+                View Project
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </Link>
+            </div>
 
-            {/* Hover + Button */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <button className="w-20 h-20 flex items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-black hover:text-white transition-colors duration-300 text-3xl font-bold">
+            {/* Hover Overlay */}
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
+              <button className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-black hover:text-white transition-colors duration-300 text-2xl font-bold opacity-0 group-hover:opacity-100">
                 +
               </button>
             </div>
           </motion.div>
         ))}
       </motion.div>
+
       <motion.div
-        className="flex justify-center mt-8"
+        className="flex justify-center mt-12"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <button className="relative px-6 py-3 text-lg font-semibold text-white bg-black rounded-full shadow-lg overflow-hidden group transition-all duration-300">
-          <span className="relative z-10">View More</span>
+        <Link
+          href="/projects"
+          className="relative px-8 py-4 text-lg font-semibold text-white bg-black rounded-full shadow-lg overflow-hidden group transition-all duration-300"
+        >
+          <span className="relative z-10">View All Projects</span>
           <span className="absolute bottom-0 left-0 w-0 h-1 bg-white group-hover:w-full transition-all duration-300"></span>
-        </button>
+        </Link>
       </motion.div>
     </div>
   );
