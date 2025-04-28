@@ -48,14 +48,11 @@ const navItems = [
           "HRM Software Development",
         ],
       },
-      {
-        name: "Video Editing",
-        icon: <FaVideo className="text-xl text-pink-500" />,
-      },
-      {
-        name: "UI UX Design",
-        icon: <FaVideo className="text-xl text-pink-500" />,
-      },
+    ],
+  },
+  {
+    name: "Marketing Services",
+    subMenu: [
       {
         name: "Digital Marketing",
         icon: <FaChartLine className="text-xl text-yellow-500" />,
@@ -65,6 +62,14 @@ const navItems = [
           "PPC Marketing",
           "ASO Services",
         ],
+      },
+      {
+        name: "Video Editing",
+        icon: <FaVideo className="text-xl text-pink-500" />,
+      },
+      {
+        name: "UI UX Design",
+        icon: <FaVideo className="text-xl text-pink-500" />,
       },
 
       {

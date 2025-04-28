@@ -30,7 +30,7 @@ const Hero = () => {
           <span className="text-primary underline decoration-wavy">
             Solving
           </span>{" "}
-          Solving IT with expertise
+          IT with expertise
         </motion.h1>
 
         {/* Subtitle */}
