@@ -256,12 +256,12 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-purple-500/30">
                   <img
                     src="https://storage.googleapis.com/a1aa/image/y4k26WHpccbz-jDQha-cJAtS8QV_9_2bFDbmzIW8ips.jpg"
-                    alt="Vatsal Mittal"
+                    alt="Yash Mittal"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium">Vatsal Mittal</h4>
+                  <h4 className="text-white font-medium">Yash Mittal</h4>
                   <p className="text-gray-400 text-sm">Co-Founder & CTO</p>
                 </div>
               </div>

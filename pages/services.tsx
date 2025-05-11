@@ -110,7 +110,7 @@ export default function Services() {
       </Head>
 
       {/* Hero Section */}
-      <div className="relative h-screen w-full overflow-hidden">
+      <div className="relative h-[50vh] w-full overflow-hidden">
         {/* Background with Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900 via-indigo-900 to-blue-900">
           <div className="absolute inset-0 opacity-20">
@@ -143,14 +143,14 @@ export default function Services() {
               key={i}
               className="absolute rounded-full bg-white bg-opacity-10"
               style={{
-                width: Math.random() * 100 + 50,
-                height: Math.random() * 100 + 50,
+                width: Math.random() * 80 + 40,
+                height: Math.random() * 80 + 40,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
               }}
               animate={{
-                x: [0, Math.random() * 40 - 20],
-                y: [0, Math.random() * 40 - 20],
+                x: [0, Math.random() * 30 - 15],
+                y: [0, Math.random() * 30 - 15],
               }}
               transition={{
                 repeat: Infinity,
@@ -167,7 +167,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-5xl md:text-7xl font-extrabold leading-tight max-w-4xl"
+            className="text-3xl md:text-5xl font-bold leading-tight max-w-4xl"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
               Transforming Ideas
@@ -179,7 +179,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="mt-8 max-w-2xl text-xl md:text-2xl text-gray-200"
+            className="mt-4 max-w-2xl text-sm md:text-base text-gray-200"
           >
             Comprehensive technology solutions crafted with expertise and
             innovation to drive your business forward
@@ -191,7 +191,7 @@ export default function Services() {
             transition={{ duration: 0.6, delay: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-12 px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            className="mt-6 px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full text-sm md:text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300"
           >
             Discuss Your Project
           </motion.button>
@@ -199,13 +199,13 @@ export default function Services() {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
         >
           <svg
-            width="40"
-            height="40"
+            width="30"
+            height="30"
             viewBox="0 0 24 24"
             fill="none"
             stroke="white"

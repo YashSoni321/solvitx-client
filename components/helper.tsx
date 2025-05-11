@@ -17,4 +17,6 @@ export const PAGE_ROUTES = {
   SERVICES: "/services",
   SOCIAL_MEDIA_MARKETING: "/social-media-marketing",
   WEB_DEVELOPMENT: "/webdevelopment",
+  BLOGS: "/blogs",
+  UI_UX_DESIGN: "/ui-ux-design",
 };

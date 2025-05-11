@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Hero from "@/components/homepage/Hero";
 import AboutSolvitx from "@/components/homepage/AboutSolvitx";
 import OurWorks from "@/components/homepage/OurWorks";
 import Services from "@/components/homepage/Services";
@@ -8,7 +7,9 @@ import StagesSection from "@/components/homepage/StageOfWork";
 import Teams from "@/components/homepage/Teams";
 import Features from "@/components/homepage/Features";
 import Testimonial from "../components/homepage/Testimonial";
+import BlogSection from "@/components/homepage/BlogSection";
 import Footer from "@/components/homepage/Footer";
+import Hero from "@/components/homepage/Hero";
 
 export default function Home() {
   return (
@@ -34,10 +35,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
+
       <AboutSolvitx />
       <OurWorks />
       <Services />
       <StatisticsSection />
+      <BlogSection />
       <StagesSection />
       <Teams />
       <Features />

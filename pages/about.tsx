@@ -51,7 +51,7 @@ const founders = [
       "Technology should solve real problems, not create new ones. Our mission is to deliver solutions that make a tangible difference.",
   },
   {
-    name: "Vatsal Mittal",
+    name: "Yash Mittal",
     role: "Co-Founder & CTO",
     image: "/images/user.jpg", // Replace with Pratham's image
     bio: "A technical mastermind with deep expertise in emerging technologies. Pratham leads our development team with a focus on innovation, scalability, and performance, ensuring our clients stay ahead of the technological curve.",
