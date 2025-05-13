@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, ReactElement } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -83,6 +83,12 @@ const navItems = [
   { name: "Contact us", path: "/contact" },
 ];
 
+interface SubMenuItem {
+  name: string;
+  icon: ReactElement;
+  subMenu?: string[];
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -90,22 +96,98 @@ const Navbar = () => {
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(
     null
   );
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [hoveredSubItem, setHoveredSubItem] = useState<string | null>(null);
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
+
+  let closeTimeout: NodeJS.Timeout;
+  let closeSubTimeout: NodeJS.Timeout;
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (closeTimeout) clearTimeout(closeTimeout);
+      if (closeSubTimeout) clearTimeout(closeSubTimeout);
+    };
   }, []);
 
-  const handleDropdownToggle = (name: string) => {
+  const handleMenuEnter = useCallback((itemName: string) => {
+    if (closeTimeout) clearTimeout(closeTimeout);
+    setHoveredItem(itemName);
+  }, []);
+
+  const handleMenuLeave = useCallback(() => {
+    if (!isMenuClicked) {
+      closeTimeout = setTimeout(() => {
+        setHoveredItem(null);
+        setHoveredSubItem(null);
+      }, 300);
+    }
+  }, [isMenuClicked]);
+
+  const handleSubMenuEnter = useCallback((subItemName: string) => {
+    if (closeSubTimeout) clearTimeout(closeSubTimeout);
+    setHoveredSubItem(subItemName);
+  }, []);
+
+  const handleSubMenuLeave = useCallback(() => {
+    if (!isMenuClicked) {
+      closeSubTimeout = setTimeout(() => {
+        setHoveredSubItem(null);
+      }, 300);
+    }
+  }, [isMenuClicked]);
+
+  const handleMenuClick = useCallback((itemName: string) => {
+    setIsMenuClicked(true);
+    setHoveredItem(itemName);
+  }, []);
+
+  const handleSubMenuClick = useCallback((subItemName: string) => {
+    setHoveredSubItem(subItemName);
+  }, []);
+
+  const handleClickOutside = useCallback(() => {
+    setIsMenuClicked(false);
+    setHoveredItem(null);
+    setHoveredSubItem(null);
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [handleClickOutside]);
+
+  const handleMobileMenuToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsOpen(!isOpen);
+  };
+
+  const handleMobileDropdownToggle = (e: React.MouseEvent, name: string) => {
+    e.stopPropagation();
     setActiveDropdown(activeDropdown === name ? null : name);
     setActiveSubDropdown(null);
   };
 
-  const handleSubDropdownToggle = (name: string) => {
+  const handleMobileSubDropdownToggle = (e: React.MouseEvent, name: string) => {
+    e.stopPropagation();
     setActiveSubDropdown(activeSubDropdown === name ? null : name);
+  };
+
+  const closeMobileMenu = () => {
+    setIsOpen(false);
+    setActiveDropdown(null);
+    setActiveSubDropdown(null);
+  };
+
+  const getFormattedPath = (name: string) => {
+    return `/${name.toLowerCase().replace(/\s+/g, "")}`;
   };
 
   return (
@@ -132,13 +214,28 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
-            <div key={item.name} className="relative group">
+            <div
+              key={item.name}
+              className="relative"
+              onMouseEnter={() => handleMenuEnter(item.name)}
+              onMouseLeave={handleMenuLeave}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (item.subMenu) {
+                  handleMenuClick(item.name);
+                }
+              }}
+            >
               {item.subMenu ? (
                 <div className="flex items-center cursor-pointer">
                   <span className="text-white text-lg hover:text-pink-500 transition-colors">
                     {item.name}
                   </span>
-                  <FaChevronDown className="ml-1 text-sm group-hover:rotate-180 transition-transform duration-300" />
+                  <FaChevronDown
+                    className={`ml-1 text-sm transition-transform duration-300 ${
+                      hoveredItem === item.name ? "rotate-180" : ""
+                    }`}
+                  />
                 </div>
               ) : (
                 <Link href={item.path} legacyBehavior>
@@ -149,58 +246,75 @@ const Navbar = () => {
               )}
 
               {/* Desktop Dropdown Menu */}
-              <div className="relative group">
-                {/* Dropdown Menu */}
-                {item.subMenu && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 origin-top">
-                    {item.subMenu.map((subItem: any, idx) => (
-                      <div key={idx} className="relative group/sub">
-                        {/* Submenu Item */}
-                        <div className="flex items-center justify-between px-5 py-3 hover:bg-gray-800 cursor-pointer">
-                          <div className="flex items-center">
-                            <span className="mr-3">{subItem.icon}</span>
-                            <span className="text-white font-medium">
+              {item.subMenu && hoveredItem === item.name && (
+                <div
+                  className="absolute top-full left-0 mt-2 w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg transition-all duration-300 origin-top"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {item.subMenu.map((subItem: SubMenuItem, idx) => (
+                    <div
+                      key={idx}
+                      className="relative"
+                      onMouseEnter={() => handleSubMenuEnter(subItem.name)}
+                      onMouseLeave={handleSubMenuLeave}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleSubMenuClick(subItem.name);
+                      }}
+                    >
+                      {/* Submenu Item */}
+                      <div className="flex items-center justify-between px-5 py-3 hover:bg-gray-800 cursor-pointer">
+                        <div className="flex items-center">
+                          <span className="mr-3">{subItem.icon}</span>
+                          <span className="text-white font-medium">
+                            {!subItem.subMenu ? (
                               <Link
-                                key={idx}
-                                href={`/${subItem?.name
-                                  .toLowerCase()
-                                  .replace(/\s+/g, "")}`}
+                                href={getFormattedPath(subItem.name)}
                                 legacyBehavior
                               >
                                 <a className="block p-3 hover:bg-gray-800 text-white font-medium">
                                   {subItem.name}
                                 </a>
                               </Link>
-                            </span>
-                          </div>
-                          {subItem.subMenu && (
-                            <FaChevronRight className="text-sm transition-transform duration-300 group-hover/sub:rotate-90" />
-                          )}
+                            ) : (
+                              subItem.name
+                            )}
+                          </span>
                         </div>
-
-                        {/* Nested Submenu */}
                         {subItem.subMenu && (
-                          <div className="absolute top-0 left-full w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg opacity-0 scale-95 group-hover/sub:opacity-100 group-hover/sub:scale-100 transition-all duration-300 origin-left">
-                            {subItem.subMenu.map((nestedItem, nestedIdx) => (
+                          <FaChevronRight
+                            className={`text-sm transition-transform duration-300 ${
+                              hoveredSubItem === subItem.name ? "rotate-90" : ""
+                            }`}
+                          />
+                        )}
+                      </div>
+
+                      {/* Nested Submenu */}
+                      {subItem.subMenu && hoveredSubItem === subItem.name && (
+                        <div
+                          className="absolute top-0 left-full w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg transition-all duration-300 origin-left"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {subItem.subMenu.map(
+                            (nestedItem: string, nestedIdx: number) => (
                               <Link
                                 key={nestedIdx}
-                                href={`/${nestedItem
-                                  .toLowerCase()
-                                  .replace(/\s+/g, "-")}`}
+                                href={getFormattedPath(nestedItem)}
                                 legacyBehavior
                               >
                                 <a className="block px-5 py-3 hover:bg-gray-800 text-white font-medium">
                                   {nestedItem}
                                 </a>
                               </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+                            )
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
           <Link href="/contact" legacyBehavior>
@@ -212,7 +326,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleMobileMenuToggle}
           className="md:hidden text-white text-2xl focus:outline-none z-50"
           aria-label="Toggle Menu"
         >
@@ -234,7 +348,9 @@ const Navbar = () => {
                   {item.subMenu ? (
                     <div className="w-full">
                       <button
-                        onClick={() => handleDropdownToggle(item.name)}
+                        onClick={(e) =>
+                          handleMobileDropdownToggle(e, item.name)
+                        }
                         className="flex items-center justify-between w-full text-white text-2xl font-semibold hover:text-pink-500 transition-colors"
                       >
                         <span>{item.name}</span>
@@ -254,15 +370,17 @@ const Navbar = () => {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                             className="mt-2 pl-4 border-l-2 border-pink-500 space-y-3"
-                            style={{ display: "block" }}
                           >
                             {item.subMenu.map((subItem, idx) => (
                               <div key={idx}>
                                 {subItem.subMenu ? (
                                   <div>
                                     <button
-                                      onClick={() =>
-                                        handleSubDropdownToggle(subItem.name)
+                                      onClick={(e) =>
+                                        handleMobileSubDropdownToggle(
+                                          e,
+                                          subItem.name
+                                        )
                                       }
                                       className="flex items-center justify-between w-full text-white text-lg hover:text-pink-500 transition-colors"
                                     >
@@ -293,25 +411,18 @@ const Navbar = () => {
                                           exit={{ height: 0, opacity: 0 }}
                                           transition={{ duration: 0.3 }}
                                           className="pl-4 border-l-2 border-pink-500 space-y-2"
-                                          style={{ display: "block" }}
                                         >
                                           {subItem.subMenu.map(
                                             (nestedItem, nestedIdx) => (
                                               <Link
                                                 key={nestedIdx}
-                                                href={`/services/${nestedItem
-                                                  .toLowerCase()
-                                                  .replace(/\s+/g, "-")}`}
-                                                legacyBehavior
+                                                href={getFormattedPath(
+                                                  nestedItem
+                                                )}
+                                                onClick={closeMobileMenu}
+                                                className="block py-2 text-white text-lg hover:text-pink-500 transition-colors"
                                               >
-                                                <a
-                                                  className="block py-2 text-white text-lg hover:text-pink-500 transition-colors"
-                                                  onClick={() =>
-                                                    setIsOpen(false)
-                                                  }
-                                                >
-                                                  {nestedItem}
-                                                </a>
+                                                {nestedItem}
                                               </Link>
                                             )
                                           )}
@@ -321,20 +432,12 @@ const Navbar = () => {
                                   </div>
                                 ) : (
                                   <Link
-                                    href={`/services/${subItem.name
-                                      .toLowerCase()
-                                      .replace(/\s+/g, "-")}`}
-                                    legacyBehavior
+                                    href={getFormattedPath(subItem.name)}
+                                    onClick={closeMobileMenu}
+                                    className="flex items-center py-2 text-white text-lg hover:text-pink-500 transition-colors"
                                   >
-                                    <a
-                                      className="flex items-center py-2 text-white text-lg hover:text-pink-500 transition-colors"
-                                      onClick={() => setIsOpen(false)}
-                                    >
-                                      <span className="mr-3">
-                                        {subItem.icon}
-                                      </span>
-                                      <span>{subItem.name}</span>
-                                    </a>
+                                    <span className="mr-3">{subItem.icon}</span>
+                                    <span>{subItem.name}</span>
                                   </Link>
                                 )}
                               </div>
@@ -344,24 +447,22 @@ const Navbar = () => {
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <Link href={item.path} legacyBehavior>
-                      <a
-                        className="text-white text-2xl font-semibold hover:text-pink-500 transition-colors block"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </a>
+                    <Link
+                      href={item.path}
+                      onClick={closeMobileMenu}
+                      className="text-white text-2xl font-semibold hover:text-pink-500 transition-colors block"
+                    >
+                      {item.name}
                     </Link>
                   )}
                 </div>
               ))}
-              <Link href="/contact" legacyBehavior>
-                <a
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-3 rounded-full text-lg font-semibold text-white shadow-md hover:shadow-pink-500/30 transition-all duration-300 mt-4"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Get Started
-                </a>
+              <Link
+                href="/contact"
+                onClick={closeMobileMenu}
+                className="bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-3 rounded-full text-lg font-semibold text-white shadow-md hover:shadow-pink-500/30 transition-all duration-300 mt-4"
+              >
+                Get Started
               </Link>
             </motion.div>
           )}

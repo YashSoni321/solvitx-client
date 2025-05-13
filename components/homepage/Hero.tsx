@@ -27,10 +27,10 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className="text-5xl md:text-7xl font-extrabold leading-tight drop-shadow-lg"
         >
-          <span className="text-primary underline decoration-wavy">
+          {/* <span className="text-primary underline decoration-wavy">
             Solving
-          </span>{" "}
-          IT with expertise
+          </span>{" "} */}
+          Solving IT with expertise
         </motion.h1>
 
         {/* Subtitle */}

@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import Ecommerce from "../../public/images/ecommerce.jpg";
+import Banking from "../../public/images/banking.jpg";
+import Dashboard from "../../public/images/dashboard.jpg";
+import Home from "../../public/images/home.jpg";
+import Healthcare from "../../public/images/healthcare.jpg";
+import Education from "../../public/images/education.jpg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -29,7 +34,7 @@ const projects = [
     title: "Mobile Banking App",
     description:
       "Secure and user-friendly mobile banking application with biometric authentication.",
-    src: "/images/banking.jpg",
+    src: Banking,
     alt: "Mobile Banking App",
     category: "Mobile App",
     link: "/projects/banking",
@@ -38,7 +43,7 @@ const projects = [
     title: "AI-Powered Analytics Dashboard",
     description:
       "Real-time business analytics with AI-driven insights and predictive modeling.",
-    src: "/images/dashboard.jpg",
+    src: Dashboard,
     alt: "Analytics Dashboard",
     category: "AI/ML",
     link: "/projects/analytics",
@@ -47,7 +52,7 @@ const projects = [
     title: "Smart Home Automation",
     description:
       "IoT-based home automation system with voice control and energy optimization.",
-    src: "/images/home.jpg",
+    src: Home,
     alt: "Smart Home Automation",
     category: "IoT",
     link: "/projects/smart-home",
@@ -56,7 +61,7 @@ const projects = [
     title: "Healthcare Management System",
     description:
       "Comprehensive healthcare platform for patient management and telemedicine.",
-    src: Ecommerce,
+    src: Healthcare,
     alt: "Healthcare System",
     category: "Healthcare",
     link: "/projects/healthcare",
@@ -65,7 +70,7 @@ const projects = [
     title: "Educational Platform",
     description:
       "Interactive learning platform with virtual classrooms and progress tracking.",
-    src: Ecommerce,
+    src: Education,
     alt: "Educational Platform",
     category: "Education",
     link: "/projects/education",
@@ -172,15 +177,7 @@ const OurWorks = () => {
         className="flex justify-center mt-12"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-      >
-        <Link
-          href="/projects"
-          className="relative px-8 py-4 text-lg font-semibold text-white bg-black rounded-full shadow-lg overflow-hidden group transition-all duration-300"
-        >
-          <span className="relative z-10">View All Projects</span>
-          <span className="absolute bottom-0 left-0 w-0 h-1 bg-white group-hover:w-full transition-all duration-300"></span>
-        </Link>
-      </motion.div>
+      ></motion.div>
     </div>
   );
 };

@@ -1,0 +1,137 @@
+<!DOCTYPE html><html class="" lang="en">
+    <head>
+        <title>We're deploying your app!</title>
+        <link rel="icon" type="image/x-icon" href="https://bunny.net/favicon-32x32.png">
+        <link href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700" rel="stylesheet">
+        <style>
+            html, body {
+                background-color: #e1f2ff;
+                background: linear-gradient(0deg, rgba(255,255,255,1) 0%, #e1f2ff 100%);
+                width: 100%;
+                height: 100%;
+                font-family: Inter;
+            }
+            body {
+                flex-direction: column;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            * {
+                padding: 0;
+                margin: 0;
+                position: relative;
+            }
+            h1 {
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .card {
+                margin-top: -100px;
+                width: 600px;
+                background-color: white;
+                border-radius: 32px;
+                padding: 30px;
+                font-size: 16px;
+                margin-left: auto;
+                margin-right: auto;
+                border: solid 1px #e6e9ec;
+                font-weight: 300;
+            }
+            .status-bar {
+                background-color: #FDF8EF;
+                display: flex;
+                justify-content: space-between;
+                padding: 22px;
+                border-radius: 65px;
+                margin-bottom: 20px;
+            }
+            .deploying-box {
+                color: #ffaf48;
+                display: flex;
+                justify-content: space-between;
+                font-weight: 500;
+            }
+            .spinner {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                border: 2px solid #ffaf48;
+                animation: spin 1s linear infinite;
+                background-color: white;
+                margin-left: 12px;
+            }
+            .spinner .quarter {
+                top:0;
+                left:0;
+                background-color:#ffaf48;
+                border-radius:100% 0 0 0;
+                position:absolute;
+                width:50%;
+                height:50%;
+                animation-name: spin;
+                animation-duration: 20s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                transform-origin: 10px 10px;
+            }
+            .spinner .quarter-ring {
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                border: 2px solid #fff;
+                animation: spin 1s linear infinite;
+                background-color: transparent;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .bunny-logo {
+                position: absolute; bottom: 40px; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%;
+            }
+            .guide-button {
+                background-color: #fff;
+                padding: 6px 15px;
+                border-radius: 32px;
+                margin-top: 20px;
+                cursor: pointer;
+                display: inline-flex;
+                border: 1px solid #cdd3d8;
+                gap: 5px;
+                justify-content: space-around;
+                align-items: center;
+                box-shadow: 0 1px 2px rgb(12 12 12 / 8%);
+                font-size: 14px;
+                color: #04223e;
+                font-weight: 500;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <div class="status-bar">
+                <h1>We're deploying your app!</h1>
+                <div class="deploying-box">
+                    <span>Deploying</span>
+                    <div class="spinner">
+                        <div class="quarter"></div>
+                        <div class="quarter-ring"></div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                You're almost there. Your app is on its way! This usually takes from a few seconds, to a few minutes depending on the size of your Docker image.
+                <br /><br />
+                Once live, this page will automatically refresh.
+            </p>
+            <div class="guide-button">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxOCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjI4NTIgNC40OTYwOUMxNy41NzY4IDQuNjA1NDcgMTcuNzMxOCA0LjgxNTEgMTcuNzUgNS4xMjVDMTcuNzMxOCA1LjQzNDkgMTcuNTg1OSA1LjY0NDUzIDE3LjMxMjUgNS43NTM5MUw5LjU3NDIyIDguNTE1NjJDOS4xOTE0MSA4LjY2MTQ2IDguODA4NTkgOC42NjE0NiA4LjQyNTc4IDguNTE1NjJMMy4yMDMxMiA2LjY1NjI1QzIuODc1IDcuMDIwODMgMi42NDcxNCA3LjQ0OTIyIDIuNTE5NTMgNy45NDE0MUMyLjczODI4IDguMTA1NDcgMi44NTY3NyA4LjMzMzMzIDIuODc1IDguNjI1QzIuODU2NzcgOC44OTg0NCAyLjc0NzQgOS4xMTcxOSAyLjU0Njg4IDkuMjgxMjVMMy4yMzA0NyAxMy4zNTU1QzMuMjQ4NyAxMy42NjU0IDMuMTAyODYgMTMuODM4NSAyLjc5Mjk3IDEzLjg3NUgxLjIwNzAzQzAuODk3MTM1IDEzLjgzODUgMC43NTEzMDIgMTMuNjY1NCAwLjc2OTUzMSAxMy4zNTU1TDEuNDUzMTIgOS4yODEyNUMxLjI1MjYgOS4xMTcxOSAxLjE0MzIzIDguODk4NDQgMS4xMjUgOC42MjVDMS4xNDMyMyA4LjI0MjE5IDEuMzI1NTIgNy45Nzc4NiAxLjY3MTg4IDcuODMyMDNDMS43ODEyNSA3LjI4NTE2IDIgNi43OTI5NyAyLjMyODEyIDYuMzU1NDdMMC42ODc1IDUuNzUzOTFDMC40MTQwNjIgNS42NDQ1MyAwLjI2ODIyOSA1LjQzNDkgMC4yNSA1LjEyNUMwLjI2ODIyOSA0LjgxNTEgMC40MTQwNjIgNC42MDU0NyAwLjY4NzUgNC40OTYwOUw4LjM5ODQ0IDEuNzM0MzhDOC43ODEyNSAxLjU4ODU0IDkuMTY0MDYgMS41ODg1NCA5LjU0Njg4IDEuNzM0MzhMMTcuMjg1MiA0LjQ5NjA5Wk05Ljg0NzY2IDkuMzM1OTRMMTMuODM5OCA3LjkxNDA2TDE0LjI1IDExLjgyNDJDMTQuMjEzNSAxMi40MDc2IDEzLjY5NCAxMi44OTA2IDEyLjY5MTQgMTMuMjczNEMxMS43MDcgMTMuNjU2MiAxMC40NzY2IDEzLjg1NjggOSAxMy44NzVDNy41MDUyMSAxMy44NTY4IDYuMjY1NjIgMTMuNjU2MiA1LjI4MTI1IDEzLjI3MzRDNC4yOTY4OCAxMi44OTA2IDMuNzg2NDYgMTIuNDA3NiAzLjc1IDExLjgyNDJMNC4xNjAxNiA3Ljk0MTQxTDguMTI1IDkuMzM1OTRDOC40MTY2NyA5LjQ0NTMxIDguNzA4MzMgOS41IDkgOS41QzkuMzA5OSA5LjUgOS41OTI0NSA5LjQ0NTMxIDkuODQ3NjYgOS4zMzU5NFoiIGZpbGw9IiMzNjRFNjUiLz4KPC9zdmc+Cg==" /> What to do now?
+            </div>
+        </div>
+        <img src="https://bunny.net/static/bunnynet-dark-d6a41260b1e4b665cb2dc413e3eb84ca.svg" alt="bunny.net" class="bunny-logo" />
+    </body>
+</html>
