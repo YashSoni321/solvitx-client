@@ -3,8 +3,49 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaCogs, FaBrain, FaRocket } from "react-icons/fa";
 import HeroImage from "../../public/images/heroImg.jpg"; // Replace with actual HeroImage
+import { useState, useEffect } from "react";
+
+const innovativeThoughts = [
+  {
+    text: "Transforming Ideas into Digital Reality",
+    category: "Development",
+  },
+  {
+    text: "Building Tomorrow's Solutions Today",
+    category: "Innovation",
+  },
+  {
+    text: "Driving Growth Through Digital Excellence",
+    category: "Marketing",
+  },
+  {
+    text: "Crafting Seamless User Experiences",
+    category: "Design",
+  },
+  {
+    text: "Empowering Businesses with AI Solutions",
+    category: "Technology",
+  },
+];
 
 const Hero = () => {
+  const [currentThoughtIndex, setCurrentThoughtIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(false);
+      setTimeout(() => {
+        setCurrentThoughtIndex(
+          (prev) => (prev + 1) % innovativeThoughts.length
+        );
+        setIsAnimating(true);
+      }, 500);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
@@ -25,24 +66,27 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl md:text-7xl font-extrabold leading-tight drop-shadow-lg"
+          className="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-lg"
         >
-          {/* <span className="text-primary underline decoration-wavy">
-            Solving
-          </span>{" "} */}
-          Solving IT with expertise
+          Turning IT Challenges into Smart Solutions
         </motion.h1>
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="max-w-3xl text-xl md:text-2xl text-gray-200"
-        >
-          In this ever-changing world, we re-imagine technological solutions
-          with marketing expertise.
-        </motion.p>
+        {/* Innovative Thoughts Animation */}
+        <div className="h-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isAnimating ? 1 : 0, y: isAnimating ? 0 : -20 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center"
+          >
+            <span className="text-lg font-semibold text-pink-400 mb-2">
+              {innovativeThoughts[currentThoughtIndex].category}
+            </span>
+            <p className="text-base md:text-2xl text-gray-200 italic">
+              {innovativeThoughts[currentThoughtIndex].text}
+            </p>
+          </motion.div>
+        </div>
 
         {/* Animated Diagram */}
         <motion.div
@@ -51,16 +95,37 @@ const Hero = () => {
           transition={{ delay: 0.6, duration: 1 }}
           className="grid grid-cols-3 gap-8 mt-10"
         >
-          <div className="flex flex-col items-center">
-            <FaBrain className="text-5xl text-pink-400 mb-2 animate-bounce" />
+          <div className="flex flex-col items-center group">
+            <div className="relative">
+              <FaBrain className="text-5xl text-pink-400 mb-2 animate-bounce" />
+              <motion.div
+                className="absolute -inset-2 bg-pink-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </div>
             <p className="text-white font-semibold">Strategy</p>
           </div>
-          <div className="flex flex-col items-center">
-            <FaCogs className="text-5xl text-blue-400 mb-2 animate-spin-slow" />
+          <div className="flex flex-col items-center group">
+            <div className="relative">
+              <FaCogs className="text-5xl text-blue-400 mb-2 animate-spin-slow" />
+              <motion.div
+                className="absolute -inset-2 bg-blue-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </div>
             <p className="text-white font-semibold">Engineering</p>
           </div>
-          <div className="flex flex-col items-center">
-            <FaRocket className="text-5xl text-green-400 mb-2 animate-pulse" />
+          <div className="flex flex-col items-center group">
+            <div className="relative">
+              <FaRocket className="text-5xl text-green-400 mb-2 animate-pulse" />
+              <motion.div
+                className="absolute -inset-2 bg-green-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </div>
             <p className="text-white font-semibold">Launch</p>
           </div>
         </motion.div>
@@ -69,9 +134,21 @@ const Hero = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-8 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-3 rounded-full shadow-lg text-lg font-semibold hover:from-purple-600 hover:to-pink-500 transition-all"
+          className="mt-8 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-3 rounded-full shadow-lg text-lg font-semibold hover:from-purple-600 hover:to-pink-500 transition-all group relative overflow-hidden"
         >
-          Explore Our Work
+          <span className="relative z-10">Explore Our Work</span>
+          <motion.div
+            className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+            animate={{
+              x: ["0%", "100%"],
+              opacity: [0, 0.5, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
         </motion.button>
       </div>
     </div>

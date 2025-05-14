@@ -25,7 +25,7 @@ const projects = [
     title: "E-commerce Platform",
     description:
       "A full-featured e-commerce solution with advanced inventory management and payment integration.",
-    src: Ecommerce,
+    src: "/images/projects/ecommerce.jpg",
     alt: "E-commerce Platform",
     category: "Web Development",
     link: "/projects/ecommerce",
@@ -131,7 +131,7 @@ const OurWorks = () => {
                 priority={index < 3}
               />
               {/* Category Badge */}
-              <div className="absolute top-4 right-4 bg-black bg-opacity-75 text-white px-3 py-1 rounded-full text-sm z-10">
+              <div className="absolute top-4 right-4  bg-opacity-75 text-white px-3 py-1 rounded-full text-sm z-10">
                 {project.category}
               </div>
             </div>
@@ -164,7 +164,7 @@ const OurWorks = () => {
             </div>
 
             {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
+            <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
               <button className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-black hover:text-white transition-colors duration-300 text-2xl font-bold opacity-0 group-hover:opacity-100">
                 +
               </button>
