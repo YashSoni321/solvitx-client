@@ -83,18 +83,18 @@ const OurWorks = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ amount: 0.3 }}
+        // viewport={{ amount: 0.3 }}
         className=""
       >
         <div className="my-2 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div
-            variants={fadeInUp}
+            // variants={fadeInUp}
             className="text-6xl md:text-8xl text-start font-bold leading-tight"
           >
             <p>Our Works</p>
           </motion.div>
 
-          <motion.div variants={fadeInUp}>
+          <motion.div>
             <p className="tracking-wide text-base/8 md:text-5xl font-bold">
               We let our work speak for itself. Explore our portfolio{" "}
               <span className="text-gray-400">
@@ -109,14 +109,14 @@ const OurWorks = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        variants={fadeIn}
+        // // variants={fadeIn}
         viewport={{ amount: 0.3 }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
       >
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            variants={fadeInUp}
+            // variants={fadeInUp}
             custom={index}
             className="group relative overflow-hidden rounded-xl transition-shadow duration-300 hover:shadow-2xl bg-white"
           >
@@ -142,7 +142,7 @@ const OurWorks = () => {
                 {project.title}
               </h3>
               <p className="text-gray-600 mb-4">{project.description}</p>
-              <Link
+              {/* <Link
                 href={project.link}
                 className="inline-flex items-center text-black hover:text-gray-600 transition-colors duration-300"
               >
@@ -160,15 +160,15 @@ const OurWorks = () => {
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-              </Link>
+              </Link> */}
             </div>
 
             {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
+            {/* <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
               <button className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-black hover:text-white transition-colors duration-300 text-2xl font-bold opacity-0 group-hover:opacity-100">
                 +
               </button>
-            </div>
+            </div> */}
           </motion.div>
         ))}
       </motion.div>

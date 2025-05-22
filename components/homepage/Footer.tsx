@@ -9,323 +9,226 @@ import {
   FaPhone,
   FaMapMarkerAlt,
   FaArrowRight,
+  FaWhatsapp,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import LogoImage from "../../public/images/solvitx.png";
 
 const Footer = () => {
-  // Current year for copyright
   const currentYear = new Date().getFullYear();
 
+  const footerLinks = [
+    {
+      title: "Services",
+      links: [
+        { href: "/webdevelopment", label: "Web Development" },
+        { href: "mobileappdevelopment", label: "Mobile Applications" },
+        { href: "uiuxdesign", label: "UI/UX Design" },
+        { href: "digitalmarketing", label: "Digital Marketing" },
+        { href: "/seoservices", label: "SEO Optimization" },
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        { href: "/about", label: "About Us" },
+        { href: "/careers", label: "Careers" },
+        { href: "/blog", label: "Blog" },
+        { href: "/contact", label: "Contact Us" },
+        // { href: "/faq", label: "FAQ" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { href: "/privacypolicy", label: "Privacy Policy" },
+        { href: "/termsofservice", label: "Terms of Service" },
+      ],
+    },
+  ];
+
+  const socialMediaLinks = [
+    {
+      href: "https://linkedin.com/company/solvitx",
+      icon: FaLinkedin,
+      label: "LinkedIn",
+      color: "hover:text-blue-400",
+    },
+    {
+      href: "https://instagram.com/solvitx",
+      icon: FaInstagram,
+      label: "Instagram",
+      color: "hover:text-pink-500",
+    },
+    {
+      href: "https://github.com/solvitx",
+      icon: FaGithub,
+      label: "GitHub",
+      color: "hover:text-gray-100",
+    },
+    {
+      href: "https://behance.net/solvitx",
+      icon: FaBehance,
+      label: "Behance",
+      color: "hover:text-sky-400",
+    },
+  ];
+
   return (
-    <footer className="relative bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden">
-      {/* Background decorative elements */}
+    <footer className="relative bg-gray-900 text-gray-300 pt-16 pb-8">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500"></div>
-      <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-pink-600/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-
-      {/* Newsletter and CTA section */}
-      <div className="container mx-auto p-8 relative">
-        <div className="max-w-5xl mx-auto bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 shadow-xl mb-16 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
-                  transform
-                </span>{" "}
-                your digital presence?
-              </h2>
-              <p className="text-gray-300 mb-6">
-                Let's collaborate and build something extraordinary. Fill out
-                our brief and get started on your journey with Solvitx.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full font-medium hover:from-purple-700 hover:to-pink-600 transition-all duration-300 shadow-lg group"
-              >
-                Get in touch
-                <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </div>
-
-            <div className="bg-gray-900/50 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold mb-4">
-                Subscribe to our newsletter
-              </h3>
-              <p className="text-gray-400 text-sm mb-4">
-                Stay updated with the latest in tech, design, and digital
-                marketing.
-              </p>
-              <div className="flex">
-                <input
-                  className="w-full px-4 py-3 bg-gray-800/80 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-500 border border-gray-700"
-                  placeholder="Your email address"
-                  type="email"
-                />
-                <button className="px-4 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-r-lg hover:from-purple-700 hover:to-pink-600 transition-all duration-300">
-                  <FaArrowRight />
-                </button>
-              </div>
-              <p className="mt-3 text-gray-500 text-xs">
-                By subscribing, you agree to our Privacy Policy and consent to
-                receive updates.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10 mb-12">
-          {/* Company info */}
-          <div>
-            <div className="mb-6">
+      <div className="fixed right-4 md:right-6 bottom-4 md:bottom-6 z-[100] flex flex-col gap-3">
+        <motion.a
+          href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.15, rotate: 5 }}
+          whileTap={{ scale: 0.9 }}
+          className="bg-green-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:bg-green-600 transition-all"
+          aria-label="Chat on WhatsApp"
+        >
+          <FaWhatsapp size={20} />
+        </motion.a>
+        <motion.a
+          href="https://instagram.com/YOUR_INSTAGRAM"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.15, rotate: -5 }}
+          whileTap={{ scale: 0.9 }}
+          className="bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all"
+          aria-label="Visit our Instagram"
+        >
+          <FaInstagram size={20} />
+        </motion.a>
+      </div>
+      <div className="container mx-auto px-4 md:px-6">
+        {/* Top section: Logo, brief description, and main CTA */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-10 md:mb-12 pb-10 border-b border-gray-700/50">
+          <div className="md:col-span-1 flex flex-col items-center md:items-start">
+            <Link href="/" className="inline-block mb-3">
               <Image
                 src={LogoImage}
                 alt="Solvitx"
-                height={100}
-                width={100}
-                className="invert"
+                height={40}
+                width={130}
+                className="invert brightness-0 filter"
+                priority
               />
-              <p className="text-gray-400">Where vision meets technology</p>
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <FaMapMarkerAlt className="text-purple-500 mt-1 flex-shrink-0" />
-                <p className="text-gray-300">
-                  Hn. 359, Gopal Ji Ka Rasta, Tripolia Bazar,
-                  <br />
-                  Johari Bazar, Jaipur, Rajasthan 302003
-                </p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <FaEnvelope className="text-purple-500 flex-shrink-0" />
-                <a
-                  href="mailto:contact@solvitx.com"
-                  className="text-gray-300 hover:text-purple-400 transition-colors"
-                >
-                  contact@solvitx.com
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <FaPhone className="text-purple-500 flex-shrink-0" />
-                <a
-                  href="tel:+12345678900"
-                  className="text-gray-300 hover:text-purple-400 transition-colors"
-                >
-                  +91 9782025577
-                </a>
-              </div>
-            </div>
-
-            <div className="flex space-x-4 mt-6">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-purple-400 transition-colors"
-              >
-                <FaLinkedin className="text-lg" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-pink-400 transition-colors"
-              >
-                <FaInstagram className="text-lg" />
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <FaGithub className="text-lg" />
-              </a>
-              <a
-                href="https://behance.net"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                <FaBehance className="text-lg" />
-              </a>
-            </div>
+            </Link>
+            <p className="text-xs text-gray-400 max-w-xs text-center md:text-left">
+              Crafting digital excellence and innovative solutions for
+              sustainable business growth.
+            </p>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 flex items-center">
-              <span className="w-8 h-1 bg-purple-500 rounded-full mr-3"></span>
-              Services
-            </h3>
-            <nav className="grid grid-cols-1 gap-3">
-              <Link
-                href="/services"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                <span className="w-2 h-2 bg-purple-500 rounded-full mr-2 opacity-0 group-hover:opacity-100"></span>
-                Web Development
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                Mobile Applications
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                UI/UX Design
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                Digital Marketing
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                SEO Optimization
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                Cloud Solutions
-              </Link>
-            </nav>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 flex items-center">
-              <span className="w-8 h-1 bg-pink-500 rounded-full mr-3"></span>
-              Company
-            </h3>
-            <nav className="grid grid-cols-1 gap-3">
-              <Link
-                href="/"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                Our Services
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                Contact Us
-              </Link>
-              <Link
-                href="/blog"
-                className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
-              >
-                Blog
-              </Link>
-            </nav>
-          </div>
-
-          {/* Our Team */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 flex items-center">
-              <span className="w-8 h-1 bg-blue-500 rounded-full mr-3"></span>
-              Meet Our Team
-            </h3>
-
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-purple-500/30">
-                  <img
-                    src="https://storage.googleapis.com/a1aa/image/y4k26WHpccbz-jDQha-cJAtS8QV_9_2bFDbmzIW8ips.jpg"
-                    alt="Yash Mittal"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="text-white font-medium">Yash Mittal</h4>
-                  <p className="text-gray-400 text-sm">Co-Founder & CTO</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-pink-500/30">
-                  <img
-                    src="https://storage.googleapis.com/a1aa/image/y4k26WHpccbz-jDQha-cJAtS8QV_9_2bFDbmzIW8ips.jpg"
-                    alt="Pratham Mittal"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="text-white font-medium">Pratham Mittal</h4>
-                  <p className="text-gray-400 text-sm">Founder & CEO</p>
-                </div>
-              </div>
-
-              <Link
-                href="/about"
-                className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors mt-2"
-              >
-                Meet the entire team
-                <FaArrowRight className="ml-2 text-xs" />
-              </Link>
-            </div>
+          <div className="md:col-span-2 flex flex-col sm:flex-row justify-center md:justify-end items-center gap-4 sm:gap-6">
+            <p className="text-lg font-semibold text-white text-center sm:text-left">
+              Ready to elevate your digital presence?
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full font-medium hover:from-purple-700 hover:to-pink-600 transition-all duration-300 shadow-lg group text-base whitespace-nowrap"
+            >
+              Let's Talk
+              <FaArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
           </div>
         </div>
 
-        {/* Bottom footer */}
-        <div className="pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 text-sm mb-4 md:mb-0">
-              © {currentYear} Solvitx. All rights reserved. Powered by{" "}
+        {/* Main footer content sections */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-10 text-sm mb-10 md:mb-12">
+          {/* Column 1: Contact Info - Spans full width on mobile, 1/3 on lg */}
+          <div className="space-y-3 lg:col-span-1">
+            <h3 className="text-base font-semibold text-white mb-3">
+              Get in Touch
+            </h3>
+            <div className="flex items-start space-x-2.5">
+              <FaMapMarkerAlt className="text-purple-400 mt-1 flex-shrink-0 h-4 w-4" />
+              <span className="text-gray-400 leading-relaxed">
+                Hn. 359, Gopal Ji Ka Rasta, Tripolia Bazar, Jaipur, Rajasthan
+                302003
+              </span>
+            </div>
+            <div className="flex items-center space-x-2.5">
+              <FaEnvelope className="text-purple-400 flex-shrink-0 h-4 w-4" />
               <a
-                href="https://techieyash.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-purple-400 hover:text-purple-300"
+                href="mailto:contact@solvitx.com"
+                className="hover:text-purple-300 transition-colors"
               >
-                TechieYash
+                contact@solvitx.com
               </a>
-            </p>
-            <div className="flex space-x-6">
-              <Link
-                href="/privacy-policy"
-                className="text-gray-500 text-sm hover:text-gray-300 transition-colors"
+            </div>
+            <div className="flex items-center space-x-2.5">
+              <FaPhone className="text-purple-400 flex-shrink-0 h-4 w-4" />
+              <a
+                href="tel:+919782025577"
+                className="hover:text-purple-300 transition-colors"
               >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms-of-service"
-                className="text-gray-500 text-sm hover:text-gray-300 transition-colors"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-gray-500 text-sm hover:text-gray-300 transition-colors"
-              >
-                Cookies
-              </Link>
+                +91 9782025577
+              </a>
+            </div>
+            <div className="pt-2">
+              <h4 className="text-xs font-semibold text-gray-500 uppercase mb-2">
+                Follow Us
+              </h4>
+              <div className="flex space-x-3">
+                {socialMediaLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className={`text-gray-400 ${social.color} transition-colors`}
+                  >
+                    <social.icon size={20} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
+
+          {/* Link Sections Wrapper - Spans full width on mobile, 2/3 on lg. Internally uses columns. */}
+          <div className="lg:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8">
+            {footerLinks.map((section) => (
+              <div key={section.title} className="space-y-1">
+                <h3 className="text-base font-semibold text-white mb-3">
+                  {section.title}
+                </h3>
+                <nav className="flex flex-col space-y-1.5">
+                  {section.links.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="hover:text-purple-300 transition-colors flex items-center group text-gray-400 hover:text-purple-300"
+                    >
+                      <FaArrowRight className="h-2.5 w-2.5 mr-2 text-purple-500/70 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200" />
+                      {link.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Copyright & Powered By */}
+        <div className="pt-8 border-t border-gray-700/50 text-center">
+          <p className="text-xs text-gray-500">
+            © {currentYear} Solvitx. All Rights Reserved.
+            <span className="mx-1">|</span>
+            Website by{" "}
+            <a
+              href="https://techieyash.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-purple-300 font-medium"
+            >
+              TechieYash
+            </a>
+            .
+          </p>
         </div>
       </div>
     </footer>

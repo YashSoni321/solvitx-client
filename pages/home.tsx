@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Hero from "@/components/homepage/Hero";
+import FloatingSocials from "@/components/common/FloatingSocials";
 
 // Dynamically import components with loading states
 const AboutSolvitx = dynamic(
@@ -70,6 +71,7 @@ export default function Home() {
     <>
       {/* Meta Tags for SEO */}
       <Head>
+        <FloatingSocials />
         <title>Solvitx — Solving IT with expertise</title>
         <meta
           name="description"
@@ -115,6 +117,7 @@ export default function Home() {
       <Features />
       <Testimonial />
       <Footer />
+      {/* <FloatingSocials /> */}
     </>
   );
 }
