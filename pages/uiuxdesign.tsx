@@ -15,10 +15,8 @@ import {
   FaChevronUp,
   FaChevronDown,
   FaHeadset,
-  FaClipboardList,
   FaChartBar,
   FaChartPie,
-  FaGlobe,
   FaSearch,
   FaTools,
   FaLock,
@@ -424,6 +422,9 @@ export default function UIUXDesign() {
           </motion.button>
         </div>
       </motion.section>
+      {/* </motion.section>
+      </motion.section>
+      </motion.section> */}
 
       {/* Footer */}
       <Footer />

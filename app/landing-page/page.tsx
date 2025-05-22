@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -33,7 +33,6 @@ import {
   SiNodedotjs,
   SiNextdotjs,
   SiTypescript,
-  SiAmazonaws,
   SiMongodb,
   SiFlutter,
   SiFirebase,
@@ -181,7 +180,7 @@ const LandingPage = () => {
           className="bg-green-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:bg-green-600 transition-all"
           aria-label="Chat on WhatsApp"
         >
-          <FaWhatsapp size={20} md:size={24} />
+          <FaWhatsapp size={20} />
         </motion.a>
         <motion.a
           href="https://instagram.com/YOUR_INSTAGRAM"
@@ -192,7 +191,7 @@ const LandingPage = () => {
           className="bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all"
           aria-label="Visit our Instagram"
         >
-          <FaInstagram size={20} md:size={24} />
+          <FaInstagram size={20} />
         </motion.a>
       </div>
 
@@ -884,7 +883,7 @@ const LandingPage = () => {
                   icon: SiPostgresql,
                   color: "text-indigo-500",
                 },
-                { name: "AWS", icon: SiAmazonaws, color: "text-orange-400" },
+                { name: "AWS", icon: SiMysql, color: "text-orange-400" },
               ],
             },
             {
