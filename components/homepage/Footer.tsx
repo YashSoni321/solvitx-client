@@ -22,10 +22,11 @@ const Footer = () => {
     {
       title: "Services",
       links: [
+        { href: "/services", label: "Services" },
         { href: "/webdevelopment", label: "Web Development" },
         { href: "mobileappdevelopment", label: "Mobile Applications" },
         { href: "uiuxdesign", label: "UI/UX Design" },
-        { href: "digitalmarketing", label: "Digital Marketing" },
+        { href: "/digitalmarketing", label: "Digital Marketing" },
         { href: "/seoservices", label: "SEO Optimization" },
       ],
     },
@@ -39,13 +40,13 @@ const Footer = () => {
         // { href: "/faq", label: "FAQ" },
       ],
     },
-    {
-      title: "Legal",
-      links: [
-        { href: "/privacypolicy", label: "Privacy Policy" },
-        { href: "/termsofservice", label: "Terms of Service" },
-      ],
-    },
+    // {
+    //   title: "Legal",
+    //   links: [
+    //     { href: "/privacypolicy", label: "Privacy Policy" },
+    //     { href: "/termsofservice", label: "Terms of Service" },
+    //   ],
+    // },
   ];
 
   const socialMediaLinks = [
@@ -91,15 +92,13 @@ const Footer = () => {
           <FaWhatsapp size={20} />
         </motion.a>
         <motion.a
-          href="https://instagram.com/YOUR_INSTAGRAM"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="tel:+919782025577"
           whileHover={{ scale: 1.15, rotate: -5 }}
           whileTap={{ scale: 0.9 }}
-          className="bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all"
-          aria-label="Visit our Instagram"
+          className="bg-blue-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:bg-blue-600 transition-all"
+          aria-label="Call Us"
         >
-          <FaInstagram size={20} />
+          <FaPhone size={20} />
         </motion.a>
       </div>
       <div className="container mx-auto px-4 md:px-6">

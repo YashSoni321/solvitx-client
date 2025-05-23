@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaPhone } from "react-icons/fa";
 
 const FloatingSocials = () => {
   return (
@@ -19,15 +19,13 @@ const FloatingSocials = () => {
         <FaWhatsapp size={20} />
       </motion.a>
       <motion.a
-        href="https://instagram.com/solvitx"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="tel:+919782025577"
         whileHover={{ scale: 1.15, rotate: -5 }}
         whileTap={{ scale: 0.9 }}
-        className="bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all"
-        aria-label="Visit our Instagram"
+        className="bg-blue-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:bg-blue-600 transition-all"
+        aria-label="Call Us"
       >
-        <FaInstagram size={20} />
+        <FaPhone size={20} />
       </motion.a>
     </div>
   );

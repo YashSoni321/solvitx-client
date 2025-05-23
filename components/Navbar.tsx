@@ -228,14 +228,26 @@ const Navbar = () => {
             >
               {item.subMenu ? (
                 <div className="flex items-center cursor-pointer">
-                  <span className="text-white text-lg hover:text-pink-500 transition-colors">
+                  {/* <span className="text-white text-lg hover:text-pink-500 transition-colors">
                     {item.name}
                   </span>
                   <FaChevronDown
                     className={`ml-1 text-sm transition-transform duration-300 ${
                       hoveredItem === item.name ? "rotate-180" : ""
                     }`}
-                  />
+                  /> */}
+                  <Link href={getFormattedPath(item.name)} legacyBehavior>
+                    <>
+                      <a className="text-white text-lg hover:text-pink-500 transition-colors">
+                        {item.name}
+                      </a>
+                      <FaChevronDown
+                        className={`ml-1 text-sm transition-transform duration-300 ${
+                          hoveredItem === item.name ? "rotate-180" : ""
+                        }`}
+                      />
+                    </>
+                  </Link>
                 </div>
               ) : (
                 <Link href={item.path} legacyBehavior>
@@ -277,7 +289,14 @@ const Navbar = () => {
                                 </a>
                               </Link>
                             ) : (
-                              subItem.name
+                              <Link
+                                href={getFormattedPath(subItem.name)}
+                                legacyBehavior
+                              >
+                                <a className="block p-3 hover:bg-gray-800 text-white font-medium">
+                                  {subItem.name}
+                                </a>
+                              </Link>
                             )}
                           </span>
                         </div>
@@ -388,7 +407,15 @@ const Navbar = () => {
                                         <span className="mr-3">
                                           {subItem.icon}
                                         </span>
-                                        <span>{subItem.name}</span>
+                                        {/* <span>{subItem.name}11</span> */}
+                                        <Link
+                                          key={idx}
+                                          href={getFormattedPath(subItem.name)}
+                                          onClick={closeMobileMenu}
+                                          className="block py-2 text-white text-lg hover:text-pink-500 transition-colors"
+                                        >
+                                          {subItem.name}
+                                        </Link>
                                       </div>
                                       <FaChevronDown
                                         className={`ml-2 text-sm transition-transform duration-300 ${
