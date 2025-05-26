@@ -112,13 +112,13 @@ const Navbar = () => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [isOpen]);
 
-  const handleMenuToggle = (e, name) => {
+  const handleMenuToggle = (e: any, name: any) => {
     e.stopPropagation();
     setActiveMenu(activeMenu === name ? null : name);
     setActiveSubMenu(null);
   };
 
-  const handleSubMenuToggle = (e, name) => {
+  const handleSubMenuToggle = (e: any, name: any) => {
     e.stopPropagation();
     setActiveSubMenu(activeSubMenu === name ? null : name);
   };

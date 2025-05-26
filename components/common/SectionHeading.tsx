@@ -22,7 +22,7 @@ const SectionHeading = ({
   alignment = "center",
   titleSize = "large",
   subtitlePosition = "below",
-  theme,
+  theme = "dark",
   descriptionColor,
   className = "",
   animationDelay = 0,

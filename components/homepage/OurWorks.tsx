@@ -98,7 +98,7 @@ const OurWorks = () => {
           <SectionHeading
             title="Our Works"
             // description="We let our work speak for itself. Explore our portfolio to see how we turn ideas into results, creativity into impact, and vision into awards."
-            theme="black"
+            theme="dark"
             alignment="left"
             titleSize="large"
           />

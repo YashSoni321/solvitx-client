@@ -7,6 +7,8 @@ import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import emailjs from "@emailjs/browser";
+import { emailConfig } from "@/config/emailConfig";
 
 // Import icons
 import {
@@ -105,7 +107,7 @@ export const CountUpAnimation = ({ target }: { target: number }) => {
 };
 
 const LandingPage = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<any>({
     name: "",
     mobile: "",
     email: "",
@@ -156,7 +158,7 @@ const LandingPage = () => {
     >
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData((prev: any) => ({
       ...prev,
       [name]: value,
     }));
@@ -234,7 +236,7 @@ const LandingPage = () => {
     >
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
   };
 
   const toggleFaq = (index: number) => {
