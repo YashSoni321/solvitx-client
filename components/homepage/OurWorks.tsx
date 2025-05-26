@@ -9,6 +9,8 @@ import Dashboard from "../../public/images/dashboard.jpg";
 import Home from "../../public/images/home.jpg";
 import Healthcare from "../../public/images/healthcare.jpg";
 import Education from "../../public/images/education.jpg";
+import SectionHeading from "../common/SectionHeading";
+import SectionContent from "../common/SectionContent";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -79,29 +81,37 @@ const projects = [
 
 const OurWorks = () => {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-8">
       <motion.div
         initial="hidden"
         whileInView="visible"
         // viewport={{ amount: 0.3 }}
         className=""
       >
-        <div className="my-2 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <motion.div
+        <div className=" grid container mx-auto grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* <motion.div
             // variants={fadeInUp}
             className="text-6xl md:text-8xl text-start font-bold leading-tight"
           >
             <p>Our Works</p>
-          </motion.div>
+          </motion.div> */}
+          <SectionHeading
+            title="Our Works"
+            // description="We let our work speak for itself. Explore our portfolio to see how we turn ideas into results, creativity into impact, and vision into awards."
+            theme="black"
+            alignment="left"
+            titleSize="large"
+          />
 
-          <motion.div>
-            <p className="tracking-wide text-base/8 md:text-5xl font-bold">
+          <motion.div variants={fadeInUp} className="">
+            <p className="tracking-wide text-base/8 md:text-3xl font-bold word-spacing-2">
               We let our work speak for itself. Explore our portfolio{" "}
-              <span className="text-gray-400">
+              <span className="text-gray-500 text-xl">
                 to see how we turn ideas into results, creativity into impact,
                 and vision into awards.
               </span>
             </p>
+            {/* <SectionContent></SectionContent> */}
           </motion.div>
         </div>
       </motion.div>

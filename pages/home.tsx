@@ -71,7 +71,7 @@ export default function Home() {
     <>
       {/* Meta Tags for SEO */}
       <Head>
-        <FloatingSocials />
+        {/* <FloatingSocials /> */}
         <title>Solvitx — Solving IT with expertise</title>
         <meta
           name="description"
@@ -107,8 +107,8 @@ export default function Home() {
       </Head>
       <Hero />
 
-      <AboutSolvitx />
-      <OurWorks />
+      {/* <AboutSolvitx />
+      <OurWorks /> */}
       <Services />
       <StatisticsSection />
       <BlogSection />

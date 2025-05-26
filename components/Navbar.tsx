@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect, useCallback, ReactElement } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   FaBars,
   FaTimes,
@@ -17,30 +17,36 @@ import {
 import Image from "next/image";
 import LogoImage from "../public/images/solvitx.png";
 
+// Simplified menu structure
 const navItems = [
   { name: "Home", path: "/" },
   { name: "About us", path: "/about" },
   {
     name: "IT Services",
+    path: "/services",
     subMenu: [
       {
         name: "Web Development",
+        path: "/webdevelopment",
         icon: <FaLaptopCode className="text-xl text-blue-500" />,
-        subMenu: ["Ecommerce Website Development"],
+        subItems: ["Ecommerce Website Development"],
       },
       {
         name: "App Development",
+        path: "/appdevelopment",
         icon: <FaMobileAlt className="text-xl text-green-500" />,
-        subMenu: ["IOS App Development", "Android App Development"],
+        subItems: ["IOS App Development", "Android App Development"],
       },
       {
         name: "API Development",
+        path: "/apidevelopment",
         icon: <FaCode className="text-xl text-purple-500" />,
       },
       {
         name: "Software Development",
+        path: "/softwaredevelopment",
         icon: <FaLaptopCode className="text-xl text-red-500" />,
-        subMenu: [
+        subItems: [
           "Salesforce Development",
           "School Management Software",
           "Hotel Management Software",
@@ -52,11 +58,13 @@ const navItems = [
   },
   {
     name: "Marketing Services",
+    path: "/services",
     subMenu: [
       {
         name: "Digital Marketing",
+        path: "/digitalmarketing",
         icon: <FaChartLine className="text-xl text-yellow-500" />,
-        subMenu: [
+        subItems: [
           "SEO Services",
           "SMM Services",
           "PPC Marketing",
@@ -65,129 +73,54 @@ const navItems = [
       },
       {
         name: "Video Editing",
+        path: "/videoediting",
         icon: <FaVideo className="text-xl text-pink-500" />,
       },
       {
         name: "UI UX Design",
+        path: "/uiuxdesign",
         icon: <FaVideo className="text-xl text-pink-500" />,
       },
-
       {
         name: "Content Marketing",
+        path: "/contentmarketing",
         icon: <FaPenFancy className="text-xl text-indigo-500" />,
       },
     ],
   },
-  // { name: "Careers", path: "/careers" },
-  // { name: "Blog", path: "/blog" },
   { name: "Contact us", path: "/contact" },
 ];
-
-interface SubMenuItem {
-  name: string;
-  icon: ReactElement;
-  subMenu?: string[];
-}
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(
-    null
-  );
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [hoveredSubItem, setHoveredSubItem] = useState<string | null>(null);
-  const [isMenuClicked, setIsMenuClicked] = useState(false);
-
-  let closeTimeout: NodeJS.Timeout;
-  let closeSubTimeout: NodeJS.Timeout;
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (closeTimeout) clearTimeout(closeTimeout);
-      if (closeSubTimeout) clearTimeout(closeSubTimeout);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleMenuEnter = useCallback((itemName: string) => {
-    if (closeTimeout) clearTimeout(closeTimeout);
-    setHoveredItem(itemName);
-  }, []);
-
-  const handleMenuLeave = useCallback(() => {
-    if (!isMenuClicked) {
-      closeTimeout = setTimeout(() => {
-        setHoveredItem(null);
-        setHoveredSubItem(null);
-      }, 300);
-    }
-  }, [isMenuClicked]);
-
-  const handleSubMenuEnter = useCallback((subItemName: string) => {
-    if (closeSubTimeout) clearTimeout(closeSubTimeout);
-    setHoveredSubItem(subItemName);
-  }, []);
-
-  const handleSubMenuLeave = useCallback(() => {
-    if (!isMenuClicked) {
-      closeSubTimeout = setTimeout(() => {
-        setHoveredSubItem(null);
-      }, 300);
-    }
-  }, [isMenuClicked]);
-
-  const handleMenuClick = useCallback((itemName: string) => {
-    setIsMenuClicked(true);
-    setHoveredItem(itemName);
-  }, []);
-
-  const handleSubMenuClick = useCallback((subItemName: string) => {
-    setHoveredSubItem(subItemName);
-  }, []);
-
-  const handleClickOutside = useCallback(() => {
-    setIsMenuClicked(false);
-    setHoveredItem(null);
-    setHoveredSubItem(null);
-  }, []);
-
+  // Close mobile menu when clicking outside
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
+    const handleClickOutside = () => {
+      if (isOpen) setIsOpen(false);
     };
-  }, [handleClickOutside]);
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isOpen]);
 
-  const handleMobileMenuToggle = (e: React.MouseEvent) => {
+  const handleMenuToggle = (e, name) => {
     e.stopPropagation();
-    setIsOpen(!isOpen);
+    setActiveMenu(activeMenu === name ? null : name);
+    setActiveSubMenu(null);
   };
 
-  const handleMobileDropdownToggle = (e: React.MouseEvent, name: string) => {
+  const handleSubMenuToggle = (e, name) => {
     e.stopPropagation();
-    setActiveDropdown(activeDropdown === name ? null : name);
-    setActiveSubDropdown(null);
-  };
-
-  const handleMobileSubDropdownToggle = (e: React.MouseEvent, name: string) => {
-    e.stopPropagation();
-    setActiveSubDropdown(activeSubDropdown === name ? null : name);
-  };
-
-  const closeMobileMenu = () => {
-    setIsOpen(false);
-    setActiveDropdown(null);
-    setActiveSubDropdown(null);
-  };
-
-  const getFormattedPath = (name: string) => {
-    return `/${name.toLowerCase().replace(/\s+/g, "")}`;
+    setActiveSubMenu(activeSubMenu === name ? null : name);
   };
 
   return (
@@ -195,139 +128,75 @@ const Navbar = () => {
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-black/90 backdrop-blur-md py-3 shadow-lg"
-          : "bg-transparent py-5"
+          : "bg-black/90 py-5"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" legacyBehavior>
-          <a className="z-50">
+        <Link href="/">
+          <div className="bg-white/90 rounded-full px-4 py-1 shadow-md">
             <Image
               src={LogoImage}
               alt="Solvitx"
-              className="h-14 w-44 filter invert"
+              className="h-10 w-auto"
               priority
             />
-          </a>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <div
-              key={item.name}
-              className="relative"
-              onMouseEnter={() => handleMenuEnter(item.name)}
-              onMouseLeave={handleMenuLeave}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (item.subMenu) {
-                  handleMenuClick(item.name);
-                }
-              }}
-            >
+            <div key={item.name} className="relative group">
               {item.subMenu ? (
                 <div className="flex items-center cursor-pointer">
-                  {/* <span className="text-white text-lg hover:text-pink-500 transition-colors">
-                    {item.name}
-                  </span>
-                  <FaChevronDown
-                    className={`ml-1 text-sm transition-transform duration-300 ${
-                      hoveredItem === item.name ? "rotate-180" : ""
-                    }`}
-                  /> */}
-                  <Link href={getFormattedPath(item.name)} legacyBehavior>
-                    <>
-                      <a className="text-white text-lg hover:text-pink-500 transition-colors">
-                        {item.name}
-                      </a>
-                      <FaChevronDown
-                        className={`ml-1 text-sm transition-transform duration-300 ${
-                          hoveredItem === item.name ? "rotate-180" : ""
-                        }`}
-                      />
-                    </>
+                  <Link href={item.path}>
+                    <span className="text-white hover:text-pink-500 transition-colors">
+                      {item.name}
+                    </span>
                   </Link>
+                  <FaChevronDown className="ml-1 text-xs text-white group-hover:rotate-180 transition-transform duration-300" />
                 </div>
               ) : (
-                <Link href={item.path} legacyBehavior>
-                  <a className="text-white text-lg hover:text-pink-500 transition-colors">
+                <Link href={item.path}>
+                  <span className="text-white hover:text-pink-500 transition-colors">
                     {item.name}
-                  </a>
+                  </span>
                 </Link>
               )}
 
-              {/* Desktop Dropdown Menu */}
-              {item.subMenu && hoveredItem === item.name && (
-                <div
-                  className="absolute top-full left-0 mt-2 w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg transition-all duration-300 origin-top"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {item.subMenu.map((subItem: SubMenuItem, idx) => (
-                    <div
-                      key={idx}
-                      className="relative"
-                      onMouseEnter={() => handleSubMenuEnter(subItem.name)}
-                      onMouseLeave={handleSubMenuLeave}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleSubMenuClick(subItem.name);
-                      }}
-                    >
-                      {/* Submenu Item */}
-                      <div className="flex items-center justify-between px-5 py-3 hover:bg-gray-800 cursor-pointer">
-                        <div className="flex items-center">
-                          <span className="mr-3">{subItem.icon}</span>
-                          <span className="text-white font-medium">
-                            {!subItem.subMenu ? (
-                              <Link
-                                href={getFormattedPath(subItem.name)}
-                                legacyBehavior
-                              >
-                                <a className="block p-3 hover:bg-gray-800 text-white font-medium">
-                                  {subItem.name}
-                                </a>
-                              </Link>
-                            ) : (
-                              <Link
-                                href={getFormattedPath(subItem.name)}
-                                legacyBehavior
-                              >
-                                <a className="block p-3 hover:bg-gray-800 text-white font-medium">
-                                  {subItem.name}
-                                </a>
-                              </Link>
-                            )}
-                          </span>
-                        </div>
-                        {subItem.subMenu && (
-                          <FaChevronRight
-                            className={`text-sm transition-transform duration-300 ${
-                              hoveredSubItem === subItem.name ? "rotate-90" : ""
-                            }`}
-                          />
-                        )}
-                      </div>
-
-                      {/* Nested Submenu */}
-                      {subItem.subMenu && hoveredSubItem === subItem.name && (
-                        <div
-                          className="absolute top-0 left-full w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg transition-all duration-300 origin-left"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          {subItem.subMenu.map(
-                            (nestedItem: string, nestedIdx: number) => (
-                              <Link
-                                key={nestedIdx}
-                                href={getFormattedPath(nestedItem)}
-                                legacyBehavior
-                              >
-                                <a className="block px-5 py-3 hover:bg-gray-800 text-white font-medium">
-                                  {nestedItem}
-                                </a>
-                              </Link>
-                            )
+              {/* Desktop Dropdown */}
+              {item.subMenu && (
+                <div className="absolute invisible group-hover:visible opacity-0 group-hover:opacity-100 top-full left-0 mt-2 w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg transition-all duration-300 origin-top">
+                  {item.subMenu.map((subItem, idx) => (
+                    <div key={idx} className="relative group/sub">
+                      <Link href={subItem.path}>
+                        <div className="flex items-center justify-between px-5 py-3 hover:bg-gray-800">
+                          <div className="flex items-center">
+                            <span className="mr-3">{subItem.icon}</span>
+                            <span className="text-white">{subItem.name}</span>
+                          </div>
+                          {subItem.subItems && (
+                            <FaChevronRight className="text-xs text-white" />
                           )}
+                        </div>
+                      </Link>
+
+                      {/* Nested Dropdown */}
+                      {subItem.subItems && (
+                        <div className="absolute invisible group-hover/sub:visible opacity-0 group-hover/sub:opacity-100 top-0 left-full ml-2 w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg transition-all duration-300">
+                          {subItem.subItems.map((nestedItem, nestedIdx) => (
+                            <Link
+                              key={nestedIdx}
+                              href={`/${nestedItem
+                                .toLowerCase()
+                                .replace(/\s+/g, "")}`}
+                            >
+                              <div className="px-5 py-3 hover:bg-gray-800 text-white">
+                                {nestedItem}
+                              </div>
+                            </Link>
+                          ))}
                         </div>
                       )}
                     </div>
@@ -336,164 +205,115 @@ const Navbar = () => {
               )}
             </div>
           ))}
-          <Link href="/contact" legacyBehavior>
-            <a className="bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md hover:shadow-pink-500/30 hover:scale-105 transition-transform duration-300">
+
+          <Link href="/contact">
+            <span className="bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md hover:shadow-pink-500/30 hover:scale-105 transition-transform duration-300">
               Get Started
-            </a>
+            </span>
           </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          onClick={handleMobileMenuToggle}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsOpen(!isOpen);
+          }}
           className="md:hidden text-white text-2xl focus:outline-none z-50"
           aria-label="Toggle Menu"
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        {/* Mobile Menu Drawer */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ duration: 0.3 }}
-              className="fixed top-0 right-0 bottom-0 w-screen h-screen bg-black flex flex-col items-center justify-center space-y-6 md:hidden z-40 overflow-auto"
-            >
-              {navItems.map((item) => (
-                <div key={item.name} className="w-4/5 max-w-xs">
-                  {item.subMenu ? (
-                    <div className="w-full">
-                      <button
-                        onClick={(e) =>
-                          handleMobileDropdownToggle(e, item.name)
-                        }
-                        className="flex items-center justify-between w-full text-white text-2xl font-semibold hover:text-pink-500 transition-colors"
-                      >
-                        <span>{item.name}</span>
-                        <FaChevronDown
-                          className={`ml-2 text-sm transition-transform duration-300 ${
-                            activeDropdown === item.name ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-
-                      {/* Mobile Dropdown */}
-                      <AnimatePresence>
-                        {activeDropdown === item.name && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="mt-2 pl-4 border-l-2 border-pink-500 space-y-3"
-                          >
-                            {item.subMenu.map((subItem, idx) => (
-                              <div key={idx}>
-                                {subItem.subMenu ? (
-                                  <div>
-                                    <button
-                                      onClick={(e) =>
-                                        handleMobileSubDropdownToggle(
-                                          e,
-                                          subItem.name
-                                        )
-                                      }
-                                      className="flex items-center justify-between w-full text-white text-lg hover:text-pink-500 transition-colors"
-                                    >
-                                      <div className="flex items-center">
-                                        <span className="mr-3">
-                                          {subItem.icon}
-                                        </span>
-                                        {/* <span>{subItem.name}11</span> */}
-                                        <Link
-                                          key={idx}
-                                          href={getFormattedPath(subItem.name)}
-                                          onClick={closeMobileMenu}
-                                          className="block py-2 text-white text-lg hover:text-pink-500 transition-colors"
-                                        >
-                                          {subItem.name}
-                                        </Link>
-                                      </div>
-                                      <FaChevronDown
-                                        className={`ml-2 text-sm transition-transform duration-300 ${
-                                          activeSubDropdown === subItem.name
-                                            ? "rotate-180"
-                                            : ""
-                                        }`}
-                                      />
-                                    </button>
-
-                                    {/* Nested Mobile Submenu */}
-                                    <AnimatePresence>
-                                      {activeSubDropdown === subItem.name && (
-                                        <motion.div
-                                          initial={{ height: 0, opacity: 0 }}
-                                          animate={{
-                                            height: "auto",
-                                            opacity: 1,
-                                          }}
-                                          exit={{ height: 0, opacity: 0 }}
-                                          transition={{ duration: 0.3 }}
-                                          className="pl-4 border-l-2 border-pink-500 space-y-2"
-                                        >
-                                          {subItem.subMenu.map(
-                                            (nestedItem, nestedIdx) => (
-                                              <Link
-                                                key={nestedIdx}
-                                                href={getFormattedPath(
-                                                  nestedItem
-                                                )}
-                                                onClick={closeMobileMenu}
-                                                className="block py-2 text-white text-lg hover:text-pink-500 transition-colors"
-                                              >
-                                                {nestedItem}
-                                              </Link>
-                                            )
-                                          )}
-                                        </motion.div>
-                                      )}
-                                    </AnimatePresence>
-                                  </div>
-                                ) : (
-                                  <Link
-                                    href={getFormattedPath(subItem.name)}
-                                    onClick={closeMobileMenu}
-                                    className="flex items-center py-2 text-white text-lg hover:text-pink-500 transition-colors"
-                                  >
-                                    <span className="mr-3">{subItem.icon}</span>
-                                    <span>{subItem.name}</span>
-                                  </Link>
-                                )}
-                              </div>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    <Link
-                      href={item.path}
-                      onClick={closeMobileMenu}
-                      className="text-white text-2xl font-semibold hover:text-pink-500 transition-colors block"
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg flex flex-col p-6 pt-20 overflow-y-auto">
+            {navItems.map((item) => (
+              <div key={item.name} className="py-2 border-b border-gray-800">
+                {item.subMenu ? (
+                  <div>
+                    <div
+                      className="flex items-center justify-between py-2"
+                      onClick={(e) => handleMenuToggle(e, item.name)}
                     >
+                      <Link href={item.path}>
+                        <span className="text-white text-lg">{item.name}</span>
+                      </Link>
+                      <FaChevronDown
+                        className={`text-white transition-transform ${
+                          activeMenu === item.name ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
+
+                    {activeMenu === item.name && (
+                      <div className="pl-4 py-2 space-y-2">
+                        {item.subMenu.map((subItem, idx) => (
+                          <div key={idx} className="py-1">
+                            <div
+                              className="flex items-center justify-between"
+                              onClick={(e) =>
+                                subItem.subItems &&
+                                handleSubMenuToggle(e, subItem.name)
+                              }
+                            >
+                              <Link href={subItem.path}>
+                                <span className="flex items-center text-gray-300">
+                                  <span className="mr-2">{subItem.icon}</span>
+                                  {subItem.name}
+                                </span>
+                              </Link>
+                              {subItem.subItems && (
+                                <FaChevronDown
+                                  className={`text-white text-xs transition-transform ${
+                                    activeSubMenu === subItem.name
+                                      ? "rotate-180"
+                                      : ""
+                                  }`}
+                                />
+                              )}
+                            </div>
+
+                            {subItem.subItems &&
+                              activeSubMenu === subItem.name && (
+                                <div className="pl-6 py-2 space-y-2">
+                                  {subItem.subItems.map(
+                                    (nestedItem, nestedIdx) => (
+                                      <Link
+                                        key={nestedIdx}
+                                        href={`/${nestedItem
+                                          .toLowerCase()
+                                          .replace(/\s+/g, "")}`}
+                                      >
+                                        <span className="block py-1 text-gray-400 hover:text-white">
+                                          {nestedItem}
+                                        </span>
+                                      </Link>
+                                    )
+                                  )}
+                                </div>
+                              )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link href={item.path}>
+                    <span className="block py-2 text-white text-lg">
                       {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-              <Link
-                href="/contact"
-                onClick={closeMobileMenu}
-                className="bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-3 rounded-full text-lg font-semibold text-white shadow-md hover:shadow-pink-500/30 transition-all duration-300 mt-4"
-              >
+                    </span>
+                  </Link>
+                )}
+              </div>
+            ))}
+            <Link href="/contact" className="mt-6">
+              <span className="block w-full bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-3 rounded-full text-center font-semibold text-white">
                 Get Started
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              </span>
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );

@@ -26,6 +26,10 @@ import {
   FaRocket,
   FaUsers,
   FaAward,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaLinkedin,
+  FaChevronRight,
 } from "react-icons/fa";
 
 import {
@@ -46,6 +50,7 @@ import {
   SiPostgresql,
 } from "react-icons/si";
 import Footer from "@/components/homepage/Footer";
+import { workStages } from "./contact";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -63,7 +68,7 @@ const staggerContainer = {
 };
 
 // Function to animate numbers
-const CountUpAnimation = ({ target }: { target: number }) => {
+export const CountUpAnimation = ({ target }: { target: number }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -109,23 +114,119 @@ const LandingPage = () => {
   });
   const [activeTab, setActiveTab] = useState("web");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [activeStage, setActiveStage] = useState(0);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Basic form validation
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.mobile ||
-      !formData.service ||
-      !formData.details
-    ) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-    console.log("Form Data:", formData); // Log form data
-    window.location.href = "/thank-you";
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStage((prevStage) => (prevStage + 1) % workStages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Form state
+  // const [formData, setFormData] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   phone: "",
+  //   budget: "",
+  //   message: "",
+  // });
+
+  // Form states
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  // Budget options
+  const budgetOptions = [
+    "Select a budget range",
+    "$1,000 - $5,000",
+    "$5,000 - $10,000",
+    "$10,000 - $25,000",
+    "$25,000 - $50,000",
+    "$50,000+",
+  ];
+
+  // Handle form changes
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
+
+  // Handle form submission
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    // Prepare template parameters for EmailJS
+    const templateParams = {
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      from_email: formData.email,
+      phone: formData.phone,
+      budget: formData.budget,
+      message: formData.message,
+      to_name: "Solvitx Team",
+    };
+
+    // Use the email config values
+    emailjs
+      .send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        templateParams,
+        emailConfig.publicKey
+      )
+      .then((response) => {
+        console.log("Email sent successfully!", response);
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          budget: "",
+          message: "",
+        });
+
+        // Reset success message after a delay
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error("Email sending failed:", error);
+        setIsSubmitting(false);
+        setSubmitError("Failed to send your message. Please try again later.");
+      });
+  };
+
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // Basic form validation
+  //   if (
+  //     !formData.name ||
+  //     !formData.email ||
+  //     !formData.mobile ||
+  //     !formData.service ||
+  //     !formData.details
+  //   ) {
+  //     alert("Please fill in all required fields.");
+  //     return;
+  //   }
+  //   console.log("Form Data:", formData); // Log form data
+  //   window.location.href = "/thank-you";
+  // };
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -171,33 +272,9 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
       {/* Floating Social Media Links */}
-      <div className="fixed right-4 md:right-6 bottom-4 md:bottom-6 z-[100] flex flex-col gap-3">
-        <motion.a
-          href="https://wa.me/YOUR_WHATSAPP_NUMBER"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.15, rotate: 5 }}
-          whileTap={{ scale: 0.9 }}
-          className="bg-green-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:bg-green-600 transition-all"
-          aria-label="Chat on WhatsApp"
-        >
-          <FaWhatsapp size={20} />
-        </motion.a>
-        <motion.a
-          href="https://instagram.com/YOUR_INSTAGRAM"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.15, rotate: -5 }}
-          whileTap={{ scale: 0.9 }}
-          className="bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:shadow-2xl transition-all"
-          aria-label="Visit our Instagram"
-        >
-          <FaInstagram size={20} />
-        </motion.a>
-      </div>
 
       {/* Header/Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-[90] bg-white/80 backdrop-blur-md shadow-lg">
+      {/* <nav className="fixed top-0 left-0 right-0 z-[90] bg-white/80 backdrop-blur-md shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
             <Link
@@ -232,7 +309,7 @@ const LandingPage = () => {
             </a>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hero Section - White */}
       <section className="pt-32 md:pt-40 pb-20 md:pb-28 bg-white relative overflow-hidden">
@@ -1241,224 +1318,323 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      <section id="contact-form" className="bg-black py-20 px-4">
+        <div className="container mx-auto">
+          {/* Contact Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-xl">
+              {submitSuccess && (
+                <div className="bg-green-600/20 border border-green-600 text-green-100 px-4 py-3 rounded-lg mb-6 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span>
+                    Thank you! Your message has been sent successfully.
+                  </span>
+                </div>
+              )}
 
-      {/* Enhanced Quote Form Section (Contact) - White, more prominent */}
-      <section
-        id="contact"
-        className="py-20 md:py-28 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white"
-      >
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.2 }}
-            className="max-w-4xl mx-auto text-center mb-12"
-          >
-            <span className="text-sm font-semibold text-white/80 uppercase tracking-wider mb-2 block">
-              Let's Connect
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">
-              Ready to Elevate Your Business?
-            </h2>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Tell us about your vision. We're excited to learn about your
-              project and discuss how Solvitx can turn your ideas into digital
-              reality. Fill out the form below or call us directly.
-            </p>
-          </motion.div>
+              {submitError && (
+                <div className="bg-red-600/20 border border-red-600 text-red-100 px-4 py-3 rounded-lg mb-6 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span>{submitError}</span>
+                </div>
+              )}
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.2 }}
-            className="max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl"
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label
+                      className="block text-gray-300 mb-2"
+                      htmlFor="firstName"
+                    >
+                      First Name
+                    </label>
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="John"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      className="block text-gray-300 mb-2"
+                      htmlFor="lastName"
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="Doe"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label className="block text-gray-300 mb-2" htmlFor="email">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-300 mb-2" htmlFor="phone">
+                      Phone Number
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="+1 (234) 567-8900"
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <label className="block text-gray-300 mb-2" htmlFor="budget">
+                    Project Budget
+                  </label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    {budgetOptions.map((option, index) => (
+                      <option key={index} value={option} disabled={index === 0}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mb-6">
+                  <label className="block text-gray-300 mb-2" htmlFor="message">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="Tell us about your project and requirements..."
+                  ></textarea>
+                </div>
+
+                <div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all ${
+                      isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center">
+                        <svg
+                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Sending...
+                      </span>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
+            {/* About Solvitx */}
+            <div className="mb-16 relative">
+              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-600 to-pink-600"></div>
+              <h3 className="text-3xl font-bold text-white mb-6">
+                About Solvitx
+              </h3>
+
+              <div className="text-gray-300 space-y-6">
+                <p>
+                  We&apos;re not just another tech company. At Solvitx, we
+                  combine creativity, technical expertise, and business acumen
+                  to create digital solutions that make a real difference.
+                </p>
+
+                {/* Animated Stages of Work showcase */}
+                <div className="relative h-60 w-full overflow-hidden rounded-xl shadow-xl">
+                  {/* Animated background */}
+                  <motion.div
+                    key={activeStage}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className={`absolute inset-0 bg-gradient-to-br ${workStages[activeStage].color}`}
+                  />
+
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                    <motion.div
+                      key={`icon-${activeStage}`}
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.8, opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4"
+                    >
+                      {workStages[activeStage].icon}
+                    </motion.div>
+
+                    <motion.h4
+                      key={`title-${activeStage}`}
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -20, opacity: 0 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      className="text-2xl font-bold text-white mb-2"
+                    >
+                      {workStages[activeStage].title}
+                    </motion.h4>
+
+                    <motion.p
+                      key={`desc-${activeStage}`}
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -20, opacity: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className="text-white/90 max-w-md"
+                    >
+                      {workStages[activeStage].description}
+                    </motion.p>
+                  </div>
+
+                  {/* Stage indicators */}
+                  <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                    {workStages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveStage(index)}
+                        className={`w-2 h-2 rounded-full transition-all ${
+                          activeStage === index ? "bg-white w-6" : "bg-white/50"
+                        }`}
+                        aria-label={`Go to stage ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <p>
+                  Since our founding, we have helped businesses of all sizes
+                  transform their digital presence and build products that their
+                  users love.
+                </p>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="mb-10">
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Connect With Us
+              </h3>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="name_contact"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name_contact"
-                    name="name"
-                    onChange={handleInputChange}
-                    value={formData.name}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
-                    placeholder="e.g., Jane Doe"
-                  />
+                <div className="flex items-start space-x-4">
+                  <div className="mt-1 bg-gray-800 p-3 rounded-full">
+                    <FaMapMarkerAlt className="text-purple-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium">Location</h4>
+                    <p className="text-gray-400">Jaipur, Rajasthan 302003</p>
+                  </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="company_contact"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="company_contact"
-                    name="company"
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
-                    placeholder="e.g., Innovate Corp"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email_contact"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email_contact"
-                    name="email"
-                    onChange={handleInputChange}
-                    value={formData.email}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
-                    placeholder="you@example.com"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="mobile_contact"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    id="mobile_contact"
-                    name="mobile"
-                    onChange={handleInputChange}
-                    value={formData.mobile}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-              </div>
 
-              <div>
-                <label
-                  htmlFor="service_contact"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Service Interested In *
-                </label>
-                <select
-                  id="service_contact"
-                  name="service"
-                  onChange={handleInputChange}
-                  value={formData.service}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all appearance-none bg-white"
-                >
-                  <option value="" className="text-gray-500">
-                    Select a service...
-                  </option>
-                  <option value="web-development">Web Development</option>
-                  <option value="digital-marketing">Digital Marketing</option>
-                  <option value="app-development">App Development</option>
-                  <option value="seo-optimization">SEO Optimization</option>
-                  <option value="ui-ux-design">UI/UX Design</option>
-                  <option value="custom-software">Custom Software</option>
-                  <option value="consulting">Consulting</option>
-                  <option value="other">Other</option>
-                </select>
+                <div className="flex items-start space-x-4">
+                  <div className="mt-1 bg-gray-800 p-3 rounded-full">
+                    <FaEnvelope className="text-purple-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium">Email</h4>
+                    <p className="text-gray-400">
+                      {/* solvitxsolutions@gmail.com{" "} */}
+                      <a href="mailto:solvitxsolutions@gmail.com">
+                        solvitxsolutions@gmail.com
+                      </a>
+                      <br />
+                      {/* support@solvitx.com */}
+                    </p>
+                  </div>
+                </div>
               </div>
+            </div>
 
-              <div>
-                <label
-                  htmlFor="details_contact"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Project Details *
-                </label>
-                <textarea
-                  id="details_contact"
-                  name="details"
-                  onChange={handleInputChange}
-                  value={formData.details}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
-                  placeholder="Briefly describe your project, goals, and any specific requirements..."
-                ></textarea>
-              </div>
-
-              <div className="text-center">
-                <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0px 10px 25px -5px rgba(0,0,0,0.3)",
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  className="bg-gradient-to-r from-pink-500 to-orange-500 text-white px-10 py-4 rounded-full font-semibold text-lg hover:from-pink-600 hover:to-orange-600 transition-all duration-300 shadow-lg"
-                >
-                  Send Your Inquiry
-                </motion.button>
-              </div>
-            </form>
-          </motion.div>
+            {/* Social Media Links */}
+          </div>
         </div>
       </section>
 
-      {/* Footer Section */}
-      {/* <footer className="bg-gray-900 text-gray-400 py-12">
-        <div className="container mx-auto px-4 text-center">
-          <Link
-            href="/"
-            className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4 inline-block"
-          >
-            Solvitx
-          </Link>
-          <p className="mb-4 text-sm">
-            Crafting Digital Excellence. Your Partner in Innovation.
-          </p>
-          <div className="flex justify-center space-x-6 mb-6">
-            <a
-              href="https://wa.me/YOUR_WHATSAPP_NUMBER"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-400 transition-colors"
-            >
-              <FaWhatsapp size={22} />
-            </a>
-            <a
-              href="https://instagram.com/YOUR_INSTAGRAM"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-400 transition-colors"
-            >
-              <FaInstagram size={22} />
-            </a>
-          </div>
-          <p className="text-xs">
-            &copy; {new Date().getFullYear()} Solvitx. All Rights Reserved.
-          </p>
-          <p className="text-xs mt-1">
-            <Link href="/privacy-policy" className="hover:text-white">
-              Privacy Policy
-            </Link>{" "}
-            |{" "}
-            <Link href="/terms-of-service" className="hover:text-white">
-              Terms of Service
-            </Link>
-          </p>
-        </div>
-      </footer> */}
       <Footer />
     </div>
   );

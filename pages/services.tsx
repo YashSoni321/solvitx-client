@@ -11,15 +11,18 @@ import {
   FaSearch,
   FaDesktop,
 } from "react-icons/fa";
+import { useRouter } from "next/router";
+import { link } from "fs";
+import DescSection from "@/components/webdevelopment/DescSection";
 
 // Service Data
 const services = [
   {
     icon: <FaLightbulb className="text-5xl text-yellow-400" />,
     title: "Digital Strategy",
-    link: "/",
+    link: "digitalmarketing",
     description:
-      "We develop comprehensive digital strategies that align with your business goals and help you achieve sustainable growth.",
+      "The world is pacing fast towards digitalization- this is your moment to lead the digital space. We merge cutting-edge digital strategies with time-tested business school marketing principles to build and run campaigns that not only reach out to the right audiences but resonate with them. ",
     color: "from-yellow-400 to-orange-500",
   },
   {
@@ -33,30 +36,35 @@ const services = [
   {
     icon: <FaMobile className="text-5xl text-green-400" />,
     title: "Mobile Development",
-    link: "/webdevelopment",
+    link: "/appdevelopment",
     description:
-      "Native and cross-platform mobile applications that engage users and provide seamless experiences across all devices.",
+      "Whether you're launching the next big social app or need a sleek enterprise tool — we bring your idea to life across various iOS, Android, and cross-platform frameworks. ",
     color: "from-green-400 to-emerald-600",
   },
   {
     icon: <FaDatabase className="text-5xl text-purple-400" />,
-    title: "Cloud Solutions",
-    description:
-      "Scalable, secure cloud infrastructure and migration services to optimize your operations and reduce costs.",
+    title: "API Development",
+    link: "/apidevelopment",
+    description: `Are you a startup, SaaS provider or an enterprise looking to build a smooth communication between your platform and the users?
+We can help you build strong backend APIs and smooth integrations tailored to your exact business needs.
+`,
     color: "from-purple-400 to-violet-600",
   },
   {
     icon: <FaSearch className="text-5xl text-red-400" />,
     title: "SEO & Marketing",
+    link: "/seoservices",
     description:
-      "Data-driven digital marketing strategies that increase your visibility, drive traffic, and convert visitors into customers.",
+      "From SEO to social media and ad campaigns, we build digital stratagems that don’t just show up — they cut through the noisy crowd and stand out among them.",
     color: "from-red-400 to-rose-600",
   },
   {
     icon: <FaDesktop className="text-5xl text-teal-400" />,
     title: "UI/UX Design",
-    description:
-      "User-centered design that combines aesthetics with functionality to create intuitive and engaging digital experiences.",
+    link: "/uiuxdesign",
+    description: `A brand's identity is hidden in its sleek and conversion driven designs.
+It is not all about the pretty appearance, the secret lies in the seamless usability that brings real results.
+`,
     color: "from-teal-400 to-cyan-600",
   },
 ];
@@ -86,6 +94,7 @@ const fadeInUp = {
 
 export default function Services() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const router = useRouter();
 
   return (
     <>
@@ -137,7 +146,7 @@ export default function Services() {
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* <div className="absolute inset-0 overflow-hidden">
           {[...Array(15)].map((_, i) => (
             <motion.div
               key={i}
@@ -159,7 +168,7 @@ export default function Services() {
               }}
             />
           ))}
-        </div>
+        </div> */}
 
         {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-6 text-center">
@@ -229,21 +238,22 @@ export default function Services() {
             className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20"
           >
             <h2 className="text-5xl lg:text-7xl font-extrabold text-white leading-tight">
-              Our <br />
+              Service <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                Services
+                Overview
               </span>
             </h2>
             <div className="max-w-2xl">
               <p className="text-xl lg:text-2xl text-gray-200 mb-6">
-                We provide end-to-end technology solutions tailored to your
-                specific needs, helping you navigate the digital landscape with
-                confidence.
+                We’re not here to just check boxes and wait for results to pop
+                up magically. We’re here to <b>solve real world problems</b>, to
+                amplify your brand, and make your <b>digital presence </b>{" "}
+                undeniably memorable.
               </p>
               <p className="text-gray-400">
-                Each service is delivered with a commitment to quality,
-                innovation, and measurable results that propel your business
-                forward.
+                Whether you’re a startup looking towards building a presence or
+                an enterprise expanding your reach to the globe stage — Solvitx
+                is here to support every such bold move.
               </p>
             </div>
           </motion.div>
@@ -254,7 +264,7 @@ export default function Services() {
       <div className="bg-black py-16 px-4">
         <motion.div
           variants={staggerContainer}
-          initial="hidden"
+          // initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -287,6 +297,7 @@ export default function Services() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => router.push(service.link)}
                 className={`relative mt-4 inline-flex items-center text-sm font-semibold bg-gradient-to-r ${service.color} text-white px-5 py-2 rounded-full`}
               >
                 Learn More
@@ -309,6 +320,19 @@ export default function Services() {
         </motion.div>
       </div>
 
+      <DescSection
+        heading="Why Our Services Work"
+        image="/images/services/WebDevelopment.jpg"
+        title="People don't buy what you do; they buy why you do it. And what you do simply proves what you believe.” — Simon Sinek"
+        content={`And at Solvitx, we focus on your WHY, collaborate with you on your HOW, and help you successfully achieve your WHAT.
+        We start with your goals — not our process.
+        Our customized services bring out your own brand voice.
+        We focus on fast, agile, and fully collaborative projects.
+        You're not a "client" — you're a co-creator in the journey.
+       `}
+        position="left"
+      />
+
       {/* CTA Section */}
       <div className="bg-gradient-to-t from-gray-900 to-black py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">
@@ -319,7 +343,8 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-white mb-6"
           >
-            Ready to transform your digital presence?
+            You Know What You Want. <br />
+            We Know How to Build It.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -328,8 +353,7 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto"
           >
-            Let's discuss how our services can be tailored to meet your specific
-            business needs and objectives.
+            Let’s start your project with a conversation.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -341,16 +365,18 @@ export default function Services() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => router.push("/contact")}
               className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              Schedule a Consultation
+              Book a Free Discovery Call
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => router.push("/about")}
               className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
             >
-              View Our Portfolio
+              Or Explore Our Portfolio
             </motion.button>
           </motion.div>
         </div>

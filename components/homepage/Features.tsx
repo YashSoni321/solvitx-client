@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SectionHeading from "../common/SectionHeading";
 
 const features = [
   {
@@ -52,9 +53,7 @@ const Features = () => {
           viewport={{ once: true }}
           className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20"
         >
-          <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white">
-            FEATURES
-          </h1>
+          <SectionHeading title="FEATURES" theme="gradient" titleSize="large" />
           <div className="max-w-2xl space-y-5">
             <p className="text-2xl font-light text-white/90">
               We let our work speak for itself — transforming ideas into

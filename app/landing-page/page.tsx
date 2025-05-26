@@ -7,6 +7,8 @@ import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import emailjs from "@emailjs/browser";
+import { emailConfig } from "@/config/emailConfig";
 
 // Import icons
 import {
@@ -109,6 +111,11 @@ const LandingPage = () => {
   const [activeTab, setActiveTab] = useState("web");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
+  // Add form states
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Basic form validation
@@ -122,8 +129,51 @@ const LandingPage = () => {
       alert("Please fill in all required fields.");
       return;
     }
-    console.log("Form Data:", formData); // Log form data
-    window.location.href = "/thank-you";
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    // Prepare template parameters for EmailJS
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: formData.mobile,
+      service: formData.service,
+      message: formData.details,
+      to_name: "Solvitx Team",
+    };
+
+    // Use EmailJS to send the email
+    emailjs
+      .send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        templateParams,
+        emailConfig.publicKey
+      )
+      .then((response) => {
+        console.log("Email sent successfully!", response);
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        setFormData({
+          name: "",
+          mobile: "",
+          email: "",
+          service: "",
+          details: "",
+        });
+
+        // Reset success message after a delay and redirect
+        setTimeout(() => {
+          setSubmitSuccess(false);
+          window.location.href = "/thank-you";
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error("Email sending failed:", error);
+        setIsSubmitting(false);
+        setSubmitError("Failed to send your message. Please try again later.");
+      });
   };
 
   const handleInputChange = (
@@ -1267,6 +1317,45 @@ const LandingPage = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl"
           >
+            {submitSuccess && (
+              <div className="bg-green-50 border border-green-500 text-green-700 px-4 py-3 rounded-lg mb-6 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mr-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Thank you! Your message has been sent successfully.
+                  Redirecting you shortly...
+                </span>
+              </div>
+            )}
+
+            {submitError && (
+              <div className="bg-red-50 border border-red-500 text-red-700 px-4 py-3 rounded-lg mb-6 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mr-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>{submitError}</span>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -1389,18 +1478,42 @@ const LandingPage = () => {
                 ></textarea>
               </div>
 
-              <div className="text-center">
-                <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0px 10px 25px -5px rgba(0,0,0,0.3)",
-                  }}
-                  whileTap={{ scale: 0.98 }}
+              <div className="mt-8">
+                <button
                   type="submit"
-                  className="bg-gradient-to-r from-pink-500 to-orange-500 text-white px-10 py-4 rounded-full font-semibold text-lg hover:from-pink-600 hover:to-orange-600 transition-all duration-300 shadow-lg"
+                  disabled={isSubmitting}
+                  className={`w-full bg-gradient-to-r from-pink-500 to-orange-500 text-white py-4 rounded-xl font-bold text-lg hover:from-pink-600 hover:to-orange-600 transition-all duration-300 transform hover:translate-y-[-2px] ${
+                    isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
                 >
-                  Send Your Inquiry
-                </motion.button>
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    "Submit Request"
+                  )}
+                </button>
               </div>
             </form>
           </motion.div>

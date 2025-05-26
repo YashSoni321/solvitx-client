@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import router from "next/router";
 
 // Fallback illustrations for each stage (colored gradients when icons not available)
 const stageColors = [
@@ -13,12 +14,14 @@ type BriefingCardProps = {
   index: number;
   title: string;
   desc: string;
+  link: string;
 };
 
 export default function BriefingCard({
   index,
   title,
   desc,
+  link,
 }: BriefingCardProps) {
   // Generate gradient patterns if images don't exist
   const generatePattern = (index: number) => {
@@ -122,13 +125,14 @@ export default function BriefingCard({
           <p className="text-lg text-gray-200 leading-relaxed">{desc}</p>
 
           <motion.button
+            onClick={() => router.push(link)}
             whileHover={{ x: 5 }}
             className="mt-6 flex items-center text-purple-400 text-sm group"
           >
             Learn more
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
+              className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform hover:cursor-crosshair"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

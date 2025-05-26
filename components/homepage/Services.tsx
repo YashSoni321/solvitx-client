@@ -18,6 +18,7 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 import Image from "next/image";
+import SectionHeading from "../common/SectionHeading";
 
 // Enhanced service data with icons and more details
 const services = [
@@ -115,15 +116,15 @@ const Services = () => {
   const servicesOpacity = useTransform(smoothProgress, [0.2, 0.4], [0, 1]);
 
   // Automatic rotation if no user interaction
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (hoveringItem === null) {
-        setActiveService((prev) => (prev + 1) % services.length);
-      }
-    }, 5000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (hoveringItem === null) {
+  //       setActiveService((prev) => (prev + 1) % services.length);
+  //     }
+  //   }, 5000);
 
-    return () => clearInterval(interval);
-  }, [hoveringItem]);
+  //   return () => clearInterval(interval);
+  // }, [hoveringItem]);
 
   // Background particles
   const particleCount = 30;
@@ -148,42 +149,48 @@ const Services = () => {
           <motion.div
             key={particle.id}
             className="absolute rounded-full bg-white"
-            style={{
-              x: `${particle.x}%`,
-              y: `${particle.y}%`,
-              width: `${particle.size}px`,
-              height: `${particle.size}px`,
-              opacity: particle.opacity,
-            }}
-            animate={{
-              x: [`${particle.x}%`, `${particle.x + particle.speedX * 100}%`],
-              y: [`${particle.y}%`, `${particle.y + particle.speedY * 100}%`],
-            }}
-            transition={{
-              duration: 15 + (particle.id % 10),
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "linear",
-            }}
+            // style={{
+            //   x: `${particle.x}%`,
+            //   y: `${particle.y}%`,
+            //   width: `${particle.size}px`,
+            //   height: `${particle.size}px`,
+            //   opacity: particle.opacity,
+            // }}
+            // animate={{
+            //   x: [`${particle.x}%`, `${particle.x + particle.speedX * 100}%`],
+            //   y: [`${particle.y}%`, `${particle.y + particle.speedY * 100}%`],
+            // }}
+            // transition={{
+            //   duration: 15 + (particle.id % 10),
+            //   repeat: Infinity,
+            //   repeatType: "reverse",
+            //   ease: "linear",
+            // }}
           />
         ))}
       </div>
 
       {/* Header - "GROW SERVICES" */}
       <motion.div
-        style={{ y: headerY, opacity: headerOpacity }}
+        // style={{ y: headerY, o }}
         className="container mx-auto px-4 mb-20"
       >
         <div className="text-center">
-          <motion.h2
+          {/* <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             className="inline-block text-7xl md:text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500 mb-8 tracking-tighter"
           >
             SERVICES
-          </motion.h2>
-          <motion.p
+          </motion.h2> */}
+          <SectionHeading
+            title="Services"
+            description="We Bring Tech + Strategy Together, Seamlessly, building solutions that create an impact"
+            theme="gradient"
+            titleSize="large"
+          />
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -191,7 +198,7 @@ const Services = () => {
           >
             We Bring Tech + Strategy Together, Seamlessly, building solutions
             that create an impact
-          </motion.p>
+          </motion.p> */}
         </div>
       </motion.div>
 
@@ -202,11 +209,13 @@ const Services = () => {
       >
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Service Navigation */}
+
           <div className="lg:col-span-2">
             <div className="sticky top-32">
-              <h3 className="text-2xl text-white mb-8 font-bold">
+              {/* <h3 className="text-2xl text-white mb-8 font-bold">
                 Our Expertise
-              </h3>
+              </h3> */}
+
               <div className="space-y-6">
                 {services.map((service, index) => (
                   <motion.div
@@ -214,7 +223,7 @@ const Services = () => {
                     onClick={() => setActiveService(index)}
                     onMouseEnter={() => setHoveringItem(index)}
                     onMouseLeave={() => setHoveringItem(null)}
-                    className={`cursor-pointer p-6 rounded-xl transition-all duration-500 ${
+                    className={`cursor-pointer p-6 rounded-xl transition-all duration-400 ${
                       activeService === index
                         ? `bg-gradient-to-r ${service.color} shadow-lg shadow-${
                             service.color.split(" ")[0]
@@ -280,7 +289,7 @@ const Services = () => {
 
           {/* Service Showcase */}
           <div className="lg:col-span-3" ref={galleryRef}>
-            <div className="relative h-[600px] rounded-2xl overflow-hidden">
+            <div className="relative h-[500px] rounded-2xl overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeService}
@@ -377,10 +386,10 @@ const Services = () => {
         className="container mx-auto px-4 mt-32 text-center"
       >
         <div className="max-w-3xl mx-auto">
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to turn your vision into reality?
-          </h3>
-          <p className="text-gray-300 mb-8">
+          </h2>
+          <p className="text-gray-300 mb-8 text-lg">
             Let’s build something powerful— together.
           </p>
           <motion.button
@@ -390,7 +399,7 @@ const Services = () => {
           >
             Get in Touch →
           </motion.button>
-          <p className="text-gray-300 mb-8 mt-5">
+          <p className="text-gray-300 mb-8 text-lg mt-5">
             or scroll down to explore our services
           </p>
         </div>

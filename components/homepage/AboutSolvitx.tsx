@@ -1,5 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
+import SectionHeading from "../common/SectionHeading";
+import SectionContent from "../common/SectionContent";
+// import LogoImage from "../../public/images/solvitx.png";
+import LogoImage from "../../public/images/solvitx.png";
+import Image from "next/image";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -58,38 +63,38 @@ export default function HeroSection() {
     <div className="container mx-auto px-1 py-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+          className="grid grid-cols-2 md:grid-cols-2 gap-8 items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ amount: 0.3 }} // Removed 'once: true' so it animates every time
         >
-          <motion.div
+          {/* <motion.div
             variants={fadeInUp}
             className="text-6xl md:text-8xl text-start font-bold leading-tight"
           >
             <p>Solvitx</p>
-          </motion.div>
+          </motion.div> */}
+          {/* <SectionHeading
+            title="Solvitx"
+            // description="We Solve IT problems. With Expertise. That’s the SolvitX way."
+            // theme="gradient"
+            titleSize="large"
+          /> */}
+          <Image src={LogoImage} alt="Solvitx" width={350} height={200} />
 
           <motion.div variants={fadeInUp} className="my-4">
-            <p className="tracking-wide text-base/8 md:text-5xl font-bold word-spacing-2">
+            <p className="tracking-wide text-base/8 md:text-3xl font-bold word-spacing-2">
               We Solve IT problems. With Expertise. That’s the SolvitX way.
             </p>
 
-            <motion.div
-              variants={fadeIn}
-              className="mt-6 flex md:text-xl flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-gray-500"
-            >
-              <p>
+            <SectionContent>
+              <p className="text-gray-500 text-xl">
                 At SolvitX, we don’t just build websites, apps, and campaigns —
                 we create possibilities. With 10+ years of experience in web
                 development, app development and digital marketing, we
                 strategize your ideas into a complete product.
               </p>
-              <p>
-                Witness the perfect blend of cutting-edge development and sharp
-                marketing tactics with us in this digital era.
-              </p>
-            </motion.div>
+            </SectionContent>
           </motion.div>
         </motion.div>
 
