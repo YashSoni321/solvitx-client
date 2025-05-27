@@ -172,15 +172,18 @@ const LandingPage = () => {
 
     // Prepare template parameters for EmailJS
     const templateParams = {
-      from_name: `${formData.firstName} ${formData.lastName}`,
+      from_name: `${formData.firstName} ${formData.lastName} ${formData?.name}`,
       from_email: formData.email,
       phone: formData.phone,
       budget: formData.budget,
       message: formData.message,
       to_name: "Solvitx Team",
     };
+    console.log("templateParams", templateParams);
 
     // Use the email config values
+    console.log("emailConfig", emailConfig);
+
     emailjs
       .send(
         emailConfig.serviceId,
@@ -236,6 +239,8 @@ const LandingPage = () => {
     >
   ) => {
     const { name, value } = e.target;
+    console.log(`Input changed: ${name} = ${value}`); // Log input changes
+
     setFormData((prev: any) => ({ ...prev, [name]: value }));
   };
 
@@ -474,10 +479,10 @@ const LandingPage = () => {
                   <input
                     id="mobile_about"
                     type="tel"
-                    name="mobile"
+                    name="phone"
                     placeholder="Mobile Number *"
                     onChange={handleInputChange}
-                    value={formData.mobile}
+                    value={formData.phone}
                     className="w-full p-3.5 bg-white/10 text-white placeholder-gray-300 border border-white/20 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all"
                     required
                   />
@@ -503,9 +508,9 @@ const LandingPage = () => {
                   </label>
                   <select
                     id="service_about"
-                    name="service"
+                    name="budget"
                     onChange={handleInputChange}
-                    value={formData.service}
+                    value={formData.budget}
                     className="w-full p-3.5 bg-white/10 text-white border border-white/20 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all appearance-none"
                     required
                   >
@@ -538,11 +543,11 @@ const LandingPage = () => {
                   </label>
                   <textarea
                     id="details_about"
-                    name="details"
+                    name="message"
                     placeholder="Tell us about your project... *"
                     rows={3}
                     onChange={handleInputChange}
-                    value={formData.details}
+                    value={formData.message}
                     className="w-full p-3.5 bg-white/10 text-white placeholder-gray-300 border border-white/20 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all"
                     required
                   ></textarea>
