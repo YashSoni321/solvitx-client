@@ -21,24 +21,29 @@ const services = [
     icon: <FaLightbulb className="text-5xl text-yellow-400" />,
     title: "Digital Strategy",
     link: "digitalmarketing",
-    description:
-      "The world is pacing fast towards digitalization- this is your moment to lead the digital space. We merge cutting-edge digital strategies with time-tested business school marketing principles to build and run campaigns that not only reach out to the right audiences but resonate with them. ",
+    description: `The world is pacing fast towards digitalization- this is your moment to lead the digital space. We merge cutting-edge digital strategies with time-tested business school marketing principles to build and run campaigns that not only reach out to the right audiences but resonate with them. 
+From SEO to social media and ad campaigns, we build digital stratagems that don’t just show up — they cut through the noisy crowd and stand out among them.
+`,
     color: "from-yellow-400 to-orange-500",
   },
   {
     icon: <FaCode className="text-5xl text-blue-400" />,
     title: "Web Development",
     link: "/webdevelopment",
-    description:
-      "Custom, responsive, and scalable web applications built with modern technologies that deliver exceptional user experiences.",
+    description: `Your website is your digital image, your portfolio, and your first impression—so we make sure it feels bold, fast, and impactful. 
+Our expertise will help you manage full-scale eCommerce systems with high performance code and user friendly designs. 
+This is time to turn your ideas into a powerful online presence with precision and purpose. 
+`,
     color: "from-blue-400 to-indigo-600",
   },
   {
     icon: <FaMobile className="text-5xl text-green-400" />,
     title: "Mobile Development",
     link: "/appdevelopment",
-    description:
-      "Whether you're launching the next big social app or need a sleek enterprise tool — we bring your idea to life across various iOS, Android, and cross-platform frameworks. ",
+    description: ` Whether you're launching the next big social app or need a sleek enterprise tool — we bring your idea to life across various iOS, Android, and cross-platform frameworks. 
+Our apps are built on strategy, functionality and a flawless user experience, to develop custom mobile and web apps.
+
+      `,
     color: "from-green-400 to-emerald-600",
   },
   {
@@ -47,6 +52,7 @@ const services = [
     link: "/apidevelopment",
     description: `Are you a startup, SaaS provider or an enterprise looking to build a smooth communication between your platform and the users?
 We can help you build strong backend APIs and smooth integrations tailored to your exact business needs.
+
 `,
     color: "from-purple-400 to-violet-600",
   },
@@ -54,8 +60,9 @@ We can help you build strong backend APIs and smooth integrations tailored to yo
     icon: <FaSearch className="text-5xl text-red-400" />,
     title: "SEO & Marketing",
     link: "/seoservices",
-    description:
-      "From SEO to social media and ad campaigns, we build digital stratagems that don’t just show up — they cut through the noisy crowd and stand out among them.",
+    description: `The world is pacing fast towards digitalization- this is your moment to lead the digital space. We merge cutting-edge digital strategies with time-tested business school marketing principles to build and run campaigns that not only reach out to the right audiences but resonate with them. 
+From SEO to social media and ad campaigns, we build digital stratagems that don’t just show up — they cut through the noisy crowd and stand out among them.
+`,
     color: "from-red-400 to-rose-600",
   },
   {
@@ -63,7 +70,9 @@ We can help you build strong backend APIs and smooth integrations tailored to yo
     title: "UI/UX Design",
     link: "/uiuxdesign",
     description: `A brand's identity is hidden in its sleek and conversion driven designs.
-It is not all about the pretty appearance, the secret lies in the seamless usability that brings real results.
+It is not all about the pretty appearance, the secret lies in the seamless usability that brings real results. 
+Whether it is for your websites or apps or even SaaS platforms, we focus on strategy and user-first designs.
+
 `,
     color: "from-teal-400 to-cyan-600",
   },
@@ -119,7 +128,7 @@ export default function Services() {
       </Head>
 
       {/* Hero Section */}
-      <div className="relative h-[50vh] w-full overflow-hidden">
+      <div className="relative h-[70vh] w-full overflow-hidden">
         {/* Background with Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900 via-indigo-900 to-blue-900">
           <div className="absolute inset-0 opacity-20">
@@ -179,9 +188,8 @@ export default function Services() {
             className="text-3xl md:text-5xl font-bold leading-tight max-w-4xl"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
-              Transforming Ideas
+              This Is Your Opportunity To Lead The Digital Space
             </span>
-            <br /> into Digital Reality
           </motion.h1>
 
           <motion.p
@@ -190,8 +198,8 @@ export default function Services() {
             transition={{ duration: 1, delay: 0.3 }}
             className="mt-4 max-w-2xl text-sm md:text-base text-gray-200"
           >
-            Comprehensive technology solutions crafted with expertise and
-            innovation to drive your business forward
+            <br /> into Digital Reality We don’t offer ‘services’ - we deliver
+            impact — across tech, marketing, and your brand.
           </motion.p>
 
           <motion.button
@@ -202,7 +210,7 @@ export default function Services() {
             whileTap={{ scale: 0.95 }}
             className="mt-6 px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full text-sm md:text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            Discuss Your Project
+            Request for a free consultation →
           </motion.button>
         </div>
 

@@ -88,6 +88,13 @@ const OurWorks = () => {
         // viewport={{ amount: 0.3 }}
         className=""
       >
+        <SectionHeading
+          title="Our Works"
+          description="We let our work speak for itself. Explore our portfolio to see how we turn ideas into results, creativity into impact, and vision into awards."
+          theme="dark"
+          // alignment="left"
+          titleSize="large"
+        />
         <div className=" grid container mx-auto grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* <motion.div
             // variants={fadeInUp}
@@ -95,15 +102,15 @@ const OurWorks = () => {
           >
             <p>Our Works</p>
           </motion.div> */}
-          <SectionHeading
+          {/* <SectionHeading
             title="Our Works"
-            // description="We let our work speak for itself. Explore our portfolio to see how we turn ideas into results, creativity into impact, and vision into awards."
+            description="We let our work speak for itself. Explore our portfolio to see how we turn ideas into results, creativity into impact, and vision into awards."
             theme="dark"
-            alignment="left"
+            // alignment="left"
             titleSize="large"
-          />
+          /> */}
 
-          <motion.div variants={fadeInUp} className="">
+          {/* <motion.div variants={fadeInUp} className="">
             <p className="tracking-wide text-base/8 md:text-3xl font-bold word-spacing-2">
               We let our work speak for itself. Explore our portfolio{" "}
               <span className="text-gray-500 text-xl">
@@ -111,8 +118,8 @@ const OurWorks = () => {
                 and vision into awards.
               </span>
             </p>
-            {/* <SectionContent></SectionContent> */}
-          </motion.div>
+            {/* <SectionContent></SectionContent> 
+          </motion.div> */}
         </div>
       </motion.div>
 

@@ -46,25 +46,14 @@ const Features = () => {
     <div className="bg-black text-white w-full py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20"
-        >
-          <SectionHeading title="FEATURES" theme="gradient" titleSize="large" />
-          <div className="max-w-2xl space-y-5">
-            <p className="text-2xl font-light text-white/90">
-              We let our work speak for itself — transforming ideas into
-              results, and creativity into impact.
-            </p>
-            <p className="text-md text-gray-400">
-              Our goal is to design experiences that inspire people, spark
-              emotion, and create lasting value.
-            </p>
-          </div>
-        </motion.div>
+        <SectionHeading
+          title="FEATURES"
+          description=" We let our work speak for itself — transforming ideas into
+              results, and creativity into impact. Our goal is to design experiences that inspire people, spark
+              emotion, and create lasting value."
+          theme="gradient"
+          titleSize="large"
+        />
 
         {/* Feature Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

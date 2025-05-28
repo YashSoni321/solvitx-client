@@ -50,14 +50,6 @@ const founders = [
     quote:
       "Technology should solve real problems, not create new ones. Our mission is to deliver solutions that make a tangible difference.",
   },
-  {
-    name: "Yash Mittal",
-    role: "Co-Founder & CTO",
-    image: "/images/user.jpg", // Replace with Pratham's image
-    bio: "A technical mastermind with deep expertise in emerging technologies. Pratham leads our development team with a focus on innovation, scalability, and performance, ensuring our clients stay ahead of the technological curve.",
-    quote:
-      "We build with tomorrow in mind - creating solutions that don't just work today, but evolve with your business.",
-  },
 ];
 
 // Process steps
@@ -202,16 +194,35 @@ export default function About() {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeInRight} className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl blur-xl"></div>
-              <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
+            <motion.div
+              variants={fadeInRight}
+              className="relative w-full max-w-4xl mx-auto p-4"
+            >
+              {/* White Background Layer */}
+              <div className="absolute inset-0 bg-white rounded-2xl z-[-10]"></div>
+
+              {/* Glow Background Effect */}
+              {/* <div className="absolute -inset-4 bg-gradient-to-br from-white/50 via-blue-200/30 to-blue-100/10 rounded-2xl blur-2xl z-0"></div> */}
+
+              {/* Logo Container */}
+              <div className="relative aspect-video rounded-2xl overflow-hidden ring-1 shadow-2xl ring-white/20 z-10 backdrop-blur-md bg-white">
                 <Image
-                  src="/images/heroImg.jpg"
-                  alt="Solvitx Team"
+                  src="/images/solvitx.png"
+                  alt="Solvitx Logo"
                   layout="fill"
-                  objectFit="cover"
+                  objectFit="contain"
                   className="transition-transform duration-700 hover:scale-105"
                 />
+              </div>
+
+              {/* Text Below */}
+              <div className="mt-6 text-center z-10">
+                <h2 className="text-white text-2xl font-bold tracking-wide">
+                  Powered by Solvitx
+                </h2>
+                <p className="text-white mt-1">
+                  Innovative Solutions. Elevated Experiences.
+                </p>
               </div>
             </motion.div>
           </motion.div>
@@ -330,7 +341,7 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="">
             {founders.map((founder, index) => (
               <motion.div
                 key={founder.name}

@@ -63,7 +63,7 @@ export default function HeroSection() {
     <div className="container mx-auto px-1 py-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-2 gap-8 items-center"
+          className="  gap-8 items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ amount: 0.3 }} // Removed 'once: true' so it animates every time
@@ -80,23 +80,17 @@ export default function HeroSection() {
             // theme="gradient"
             titleSize="large"
           /> */}
-          <Image src={LogoImage} alt="Solvitx" width={350} height={200} />
-
-          <motion.div variants={fadeInUp} className="my-4">
-            <p className="tracking-wide text-base/8 md:text-3xl font-bold word-spacing-2">
-              We Solve IT problems. With Expertise. That’s the SolvitX way.
-            </p>
-
-            <SectionContent>
-              <p className="text-gray-500 text-xl">
-                At SolvitX, we don’t just build websites, apps, and campaigns —
-                we create possibilities. With 10+ years of experience in web
-                development, app development and digital marketing, we
-                strategize your ideas into a complete product.
-              </p>
-            </SectionContent>
-          </motion.div>
+          {/* <Image src={LogoImage} alt="Solvitx" width={350} height={200} />
+           */}
         </motion.div>
+        <SectionHeading
+          title="Solvitx"
+          description="We Solve IT problems. With Expertise. That’s the SolvitX way.
+
+At SolvitX, we don’t just build websites, apps, and campaigns — we create possibilities. With 10+ years of experience in web development, app development and digital marketing, we strategize your ideas into a complete product."
+          theme="dark"
+          titleSize="large"
+        />
 
         <motion.div
           className="mt-8 md:mt-0"

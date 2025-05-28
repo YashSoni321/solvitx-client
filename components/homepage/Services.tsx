@@ -383,7 +383,7 @@ const Services = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="container mx-auto px-4 mt-32 text-center"
+        className="container mx-auto px-4 mt-16 text-center"
       >
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">

@@ -102,7 +102,7 @@ export default function StatsSection() {
     //     </motion.div>
     //   </div>
     // </div>
-    <section className="py-20 md:py-28  text-black relative overflow-hidden">
+    <section className="py-10 md:py-28  text-black relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>

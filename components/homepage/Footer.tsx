@@ -166,7 +166,7 @@ const Footer = () => {
                 +91 9782025577
               </a>
             </div>
-            <div className="pt-2">
+            {/* <div className="pt-2">
               <h4 className="text-xs font-semibold text-gray-500 uppercase mb-2">
                 Follow Us
               </h4>
@@ -184,7 +184,7 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Link Sections Wrapper - Spans full width on mobile, 2/3 on lg. Internally uses columns. */}
@@ -212,7 +212,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Copyright & Powered By */}
-        <div className="pt-8 border-t border-gray-700/50 text-center">
+        {/* <div className="pt-8 border-t border-gray-700/50 text-center">
           <p className="text-xs text-gray-500">
             © {currentYear} Solvitx. All Rights Reserved.
             <span className="mx-1">|</span>
@@ -227,7 +227,7 @@ const Footer = () => {
             </a>
             .
           </p>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

@@ -126,22 +126,19 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-black/90 backdrop-blur-md py-3 shadow-lg"
-          : "bg-black/90 py-5"
-      }`}
+        scrolled ? "bg-white/95 shadow-lg py-3" : "bg-white/90 py-5"
+      } border-b border-gray-100`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
-          <div className="bg-white/90 rounded-full px-4 py-1 shadow-md">
-            <Image
-              src={LogoImage}
-              alt="Solvitx"
-              className="h-10 w-auto"
-              priority
-            />
-          </div>
+          <Image
+            src={LogoImage}
+            alt="Solvitx"
+            className="h-10 w-auto drop-shadow-md"
+            priority
+          />
+          <div className="px-4 py-1"></div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -151,15 +148,15 @@ const Navbar = () => {
               {item.subMenu ? (
                 <div className="flex items-center cursor-pointer">
                   <Link href={item.path}>
-                    <span className="text-white hover:text-pink-500 transition-colors">
+                    <span className="text-blue-900 hover:text-pink-600 font-medium transition-colors">
                       {item.name}
                     </span>
                   </Link>
-                  <FaChevronDown className="ml-1 text-xs text-white group-hover:rotate-180 transition-transform duration-300" />
+                  <FaChevronDown className="ml-1 text-xs text-blue-900 group-hover:rotate-180 transition-transform duration-300" />
                 </div>
               ) : (
                 <Link href={item.path}>
-                  <span className="text-white hover:text-pink-500 transition-colors">
+                  <span className="text-blue-900 hover:text-pink-600 font-medium transition-colors">
                     {item.name}
                   </span>
                 </Link>
@@ -167,24 +164,26 @@ const Navbar = () => {
 
               {/* Desktop Dropdown */}
               {item.subMenu && (
-                <div className="absolute invisible group-hover:visible opacity-0 group-hover:opacity-100 top-full left-0 mt-2 w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg transition-all duration-300 origin-top">
+                <div className="absolute invisible group-hover:visible opacity-0 group-hover:opacity-100 top-full left-0 mt-2 w-64 bg-white/95 border border-gray-100 rounded-lg shadow-lg transition-all duration-300 origin-top">
                   {item.subMenu.map((subItem, idx) => (
                     <div key={idx} className="relative group/sub">
                       <Link href={subItem.path}>
-                        <div className="flex items-center justify-between px-5 py-3 hover:bg-gray-800">
+                        <div className="flex items-center justify-between px-5 py-3 hover:bg-blue-50">
                           <div className="flex items-center">
                             <span className="mr-3">{subItem.icon}</span>
-                            <span className="text-white">{subItem.name}</span>
+                            <span className="text-blue-900">
+                              {subItem.name}
+                            </span>
                           </div>
                           {subItem.subItems && (
-                            <FaChevronRight className="text-xs text-white" />
+                            <FaChevronRight className="text-xs text-blue-900" />
                           )}
                         </div>
                       </Link>
 
                       {/* Nested Dropdown */}
                       {subItem.subItems && (
-                        <div className="absolute invisible group-hover/sub:visible opacity-0 group-hover/sub:opacity-100 top-0 left-full ml-2 w-64 bg-gray-900/90 backdrop-blur-lg rounded-lg shadow-lg transition-all duration-300">
+                        <div className="absolute invisible group-hover/sub:visible opacity-0 group-hover/sub:opacity-100 top-0 left-full ml-2 w-64 bg-white/95 border border-gray-100 rounded-lg shadow-lg transition-all duration-300">
                           {subItem.subItems.map((nestedItem, nestedIdx) => (
                             <Link
                               key={nestedIdx}
@@ -192,7 +191,7 @@ const Navbar = () => {
                                 .toLowerCase()
                                 .replace(/\s+/g, "")}`}
                             >
-                              <div className="px-5 py-3 hover:bg-gray-800 text-white">
+                              <div className="px-5 py-3 hover:bg-blue-50 text-blue-900">
                                 {nestedItem}
                               </div>
                             </Link>
@@ -219,7 +218,7 @@ const Navbar = () => {
             e.stopPropagation();
             setIsOpen(!isOpen);
           }}
-          className="md:hidden text-white text-2xl focus:outline-none z-50"
+          className="md:hidden text-blue-900 text-2xl focus:outline-none z-50"
           aria-label="Toggle Menu"
         >
           {isOpen ? <FaTimes /> : <FaBars />}
@@ -227,9 +226,9 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg flex flex-col p-6 pt-20 overflow-y-auto">
+          <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-white/95 border-t border-gray-100 flex flex-col p-6 pt-20 overflow-y-auto z-50">
             {navItems.map((item) => (
-              <div key={item.name} className="py-2 border-b border-gray-800">
+              <div key={item.name} className="py-2 border-b border-gray-200">
                 {item.subMenu ? (
                   <div>
                     <div
@@ -237,10 +236,12 @@ const Navbar = () => {
                       onClick={(e) => handleMenuToggle(e, item.name)}
                     >
                       <Link href={item.path}>
-                        <span className="text-white text-lg">{item.name}</span>
+                        <span className="text-blue-900 text-lg font-medium">
+                          {item.name}
+                        </span>
                       </Link>
                       <FaChevronDown
-                        className={`text-white transition-transform ${
+                        className={`text-blue-900 transition-transform ${
                           activeMenu === item.name ? "rotate-180" : ""
                         }`}
                       />
@@ -258,14 +259,14 @@ const Navbar = () => {
                               }
                             >
                               <Link href={subItem.path}>
-                                <span className="flex items-center text-gray-300">
+                                <span className="flex items-center text-blue-800">
                                   <span className="mr-2">{subItem.icon}</span>
                                   {subItem.name}
                                 </span>
                               </Link>
                               {subItem.subItems && (
                                 <FaChevronDown
-                                  className={`text-white text-xs transition-transform ${
+                                  className={`text-blue-900 text-xs transition-transform ${
                                     activeSubMenu === subItem.name
                                       ? "rotate-180"
                                       : ""
@@ -285,7 +286,7 @@ const Navbar = () => {
                                           .toLowerCase()
                                           .replace(/\s+/g, "")}`}
                                       >
-                                        <span className="block py-1 text-gray-400 hover:text-white">
+                                        <span className="block py-1 text-blue-700 hover:text-pink-600">
                                           {nestedItem}
                                         </span>
                                       </Link>
@@ -300,7 +301,7 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <Link href={item.path}>
-                    <span className="block py-2 text-white text-lg">
+                    <span className="block py-2 text-blue-900 text-lg font-medium">
                       {item.name}
                     </span>
                   </Link>

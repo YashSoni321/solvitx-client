@@ -1,157 +1,75 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaCogs, FaBrain, FaRocket } from "react-icons/fa";
-import HeroImage from "../../public/images/heroImg.jpg"; // Replace with actual HeroImage
-import { useState, useEffect } from "react";
+import { FaArrowRight } from "react-icons/fa";
+import { useRouter } from "next/router";
 
-const innovativeThoughts = [
-  {
-    text: "Transforming Ideas into Digital Reality",
-    category: "Development",
-  },
-  {
-    text: "Building Tomorrow's Solutions Today",
-    category: "Innovation",
-  },
-  {
-    text: "Driving Growth Through Digital Excellence",
-    category: "Marketing",
-  },
-  {
-    text: "Crafting Seamless User Experiences",
-    category: "Design",
-  },
-  {
-    text: "Empowering Businesses with AI Solutions",
-    category: "Technology",
-  },
+const clientLogos = [
+  // Replace with your real client logo URLs or use placeholders
+  "https://via.placeholder.com/100x40?text=Client+1",
+  "https://via.placeholder.com/100x40?text=Client+2",
+  "https://via.placeholder.com/100x40?text=Client+3",
+  "https://via.placeholder.com/100x40?text=Client+4",
 ];
 
 const Hero = () => {
-  const [currentThoughtIndex, setCurrentThoughtIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(false);
-      setTimeout(() => {
-        setCurrentThoughtIndex(
-          (prev) => (prev + 1) % innovativeThoughts.length
-        );
-        setIsAnimating(true);
-      }, 500);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+  const router = useRouter();
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src={HeroImage}
-          alt="Background"
-          layout="fill"
-          objectFit="cover"
-          className="brightness-75"
-        />
-      </div>
-
-      {/* Overlay + Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-6 text-center space-y-10">
-        {/* Animated Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-lg"
-        >
-          Turning IT Challenges into Smart Solutions
-        </motion.h1>
-
-        {/* Innovative Thoughts Animation */}
-        <div className="h-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isAnimating ? 1 : 0, y: isAnimating ? 0 : -20 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center"
-          >
-            <span className="text-lg font-semibold text-pink-400 mb-2">
-              {innovativeThoughts[currentThoughtIndex].category}
-            </span>
-            <p className="text-base md:text-2xl text-gray-200 italic">
-              {innovativeThoughts[currentThoughtIndex].text}
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Animated Diagram */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          className="grid grid-cols-3 gap-8 mt-10"
-        >
-          <div className="flex flex-col items-center group">
-            <div className="relative">
-              <FaBrain className="text-5xl text-pink-400 mb-2 animate-bounce" />
-              <motion.div
-                className="absolute -inset-2 bg-pink-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </div>
-            <p className="text-white font-semibold">Strategy</p>
-          </div>
-          <div className="flex flex-col items-center group">
-            <div className="relative">
-              <FaCogs className="text-5xl text-blue-400 mb-2 animate-spin-slow" />
-              <motion.div
-                className="absolute -inset-2 bg-blue-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </div>
-            <p className="text-white font-semibold">Engineering</p>
-          </div>
-          <div className="flex flex-col items-center group">
-            <div className="relative">
-              <FaRocket className="text-5xl text-green-400 mb-2 animate-pulse" />
-              <motion.div
-                className="absolute -inset-2 bg-green-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </div>
-            <p className="text-white font-semibold">Launch</p>
-          </div>
-        </motion.div>
-
-        {/* CTA Button */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-8 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-3 rounded-full shadow-lg text-lg font-semibold hover:from-purple-600 hover:to-pink-500 transition-all group relative overflow-hidden"
-        >
-          <span className="relative z-10">Explore Our Work</span>
-          <motion.div
-            className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-            animate={{
-              x: ["0%", "100%"],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        </motion.button>
-      </div>
-    </div>
+    <section className="relative min-h-[70vh] flex flex-col justify-center items-center bg-gradient-to-br from-white via-blue-50 to-purple-50 text-center px-4 py-24 md:py-32">
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6"
+      >
+        Empowering Your Digital Growth
+        <br />
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-pink-500">
+          With Trust & Innovation
+        </span>
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.7 }}
+        className="text-lg md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto"
+      >
+        Solvitx delivers reliable web, app, and marketing solutions trusted by
+        businesses worldwide. Let us help you build your digital future with
+        confidence.
+      </motion.p>
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => router.push("/contact")}
+        className="bg-gradient-to-r from-blue-600 to-pink-500 text-white px-8 py-4 rounded-full shadow-lg text-lg font-semibold flex items-center gap-2 mx-auto mb-8 hover:from-pink-500 hover:to-blue-600 transition-all"
+      >
+        Get Started <FaArrowRight />
+      </motion.button>
+      {/* Trust Row */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.7 }}
+        className="flex flex-col items-center gap-4"
+      >
+        {/* <span className="text-gray-500 text-sm md:text-base font-medium">
+          Trusted by 200+ clients
+        </span> */}
+        {/* <div className="flex flex-wrap justify-center gap-6">
+          {clientLogos.map((logo, idx) => (
+            <Image
+              key={idx}
+              src={logo}
+              alt={`Client ${idx + 1}`}
+              width={100}
+              height={40}
+              className="object-contain grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+            />
+          ))}
+        </div> */}
+      </motion.div>
+    </section>
   );
 };
 
