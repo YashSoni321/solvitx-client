@@ -30,7 +30,7 @@ export default function BlogList() {
   return (
     <>
       <Head>
-        <title>Blog — Solvitx | Insights on Technology and Development</title>
+        <title>Blog — SolvitX | Insights on Technology and Development</title>
         <meta
           name="description"
           content="Explore our latest insights on web development, SEO, and technology trends. Stay updated with expert analysis and best practices."
@@ -38,7 +38,7 @@ export default function BlogList() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:title"
-          content="Blog — Solvitx | Insights on Technology and Development"
+          content="Blog — SolvitX | Insights on Technology and Development"
         />
         <meta
           property="og:description"

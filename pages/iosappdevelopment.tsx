@@ -199,10 +199,10 @@ export default function iOSAppDevelopment() {
   return (
     <>
       <Head>
-        <title>iOS App Development Services | Solvitx</title>
+        <title>iOS App Development Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert iOS app development services by Solvitx. We build native iOS applications using Swift and Objective-C."
+          content="Expert iOS app development services by SolvitX. We build native iOS applications using Swift and Objective-C."
         />
       </Head>
 

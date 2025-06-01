@@ -4,7 +4,7 @@ import Image from "next/image";
 interface DescSectionProps {
   image: string;
   title: string;
-  content: string;
+  content: any;
   position: "left" | "right";
   heading?: string;
 }
@@ -71,9 +71,20 @@ const DescSection = ({
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               {title}
             </h2>
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+            {/* <p className="text-gray-300 text-base md:text-lg leading-relaxed">
               {content}
-            </p>
+            </p> */}
+            {Array.isArray(content) ? (
+              <ul className="list-disc pl-6 space-y-2 text-white">
+                {content.map((point, index) => (
+                  <li key={index}>{point}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                {content}
+              </p>
+            )}
           </motion.div>
         </div>
       </div>

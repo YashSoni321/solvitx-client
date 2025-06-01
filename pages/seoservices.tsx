@@ -249,10 +249,10 @@ export default function SEOService() {
   return (
     <>
       <Head>
-        <title>SEO Services | Solvitx</title>
+        <title>SEO Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert SEO services by Solvitx. Improve your search rankings, drive organic traffic, and grow your business with our proven SEO strategies."
+          content="Expert SEO services by SolvitX. Improve your search rankings, drive organic traffic, and grow your business with our proven SEO strategies."
         />
       </Head>
 

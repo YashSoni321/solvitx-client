@@ -202,10 +202,10 @@ export default function DigitalMarketing360() {
   return (
     <>
       <Head>
-        <title>360° Digital Marketing Services | Solvitx</title>
+        <title>360° Digital Marketing Services | SolvitX</title>
         <meta
           name="description"
-          content="Comprehensive digital marketing solutions by Solvitx. Integrated strategies for SEO, social media, performance marketing, and more."
+          content="Comprehensive digital marketing solutions by SolvitX. Integrated strategies for SEO, social media, performance marketing, and more."
         />
       </Head>
 

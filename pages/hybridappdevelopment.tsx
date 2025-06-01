@@ -201,10 +201,10 @@ export default function HybridAppDevelopment() {
   return (
     <>
       <Head>
-        <title>Hybrid App Development Services | Solvitx</title>
+        <title>Hybrid App Development Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert hybrid app development services by Solvitx. We build cross-platform applications using React Native and Flutter."
+          content="Expert hybrid app development services by SolvitX. We build cross-platform applications using React Native and Flutter."
         />
       </Head>
 

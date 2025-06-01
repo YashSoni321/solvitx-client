@@ -264,10 +264,10 @@ export default function AppDevelopmentService() {
   return (
     <>
       <Head>
-        <title>App Development Services | Solvitx</title>
+        <title>App Development Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert mobile app development services by Solvitx. Building innovative, user-friendly mobile applications for iOS and Android."
+          content="Expert mobile app development services by SolvitX. Building innovative, user-friendly mobile applications for iOS and Android."
         />
       </Head>
 
@@ -317,11 +317,11 @@ export default function AppDevelopmentService() {
         position="right"
       />
 
-      {/* Why Choose Solvitx Section */}
+      {/* Why Choose SolvitX Section */}
       <div className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Solvitx for App Development?
+            Why Choose SolvitX for App Development?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {valuePropositions.map((prop, index) => (

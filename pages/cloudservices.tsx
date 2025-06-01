@@ -199,10 +199,10 @@ export default function CloudServices() {
   return (
     <>
       <Head>
-        <title>Cloud Services | Solvitx</title>
+        <title>Cloud Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert cloud services by Solvitx. We provide cloud migration, architecture, security, and management solutions."
+          content="Expert cloud services by SolvitX. We provide cloud migration, architecture, security, and management solutions."
         />
       </Head>
 

@@ -27,7 +27,7 @@ export default function StatsSection() {
     //       variants={fadeInUp}
     //     >
     //       <h2 className="text-4xl lg:text-3xl  mb-6 text-balance leading-snug text-gray-900">
-    //         Solvitx is your one place solution for all your marketing and
+    //         SolvitX is your one place solution for all your marketing and
     //         technical needs. But are you still unsure on why you should choose
     //         us? Then let the numbers do the work.
     //       </h2>

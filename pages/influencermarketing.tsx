@@ -198,10 +198,10 @@ export default function InfluencerMarketing() {
   return (
     <>
       <Head>
-        <title>Influencer Marketing Services | Solvitx</title>
+        <title>Influencer Marketing Services | SolvitX</title>
         <meta
           name="description"
-          content="Strategic influencer marketing solutions by Solvitx. Connect with your audience through authentic influencer partnerships."
+          content="Strategic influencer marketing solutions by SolvitX. Connect with your audience through authentic influencer partnerships."
         />
       </Head>
 

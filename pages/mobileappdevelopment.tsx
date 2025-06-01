@@ -181,10 +181,10 @@ export default function MobileAppDevelopment() {
   return (
     <>
       <Head>
-        <title>Mobile App Development Services | Solvitx</title>
+        <title>Mobile App Development Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert mobile app development services by Solvitx. We build native and hybrid applications for Android, iOS, and cross-platform solutions."
+          content="Expert mobile app development services by SolvitX. We build native and hybrid applications for Android, iOS, and cross-platform solutions."
         />
       </Head>
 

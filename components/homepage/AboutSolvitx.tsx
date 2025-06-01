@@ -35,27 +35,27 @@ export default function HeroSection() {
   const imageData = [
     {
       alt: "Image 1",
-      src: "https://storage.googleapis.com/a1aa/image/INBJYK8BZH4MiungphsB_7oLO5dyqgfn9Esxh9WIeC4.jpg",
+      src: "/images/hero-images/client_logo-1.jpg",
     },
     {
       alt: "Image 2",
-      src: "https://storage.googleapis.com/a1aa/image/RUGk4vFXdA2fnu0tVrd4ekGoZ4rSbC33JPK0aBVSxE4.jpg",
+      src: "/images/hero-images/client_logo-2.jpg",
     },
     {
       alt: "Image 3",
-      src: "https://storage.googleapis.com/a1aa/image/-EM9suyl2MCZ3Kvi45zuNzDQtBlbDVK4ndWmysS063U.jpg",
+      src: "/images/hero-images/client_logo-3.jpg",
     },
     {
       alt: "Image 4",
-      src: "https://storage.googleapis.com/a1aa/image/GFgGcZ9-UQJWjo58rR_C-0pSQKM8MDYv87OgIWNq4Xo.jpg",
+      src: "/images/hero-images/client_logo-4.jpg",
     },
     {
       alt: "Image 5",
-      src: "https://storage.googleapis.com/a1aa/image/kDkpWDQ-NJ7NG-O46cbo3AXlTjPEhcqzvmwh0TRs5vA.jpg",
+      src: "/images/hero-images/client_logo-5.jpg",
     },
     {
       alt: "Image 6",
-      src: "https://storage.googleapis.com/a1aa/image/x3uYN0ZWyK0yaO7i6clatN0tG2kBcdqghSnTQi-O2Tk.jpg",
+      src: "/images/hero-images/client_logo-6.jpg",
     },
   ];
 
@@ -72,19 +72,19 @@ export default function HeroSection() {
             variants={fadeInUp}
             className="text-6xl md:text-8xl text-start font-bold leading-tight"
           >
-            <p>Solvitx</p>
+            <p>SolvitX</p>
           </motion.div> */}
           {/* <SectionHeading
-            title="Solvitx"
+            title="SolvitX"
             // description="We Solve IT problems. With Expertise. That’s the SolvitX way."
             // theme="gradient"
             titleSize="large"
           /> */}
-          {/* <Image src={LogoImage} alt="Solvitx" width={350} height={200} />
+          {/* <Image src={LogoImage} alt="SolvitX" width={350} height={200} />
            */}
         </motion.div>
         <SectionHeading
-          title="Solvitx"
+          title="About SolvitX"
           description="We Solve IT problems. With Expertise. That’s the SolvitX way.
 
 At SolvitX, we don’t just build websites, apps, and campaigns — we create possibilities. With 10+ years of experience in web development, app development and digital marketing, we strategize your ideas into a complete product."

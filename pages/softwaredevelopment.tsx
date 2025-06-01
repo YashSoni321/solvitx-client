@@ -229,10 +229,10 @@ export default function SoftwareDevelopment() {
   return (
     <>
       <Head>
-        <title>Software Development | Solvitx</title>
+        <title>Software Development | SolvitX</title>
         <meta
           name="description"
-          content="Professional software development services by Solvitx. Custom solutions for your business needs."
+          content="Professional software development services by SolvitX. Custom solutions for your business needs."
         />
       </Head>
 

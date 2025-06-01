@@ -225,10 +225,10 @@ export default function VideoEditing() {
   return (
     <>
       <Head>
-        <title>Video Editing | Solvitx</title>
+        <title>Video Editing | SolvitX</title>
         <meta
           name="description"
-          content="Professional video editing services by Solvitx. Transform your raw footage into engaging content."
+          content="Professional video editing services by SolvitX. Transform your raw footage into engaging content."
         />
       </Head>
 

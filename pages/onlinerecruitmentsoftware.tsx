@@ -199,10 +199,10 @@ export default function OnlineRecruitmentSoftware() {
   return (
     <>
       <Head>
-        <title>Online Recruitment Software | Solvitx</title>
+        <title>Online Recruitment Software | SolvitX</title>
         <meta
           name="description"
-          content="Comprehensive online recruitment software by Solvitx. Streamline hiring processes, enhance candidate experience, and make better hiring decisions."
+          content="Comprehensive online recruitment software by SolvitX. Streamline hiring processes, enhance candidate experience, and make better hiring decisions."
         />
       </Head>
 

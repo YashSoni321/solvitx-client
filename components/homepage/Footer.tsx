@@ -51,25 +51,25 @@ const Footer = () => {
 
   const socialMediaLinks = [
     {
-      href: "https://linkedin.com/company/solvitx",
+      href: "https://linkedin.com/company/SolvitX",
       icon: FaLinkedin,
       label: "LinkedIn",
       color: "hover:text-blue-400",
     },
     {
-      href: "https://instagram.com/solvitx",
+      href: "https://instagram.com/SolvitX",
       icon: FaInstagram,
       label: "Instagram",
       color: "hover:text-pink-500",
     },
     {
-      href: "https://github.com/solvitx",
+      href: "https://github.com/SolvitX",
       icon: FaGithub,
       label: "GitHub",
       color: "hover:text-gray-100",
     },
     {
-      href: "https://behance.net/solvitx",
+      href: "https://behance.net/SolvitX",
       icon: FaBehance,
       label: "Behance",
       color: "hover:text-sky-400",
@@ -81,7 +81,7 @@ const Footer = () => {
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500"></div>
       <div className="fixed right-4 md:right-6 bottom-4 md:bottom-6 z-[100] flex flex-col gap-3">
         <motion.a
-          href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+          href="https://wa.me/9782025577"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.15, rotate: 5 }}
@@ -108,7 +108,7 @@ const Footer = () => {
             <Link href="/" className="inline-block mb-3">
               <Image
                 src={LogoImage}
-                alt="Solvitx"
+                alt="SolvitX"
                 height={40}
                 width={130}
                 className="invert brightness-0 filter"
@@ -151,10 +151,10 @@ const Footer = () => {
             <div className="flex items-center space-x-2.5">
               <FaEnvelope className="text-purple-400 flex-shrink-0 h-4 w-4" />
               <a
-                href="mailto:contact@solvitx.com"
+                href="mailto:solvitxsolutions@gmail.com"
                 className="hover:text-purple-300 transition-colors"
               >
-                contact@solvitx.com
+                solvitxsolutions@gmail.com
               </a>
             </div>
             <div className="flex items-center space-x-2.5">
@@ -214,7 +214,7 @@ const Footer = () => {
         {/* Bottom Copyright & Powered By */}
         {/* <div className="pt-8 border-t border-gray-700/50 text-center">
           <p className="text-xs text-gray-500">
-            © {currentYear} Solvitx. All Rights Reserved.
+            © {currentYear} SolvitX. All Rights Reserved.
             <span className="mx-1">|</span>
             Website by{" "}
             <a

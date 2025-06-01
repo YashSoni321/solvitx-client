@@ -43,10 +43,10 @@ export default function BlogDetail() {
   return (
     <>
       <Head>
-        <title>{post.title} — Solvitx Blog</title>
+        <title>{post.title} — SolvitX Blog</title>
         <meta name="description" content={post.excerpt} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content={`${post.title} — Solvitx Blog`} />
+        <meta property="og:title" content={`${post.title} — SolvitX Blog`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.coverImage} />
         <meta property="og:type" content="article" />

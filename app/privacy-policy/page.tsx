@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
               1. Information We Collect
             </h2>
             <p className="text-gray-700 mb-4">
-              At Solvitx, we collect several types of information to provide and
+              At SolvitX, we collect several types of information to provide and
               improve our services to you. This may include:
             </p>
             <ul className="list-disc pl-5 text-gray-700 space-y-2">
@@ -126,7 +126,7 @@ export default function PrivacyPolicy() {
               contact us at:
             </p>
             <div className="pl-5 text-gray-700">
-              <p>Email: contact@solvitx.com</p>
+              <p>Email: solvitxsolutions@gmail.com</p>
               <p>Phone: +91 9782025577</p>
               <p>
                 Address: Hn. 359, Gopal Ji Ka Rasta, Tripolia Bazar, Jaipur,

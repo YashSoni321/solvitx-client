@@ -219,10 +219,10 @@ export default function ContentMarketingService() {
   return (
     <>
       <Head>
-        <title>Content Marketing Services | Solvitx</title>
+        <title>Content Marketing Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert content marketing services by Solvitx. Create engaging, SEO-optimized content that drives traffic and converts visitors into customers."
+          content="Expert content marketing services by SolvitX. Create engaging, SEO-optimized content that drives traffic and converts visitors into customers."
         />
       </Head>
 

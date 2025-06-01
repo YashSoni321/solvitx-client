@@ -54,7 +54,7 @@ export default function TermsOfService() {
               2. Description of Services
             </h2>
             <p className="text-gray-700 mb-4">
-              Solvitx provides digital solutions including web development,
+              SolvitX provides digital solutions including web development,
               mobile app development, UI/UX design, digital marketing, and SEO
               services. The specifics of each service will be outlined in
               individual agreements or statements of work.
@@ -86,7 +86,7 @@ export default function TermsOfService() {
             </h2>
             <p className="text-gray-700 mb-4">
               All content, trademarks, logos, and service marks displayed on our
-              website are the property of Solvitx or their respective owners.
+              website are the property of SolvitX or their respective owners.
               You may not use, reproduce, or distribute these materials without
               prior written consent.
             </p>
@@ -109,7 +109,7 @@ export default function TermsOfService() {
               6. Limitation of Liability
             </h2>
             <p className="text-gray-700 mb-4">
-              To the maximum extent permitted by law, Solvitx shall not be
+              To the maximum extent permitted by law, SolvitX shall not be
               liable for any indirect, incidental, special, consequential, or
               punitive damages resulting from your use or inability to use our
               services.
@@ -156,7 +156,7 @@ export default function TermsOfService() {
               If you have any questions about these Terms, please contact us at:
             </p>
             <div className="pl-5 text-gray-700">
-              <p>Email: contact@solvitx.com</p>
+              <p>Email: solvitxsolutions@gmail.com</p>
               <p>Phone: +91 9782025577</p>
               <p>
                 Address: Hn. 359, Gopal Ji Ka Rasta, Tripolia Bazar, Jaipur,

@@ -244,10 +244,10 @@ export default function SocialMediaMarketingService() {
   return (
     <>
       <Head>
-        <title>Social Media Marketing Services | Solvitx</title>
+        <title>Social Media Marketing Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert social media marketing services by Solvitx. Grow your brand, engage your audience, and drive results with our proven social media strategies."
+          content="Expert social media marketing services by SolvitX. Grow your brand, engage your audience, and drive results with our proven social media strategies."
         />
       </Head>
 

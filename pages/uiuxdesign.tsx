@@ -198,10 +198,10 @@ export default function UIUXDesign() {
   return (
     <>
       <Head>
-        <title>UI/UX Design Services | Solvitx</title>
+        <title>UI/UX Design Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert UI/UX design services by Solvitx. We create beautiful, intuitive, and user-centered digital experiences."
+          content="Expert UI/UX design services by SolvitX. We create beautiful, intuitive, and user-centered digital experiences."
         />
       </Head>
 

@@ -208,10 +208,10 @@ export default function PPCMarketingService() {
   return (
     <>
       <Head>
-        <title>PPC Marketing Services | Solvitx</title>
+        <title>PPC Marketing Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert PPC marketing services by Solvitx. Drive targeted traffic and maximize ROI with our data-driven pay-per-click advertising strategies."
+          content="Expert PPC marketing services by SolvitX. Drive targeted traffic and maximize ROI with our data-driven pay-per-click advertising strategies."
         />
       </Head>
 

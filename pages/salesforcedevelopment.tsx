@@ -197,10 +197,10 @@ export default function SalesforceDevelopment() {
   return (
     <>
       <Head>
-        <title>Salesforce Development Services | Solvitx</title>
+        <title>Salesforce Development Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert Salesforce development services by Solvitx. Custom solutions, integration, and implementation for your business needs."
+          content="Expert Salesforce development services by SolvitX. Custom solutions, integration, and implementation for your business needs."
         />
       </Head>
 

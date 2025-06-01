@@ -197,10 +197,10 @@ export default function HRMSoftwareDevelopment() {
   return (
     <>
       <Head>
-        <title>HRM Software Development | Solvitx</title>
+        <title>HRM Software Development | SolvitX</title>
         <meta
           name="description"
-          content="Comprehensive HRM software development by Solvitx. Streamline HR processes, enhance employee management, and optimize HR operations."
+          content="Comprehensive HRM software development by SolvitX. Streamline HR processes, enhance employee management, and optimize HR operations."
         />
       </Head>
 

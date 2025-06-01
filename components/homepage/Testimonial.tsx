@@ -128,7 +128,7 @@ const Testimonial = () => {
               key={idx}
               className="mx-6 text-4xl font-bold text-white opacity-30"
             >
-              SOLVITX
+              SolvitX
             </span>
           ))}
         </motion.div>

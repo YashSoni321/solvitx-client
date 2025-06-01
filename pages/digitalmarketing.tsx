@@ -263,10 +263,10 @@ export default function DigitalMarketingService() {
   return (
     <>
       <Head>
-        <title>Digital Marketing Services | Solvitx</title>
+        <title>Digital Marketing Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert digital marketing services by Solvitx. Results-driven SEO, social media, PPC, and content marketing strategies to grow your business."
+          content="Expert digital marketing services by SolvitX. Results-driven SEO, social media, PPC, and content marketing strategies to grow your business."
         />
       </Head>
 
@@ -287,7 +287,7 @@ export default function DigitalMarketingService() {
             Accelerate Your Growth with Performance-Driven Digital Marketing
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200">
-            Solvitx helps businesses scale with proven SEO, SMM, and digital
+            SolvitX helps businesses scale with proven SEO, SMM, and digital
             strategies.
           </p>
           <motion.button
@@ -316,11 +316,11 @@ export default function DigitalMarketingService() {
         position="right"
       />
 
-      {/* Why Choose Solvitx Section */}
+      {/* Why Choose SolvitX Section */}
       <div className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Solvitx for Digital Marketing?
+            Why Choose SolvitX for Digital Marketing?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {valuePropositions.map((prop, index) => (

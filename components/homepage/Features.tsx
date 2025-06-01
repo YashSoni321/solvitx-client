@@ -77,9 +77,9 @@ const Features = () => {
                 <p className="text-sm text-gray-300">{feature.description}</p>
               </div>
               <div className="mt-6">
-                <button className="text-white hover:underline font-medium text-sm">
+                {/* <button className="text-white hover:underline font-medium text-sm">
                   Learn More →
-                </button>
+                </button> */}
               </div>
             </motion.div>
           ))}

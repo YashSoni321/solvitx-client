@@ -222,7 +222,7 @@ const testimonials = [
     name: "John Smith",
     role: "CEO, TechCorp",
     content:
-      "Solvitx delivered an exceptional web solution that transformed our online presence.",
+      "SolvitX delivered an exceptional web solution that transformed our online presence.",
     image: "/images/testimonials/john.jpg",
   },
   {
@@ -457,10 +457,10 @@ export default function WebDevelopmentService() {
   return (
     <>
       <Head>
-        <title>Web Development Services | Solvitx</title>
+        <title>Web Development Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert web development services by Solvitx. Building modern, scalable web applications with cutting-edge technologies."
+          content="Expert web development services by SolvitX. Building modern, scalable web applications with cutting-edge technologies."
         />
       </Head>
 
@@ -511,11 +511,11 @@ export default function WebDevelopmentService() {
         position="right"
       />
 
-      {/* Why Select Solvitx Section */}
+      {/* Why Select SolvitX Section */}
       <div className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Select Solvitx for Web Development?
+            Why Select SolvitX for Web Development?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {valuePropositions.map((prop, index) => (

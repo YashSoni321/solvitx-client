@@ -240,10 +240,10 @@ export default function APIDevelopment() {
   return (
     <>
       <Head>
-        <title>API Development Services | Solvitx</title>
+        <title>API Development Services | SolvitX</title>
         <meta
           name="description"
-          content="Professional API development services by Solvitx. Build scalable, secure, and high-performance APIs for your applications."
+          content="Professional API development services by SolvitX. Build scalable, secure, and high-performance APIs for your applications."
         />
       </Head>
 

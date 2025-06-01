@@ -197,10 +197,10 @@ export default function HotelManagementSoftware() {
   return (
     <>
       <Head>
-        <title>Hotel Management Software | Solvitx</title>
+        <title>Hotel Management Software | SolvitX</title>
         <meta
           name="description"
-          content="Comprehensive hotel management software by Solvitx. Streamline operations, enhance guest experience, and optimize revenue."
+          content="Comprehensive hotel management software by SolvitX. Streamline operations, enhance guest experience, and optimize revenue."
         />
       </Head>
 

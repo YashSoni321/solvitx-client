@@ -72,19 +72,19 @@ export default function Home() {
       {/* Meta Tags for SEO */}
       <Head>
         {/* <FloatingSocials /> */}
-        <title>Solvitx — Solving IT with expertise</title>
+        <title>SolvitX — Solving IT with expertise</title>
         <meta
           name="description"
-          content="Solvitx is your technology partner for scalable websites, apps, and digital solutions. We deliver results-driven IT services with precision."
+          content="SolvitX is your technology partner for scalable websites, apps, and digital solutions. We deliver results-driven IT services with precision."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:title"
-          content="Solvitx — We Solve IT Problems with Expertise"
+          content="SolvitX — We Solve IT Problems with Expertise"
         />
         <meta
           property="og:description"
-          content="From startups to enterprises, Solvitx crafts digital experiences that solve real business problems."
+          content="From startups to enterprises, SolvitX crafts digital experiences that solve real business problems."
         />
         <meta property="og:image" content="/images/optimized/heroImg.webp" />
         <meta property="og:type" content="website" />

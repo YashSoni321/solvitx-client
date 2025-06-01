@@ -134,7 +134,7 @@ const Navbar = () => {
         <Link href="/">
           <Image
             src={LogoImage}
-            alt="Solvitx"
+            alt="SolvitX"
             className="h-10 w-auto drop-shadow-md"
             priority
           />

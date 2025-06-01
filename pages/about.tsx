@@ -46,7 +46,7 @@ const founders = [
     name: "Pratham Mittal",
     role: "Founder & CEO",
     image: "/images/user.jpg",
-    bio: "A visionary entrepreneur with a passion for creating digital experiences that transform businesses. With over 8 years in tech leadership, Yash founded Solvitx to bridge the gap between technical excellence and business success.",
+    bio: "A visionary entrepreneur with a passion for creating digital experiences that transform businesses. With over 8 years in tech leadership, Yash founded SolvitX to bridge the gap between technical excellence and business success.",
     quote:
       "Technology should solve real problems, not create new ones. Our mission is to deliver solutions that make a tangible difference.",
   },
@@ -88,19 +88,19 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Us — Solvitx | Where Vision Meets Technology</title>
+        <title>About Us — SolvitX | Where Vision Meets Technology</title>
         <meta
           name="description"
-          content="Discover Solvitx's story, our passionate team, and our mission to transform businesses through innovative digital solutions and exceptional service."
+          content="Discover SolvitX's story, our passionate team, and our mission to transform businesses through innovative digital solutions and exceptional service."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:title"
-          content="About Us — Solvitx | Where Vision Meets Technology"
+          content="About Us — SolvitX | Where Vision Meets Technology"
         />
         <meta
           property="og:description"
-          content="Meet the team behind Solvitx and learn about our journey to create digital experiences that drive real business results."
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
         />
         <meta property="og:image" content="/images/heroImg.jpg" />
         <meta property="og:type" content="website" />
@@ -113,7 +113,7 @@ export default function About() {
         <div className="absolute inset-0">
           <Image
             src="/images/heroImg.jpg"
-            alt="Solvitx Team"
+            alt="SolvitX Team"
             layout="fill"
             objectFit="cover"
             className="brightness-50"
@@ -180,7 +180,7 @@ export default function About() {
 
               <div className="text-gray-300 space-y-6 text-lg">
                 <p>
-                  <span className="text-pink-500 font-bold">Solvitx</span>{" "}
+                  <span className="text-pink-500 font-bold">SolvitX</span>{" "}
                   Founded on the idea that IT should be simple, strategic, and
                   solution-oriented, SolvitX is built different — at the
                   intersection of backend brilliance and brand strategy.
@@ -208,7 +208,7 @@ export default function About() {
               <div className="relative aspect-video rounded-2xl overflow-hidden ring-1 shadow-2xl ring-white/20 z-10 backdrop-blur-md bg-white">
                 <Image
                   src="/images/solvitx.png"
-                  alt="Solvitx Logo"
+                  alt="SolvitX Logo"
                   layout="fill"
                   objectFit="contain"
                   className="transition-transform duration-700 hover:scale-105"
@@ -216,14 +216,6 @@ export default function About() {
               </div>
 
               {/* Text Below */}
-              <div className="mt-6 text-center z-10">
-                <h2 className="text-white text-2xl font-bold tracking-wide">
-                  Powered by Solvitx
-                </h2>
-                <p className="text-white mt-1">
-                  Innovative Solutions. Elevated Experiences.
-                </p>
-              </div>
             </motion.div>
           </motion.div>
         </div>

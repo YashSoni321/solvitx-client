@@ -197,10 +197,10 @@ export default function PerformanceMarketing() {
   return (
     <>
       <Head>
-        <title>Performance Marketing Services | Solvitx</title>
+        <title>Performance Marketing Services | SolvitX</title>
         <meta
           name="description"
-          content="Data-driven performance marketing solutions by Solvitx. Maximize ROI with our strategic advertising campaigns."
+          content="Data-driven performance marketing solutions by SolvitX. Maximize ROI with our strategic advertising campaigns."
         />
       </Head>
 

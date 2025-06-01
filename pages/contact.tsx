@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { emailConfig } from "@/config/emailConfig";
+import { budgetOptions } from "@/components/common/ContactUsForm";
 
 // Define work stages for the animation showcase
 export const workStages = [
@@ -105,6 +106,8 @@ export const workStages = [
   },
 ];
 
+export const required = <span className="text-red-500">*</span>;
+
 export default function Contact() {
   // Auto-rotating work stages
   const [activeStage, setActiveStage] = useState(0);
@@ -133,14 +136,6 @@ export default function Contact() {
   const [submitError, setSubmitError] = useState("");
 
   // Budget options
-  const budgetOptions = [
-    "Select a budget range",
-    "$1,000 - $5,000",
-    "$5,000 - $10,000",
-    "$10,000 - $25,000",
-    "$25,000 - $50,000",
-    "$50,000+",
-  ];
 
   // Handle form changes
   const handleChange = (
@@ -168,7 +163,7 @@ export default function Contact() {
       phone: formData.phone,
       budget: formData.budget,
       message: formData.message,
-      to_name: "Solvitx Team",
+      to_name: "SolvitX Team",
     };
 
     // Use the email config values
@@ -207,19 +202,19 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact Us — Solvitx | Let&apos;s Build Something Amazing</title>
+        <title>Contact Us — SolvitX | Let&apos;s Build Something Amazing</title>
         <meta
           name="description"
-          content="Get in touch with Solvitx for your next digital project. We're ready to transform your ideas into reality with our expertise in technology and design."
+          content="Get in touch with SolvitX for your next digital project. We're ready to transform your ideas into reality with our expertise in technology and design."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:title"
-          content="Contact Us — Solvitx | Let's Build Something Amazing"
+          content="Contact Us — SolvitX | Let's Build Something Amazing"
         />
         <meta
           property="og:description"
-          content="Reach out to Solvitx and let's discuss how we can help bring your vision to life with cutting-edge technology solutions."
+          content="Reach out to SolvitX and let's discuss how we can help bring your vision to life with cutting-edge technology solutions."
         />
         <meta property="og:image" content="/images/heroImg.jpg" />
         <meta property="og:type" content="website" />
@@ -229,32 +224,6 @@ export default function Contact() {
       {/* Hero Section */}
       <div className="relative h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black flex items-center justify-center">
         <div className="text-center px-4">
-          <div className="inline-block mb-6">
-            <div className="w-28 h-28 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center p-1 mx-auto relative overflow-hidden">
-              <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 text-4xl font-extrabold">
-                  S
-                </span>
-              </div>
-
-              {/* Animated ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                animate={{
-                  boxShadow: [
-                    "0 0 0 0px rgba(236, 72, 153, 0.3)",
-                    "0 0 0 10px rgba(236, 72, 153, 0)",
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-              />
-            </div>
-          </div>
-
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight max-w-5xl mx-auto">
             Let&apos;s Transform Your{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
@@ -331,7 +300,7 @@ export default function Contact() {
                       className="block text-gray-300 mb-2"
                       htmlFor="firstName"
                     >
-                      First Name
+                      First Name {required}
                     </label>
                     <input
                       id="firstName"
@@ -350,7 +319,7 @@ export default function Contact() {
                       className="block text-gray-300 mb-2"
                       htmlFor="lastName"
                     >
-                      Last Name
+                      Last Name {required}
                     </label>
                     <input
                       id="lastName"
@@ -368,7 +337,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="block text-gray-300 mb-2" htmlFor="email">
-                      Email
+                      Email {required}
                     </label>
                     <input
                       id="email"
@@ -384,7 +353,7 @@ export default function Contact() {
 
                   <div>
                     <label className="block text-gray-300 mb-2" htmlFor="phone">
-                      Phone Number
+                      Phone Number {required}
                     </label>
                     <input
                       id="phone"
@@ -400,7 +369,7 @@ export default function Contact() {
 
                 <div className="mb-6">
                   <label className="block text-gray-300 mb-2" htmlFor="budget">
-                    Project Budget
+                    Project Budget {required}
                   </label>
                   <select
                     id="budget"
@@ -419,7 +388,7 @@ export default function Contact() {
 
                 <div className="mb-6">
                   <label className="block text-gray-300 mb-2" htmlFor="message">
-                    Message
+                    Message {required}
                   </label>
                   <textarea
                     id="message"
@@ -473,18 +442,18 @@ export default function Contact() {
               </form>
             </div>
 
-            {/* About Solvitx & Social Links */}
+            {/* About SolvitX & Social Links */}
             <div>
-              {/* About Solvitx */}
+              {/* About SolvitX */}
               <div className="mb-16 relative">
                 <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-600 to-pink-600"></div>
                 <h3 className="text-3xl font-bold text-white mb-6">
-                  About Solvitx
+                  About SolvitX
                 </h3>
 
                 <div className="text-gray-300 space-y-6">
                   <p>
-                    We&apos;re not just another tech company. At Solvitx, we
+                    We&apos;re not just another tech company. At SolvitX, we
                     combine creativity, technical expertise, and business acumen
                     to create digital solutions that make a real difference.
                   </p>
@@ -591,7 +560,7 @@ export default function Contact() {
                           solvitxsolutions@gmail.com
                         </a>
                         <br />
-                        {/* support@solvitx.com */}
+                        {/* support@SolvitX.com */}
                       </p>
                     </div>
                   </div>
@@ -601,7 +570,7 @@ export default function Contact() {
               {/* Social Media Links */}
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://linkedin.com/company/solvitx"
+                  href="https://linkedin.com/company/SolvitX"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 px-5 py-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
@@ -612,7 +581,7 @@ export default function Contact() {
                 </a>
 
                 {/* <a
-                  href="https://instagram.com/solvitx"
+                  href="https://instagram.com/SolvitX"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 px-5 py-4 rounded-lg bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 hover:from-purple-700 hover:via-pink-600 hover:to-orange-500 text-white transition-all duration-300"

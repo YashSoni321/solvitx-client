@@ -14,7 +14,7 @@ const ThankYou = () => {
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Thank You!</h1>
           <p className="text-xl text-gray-600 mb-8">
-            We appreciate you contacting Solvitx. We will get back to you
+            We appreciate you contacting SolvitX. We will get back to you
             shortly.
           </p>
           <Link

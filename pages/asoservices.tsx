@@ -198,10 +198,10 @@ export default function ASOServices() {
   return (
     <>
       <Head>
-        <title>App Store Optimization Services | Solvitx</title>
+        <title>App Store Optimization Services | SolvitX</title>
         <meta
           name="description"
-          content="Professional App Store Optimization services by Solvitx. Increase app visibility, drive more downloads, and improve app store rankings."
+          content="Professional App Store Optimization services by SolvitX. Increase app visibility, drive more downloads, and improve app store rankings."
         />
       </Head>
 

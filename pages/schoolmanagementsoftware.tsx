@@ -196,10 +196,10 @@ export default function SchoolManagementSoftware() {
   return (
     <>
       <Head>
-        <title>School Management Software | Solvitx</title>
+        <title>School Management Software | SolvitX</title>
         <meta
           name="description"
-          content="Comprehensive school management software by Solvitx. Streamline administrative tasks, enhance communication, and improve academic management."
+          content="Comprehensive school management software by SolvitX. Streamline administrative tasks, enhance communication, and improve academic management."
         />
       </Head>
 

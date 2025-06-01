@@ -14,6 +14,8 @@ import {
 import { useRouter } from "next/router";
 import { link } from "fs";
 import DescSection from "@/components/webdevelopment/DescSection";
+import HeroSection from "@/components/homepage/Hero";
+import heroImg from "../public/images/service_page.jpeg";
 
 // Service Data
 const services = [
@@ -108,19 +110,19 @@ export default function Services() {
   return (
     <>
       <Head>
-        <title>Our Services — Solvitx | Innovative IT Solutions</title>
+        <title>Our Services — SolvitX | Innovative IT Solutions</title>
         <meta
           name="description"
-          content="Explore Solvitx's comprehensive range of IT services including web development, mobile apps, cloud solutions, and digital marketing."
+          content="Explore SolvitX's comprehensive range of IT services including web development, mobile apps, cloud solutions, and digital marketing."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:title"
-          content="Our Services — Solvitx | Innovative IT Solutions"
+          content="Our Services — SolvitX | Innovative IT Solutions"
         />
         <meta
           property="og:description"
-          content="Discover how Solvitx's technology services can transform your business with custom solutions designed for your unique needs."
+          content="Discover how SolvitX's technology services can transform your business with custom solutions designed for your unique needs."
         />
         <meta property="og:image" content="/images/services-hero.jpg" />
         <meta property="og:type" content="website" />
@@ -128,34 +130,9 @@ export default function Services() {
       </Head>
 
       {/* Hero Section */}
-      <div className="relative h-[70vh] w-full overflow-hidden">
-        {/* Background with Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900 via-indigo-900 to-blue-900">
-          <div className="absolute inset-0 opacity-20">
-            <svg
-              className="h-full w-full"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-            >
-              {[...Array(10)].map((_, i) => (
-                <path
-                  key={i}
-                  d={`M${Math.random() * 100} ${Math.random() * 100} Q${
-                    Math.random() * 100
-                  } ${Math.random() * 100} ${Math.random() * 100} ${
-                    Math.random() * 100
-                  }`}
-                  stroke="white"
-                  strokeWidth="0.5"
-                  fill="none"
-                />
-              ))}
-            </svg>
-          </div>
-        </div>
 
-        {/* Floating Elements */}
-        {/* <div className="absolute inset-0 overflow-hidden">
+      {/* Floating Elements */}
+      {/* <div className="absolute inset-0 overflow-hidden">
           {[...Array(15)].map((_, i) => (
             <motion.div
               key={i}
@@ -179,39 +156,19 @@ export default function Services() {
           ))}
         </div> */}
 
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-3xl md:text-5xl font-bold leading-tight max-w-4xl"
-          >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
-              This Is Your Opportunity To Lead The Digital Space
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="mt-4 max-w-2xl text-sm md:text-base text-gray-200"
-          >
-            <br /> into Digital Reality We don’t offer ‘services’ - we deliver
-            impact — across tech, marketing, and your brand.
-          </motion.p>
-
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full text-sm md:text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Request for a free consultation →
-          </motion.button>
+      {/* Hero Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
+        <div className="w-full">
+          <HeroSection
+            backgroundImage={heroImg}
+            heading="This Is Your Opportunity To Lead The Digital Space"
+            // highlight="into Digital Reality We don’t offer ‘services’ - we deliver impact — across tech, marketing, and your brand."
+            // subheading="SolvitX delivers reliable web, app, and marketing solutions trusted by businesses worldwide. Let us help you build your digital future with confidence."
+            buttonText="Request for a free consultation →"
+            subheading=""
+            // heading=""
+            highlight=""
+          />
         </div>
 
         {/* Scroll Indicator */}
@@ -260,7 +217,7 @@ export default function Services() {
               </p>
               <p className="text-gray-400">
                 Whether you’re a startup looking towards building a presence or
-                an enterprise expanding your reach to the globe stage — Solvitx
+                an enterprise expanding your reach to the globe stage — SolvitX
                 is here to support every such bold move.
               </p>
             </div>
@@ -331,13 +288,14 @@ export default function Services() {
       <DescSection
         heading="Why Our Services Work"
         image="/images/services/WebDevelopment.jpg"
-        title="People don't buy what you do; they buy why you do it. And what you do simply proves what you believe.” — Simon Sinek"
-        content={`And at Solvitx, we focus on your WHY, collaborate with you on your HOW, and help you successfully achieve your WHAT.
-        We start with your goals — not our process.
-        Our customized services bring out your own brand voice.
-        We focus on fast, agile, and fully collaborative projects.
-        You're not a "client" — you're a co-creator in the journey.
-       `}
+        title={`"People don't buy what you do; they buy why you do it. And what you do simply proves what you believe.” — Simon Sinek`}
+        content={[
+          "At SolvitX, we focus on your WHY, collaborate with you on your HOW, and help you successfully achieve your WHAT.",
+          "We start with your goals — not our process.",
+          "Our customized services bring out your own brand voice.",
+          "We focus on fast, agile, and fully collaborative projects.",
+          "You're not a 'client' — you're a co-creator in the journey.",
+        ]}
         position="left"
       />
 

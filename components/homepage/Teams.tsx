@@ -29,60 +29,46 @@ interface TeamMember {
   socialLinks: SocialLinks;
 }
 
-const teamMembers: TeamMember[] = [
+export const clients = [
   {
-    name: "Himanshu",
-    role: "Digital Marketing Manager",
-    image: "/images/team/david.jpg",
-    color: "bg-blue-100",
-    socialLinks: {
-      twitter: "#",
-      linkedin: "#",
-      github: "#",
-    },
+    name: "Acme Corporation",
+    logo: "/images/client-logs/client-1.jpg",
   },
   {
-    name: "Yash",
-    role: "Developer",
-    image: "/images/team/michael.jpg",
-    color: "bg-blue-100",
-    socialLinks: {
-      twitter: "#",
-      linkedin: "#",
-      github: "#",
-    },
+    name: "Globex Corporation",
+    logo: "/images/client-logs/client-2.jpg",
   },
   {
-    name: "Mansi",
-    role: "PR Manager",
-    image: "/images/team/emily.jpg",
-    color: "bg-pink-100",
-    socialLinks: {
-      twitter: "#",
-      linkedin: "#",
-      dribbble: "#",
-    },
+    name: "Initech",
+    logo: "/images/client-logs/client-3.png",
   },
   {
-    name: "Mohit",
-    role: "ASO Expert",
-    image: "/images/team/michael.jpg",
-    color: "bg-purple-100",
-    socialLinks: {
-      linkedin: "#",
-      twitter: "#",
-    },
+    name: "Umbrella Corporation",
+    logo: "/images/client-logs/client-4.jpg",
   },
   {
-    name: "Prayagani",
-    role: "Content Writer",
-    image: "/images/team/sarah.jpg",
-    color: "bg-green-100",
-    socialLinks: {
-      dribbble: "#",
-      linkedin: "#",
-      behance: "#",
-    },
+    name: "Hooli",
+    logo: "/images/client-logs/client-5.jpg",
+  },
+  {
+    name: "Acme Corporation",
+    logo: "/images/client-logs/client-6.png",
+  },
+  // {
+  //   name: "Globex Corporation",
+  //   logo: "/images/client-logs/client-7.png",
+  // },
+  {
+    name: "Initech",
+    logo: "/images/client-logs/client-8.png",
+  },
+  {
+    name: "Umbrella Corporation",
+    logo: "/images/client-logs/client-9.jpg",
+  },
+  {
+    name: "Hooli",
+    logo: "/images/client-logs/client-10.png",
   },
 ];
 
@@ -93,8 +79,8 @@ export default function BestTeamSection() {
   return (
     <Section className="bg-gradient-to-b from-white to-gray-50">
       <SectionHeading
-        title="Meet Our Team"
-        description="Here's our amazing team of creators, designers, and problem solvers who make the magic happen."
+        title="Our Trusted Clients"
+        description="We're proud to have worked with these amazing brands."
         theme="dark"
         titleSize="large"
       />
@@ -104,7 +90,7 @@ export default function BestTeamSection() {
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           navigation={{
             prevEl: navigationPrevRef.current,
@@ -121,40 +107,27 @@ export default function BestTeamSection() {
               slidesPerView: 2,
             },
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 4,
             },
           }}
-          className="py-8"
+          className="py-2"
         >
-          {teamMembers.map((member, idx) => (
-            <SwiperSlide key={member.name}>
+          {clients.map((client, idx) => (
+            <SwiperSlide key={client.name || idx}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative"
+                className="flex items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
               >
-                <div
-                  className={`rounded-2xl ${member.color} p-6 transition-all duration-300 group-hover:shadow-xl h-full`}
-                >
-                  <div className="relative w-48 h-48 mx-auto mb-6">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full group-hover:scale-105 transition-transform duration-300" />
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={192}
-                      height={192}
-                      className="relative z-10 transform transition-transform duration-500 group-hover:scale-105 rounded-full"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-xl font-bold text-gray-800 mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-gray-600 mb-4">{member.role}</p>
-                  </div>
-                </div>
+                <Image
+                  src={client.logo}
+                  alt={client.name || "Client Logo"}
+                  width={200}
+                  height={200}
+                  className="object-contain"
+                />
               </motion.div>
             </SwiperSlide>
           ))}

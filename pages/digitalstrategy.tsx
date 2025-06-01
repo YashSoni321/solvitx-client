@@ -199,10 +199,10 @@ export default function DigitalStrategy() {
   return (
     <>
       <Head>
-        <title>Digital Strategy Services | Solvitx</title>
+        <title>Digital Strategy Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert digital strategy services by Solvitx. We help businesses transform and thrive in the digital age."
+          content="Expert digital strategy services by SolvitX. We help businesses transform and thrive in the digital age."
         />
       </Head>
 

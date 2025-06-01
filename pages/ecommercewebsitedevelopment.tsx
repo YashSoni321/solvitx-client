@@ -242,10 +242,10 @@ export default function EcommerceWebsiteDevelopment() {
   return (
     <>
       <Head>
-        <title>Ecommerce Website Development | Solvitx</title>
+        <title>Ecommerce Website Development | SolvitX</title>
         <meta
           name="description"
-          content="Professional ecommerce website development by Solvitx. Create a powerful online store with advanced features and seamless user experience."
+          content="Professional ecommerce website development by SolvitX. Create a powerful online store with advanced features and seamless user experience."
         />
       </Head>
 

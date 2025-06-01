@@ -19,6 +19,8 @@ import {
 } from "react-icons/fa";
 import Image from "next/image";
 import SectionHeading from "../common/SectionHeading";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 // Enhanced service data with icons and more details
 const services = [
@@ -29,7 +31,7 @@ const services = [
     shortDesc: "",
     content:
       "Lightning fast, functional, responsive websites tailored to your brand and business goals- built to perform.",
-
+    link: "/webdevelopment",
     benefits: ["Ecommerce Website Development"],
     imageUrl: WebDevelopmentImage,
     color: "from-pink-600 to-purple-600",
@@ -39,6 +41,7 @@ const services = [
     title: "App Development",
     icon: <FaLightbulb className="text-yellow-500 text-3xl" />,
     shortDesc: "",
+    link: "/appdevelopment",
     content:
       " Let your ideas reach out to the mass with our interactive apps that deliver seamless user experience and real results.",
     benefits: [
@@ -52,6 +55,7 @@ const services = [
   {
     id: "digital-marketing",
     title: "Digital Marketing",
+    link: "/digitalmarketing",
     icon: <FaChartLine className="text-blue-500 text-3xl" />,
     shortDesc: "",
     content:
@@ -72,6 +76,7 @@ const services = [
   {
     id: "Software-Development",
     title: "Software Development",
+    link: "/softwaredevelopment",
     icon: <FaChartLine className="text-blue-500 text-3xl" />,
     shortDesc: "",
     content:
@@ -95,6 +100,7 @@ const Services = () => {
   const [hoveringItem, setHoveringItem] = useState<number | null>(null);
   const containerRef = useRef(null);
   const galleryRef = useRef(null);
+  const router = useRouter();
 
   // Detect when components are in view
   const { scrollYProgress } = useScroll({
@@ -220,7 +226,9 @@ const Services = () => {
                 {services.map((service, index) => (
                   <motion.div
                     key={service.id}
-                    onClick={() => setActiveService(index)}
+                    onClick={() => {
+                      setActiveService(index);
+                    }}
                     onMouseEnter={() => setHoveringItem(index)}
                     onMouseLeave={() => setHoveringItem(null)}
                     className={`cursor-pointer p-6 rounded-xl transition-all duration-400 ${
@@ -274,7 +282,7 @@ const Services = () => {
                               whileHover={{ x: 5 }}
                               className="mt-6 flex items-center text-white text-sm font-medium"
                             >
-                              Learn more
+                              <Link href={service.link}>Learn more</Link>
                               <FaArrowRight className="ml-2 text-xs" />
                             </motion.button>
                           </motion.div>
@@ -392,16 +400,13 @@ const Services = () => {
           <p className="text-gray-300 mb-8 text-lg">
             Let’s build something powerful— together.
           </p>
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full font-semibold hover:from-purple-700 hover:to-pink-600 transition-all duration-300 shadow-lg"
           >
             Get in Touch →
-          </motion.button>
-          <p className="text-gray-300 mb-8 text-lg mt-5">
-            or scroll down to explore our services
-          </p>
+          </motion.button> */}
         </div>
       </motion.div>
     </section>

@@ -140,7 +140,7 @@ const LandingPage = () => {
       phone: formData.mobile,
       service: formData.service,
       message: formData.details,
-      to_name: "Solvitx Team",
+      to_name: "SolvitX Team",
     };
 
     // Use EmailJS to send the email
@@ -191,9 +191,9 @@ const LandingPage = () => {
 
   const faqs = [
     {
-      question: "What range of digital services does Solvitx provide?",
+      question: "What range of digital services does SolvitX provide?",
       answer:
-        "Solvitx offers a comprehensive suite of digital solutions, including bespoke web development, dynamic mobile app creation, strategic digital marketing campaigns, advanced SEO optimization, intuitive UI/UX design, and scalable custom software development to elevate your business.",
+        "SolvitX offers a comprehensive suite of digital solutions, including bespoke web development, dynamic mobile app creation, strategic digital marketing campaigns, advanced SEO optimization, intuitive UI/UX design, and scalable custom software development to elevate your business.",
     },
     {
       question: "What is the typical project timeline for a new website?",
@@ -201,17 +201,17 @@ const LandingPage = () => {
         "Project timelines are tailored to complexity. A standard informational website might take 2-4 weeks, whereas intricate e-commerce platforms or custom web applications could range from 2-3 months. We provide a precise timeline after a thorough requirement analysis.",
     },
     {
-      question: "Does Solvitx offer post-launch maintenance and support?",
+      question: "Does SolvitX offer post-launch maintenance and support?",
       answer:
         "Absolutely. We provide a variety of ongoing maintenance and support packages designed to keep your digital assets secure, up-to-date, and performing at their peak. Our dedicated support team is readily available to address any emerging issues.",
     },
     {
-      question: "How is project pricing determined at Solvitx?",
+      question: "How is project pricing determined at SolvitX?",
       answer:
         "Every project is unique. Pricing is based on specific requirements, features, complexity, and overall scope. We believe in transparency and provide detailed, itemized quotes after fully understanding your vision and business objectives.",
     },
     {
-      question: "Can Solvitx help improve my existing website's performance?",
+      question: "Can SolvitX help improve my existing website's performance?",
       answer:
         "Yes, definitely! We offer website audit services, performance optimization, SEO enhancements, and redesign services to revitalize your existing online presence and improve user engagement and conversion rates.",
     },
@@ -253,7 +253,7 @@ const LandingPage = () => {
               href="/"
               className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"
             >
-              Solvitx
+              SolvitX
             </Link>
             <div className="hidden md:flex items-center space-x-6">
               {[
@@ -303,7 +303,7 @@ const LandingPage = () => {
               Ignite Your Digital Future
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500">
-                With Solvitx Innovations
+                With SolvitX Innovations
               </span>
             </motion.h1>
             <motion.p
@@ -372,7 +372,7 @@ const LandingPage = () => {
                 variants={fadeInUp}
                 className="text-gray-300 mb-6 text-lg leading-relaxed"
               >
-                At Solvitx, we're more than developers; we're architects of
+                At SolvitX, we're more than developers; we're architects of
                 digital transformation. We specialize in crafting powerful,
                 bespoke solutions that propel businesses into the modern digital
                 landscape. Our mastery in web development and digital marketing
@@ -817,7 +817,7 @@ const LandingPage = () => {
                 name: "Alexandra Lee",
                 company: "CEO, Innovatech Solutions",
                 testimonial:
-                  "Solvitx didn't just build us a website; they crafted a digital experience. Our e-commerce conversion rates have soared by 150% thanks to their intuitive design and robust platform.",
+                  "SolvitX didn't just build us a website; they crafted a digital experience. Our e-commerce conversion rates have soared by 150% thanks to their intuitive design and robust platform.",
                 avatarInitial: "A",
                 color: "bg-blue-500",
               },
@@ -825,7 +825,7 @@ const LandingPage = () => {
                 name: "Marcus Chen",
                 company: "Founder, TechStart Global",
                 testimonial:
-                  "The digital marketing strategies by Solvitx were a game-changer. We saw a 200% increase in organic traffic within three months. Their team is agile, insightful, and truly results-driven.",
+                  "The digital marketing strategies by SolvitX were a game-changer. We saw a 200% increase in organic traffic within three months. Their team is agile, insightful, and truly results-driven.",
                 avatarInitial: "M",
                 color: "bg-purple-500",
               },
@@ -833,7 +833,7 @@ const LandingPage = () => {
                 name: "Sophia Miller",
                 company: "Director, HealthPro Connect",
                 testimonial:
-                  "Our mobile app, developed by Solvitx, has received overwhelmingly positive user feedback. Their meticulous attention to detail and unwavering commitment to quality is truly commendable.",
+                  "Our mobile app, developed by SolvitX, has received overwhelmingly positive user feedback. Their meticulous attention to detail and unwavering commitment to quality is truly commendable.",
                 avatarInitial: "S",
                 color: "bg-pink-500",
               },
@@ -1017,7 +1017,7 @@ const LandingPage = () => {
               Our Commitment
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Why Partner With Solvitx?
+              Why Partner With SolvitX?
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed">
               We're dedicated to your success, offering unparalleled expertise,
@@ -1305,7 +1305,7 @@ const LandingPage = () => {
             </h2>
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Tell us about your vision. We're excited to learn about your
-              project and discuss how Solvitx can turn your ideas into digital
+              project and discuss how SolvitX can turn your ideas into digital
               reality. Fill out the form below or call us directly.
             </p>
           </motion.div>
@@ -1527,7 +1527,7 @@ const LandingPage = () => {
             href="/"
             className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4 inline-block"
           >
-            Solvitx
+            SolvitX
           </Link>
           <p className="mb-4 text-sm">
             Crafting Digital Excellence. Your Partner in Innovation.
@@ -1551,7 +1551,7 @@ const LandingPage = () => {
             </a>
           </div>
           <p className="text-xs">
-            &copy; {new Date().getFullYear()} Solvitx. All Rights Reserved.
+            &copy; {new Date().getFullYear()} SolvitX. All Rights Reserved.
           </p>
           <p className="text-xs mt-1">
             <Link href="/privacy-policy" className="hover:text-white">

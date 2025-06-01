@@ -198,10 +198,10 @@ export default function AndroidAppDevelopment() {
   return (
     <>
       <Head>
-        <title>Android App Development Services | Solvitx</title>
+        <title>Android App Development Services | SolvitX</title>
         <meta
           name="description"
-          content="Expert Android app development services by Solvitx. We build native Android applications using Kotlin and Java."
+          content="Expert Android app development services by SolvitX. We build native Android applications using Kotlin and Java."
         />
       </Head>
 
