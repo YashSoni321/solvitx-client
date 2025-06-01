@@ -1,7 +1,8 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import Hero from "@/components/homepage/Hero";
 import FloatingSocials from "@/components/common/FloatingSocials";
+import HeroSection from "@/components/homepage/Hero";
+import heroImg from "../public/images/hero_image.jpg";
 
 // Dynamically import components with loading states
 const AboutSolvitx = dynamic(
@@ -105,7 +106,13 @@ export default function Home() {
           crossOrigin="anonymous"
         />
       </Head>
-      <Hero />
+      <HeroSection
+        backgroundImage={heroImg}
+        heading="Empowering Your Digital Growth"
+        highlight="With Trust & Innovation"
+        subheading="SolvitX delivers reliable web, app, and marketing solutions trusted by businesses worldwide. Let us help you build your digital future with confidence."
+        buttonText="Get Started"
+      />
 
       {/* <AboutSolvitx />
       <OurWorks /> */}
