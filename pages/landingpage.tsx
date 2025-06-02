@@ -9,6 +9,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import emailjs from "@emailjs/browser";
 import { emailConfig } from "@/config/emailConfig";
+import heroImg from "../public/images/hero_image.jpg";
 
 // Import icons
 import {
@@ -55,6 +56,7 @@ import Footer from "@/components/homepage/Footer";
 import { workStages } from "./contact";
 import { budgetOptions } from "@/components/common/ContactUsForm";
 import { clients } from "@/components/homepage/Teams";
+import HeroSection from "@/components/homepage/Hero";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -313,66 +315,14 @@ const LandingPage = () => {
       </nav> */}
 
       {/* Hero Section - White */}
-      <section className="pt-32 md:pt-40 pb-20 md:pb-28 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-50">
-          <div className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-blue-100 rounded-full filter blur-3xl animate-pulse-slow"></div>
-          <div className="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-purple-100 rounded-full filter blur-3xl animate-pulse-slow animation-delay-2000"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.h1
-              variants={fadeInUp}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-gray-900 leading-tight"
-            >
-              Ignite Your Digital Future
-              <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500">
-                With SolvitX Innovations
-              </span>
-            </motion.h1>
-            <motion.p
-              variants={fadeInUp}
-              className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto"
-            >
-              Crafting extraordinary digital experiences. We fuse cutting-edge
-              web solutions with strategic digital marketing to propel your
-              business growth. Partner with us for digital excellence.
-            </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-wrap justify-center gap-4"
-            >
-              <motion.a
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                href="#services"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3.5 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center gap-2"
-              >
-                Explore Services <FaArrowRight />
-              </motion.a>
-              {/* <motion.a
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.05)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                href="#about"
-                className="bg-white text-blue-600 px-8 py-3.5 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 border-2 border-blue-600"
-              >
-                Learn About Us
-              </motion.a> */}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+
+      <HeroSection
+        backgroundImage={heroImg}
+        heading="Empowering Your Digital Growth"
+        highlight="With Trust & Innovation"
+        subheading="SolvitX delivers reliable web, app, and marketing solutions trusted by businesses worldwide. Let us help you build your digital future with confidence."
+        buttonText="Get Started"
+      />
 
       {/* About Us Section - Black theme, but with better contrast and form */}
       <section id="about" className="py-20 md:py-28 bg-gray-900 text-white">
