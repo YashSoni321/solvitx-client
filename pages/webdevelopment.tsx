@@ -30,6 +30,8 @@ import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/Web_Development.jpg";
+import heroImgMobile from "../public/images/hero-mobile/WebDev.jpg";
+import useIsMobile from "@/hooks/useIsMobile";
 
 // Animation variants
 const fadeInUp = {
@@ -445,7 +447,7 @@ export default function WebDevelopmentService() {
     message: "",
   });
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
+  const isMobile = useIsMobile();
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
@@ -496,7 +498,7 @@ export default function WebDevelopmentService() {
         </motion.div>
       </motion.section> */}
       <HeroSection
-        backgroundImage={heroImg}
+        backgroundImage={isMobile ? heroImgMobile : heroImg}
         heading="Web Development"
         highlight=""
         subheading="We specialize in creating cutting-edge web applications using the latest technologies."

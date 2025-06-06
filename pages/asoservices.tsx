@@ -30,6 +30,8 @@ import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/ASO.jpg";
+import heroImgMobile from "../public/images/hero-mobile/ASO.jpg";
+import useIsMobile from "@/hooks/useIsMobile";
 
 // Animation variants
 const fadeInUp = {
@@ -192,6 +194,7 @@ export default function ASOServices() {
     threshold: 0.1,
   });
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -238,7 +241,7 @@ export default function ASOServices() {
       </motion.section> */}
 
       <HeroSection
-        backgroundImage={heroImg}
+        backgroundImage={isMobile ? heroImgMobile : heroImg}
         heading="App Store Optimization"
         highlight=""
         subheading="Boost your app's visibility and drive more organic downloads with our expert ASO services."

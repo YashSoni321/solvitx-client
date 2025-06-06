@@ -33,6 +33,8 @@ import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
+import useIsMobile from "@/hooks/useIsMobile";
+import heroImgMobile from "../public/images/hero-mobile/Content.jpg";
 
 // Animation variants
 const fadeInUp = {
@@ -213,7 +215,7 @@ export default function ContentMarketingService() {
     threshold: 0.1,
   });
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
+  const isMobile = useIsMobile();
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
@@ -259,7 +261,7 @@ export default function ContentMarketingService() {
       </motion.section> */}
 
       <HeroSection
-        backgroundImage={heroImg}
+        backgroundImage={isMobile ? heroImgMobile : heroImg}
         heading="Content Marketing"
         highlight=""
         subheading="Drive engagement and growth with our expert content marketing services."

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Stat1Image from "../../public/images/stat1.jpg";
 import StatImage from "../../public/images/stat.jpg";
 // import { CountUpAnimation } from "@/pages/landingpage";
-import { CountUpAnimation } from "../../pages/landingpage";
+import { CountUpAnimation } from "../../pages/landing-page";
 import SectionHeading from "../common/SectionHeading";
 
 const fadeInUp = {

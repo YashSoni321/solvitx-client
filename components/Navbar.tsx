@@ -112,6 +112,13 @@ const Navbar = () => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [isOpen]);
 
+  // Function to close mobile menu
+  const closeMobileMenu = () => {
+    setIsOpen(false);
+    setActiveMenu(null);
+    setActiveSubMenu(null);
+  };
+
   const handleMenuToggle = (e: any, name: any) => {
     e.stopPropagation();
     setActiveMenu(activeMenu === name ? null : name);
@@ -123,6 +130,25 @@ const Navbar = () => {
     setActiveSubMenu(activeSubMenu === name ? null : name);
   };
 
+  // Handle link clicks - close menu for links, keep open for expandable items
+  const handleLinkClick = (item: any, e: any) => {
+    // If item has submenu, don't close the menu, just navigate
+    if (!item.subMenu) {
+      closeMobileMenu();
+    }
+  };
+
+  const handleSubLinkClick = (subItem: any, e: any) => {
+    // If subItem has subItems, don't close the menu
+    if (!subItem.subItems) {
+      closeMobileMenu();
+    }
+  };
+
+  const handleNestedLinkClick = () => {
+    closeMobileMenu();
+  };
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -131,7 +157,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" onClick={closeMobileMenu}>
           <Image
             src={LogoImage}
             alt="SolvitX"
@@ -218,60 +244,79 @@ const Navbar = () => {
             e.stopPropagation();
             setIsOpen(!isOpen);
           }}
-          className="md:hidden text-blue-900 text-2xl focus:outline-none z-50"
+          className="md:hidden relative z-50 p-2 focus:outline-none"
           aria-label="Toggle Menu"
         >
-          {isOpen ? <FaTimes /> : <FaBars />}
+          {isOpen ? (
+            <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200">
+              <FaTimes className="text-red-600 text-xl" />
+            </div>
+          ) : (
+            <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200">
+              <FaBars className="text-blue-900 text-xl" />
+            </div>
+          )}
         </button>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-white/95 border-t border-gray-100 flex flex-col p-6 pt-20 overflow-y-auto z-50">
+          <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-white/95 backdrop-blur-md border-t border-gray-100 flex flex-col p-6 pt-20 overflow-y-auto z-40">
             {navItems.map((item) => (
               <div key={item.name} className="py-2 border-b border-gray-200">
                 {item.subMenu ? (
                   <div>
-                    <div
-                      className="flex items-center justify-between py-2"
-                      onClick={(e) => handleMenuToggle(e, item.name)}
-                    >
-                      <Link href={item.path}>
+                    <div className="flex items-center justify-between py-2">
+                      <Link
+                        href={item.path}
+                        onClick={(e) => handleLinkClick(item, e)}
+                        className="flex-1"
+                      >
                         <span className="text-blue-900 text-lg font-medium">
                           {item.name}
                         </span>
                       </Link>
-                      <FaChevronDown
-                        className={`text-blue-900 transition-transform ${
-                          activeMenu === item.name ? "rotate-180" : ""
-                        }`}
-                      />
+                      <button
+                        onClick={(e) => handleMenuToggle(e, item.name)}
+                        className="p-2 ml-2"
+                      >
+                        <FaChevronDown
+                          className={`text-blue-900 transition-transform ${
+                            activeMenu === item.name ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
                     </div>
 
                     {activeMenu === item.name && (
                       <div className="pl-4 py-2 space-y-2">
                         {item.subMenu.map((subItem, idx) => (
                           <div key={idx} className="py-1">
-                            <div
-                              className="flex items-center justify-between"
-                              onClick={(e) =>
-                                subItem.subItems &&
-                                handleSubMenuToggle(e, subItem.name)
-                              }
-                            >
-                              <Link href={subItem.path}>
+                            <div className="flex items-center justify-between">
+                              <Link
+                                href={subItem.path}
+                                onClick={(e) => handleSubLinkClick(subItem, e)}
+                                className="flex-1"
+                              >
                                 <span className="flex items-center text-blue-800">
                                   <span className="mr-2">{subItem.icon}</span>
                                   {subItem.name}
                                 </span>
                               </Link>
                               {subItem.subItems && (
-                                <FaChevronDown
-                                  className={`text-blue-900 text-xs transition-transform ${
-                                    activeSubMenu === subItem.name
-                                      ? "rotate-180"
-                                      : ""
-                                  }`}
-                                />
+                                <button
+                                  onClick={(e) =>
+                                    handleSubMenuToggle(e, subItem.name)
+                                  }
+                                  className="p-2 ml-2"
+                                >
+                                  <FaChevronDown
+                                    className={`text-blue-900 text-xs transition-transform ${
+                                      activeSubMenu === subItem.name
+                                        ? "rotate-180"
+                                        : ""
+                                    }`}
+                                  />
+                                </button>
                               )}
                             </div>
 
@@ -285,6 +330,7 @@ const Navbar = () => {
                                         href={`/${nestedItem
                                           .toLowerCase()
                                           .replace(/\s+/g, "")}`}
+                                        onClick={handleNestedLinkClick}
                                       >
                                         <span className="block py-1 text-blue-700 hover:text-pink-600">
                                           {nestedItem}
@@ -300,7 +346,10 @@ const Navbar = () => {
                     )}
                   </div>
                 ) : (
-                  <Link href={item.path}>
+                  <Link
+                    href={item.path}
+                    onClick={(e) => handleLinkClick(item, e)}
+                  >
                     <span className="block py-2 text-blue-900 text-lg font-medium">
                       {item.name}
                     </span>
@@ -308,7 +357,7 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            <Link href="/contact" className="mt-6">
+            <Link href="/contact" onClick={closeMobileMenu} className="mt-6">
               <span className="block w-full bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-3 rounded-full text-center font-semibold text-white">
                 Get Started
               </span>

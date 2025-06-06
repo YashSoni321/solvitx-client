@@ -33,6 +33,8 @@ import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/Video_Editing.jpg";
+import useIsMobile from "@/hooks/useIsMobile";
+import heroImgMobile from "../public/images/hero-mobile/vedioEditing.jpg";
 
 // Animation variants
 const fadeInUp = {
@@ -219,7 +221,7 @@ export default function VideoEditing() {
     threshold: 0.1,
   });
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
+  const isMobile = useIsMobile();
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
@@ -265,7 +267,7 @@ export default function VideoEditing() {
       </motion.section> */}
 
       <HeroSection
-        backgroundImage={heroImg}
+        backgroundImage={isMobile ? heroImgMobile : heroImg}
         heading="Video Editing"
         highlight=""
         subheading="Transform your raw footage into engaging content."

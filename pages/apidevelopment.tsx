@@ -34,6 +34,8 @@ import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/Api_Development.jpg";
+import heroImgMobile from "../public/images/hero-mobile/API.jpg";
+import useIsMobile from "@/hooks/useIsMobile";
 
 // Animation variants
 const fadeInUp = {
@@ -234,6 +236,7 @@ export default function APIDevelopment() {
     threshold: 0.1,
   });
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -280,7 +283,7 @@ export default function APIDevelopment() {
       </motion.section> */}
 
       <HeroSection
-        backgroundImage={heroImg}
+        backgroundImage={isMobile ? heroImgMobile : heroImg}
         heading="API Development"
         highlight=""
         subheading="Build robust, scalable, and secure APIs that drive your digital transformation."

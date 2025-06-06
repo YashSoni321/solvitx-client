@@ -36,6 +36,8 @@ import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/Digital_Marketing.jpg";
+import heroImgMobile from "../public/images/hero-mobile/DigitalMM.jpg";
+import useIsMobile from "@/hooks/useIsMobile";
 
 // Animation variants
 const fadeInUp = {
@@ -257,6 +259,7 @@ export default function DigitalMarketingService() {
     threshold: 0.1,
   });
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -303,7 +306,7 @@ export default function DigitalMarketingService() {
       </motion.section> */}
 
       <HeroSection
-        backgroundImage={heroImg}
+        backgroundImage={isMobile ? heroImgMobile : heroImg}
         heading="Digital Marketing"
         highlight=""
         subheading="Accelerate your growth with performance-driven digital marketing."
