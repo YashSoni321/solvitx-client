@@ -4,6 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { useState } from "react"; // Adjust path if needed
 import ContactUsForm from "../common/ContactUsForm";
 import Modal from "../common/Modal";
+import OptimizedImage from "../common/OptimizedImage";
 
 interface HeroSectionProps {
   backgroundImage: any;
@@ -25,12 +26,13 @@ const HeroSection = ({
   return (
     <section className="relative min-h-[70vh] flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-24 md:py-32 overflow-hidden">
       {/* Background logo image */}
-      <Image
+      <OptimizedImage
         src={backgroundImage}
         alt="Hero Background"
         fill
-        className="object-cover  z-0 w-full h-full"
+        className="object-cover z-0 w-full h-full"
         priority
+        quality={90}
       />
 
       {/* Foreground content */}
