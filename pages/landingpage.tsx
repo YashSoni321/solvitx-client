@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -19,9 +17,6 @@ import {
   FaSearch,
   FaShoppingCart,
   FaServer,
-  FaWhatsapp,
-  FaInstagram,
-  FaArrowRight,
   FaQuoteLeft,
   FaRegLightbulb,
   FaSyncAlt,
@@ -33,6 +28,7 @@ import {
   FaEnvelope,
   FaLinkedin,
   FaChevronRight,
+  FaPhone,
 } from "react-icons/fa";
 
 import {
@@ -57,6 +53,10 @@ import { workStages } from "./contact";
 import { budgetOptions } from "@/components/common/ContactUsForm";
 import { clients } from "@/components/homepage/Teams";
 import HeroSection from "@/components/homepage/Hero";
+import SectionHeading from "@/components/common/SectionHeading";
+import LandingPageNavbar from "@/components/common/LandingPageNavbar";
+// import LandingPageFooter from "@/components/homepage/landingPageFooter";
+import LandingPageFooter from "../components/homepage/LandingPageFooter";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -173,7 +173,7 @@ const LandingPage = () => {
       phone: formData.phone,
       budget: formData.budget,
       message: formData.message,
-      to_name: "SolvitX Team",
+      to_name: "Solvitx Team",
     };
     console.log("templateParams", templateParams);
 
@@ -200,10 +200,10 @@ const LandingPage = () => {
           message: "",
         });
 
-        // Reset success message after a delay
+        // Redirect to thank you page after successful submission
         setTimeout(() => {
-          setSubmitSuccess(false);
-        }, 5000);
+          window.location.href = "/thankyou";
+        }, 1500);
       })
       .catch((error) => {
         console.error("Email sending failed:", error);
@@ -246,86 +246,38 @@ const LandingPage = () => {
 
   const faqs = [
     {
-      question: "What range of digital services does SolvitX provide?",
+      question:
+        "What are the different type of digital services does SolvitX Provide?",
       answer:
-        "SolvitX offers a comprehensive suite of digital solutions, including bespoke web development, dynamic mobile app creation, strategic digital marketing campaigns, advanced SEO optimization, intuitive UI/UX design, and scalable custom software development to elevate your business.",
+        "SolvitX offers a comprehensive suite of digital solutions, including web development, dynamic mobile app creation, Content Marketing, strategic digital marketing campaigns, advanced SEO optimization, intuitive UI/UX design, and scalable custom software development to give your business new heights. ",
     },
     {
-      question: "What is the typical project timeline for a new website?",
+      question: "What is the typical project Timeline For a New Website?",
       answer:
-        "Project timelines are tailored to complexity. A standard informational website might take 2-4 weeks, whereas intricate e-commerce platforms or custom web applications could range from 2-3 months. We provide a precise timeline after a thorough requirement analysis.",
+        "Project timeline depends upon the complexity. The standard website timeline is around 2-4 weeks but the e-commerce platforms or custom web applications range from 2-3 months.",
     },
     {
-      question: "Does SolvitX offer post-launch maintenance and support?",
+      question: "Does SolvitX offers post launch maintenance & Support? ",
       answer:
-        "Absolutely. We provide a variety of ongoing maintenance and support packages designed to keep your digital assets secure, up-to-date, and performing at their peak. Our dedicated support team is readily available to address any emerging issues.",
-    },
-    {
-      question: "How is project pricing determined at SolvitX?",
-      answer:
-        "Every project is unique. Pricing is based on specific requirements, features, complexity, and overall scope. We believe in transparency and provide detailed, itemized quotes after fully understanding your vision and business objectives.",
-    },
-    {
-      question: "Can SolvitX help improve my existing website's performance?",
-      answer:
-        "Yes, definitely! We offer website audit services, performance optimization, SEO enhancements, and redesign services to revitalize your existing online presence and improve user engagement and conversion rates.",
+        "SoftviX provides exclusive ongoing maintenance and support packages designed to keep your digital assets secure, up-to-date, and performing at their peak.",
     },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
-      {/* Floating Social Media Links */}
-
-      {/* Header/Navigation */}
-      {/* <nav className="fixed top-0 left-0 right-0 z-[90] bg-white/80 backdrop-blur-md shadow-lg">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
-            <Link
-              href="/"
-              className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"
-            >
-              SolvitX
-            </Link>
-            <div className="hidden md:flex items-center space-x-6">
-              {[
-                { href: "#about", label: "About Us" },
-                { href: "#services", label: "Services" },
-                { href: "#technologies", label: "Technologies" },
-                { href: "#contact", label: "Get Quote" },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group"
-                >
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                </Link>
-              ))}
-            </div>
-            <a
-              href="tel:+1234567890"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2.5 rounded-full hover:shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 text-sm font-semibold flex items-center gap-2"
-            >
-              Call Now
-              <FaArrowRight className="w-3 h-3" />
-            </a>
-          </div>
-        </div>
-      </nav> */}
-
-      {/* Hero Section - White */}
-
-      <HeroSection
-        backgroundImage={heroImg}
-        heading="Empowering Your Digital Growth"
-        highlight="With Trust & Innovation"
-        subheading="SolvitX delivers reliable web, app, and marketing solutions trusted by businesses worldwide. Let us help you build your digital future with confidence."
-        buttonText="Get Started"
-      />
+      <LandingPageNavbar />
+      <div id="home">
+        <HeroSection
+          backgroundImage={heroImg}
+          heading="Power up your brand with all in one "
+          highlight="Digital marketing & IT solutions"
+          subheading="SolvitX is a top-tier IT & marketing company aligned with your business goals offers various services including digital marketing, web development, software development and app development that will make your audience addicted to your brand. "
+          buttonText="See it for yourself!"
+        />
+      </div>
 
       {/* About Us Section - Black theme, but with better contrast and form */}
-      <section id="about" className="py-20 md:py-28 bg-gray-900 text-white">
+      <section id="about" className="py-12 md:py-12 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <motion.div
@@ -334,29 +286,14 @@ const LandingPage = () => {
               variants={staggerContainer}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <motion.span
-                variants={fadeInUp}
-                className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-2 block"
-              >
-                Who We Are
-              </motion.span>
-              <motion.h2
-                variants={fadeInUp}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
-              >
-                Pioneering Digital Excellence, <br />
-                Empowering Your Vision.
-              </motion.h2>
-              <motion.p
-                variants={fadeInUp}
-                className="text-gray-300 mb-6 text-lg leading-relaxed"
-              >
-                At SolvitX, we're more than developers; we're architects of
-                digital transformation. We specialize in crafting powerful,
-                bespoke solutions that propel businesses into the modern digital
-                landscape. Our mastery in web development and digital marketing
-                ensures you not only compete but lead.
-              </motion.p>
+              <SectionHeading
+                title="SolvitX: Turn Ideas into Smart Digital Solutions"
+                subtitle="Who We Are"
+                description="SolvitX gain proficiency in creating high performance websites, indulge in expert digital marketing strategies, Software & app development to boost engagement & brand visibility."
+                theme="light"
+                subtitlePosition="above"
+                alignment="left"
+              />
               <motion.div
                 variants={fadeInUp}
                 className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4"
@@ -364,15 +301,18 @@ const LandingPage = () => {
                 {[
                   {
                     icon: <FaLaptopCode className="text-blue-400" />,
-                    label: "Innovative Web Development",
+                    label:
+                      "Our Web Developers, we build you the first digital image for your brand.",
                   },
                   {
                     icon: <FaChartLine className="text-blue-400" />,
-                    label: "Strategic Digital Marketing",
+                    label:
+                      "Our Marketing Experts help your business reach the right audience for better conversions.",
                   },
                   {
                     icon: <FaMobileAlt className="text-blue-400" />,
-                    label: "Cutting-Edge App Solutions",
+                    label:
+                      "Our Application Developers let you connect with your audiences in the most interactive way.",
                   },
                   {
                     icon: <FaSearch className="text-blue-400" />,
@@ -395,150 +335,271 @@ const LandingPage = () => {
               whileInView="visible"
               variants={fadeInUp}
               viewport={{ once: true, amount: 0.3 }}
-              className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 p-8 md:p-10 rounded-2xl shadow-2xl"
+              className="bg-gradient-to-br border-amber-50 border-4  p-8 md:p-10 rounded-2xl shadow-2xl"
             >
               <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center text-white">
                 Ready to Start? Get a Free Quote!
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label htmlFor="name_about" className="sr-only">
-                    Name
-                  </label>
-                  <input
-                    id="name_about"
-                    type="text"
-                    name="name"
-                    placeholder="Your Full Name *"
-                    onChange={handleInputChange}
-                    value={formData.name}
-                    className="w-full p-3.5 bg-white/10 text-white placeholder-gray-300 border border-white/20 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all"
-                    required
-                  />
+              {submitSuccess && (
+                <div className="bg-green-200/20 border border-green-600 text-green-100 px-4 py-3 rounded-lg mb-6 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span>
+                    Thank you! Your message has been sent successfully.
+                  </span>
                 </div>
-                <div>
-                  <label htmlFor="mobile_about" className="sr-only">
-                    Mobile Number
-                  </label>
-                  <input
-                    id="mobile_about"
-                    type="tel"
-                    name="phone"
-                    placeholder="Mobile Number *"
-                    onChange={handleInputChange}
-                    value={formData.phone}
-                    className="w-full p-3.5 bg-white/10 text-white placeholder-gray-300 border border-white/20 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all"
-                    required
-                  />
+              )}
+
+              {submitError && (
+                <div className="bg-red-600/20 border border-red-600 text-red-100 px-4 py-3 rounded-lg mb-6 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span>{submitError}</span>
                 </div>
-                <div>
-                  <label htmlFor="email_about" className="sr-only">
-                    Email
-                  </label>
-                  <input
-                    id="email_about"
-                    type="email"
-                    name="email"
-                    placeholder="Email Address *"
-                    onChange={handleInputChange}
-                    value={formData.email}
-                    className="w-full p-3.5 bg-white/10 text-white placeholder-gray-300 border border-white/20 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all"
-                    required
-                  />
+              )}
+
+              <form onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label
+                      className="block text-gray-300 mb-2"
+                      htmlFor="firstName"
+                    >
+                      First Name
+                    </label>
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="John"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      className="block text-gray-300 mb-2"
+                      htmlFor="lastName"
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="Doe"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="service_about" className="sr-only">
-                    Service Required
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label className="block text-gray-300 mb-2" htmlFor="email">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-300 mb-2" htmlFor="phone">
+                      Phone Number
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      placeholder="+91 9876543210"
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <label className="block text-gray-300 mb-2" htmlFor="budget">
+                    Project Budget
                   </label>
                   <select
-                    id="service_about"
+                    id="budget"
                     name="budget"
-                    onChange={handleInputChange}
                     value={formData.budget}
-                    className="w-full p-3.5 bg-white/10 text-white border border-white/20 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all appearance-none"
+                    onChange={handleChange}
                     required
+                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   >
-                    <option value="" className="text-gray-500">
-                      Select Service Required *
-                    </option>
-                    <option value="web-development" className="text-black">
-                      Web Development
-                    </option>
-                    <option value="digital-marketing" className="text-black">
-                      Digital Marketing
-                    </option>
-                    <option value="app-development" className="text-black">
-                      App Development
-                    </option>
-                    <option value="seo-optimization" className="text-black">
-                      SEO Optimization
-                    </option>
-                    <option value="ui-ux-design" className="text-black">
-                      UI/UX Design
-                    </option>
-                    <option value="other" className="text-black">
-                      Other
-                    </option>
+                    {budgetOptions.map((option, index) => (
+                      <option key={index} value={option} disabled={index === 0}>
+                        {option}
+                      </option>
+                    ))}
                   </select>
                 </div>
-                <div>
-                  <label htmlFor="details_about" className="sr-only">
-                    Requirement Details
+
+                <div className="mb-6">
+                  <label className="block text-gray-300 mb-2" htmlFor="message">
+                    Message
                   </label>
                   <textarea
-                    id="details_about"
+                    id="message"
                     name="message"
-                    placeholder="Tell us about your project... *"
-                    rows={3}
-                    onChange={handleInputChange}
                     value={formData.message}
-                    className="w-full p-3.5 bg-white/10 text-white placeholder-gray-300 border border-white/20 rounded-lg focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all"
+                    onChange={handleChange}
                     required
+                    rows={5}
+                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="Tell us about your project and requirements..."
                   ></textarea>
                 </div>
-                <motion.button
-                  whileHover={{
-                    scale: 1.03,
-                    boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.2)",
-                  }}
-                  whileTap={{ scale: 0.97 }}
-                  type="submit"
-                  className="w-full bg-white text-blue-600 py-3.5 rounded-lg hover:bg-gray-100 transition-all duration-300 font-semibold text-lg"
-                >
-                  Send Request
-                </motion.button>
+
+                <div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all ${
+                      isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center">
+                        <svg
+                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Sending...
+                      </span>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+                </div>
               </form>
             </motion.div>
           </div>
         </div>
       </section>
-
+      {/* Stats Section - Black - Animated numbers and more dynamic background */}
+      <section className="py-12 md:py-12 bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern
+                id="smallGrid"
+                width="20"
+                height="20"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 20 0 L 0 0 0 20"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.2)"
+                  strokeWidth="0.5"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#smallGrid)" />
+          </svg>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <SectionHeading
+            title="Are you still unsure on why should you choose us?"
+            subtitle="Our Achievements"
+            description="Then let the numbers do the work."
+            theme="light"
+            subtitlePosition="above"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { value: 10, label: "Years of experience", suffix: "+" },
+              { value: 200, label: "Happy Clients", suffix: "%" },
+              { value: 100, label: "Websites built", suffix: "+" },
+              { value: 25, label: "Team of Professionals", suffix: "+" },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeInUp}
+                custom={index}
+                viewport={{ once: true }}
+                className="text-center bg-white/5 p-8 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+              >
+                <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
+                  <CountUpAnimation target={stat.value} />
+                  {stat.suffix}
+                </div>
+                <div className="text-gray-300 text-lg">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Services Section - White */}
       <section
         id="services"
-        className="py-20 md:py-28 bg-white relative overflow-hidden"
+        className="py-12 md:py-12 bg-white relative overflow-hidden"
       >
         <div className="absolute inset-0 opacity-[0.02]"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2 block">
-              Our Expertise
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-              Driving Success with Tailored Digital Solutions
-            </h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              From dynamic websites to impactful digital marketing, we deliver
-              end-to-end solutions that empower your business to thrive and grow
-              in the digital age.
-            </p>
-          </motion.div>
+          <SectionHeading
+            title="SolvitX provides top notch digital solutions from stunning websites to powerful mobile apps to drive greater business growth & credibility."
+            subtitle="Our Expertise"
+            theme="dark"
+            subtitlePosition="above"
+          />
 
           <div className="mb-12 flex justify-center">
             <div className="inline-flex p-1 bg-gray-100 rounded-full shadow-md">
@@ -569,19 +630,19 @@ const LandingPage = () => {
                   icon: <FaLaptopCode className="text-blue-600 text-3xl" />,
                   title: "Responsive Web Design",
                   description:
-                    "Stunning, mobile-first websites that captivate users and perform flawlessly on any device, ensuring an exceptional UX.",
+                    "Create responsive and user friendly websites to build greater digital experience by opting our web development services. .",
                 },
                 {
                   icon: <FaServer className="text-blue-600 text-3xl" />,
                   title: "E-commerce Powerhouses",
                   description:
-                    "Custom online stores with secure payments, intuitive inventory management, and conversion-optimized designs.",
+                    "We help to turn your ideas into future proof eCommerce platforms that are designed to your goals.",
                 },
                 {
                   icon: <FaShoppingCart className="text-blue-600 text-3xl" />,
                   title: "Dynamic CMS Development",
                   description:
-                    "User-friendly Content Management Systems (CMS) enabling effortless website updates without technical expertise.",
+                    "We let you enjoy a dynamic Content Management Systems where you can functionable website with no programming knowledge.",
                 },
               ].map((service, index) => (
                 <motion.div
@@ -613,19 +674,19 @@ const LandingPage = () => {
                   icon: <FaSearch className="text-purple-600 text-3xl" />,
                   title: "Targeted SEO Strategies",
                   description:
-                    "Boost your website's search engine visibility and drive qualified organic traffic with our data-driven SEO techniques.",
+                    "Make your website visible with proven organic SEO strategies that not only boosts visibility but bring real conversions.",
                 },
                 {
                   icon: <FaChartLine className="text-purple-600 text-3xl" />,
                   title: "Engaging Social Media Marketing",
                   description:
-                    "Cultivate brand loyalty and expand your reach through strategic, impactful social media campaigns across platforms.",
+                    "Build a future proof digital brand & impactful campaigns through customer trust in this evolving digital world and impactful campaigns. ",
                 },
                 {
                   icon: <FaRegLightbulb className="text-purple-600 text-3xl" />,
                   title: "PPC & Ad Campaigns",
                   description:
-                    "Maximize ROI with precision-targeted Pay-Per-Click advertising and compelling ad creatives that convert.",
+                    "We help you maximize your revenue by targeted Pay-Per-Click advertising and interactive marketing campaigns that bring real results.",
                 },
               ].map((service, index) => (
                 <motion.div
@@ -657,19 +718,19 @@ const LandingPage = () => {
                   icon: <FaMobileAlt className="text-pink-600 text-3xl" />,
                   title: "Native iOS Development",
                   description:
-                    "Intuitive, high-performance iOS applications crafted for Apple's ecosystem, delivering seamless user experiences.",
+                    "Explore tailored iOS solutions leveraging Swift and Objective-C frameworks that aligns well with your goals.",
                 },
                 {
                   icon: <FaMobileAlt className="text-pink-600 text-3xl" />,
                   title: "Robust Android Development",
                   description:
-                    "Feature-rich Android apps providing excellent UX across diverse devices, built for scalability and performance.",
+                    "Explore visually appealing custom Android solutions built on robust frameworks like Kotlin and Java.",
                 },
                 {
                   icon: <FaSyncAlt className="text-pink-600 text-3xl" />,
                   title: "Cross-Platform Solutions",
                   description:
-                    "Build once, deploy everywhere. Efficient cross-platform apps (React Native, Flutter) for wider reach and faster TTM.",
+                    "We provide dynamic future proof interfaces, strong encryption and cross platform solutions that provide seamless & reliable experiences.",
                 },
               ].map((service, index) => (
                 <motion.div
@@ -698,76 +759,8 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Stats Section - Black - Animated numbers and more dynamic background */}
-      <section className="py-20 md:py-28 bg-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern
-                id="smallGrid"
-                width="20"
-                height="20"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 20 0 L 0 0 0 20"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.2)"
-                  strokeWidth="0.5"
-                />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#smallGrid)" />
-          </svg>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-2 block">
-              Our Achievements
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-              Numbers That Speak Volumes
-            </h2>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              Our track record reflects our commitment to excellence and client
-              success.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { value: 250, label: "Projects Delivered", suffix: "+" },
-              { value: 98, label: "Client Satisfaction", suffix: "%" },
-              { value: 10, label: "Years of Expertise", suffix: "+" },
-              { value: 24, label: "Hour Support", suffix: "/7" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInUp}
-                custom={index}
-                viewport={{ once: true }}
-                className="text-center bg-white/5 p-8 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
-                  <CountUpAnimation target={stat.value} />
-                  {stat.suffix}
-                </div>
-                <div className="text-gray-300 text-lg">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Testimonials Section - White */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-12 md:py-12 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -777,11 +770,9 @@ const LandingPage = () => {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2 block">
-              Client Voices
+              Client Testimonials
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-              Hear From Our Satisfied Partners
-            </h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900"></h2>
           </motion.div>
 
           <motion.div
@@ -793,26 +784,28 @@ const LandingPage = () => {
           >
             {[
               {
-                name: "Alexandra Lee",
-                company: "CEO, Innovatech Solutions",
-                testimonial:
-                  "SolvitX didn't just build us a website; they crafted a digital experience. Our e-commerce conversion rates have soared by 150% thanks to their intuitive design and robust platform.",
+                name: "Akash Chauhan",
+                company: "CEO",
+                testimonial: `SolvitX has helped me grow my business from scratch. With their
+              pro marketing solutions I have successfully managed to double my
+              conversation rates.`,
                 avatarInitial: "A",
                 color: "bg-blue-500",
               },
               {
-                name: "Marcus Chen",
-                company: "Founder, TechStart Global",
+                name: "Elina Sinha",
+                company: "Founder",
                 testimonial:
-                  "The digital marketing strategies by SolvitX were a game-changer. We saw a 200% increase in organic traffic within three months. Their team is agile, insightful, and truly results-driven.",
+                  "Our fashion brand struggled to stand in the digital space for 2 years. We tried many strategies and tactics, but nothing worked for us. It is all thanks to SolvitX that we have managed to improve our Social Media campaigns that have increased our organic traffic by more than 150%.",
+                // "We run a non profit organisation. Our dynamic Android Application developed by SolvitX has helped us create a positive impact towards our vision. It is all because of their commitment and all time expert support that our application is well appreciated and used by thousands of users.",
                 avatarInitial: "M",
                 color: "bg-purple-500",
               },
               {
-                name: "Sophia Miller",
-                company: "Director, HealthPro Connect",
+                name: "Melanie Diers",
+                company: "Director,",
                 testimonial:
-                  "Our mobile app, developed by SolvitX, has received overwhelmingly positive user feedback. Their meticulous attention to detail and unwavering commitment to quality is truly commendable.",
+                  "We run a non profit organisation. Our dynamic Android Application developed by SolvitX has helped us create a positive impact towards our vision. It is all because of their commitment and all time expert support that our application is well appreciated and used by thousands of users.",
                 avatarInitial: "S",
                 color: "bg-pink-500",
               },
@@ -845,145 +838,8 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Technologies Section - Updated with better grouping and aesthetics */}
-      {/* <section
-        id="technologies"
-        className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white"
-      >
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2 block">
-              Our Tech Arsenal
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-              Powered by Cutting-Edge Technologies
-            </h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              We harness the latest and most robust technologies to build
-              scalable, secure, and high-performance digital solutions tailored
-              to your needs.
-            </p>
-          </motion.div>
-
-          {[
-            {
-              title: "Frontend Frameworks",
-              techs: [
-                { name: "React", icon: SiReact, color: "text-sky-500" },
-                { name: "Next.js", icon: SiNextdotjs, color: "text-black" },
-                { name: "Angular", icon: SiAngular, color: "text-red-600" },
-                { name: "Vue.js", icon: SiVuedotjs, color: "text-emerald-500" },
-              ],
-            },
-            {
-              title: "Backend & API Development",
-              techs: [
-                { name: "Node.js", icon: SiNodedotjs, color: "text-green-600" },
-                {
-                  name: "Python (Django/Flask)",
-                  icon: SiPython,
-                  color: "text-yellow-500",
-                },
-                {
-                  name: "PHP (Laravel)",
-                  icon: SiLaravel,
-                  color: "text-orange-500",
-                },
-                {
-                  name: "TypeScript",
-                  icon: SiTypescript,
-                  color: "text-blue-600",
-                },
-              ],
-            },
-            {
-              title: "Database & Cloud Solutions",
-              techs: [
-                { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
-                { name: "MySQL", icon: SiMysql, color: "text-blue-700" },
-                {
-                  name: "PostgreSQL",
-                  icon: SiPostgresql,
-                  color: "text-indigo-500",
-                },
-                { name: "AWS", icon: SiMysql, color: "text-orange-400" },
-              ],
-            },
-            {
-              title: "Mobile App Development",
-              techs: [
-                { name: "Flutter", icon: SiFlutter, color: "text-sky-600" },
-                { name: "React Native", icon: SiReact, color: "text-blue-500" },
-                {
-                  name: "Firebase",
-                  icon: SiFirebase,
-                  color: "text-yellow-500",
-                },
-                {
-                  name: "Native iOS/Android",
-                  icon: FaMobileAlt,
-                  color: "text-gray-700",
-                },
-              ],
-            },
-          ].map((category) => (
-            <div key={category.title} className="mb-16">
-              <motion.h3
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInUp}
-                viewport={{ once: true }}
-                className="text-2xl md:text-3xl font-bold text-center mb-4 text-gray-800"
-              >
-                {category.title}
-              </motion.h3>
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInUp}
-                viewport={{ once: true }}
-                className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-10"
-              ></motion.div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
-                {category.techs.map((tech, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                      transition: { delay: index * 0.05 },
-                    }}
-                    viewport={{ once: true }}
-                    whileHover={{
-                      scale: 1.08,
-                      y: -5,
-                      boxShadow: "0px 15px 30px -10px rgba(0,0,0,0.1)",
-                    }}
-                    className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center group cursor-pointer"
-                  >
-                    <tech.icon
-                      className={`w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 ${tech.color} group-hover:scale-110 transition-transform duration-300`}
-                    />
-                    <h4 className="font-semibold text-gray-700 text-base md:text-lg group-hover:text-blue-600 transition-colors duration-300">
-                      {tech.name}
-                    </h4>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
       {/* Why Choose Us - Black */}
-      <section className="py-20 md:py-28 bg-gray-900 text-white">
+      <section className="py-12 md:py-12 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -995,13 +851,13 @@ const LandingPage = () => {
             <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-2 block">
               Our Commitment
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Why Partner With SolvitX?
+            <h2 className="text-3xl md:text-3xl lg:text-3xl font-bold mb-6">
+              People don't buy what you do; they buy why you do it. And what you
+              do simply proves what you believe.” — <u>Simon Sinek</u>
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed">
-              We're dedicated to your success, offering unparalleled expertise,
-              innovative solutions, and unwavering support throughout your
-              digital journey.
+              And at SolvitX, modern we focus on your WHY, collaborate with you
+              on your HOW, and help you successfully achieve your WHAT.
             </p>
           </motion.div>
 
@@ -1067,7 +923,7 @@ const LandingPage = () => {
       </section>
 
       {/* FAQ Section - Enhanced visual hierarchy */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-12 md:py-12 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -1079,13 +935,20 @@ const LandingPage = () => {
             <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2 block">
               Got Questions?
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
+            {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
               Frequently Asked Questions
             </h2>
             <p className="text-gray-600 text-lg">
               Find quick answers to common queries about our services,
               processes, and how we can help your business.
-            </p>
+            </p> */}
+            <SectionHeading
+              title="Frequently Asked Questions"
+              subtitle=""
+              description="Find quick answers to common queries about our services, processes, and how we can help your business."
+              theme="dark"
+              subtitlePosition="above"
+            />
           </motion.div>
 
           <div className="max-w-3xl mx-auto space-y-4">
@@ -1145,7 +1008,7 @@ const LandingPage = () => {
       </section>
 
       {/* Client Logo Slider Section - White */}
-      <section className="py-20 bg-gray-100">
+      <section id="clients" className="py-12 bg-gray-100">
         <div className="container mx-auto px-4">
           <motion.h2
             initial="hidden"
@@ -1198,7 +1061,7 @@ const LandingPage = () => {
       </section>
 
       {/* Process Section - Black */}
-      <section className="py-20 md:py-28 bg-black text-white">
+      <section id="process" className="py-12 md:py-12 bg-black text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -1210,13 +1073,20 @@ const LandingPage = () => {
             <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-2 block">
               Our Methodology
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Our Blueprint for Your Success
             </h2>
             <p className="text-gray-300 text-lg">
               We follow a refined, systematic approach to ensure every project
               is a masterpiece of strategy and execution.
-            </p>
+            </p> */}
+            <SectionHeading
+              title="Our Blueprint for Your Success"
+              subtitle=""
+              description="We follow a refined, systematic approach to ensure every project is a masterpiece of strategy and execution."
+              theme="light"
+              subtitlePosition="above"
+            />
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -1269,7 +1139,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section id="contact-form" className="bg-black py-20 px-4">
+      <section id="contact-form" className="bg-black py-12 px-4">
         <div className="container mx-auto">
           {/* Contact Form */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -1380,8 +1250,9 @@ const LandingPage = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
+                      required
                       className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                      placeholder="+1 (234) 567-8900"
+                      placeholder="+91 9876543210"
                     />
                   </div>
                 </div>
@@ -1395,6 +1266,7 @@ const LandingPage = () => {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
+                    required
                     className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   >
                     {budgetOptions.map((option, index) => (
@@ -1461,89 +1333,6 @@ const LandingPage = () => {
               </form>
             </div>
             {/* About SolvitX */}
-            <div className="mb-16 relative">
-              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-600 to-pink-600"></div>
-              <h3 className="text-3xl font-bold text-white mb-6">
-                About SolvitX
-              </h3>
-
-              <div className="text-gray-300 space-y-6">
-                <p>
-                  We&apos;re not just another tech company. At SolvitX, we
-                  combine creativity, technical expertise, and business acumen
-                  to create digital solutions that make a real difference.
-                </p>
-
-                {/* Animated Stages of Work showcase */}
-                <div className="relative h-60 w-full overflow-hidden rounded-xl shadow-xl">
-                  {/* Animated background */}
-                  <motion.div
-                    key={activeStage}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className={`absolute inset-0 bg-gradient-to-br ${workStages[activeStage].color}`}
-                  />
-
-                  {/* Content */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                    <motion.div
-                      key={`icon-${activeStage}`}
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      exit={{ scale: 0.8, opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4"
-                    >
-                      {workStages[activeStage].icon}
-                    </motion.div>
-
-                    <motion.h4
-                      key={`title-${activeStage}`}
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                      className="text-2xl font-bold text-white mb-2"
-                    >
-                      {workStages[activeStage].title}
-                    </motion.h4>
-
-                    <motion.p
-                      key={`desc-${activeStage}`}
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                      className="text-white/90 max-w-md"
-                    >
-                      {workStages[activeStage].description}
-                    </motion.p>
-                  </div>
-
-                  {/* Stage indicators */}
-                  <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-                    {workStages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setActiveStage(index)}
-                        className={`w-2 h-2 rounded-full transition-all ${
-                          activeStage === index ? "bg-white w-6" : "bg-white/50"
-                        }`}
-                        aria-label={`Go to stage ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <p>
-                  Since our founding, we have helped businesses of all sizes
-                  transform their digital presence and build products that their
-                  users love.
-                </p>
-              </div>
-            </div>
 
             {/* Contact Info */}
             <div className="mb-10">
@@ -1558,7 +1347,9 @@ const LandingPage = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-medium">Location</h4>
-                    <p className="text-gray-400">Jaipur, Rajasthan 302003</p>
+                    <p className="hover:underline text-2xl text-white font-bold">
+                      Jaipur, Rajasthan 302003
+                    </p>
                   </div>
                 </div>
 
@@ -1570,10 +1361,34 @@ const LandingPage = () => {
                     <h4 className="text-white font-medium">Email</h4>
                     <p className="text-gray-400">
                       {/* solvitxsolutions@gmail.com{" "} */}
-                      <a href="mailto:solvitxsolutions@gmail.com">
+                      <a
+                        href="mailto:solvitxsolutions@gmail.com"
+                        className="hover:underline text-2xl text-white font-bold"
+                      >
                         solvitxsolutions@gmail.com
                       </a>
                       <br />
+
+                      {/* support@SolvitX.com */}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="mt-1 bg-gray-800 p-3 rounded-full">
+                    <FaPhone className="text-purple-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium">Email</h4>
+                    <p className="text-gray-400">
+                      {/* solvitxsolutions@gmail.com{" "} */}
+                      <a
+                        href="mailto:solvitxsolutions@gmail.com"
+                        className="hover:underline text-2xl text-white font-bold"
+                      >
+                        +91 9782025577
+                      </a>
+                      <br />
+
                       {/* support@SolvitX.com */}
                     </p>
                   </div>
@@ -1586,7 +1401,8 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
+      <LandingPageFooter />
     </div>
   );
 };

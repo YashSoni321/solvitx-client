@@ -10,6 +10,8 @@ import {
   FaChevronRight,
   FaQuoteLeft,
 } from "react-icons/fa";
+import HeroSection from "@/components/homepage/Hero";
+import heroImg from "../public/images/heroimages/contactUs.jpeg";
 
 // Animation variants
 const fadeIn = {
@@ -108,8 +110,8 @@ export default function About() {
       </Head>
 
       {/* Hero Section */}
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background with overlay */}
+      {/* <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background with overlay 
         <div className="absolute inset-0">
           <Image
             src="/images/heroImg.jpg"
@@ -121,7 +123,7 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black"></div>
         </div>
 
-        {/* Hero Content */}
+     
         <div className="relative z-10 container mx-auto px-4 py-20 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -160,7 +162,15 @@ export default function About() {
             </a>
           </motion.div>
         </div>
-      </div>
+      </div> */}
+
+      <HeroSection
+        backgroundImage={heroImg}
+        heading="About Us"
+        highlight=""
+        subheading="Discover SolvitX's story, our passionate team, and our mission to transform businesses through innovative digital solutions and exceptional service."
+        buttonText="Get a Free Consultation"
+      />
 
       {/* Our Story Section */}
       <section id="our-story" className="py-24 bg-black">

@@ -1194,7 +1194,7 @@ const LandingPage = () => {
             }}
             className="client-logos"
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            {/* {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
               <SwiperSlide key={i} className="flex items-center justify-center">
                 <div className="h-24 w-40 flex items-center justify-center p-2">
                   <Image
@@ -1206,7 +1206,7 @@ const LandingPage = () => {
                   />
                 </div>
               </SwiperSlide>
-            ))}
+            ))} */}
           </Swiper>
         </div>
       </section>

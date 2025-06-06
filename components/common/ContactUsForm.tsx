@@ -69,7 +69,9 @@ const ContactUsForm: React.FC = () => {
           budget: "",
           message: "",
         });
-        setTimeout(() => setSubmitSuccess(false), 5000);
+        setTimeout(() => {
+          window.location.href = "/thank-you";
+        }, 1500);
       })
       .catch((error) => {
         setIsSubmitting(false);
@@ -172,8 +174,9 @@ const ContactUsForm: React.FC = () => {
               type="tel"
               value={formData.phone}
               onChange={handleChange}
+              required
               className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder="+1 (234) 567-8900"
+              placeholder="+91 9876543210"
             />
           </div>
         </div>

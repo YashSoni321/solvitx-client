@@ -31,6 +31,8 @@ import {
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
+import HeroSection from "@/components/homepage/Hero";
+import heroImg from "../public/images/heroimages/Video_Editing.jpg";
 
 // Animation variants
 const fadeInUp = {
@@ -233,7 +235,7 @@ export default function VideoEditing() {
       </Head>
 
       {/* Hero Section */}
-      <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-900 via-orange-900 to-yellow-900 text-white overflow-hidden">
+      {/* <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-900 via-orange-900 to-yellow-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-red-900/80 via-orange-900/80 to-yellow-900/80" />
           <div className="absolute inset-0 bg-[url('/images/video-bg.jpg')] bg-cover bg-center opacity-20" />
@@ -260,7 +262,15 @@ export default function VideoEditing() {
             Get a Free Consultation
           </motion.button>
         </motion.div>
-      </motion.section>
+      </motion.section> */}
+
+      <HeroSection
+        backgroundImage={heroImg}
+        heading="Video Editing"
+        highlight=""
+        subheading="Transform your raw footage into engaging content."
+        buttonText="Get a Free Consultation"
+      />
 
       <DescSection
         heading="Our Web Development Services"

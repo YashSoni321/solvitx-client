@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import heroImg from "../public/images/heroimages/AndroidAD.jpg";
 import {
   FaAndroid,
   FaCode,
@@ -28,6 +29,7 @@ import {
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
+import HeroSection from "@/components/homepage/Hero";
 
 // Animation variants
 const fadeInUp = {
@@ -206,7 +208,7 @@ export default function AndroidAppDevelopment() {
       </Head>
 
       {/* Hero Section */}
-      <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white overflow-hidden">
+      {/* <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-green-900/80 to-gray-900/80" />
           <div className="absolute inset-0 bg-[url('/images/digital-marketing-bg.jpg')] bg-cover bg-center opacity-20" />
@@ -232,8 +234,14 @@ export default function AndroidAppDevelopment() {
             Get a Free Consultation
           </motion.button>
         </motion.div>
-      </motion.section>
-
+      </motion.section> */}
+      <HeroSection
+        backgroundImage={heroImg}
+        heading="Android App Development"
+        highlight=""
+        subheading="Build powerful, scalable, and user-friendly Android applications."
+        buttonText="Get a Free Consultation"
+      />
       {/* Services Section */}
       <motion.section
         ref={ref}

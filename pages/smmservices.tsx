@@ -31,6 +31,8 @@ import {
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
+import HeroSection from "@/components/homepage/Hero";
+import heroImg from "../public/images/heroimages/SMS.jpg";
 
 // Animation variants
 const fadeInUp = {
@@ -252,7 +254,7 @@ export default function SocialMediaMarketingService() {
       </Head>
 
       {/* Hero Section */}
-      <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-pink-900 to-gray-900 text-white overflow-hidden">
+      {/* <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-pink-900 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-pink-900/80 to-gray-900/80" />
           <div className="absolute inset-0 bg-[url('/images/social-media-bg.jpg')] bg-cover bg-center opacity-20" />
@@ -279,7 +281,15 @@ export default function SocialMediaMarketingService() {
             Get a Free Social Media Audit
           </motion.button>
         </motion.div>
-      </motion.section>
+      </motion.section> */}
+
+      <HeroSection
+        backgroundImage={heroImg}
+        heading="Social Media Marketing"
+        highlight=""
+        subheading="Grow your brand, engage your audience, and drive results with our proven social media strategies."
+        buttonText="Get a Free Consultation"
+      />
 
       <DescSection
         heading="Our Web Development Services"

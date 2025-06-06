@@ -28,9 +28,11 @@ import {
   FaBlog,
   FaEnvelope,
 } from "react-icons/fa";
+import heroImg from "../public/images/heroimages/Content_Marketing.jpg";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
+import HeroSection from "@/components/homepage/Hero";
 
 // Animation variants
 const fadeInUp = {
@@ -227,7 +229,7 @@ export default function ContentMarketingService() {
       </Head>
 
       {/* Hero Section */}
-      <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white overflow-hidden">
+      {/* <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-green-900/80 to-gray-900/80" />
           <div className="absolute inset-0 bg-[url('/images/content-marketing-bg.jpg')] bg-cover bg-center opacity-20" />
@@ -254,8 +256,15 @@ export default function ContentMarketingService() {
             Get a Free Content Audit
           </motion.button>
         </motion.div>
-      </motion.section>
+      </motion.section> */}
 
+      <HeroSection
+        backgroundImage={heroImg}
+        heading="Content Marketing"
+        highlight=""
+        subheading="Drive engagement and growth with our expert content marketing services."
+        buttonText="Get a Free Consultation"
+      />
       <DescSection
         heading="Our Web Development Services"
         image="/images/services/WebDevelopment.jpg"

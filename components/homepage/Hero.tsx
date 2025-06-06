@@ -29,7 +29,7 @@ const HeroSection = ({
         src={backgroundImage}
         alt="Hero Background"
         fill
-        className="object-cotain opcity-40 z-0"
+        className="object-cover  z-0 w-full h-full"
         priority
       />
 

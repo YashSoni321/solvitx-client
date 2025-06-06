@@ -28,6 +28,8 @@ import {
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import { useState } from "react";
+import HeroSection from "@/components/homepage/Hero";
+import heroImg from "../public/images/heroimages/SEO.jpg";
 import DescSection from "@/components/webdevelopment/DescSection";
 
 // Animation variants
@@ -257,7 +259,7 @@ export default function SEOService() {
       </Head>
 
       {/* Hero Section */}
-      <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white overflow-hidden">
+      {/* <motion.section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-blue-900/80 to-gray-900/80" />
           <div className="absolute inset-0 bg-[url('/images/seo-bg.jpg')] bg-cover bg-center opacity-20" />
@@ -284,7 +286,15 @@ export default function SEOService() {
             Get a Free SEO Audit
           </motion.button>
         </motion.div>
-      </motion.section>
+      </motion.section> */}
+
+      <HeroSection
+        backgroundImage={heroImg}
+        heading="SEO Services"
+        highlight=""
+        subheading="Drive organic traffic and grow your business with our proven SEO strategies."
+        buttonText="Get a Free Consultation"
+      />
 
       <DescSection
         heading="Our Web Development Services"

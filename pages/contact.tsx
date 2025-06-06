@@ -13,6 +13,8 @@ import {
 import emailjs from "@emailjs/browser";
 import { emailConfig } from "@/config/emailConfig";
 import { budgetOptions } from "@/components/common/ContactUsForm";
+import HeroSection from "@/components/homepage/Hero";
+import heroImg from "../public/images/heroimages/contactUs.jpeg";
 
 // Define work stages for the animation showcase
 export const workStages = [
@@ -222,7 +224,7 @@ export default function Contact() {
       </Head>
 
       {/* Hero Section */}
-      <div className="relative h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black flex items-center justify-center">
+      {/* <div className="relative h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black flex items-center justify-center">
         <div className="text-center px-4">
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight max-w-5xl mx-auto">
             Let&apos;s Transform Your{" "}
@@ -237,7 +239,15 @@ export default function Contact() {
             vision to life
           </p>
         </div>
-      </div>
+      </div> */}
+
+      <HeroSection
+        backgroundImage={heroImg}
+        heading="Contact Us"
+        highlight=""
+        subheading="Reach out to us and discover how our expertise can help bring your vision to life"
+        buttonText="Get a Free Consultation"
+      />
 
       {/* Contact Form Section */}
       <section id="contact-form" className="bg-black py-20 px-4">
