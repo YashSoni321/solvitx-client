@@ -1,12 +1,5 @@
 {
-  "functions": {
-    "app/**/*": {
-       "runtime": "nodejs18.x"
-    },
-    "pages/**/*": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "regions": ["cle1"],
-  "framework": "nextjs"
+  "buildCommand": "yarn build",
+  "framework": "nextjs",
+  "installCommand": "yarn install"
 } 
