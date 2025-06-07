@@ -10,25 +10,27 @@ const LandingPageNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const isScrolled = window.scrollY > 50;
+  //     setScrolled(isScrolled);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   const handleSmoothScroll = (sectionId: string) => {
     const element = document.getElementById(sectionId);
+    console.log("element", element);
+
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
     }
-    setIsOpen(false);
+    setIsOpen(false); // e.g., closing a menu
   };
 
   const navItems = [
@@ -133,7 +135,8 @@ const LandingPageNavbar = () => {
                 whileTap={{ scale: 0.98 }}
                 className="block w-full text-left px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-300 font-medium"
               >
-                {item.label}
+                {/* {item.label} */}
+                <Link href={item.href}> {item.label}</Link>
               </motion.button>
             ))}
 
