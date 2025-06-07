@@ -36,7 +36,10 @@ const OptimizedImage = ({
     }
 
     // If src is already an optimized path, use it as is
-    if (typeof src === "string" && src.includes("/images/optimized/")) {
+    if (
+      typeof src === "string" &&
+      src.includes("/images/projects/optimized/")
+    ) {
       return src;
     }
 
@@ -44,8 +47,8 @@ const OptimizedImage = ({
     if (typeof src === "string") {
       const pathWithoutExtension = src.replace(/\.[^/.]+$/, "");
       const optimizedPath = src.startsWith("/images/")
-        ? src.replace("/images/", "/images/optimized/")
-        : `/images/optimized/${src.replace(/^\//, "")}`;
+        ? src.replace("/images/", "/images/projects/optimized/")
+        : `/images/projects/optimized/${src.replace(/^\//, "")}`;
 
       return optimizedPath.replace(/\.[^/.]+$/, ".webp");
     }

@@ -62,7 +62,7 @@ const LandingPageNavbar = () => {
                 SolvitX
               </span>
             </Link> */}
-            <Link href="/landingpage">
+            <Link href="/landing-page">
               <Image
                 src={LogoImage}
                 alt="SolvitX"

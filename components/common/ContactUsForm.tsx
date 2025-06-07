@@ -180,24 +180,7 @@ const ContactUsForm: React.FC = () => {
             />
           </div>
         </div>
-        <div className="mb-6">
-          <label className="block text-gray-300 mb-2" htmlFor="budget">
-            Project Budget {required}
-          </label>
-          <select
-            id="budget"
-            name="budget"
-            value={formData.budget}
-            onChange={handleChange}
-            className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-          >
-            {budgetOptions.map((option, index) => (
-              <option key={index} value={option} disabled={index === 0}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </div>
+
         <div className="mb-6">
           <label className="block text-gray-300 mb-2" htmlFor="message">
             Message {required}

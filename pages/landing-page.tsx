@@ -202,7 +202,7 @@ const LandingPage = () => {
 
         // Redirect to thank you page after successful submission
         setTimeout(() => {
-          window.location.href = "/thankyou";
+          window.location.href = "/thank-you";
         }, 1500);
       })
       .catch((error) => {
@@ -271,7 +271,7 @@ const LandingPage = () => {
           backgroundImage={heroImg}
           heading="Power up your brand with all in one "
           highlight="Digital marketing & IT solutions"
-          subheading="SolvitX is a top-tier IT & marketing company aligned with your business goals offers various services including digital marketing, web development, software development and app development that will make your audience addicted to your brand. "
+          subheading="SolvitX is a top-tier IT & marketing company aligned with your business goals. We offer various services including digital marketing, web development, software development and app development that will make your audience addicted to your brand."
           buttonText="See it for yourself!"
         />
       </div>
@@ -302,7 +302,7 @@ const LandingPage = () => {
                   {
                     icon: <FaLaptopCode className="text-blue-400" />,
                     label:
-                      "Our Web Developers, we build you the first digital image for your brand.",
+                      "Our Web Developers build you the first digital image for your brand.",
                   },
                   {
                     icon: <FaChartLine className="text-blue-400" />,
@@ -451,26 +451,6 @@ const LandingPage = () => {
                       placeholder="+91 9876543210"
                     />
                   </div>
-                </div>
-
-                <div className="mb-6">
-                  <label className="block text-gray-300 mb-2" htmlFor="budget">
-                    Project Budget
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  >
-                    {budgetOptions.map((option, index) => (
-                      <option key={index} value={option} disabled={index === 0}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
                 </div>
 
                 <div className="mb-6">
@@ -630,7 +610,7 @@ const LandingPage = () => {
                   icon: <FaLaptopCode className="text-blue-600 text-3xl" />,
                   title: "Responsive Web Design",
                   description:
-                    "Create responsive and user friendly websites to build greater digital experience by opting our web development services. .",
+                    "Create responsive and user friendly websites to build greater digital experience .",
                 },
                 {
                   icon: <FaServer className="text-blue-600 text-3xl" />,
@@ -856,8 +836,8 @@ const LandingPage = () => {
               do simply proves what you believe.” — <u>Simon Sinek</u>
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed">
-              And at SolvitX, modern we focus on your WHY, collaborate with you
-              on your HOW, and help you successfully achieve your WHAT.
+              And at SolvitX, we focus on your WHY, collaborate with you on your
+              HOW, and help you successfully achieve your WHAT.
             </p>
           </motion.div>
 
@@ -1258,26 +1238,6 @@ const LandingPage = () => {
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-gray-300 mb-2" htmlFor="budget">
-                    Project Budget
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  >
-                    {budgetOptions.map((option, index) => (
-                      <option key={index} value={option} disabled={index === 0}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="mb-6">
                   <label className="block text-gray-300 mb-2" htmlFor="message">
                     Message
                   </label>
@@ -1336,63 +1296,142 @@ const LandingPage = () => {
 
             {/* Contact Info */}
             <div className="mb-10">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Connect With Us
-              </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-start space-x-4">
-                  <div className="mt-1 bg-gray-800 p-3 rounded-full">
-                    <FaMapMarkerAlt className="text-purple-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium">Location</h4>
-                    <p className="hover:underline text-2xl text-white font-bold">
-                      Jaipur, Rajasthan 302003
-                    </p>
+              <div className="grid grid-cols-1 gap-6">
+                {/* Location */}
+                <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg">
+                      <FaMapMarkerAlt className="text-white text-xl" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-white font-semibold text-lg mb-2">
+                        Our Office
+                      </h4>
+                      <p className="text-xl text-white font-bold mb-1">
+                        Jaipur, Rajasthan 302003
+                      </p>
+                      <p className="text-gray-300 text-sm">
+                        Visit us at our creative workspace where innovation
+                        meets execution
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="mt-1 bg-gray-800 p-3 rounded-full">
-                    <FaEnvelope className="text-purple-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium">Email</h4>
-                    <p className="text-gray-400">
-                      {/* solvitxsolutions@gmail.com{" "} */}
+                {/* Email */}
+                <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg">
+                      <FaEnvelope className="text-white text-xl" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-white font-semibold text-lg mb-2">
+                        Email Us
+                      </h4>
                       <a
                         href="mailto:solvitxsolutions@gmail.com"
-                        className="hover:underline text-2xl text-white font-bold"
+                        className="text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1"
                       >
                         solvitxsolutions@gmail.com
                       </a>
-                      <br />
-
-                      {/* support@SolvitX.com */}
-                    </p>
+                      <p className="text-gray-300 text-sm">
+                        We typically respond within 2-4 hours during business
+                        days
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="mt-1 bg-gray-800 p-3 rounded-full">
-                    <FaPhone className="text-purple-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium">Email</h4>
-                    <p className="text-gray-400">
-                      {/* solvitxsolutions@gmail.com{" "} */}
+
+                {/* Phone */}
+                <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg">
+                      <FaPhone className="text-white text-xl" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-white font-semibold text-lg mb-2">
+                        Call Us
+                      </h4>
                       <a
-                        href="mailto:solvitxsolutions@gmail.com"
-                        className="hover:underline text-2xl text-white font-bold"
+                        href="tel:+919782025577"
+                        className="text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1"
                       >
                         +91 9782025577
                       </a>
-                      <br />
-
-                      {/* support@SolvitX.com */}
-                    </p>
+                      <p className="text-gray-300 text-sm">
+                        Available Mon-Fri, 9:00 AM - 6:00 PM IST
+                      </p>
+                    </div>
                   </div>
                 </div>
+
+                {/* Response Time Info */}
+                <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-6 rounded-xl border border-blue-500/30">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="bg-blue-500 p-2 rounded-full">
+                      <FaRegLightbulb className="text-white text-lg" />
+                    </div>
+                    <h4 className="text-white font-semibold text-lg">
+                      Quick Response Guarantee
+                    </h4>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-gray-300">
+                        Email replies within 2-4 hours
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-gray-300">
+                        Free consultation calls
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-gray-300">
+                        Project quotes within 24 hours
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-gray-300">
+                        24/7 support for live projects
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Social Media Links */}
+                {/* <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-6 rounded-xl border border-gray-600">
+                  <h4 className="text-white font-semibold text-lg mb-4">
+                    Follow Our Journey
+                  </h4>
+                  <div className="flex space-x-4">
+                    <a
+                      href="#"
+                      className="bg-blue-600 hover:bg-blue-700 p-3 rounded-full transition-colors duration-300 transform hover:scale-110"
+                    >
+                      <FaLinkedin className="text-white text-xl" />
+                    </a>
+                    <a
+                      href="mailto:solvitxsolutions@gmail.com"
+                      className="bg-red-600 hover:bg-red-700 p-3 rounded-full transition-colors duration-300 transform hover:scale-110"
+                    >
+                      <FaEnvelope className="text-white text-xl" />
+                    </a>
+                    <a
+                      href="tel:+919782025577"
+                      className="bg-green-600 hover:bg-green-700 p-3 rounded-full transition-colors duration-300 transform hover:scale-110"
+                    >
+                      <FaPhone className="text-white text-xl" />
+                    </a>
+                  </div>
+                  <p className="text-gray-400 text-sm mt-3">
+                    Stay updated with our latest projects and industry insights
+                  </p>
+                </div> */}
               </div>
             </div>
 

@@ -5,33 +5,66 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import UserPic from "../../public/images/user.jpg"; // Replace with actual image path
 
+// const testimonials = [
+//   {
+//     id: 1,
+//     name: "Anastasia Yarovka",
+//     role: "Founder, Creative Studio",
+//     quote:
+//       "I want to express my immense gratitude to the team! They are always in touch, quick, and very efficient.",
+//     image: UserPic,
+//   },
+//   {
+//     id: 2,
+//     name: "Marcus Levin",
+//     role: "CTO, TechFlow",
+//     quote:
+//       "They took our ideas and turned them into a living, breathing brand. Incredibly talented group!",
+//     image: UserPic,
+//   },
+//   {
+//     id: 3,
+//     name: "Priya Nair",
+//     role: "CMO, BoldBrands",
+//     quote:
+//       "The most creative and responsive team I’ve worked with. They overdeliver, every time!",
+//     image: UserPic,
+//   },
+// ];
 const testimonials = [
   {
     id: 1,
-    name: "Anastasia Yarovka",
-    role: "Founder, Creative Studio",
-    quote:
-      "I want to express my immense gratitude to the team! They are always in touch, quick, and very efficient.",
+    name: "Akash Chauhan",
+    role: "CEO",
+    quote: `SolvitX has helped me grow my business from scratch. With their
+  pro marketing solutions I have successfully managed to double my
+  conversation rates.`,
+    avatarInitial: "A",
+    color: "bg-blue-500",
     image: UserPic,
   },
   {
     id: 2,
-    name: "Marcus Levin",
-    role: "CTO, TechFlow",
+    name: "Elina Sinha",
+    role: "Founder",
     quote:
-      "They took our ideas and turned them into a living, breathing brand. Incredibly talented group!",
+      "Our fashion brand struggled to stand in the digital space for 2 years. We tried many strategies and tactics, but nothing worked for us. It is all thanks to SolvitX that we have managed to improve our Social Media campaigns that have increased our organic traffic by more than 150%.",
+    // "We run a non profit organisation. Our dynamic Android Application developed by SolvitX has helped us create a positive impact towards our vision. It is all because of their commitment and all time expert support that our application is well appreciated and used by thousands of users.",
+    avatarInitial: "M",
+    color: "bg-purple-500",
     image: UserPic,
   },
   {
     id: 3,
-    name: "Priya Nair",
-    role: "CMO, BoldBrands",
+    name: "Melanie Diers",
+    role: "Director,",
     quote:
-      "The most creative and responsive team I’ve worked with. They overdeliver, every time!",
+      "We run a non profit organisation. Our dynamic Android Application developed by SolvitX has helped us create a positive impact towards our vision. It is all because of their commitment and all time expert support that our application is well appreciated and used by thousands of users.",
+    avatarInitial: "S",
+    color: "bg-pink-500",
     image: UserPic,
   },
 ];
-
 const arrayOfItems = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 6, 5, 4, 3, 2, 3, 4, 6, 7, 4, 3, 2,
 ];

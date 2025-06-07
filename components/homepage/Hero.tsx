@@ -30,10 +30,11 @@ const HeroSection = ({
         src={backgroundImage}
         alt="Hero Background"
         fill
-        className="object-cover z-0 w-full h-full"
+        className="object-cover  z-0 w-full h-full"
         priority
         quality={90}
       />
+      <div className="absolute inset-0 bg-black opacity-60 z-10" />
 
       {/* Foreground content */}
       <div className="relative z-10 flex flex-col justify-center items-center">
@@ -41,7 +42,7 @@ const HeroSection = ({
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-extrabold text-white mb-6"
+          className="text-4xl mt-8 md:text-5xl font-extrabold text-white mb-6"
         >
           {heading}
           <br />

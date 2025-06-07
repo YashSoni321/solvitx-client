@@ -13,6 +13,8 @@ import Link from "next/link";
 import heroImg from "../public/images/hero_image.jpg";
 import Image from "next/image";
 import LandingPageFooter from "@/components/homepage/LandingPageFooter";
+import LandingPageNavbar from "@/components/common/LandingPageNavbar";
+import Navbar from "@/components/Navbar";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -56,7 +58,7 @@ const ThankYouPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Navbar />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
         <section className="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-24 md:py-32 overflow-hidden">
@@ -65,9 +67,10 @@ const ThankYouPage = () => {
             src={heroImg}
             alt="Success Background"
             fill
-            className="object-cover o z-0"
+            className="object-cover  z-0"
             priority
           />
+          <div className="absolute inset-0 bg-black opacity-60 z-10" />
 
           {/* Foreground Content */}
           <div className="relative z-10 flex flex-col justify-center items-center max-w-4xl mx-auto">
@@ -166,7 +169,7 @@ const ThankYouPage = () => {
               variants={fadeInUp}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-              <Link href="/landingpage">
+              <Link href="/landing-page">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
