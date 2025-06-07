@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "app/**/*": {
+      "runtime": "@vercel/node@latest"
+    },
+    "pages/**/*": {
+      "runtime": "@vercel/node@latest"
+    }
+  },
+  "regions": ["cle1"],
+  "framework": "nextjs"
+} 
