@@ -60,37 +60,37 @@ const ecommerceFeatures = [
   {
     title: "Product Management",
     description:
-      "Comprehensive product catalog with advanced filtering and search.",
+      "Extensive product catalogue featuring sophisticated search and filtering capabilities.",
     icon: <FaShoppingCart className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Mobile Responsive",
-    description: "Seamless shopping experience across all devices.",
+    description: "Flawless shopping experience across multiple devices",
     icon: <FaMobileAlt className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Advanced Search",
-    description: "Intelligent search with filters and suggestions.",
+    description: "Advanced search utilising filters and recommendations.",
     icon: <FaSearch className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Secure Payments",
-    description: "Multiple payment gateways with PCI compliance.",
+    description: "Numerous payment gateways adhering to PCI compliance.",
     icon: <FaLock className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Analytics Dashboard",
-    description: "Real-time insights into sales and customer behavior.",
+    description: "Immediate insights into sales and customer behaviour.",
     icon: <FaChartLine className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Inventory Management",
-    description: "Automated stock tracking and alerts.",
+    description: "Computerised stock monitoring and timely alerts.",
     icon: <FaClipboardList className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -100,22 +100,23 @@ const ecommerceFeatures = [
 const benefits = [
   {
     title: "Increased Sales",
-    description: "Drive more conversions with optimized shopping experience.",
+    description:
+      "Increase purchases with a refined and improved buying experience",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "24/7 Availability",
-    description: "Your store is open for business around the clock.",
+    description: "Solvitx maintains nonstop service providing.",
     icon: <FaBell className="text-3xl" />,
   },
   {
     title: "Global Reach",
-    description: "Expand your market beyond geographical boundaries.",
+    description: "Expand your enterprise beyond global thresholds.",
     icon: <FaGlobe className="text-3xl" />,
   },
   {
     title: "Cost Efficiency",
-    description: "Reduce operational costs with automation.",
+    description: "Minimize operational expenses through mechanisation. ",
     icon: <FaDollarSign className="text-3xl" />,
   },
 ];
@@ -124,22 +125,23 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "Ecommerce Experts",
-    description: "Experienced team in online retail solutions.",
+    description: "Skilled experts in web-based retail services.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Custom Solutions",
-    description: "Tailored to your specific business needs.",
+    description: "Designed around your unique enterprise needs.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Round-the-clock technical assistance.",
+    description:
+      "Our technical support is always there to solve your problems.",
     icon: <FaHeadset className="text-3xl" />,
   },
   {
     title: "Proven Success",
-    description: "Successful implementations across industries.",
+    description: "Successful deployments around a variety of fields.",
     icon: <FaClipboardList className="text-3xl" />,
   },
 ];
@@ -149,25 +151,25 @@ const workingProcess = [
   {
     step: "1",
     title: "Requirement Analysis",
-    description: "Understanding your business needs and goals.",
+    description: "Understanding your commercial objectives and vision.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "2",
     title: "Design & Development",
-    description: "Creating a user-friendly and scalable solution.",
+    description: "Building an user-friendly and adaptable framework",
     icon: <FaCode className="text-3xl" />,
   },
   {
     step: "3",
     title: "Testing & Optimization",
-    description: "Ensuring flawless performance and security.",
+    description: "Ensuring optimal functionality with data integrity.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     step: "4",
     title: "Launch & Support",
-    description: "Deploying your store and providing ongoing support.",
+    description: "Setting your platform and ensuring dedicated assistance.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -176,32 +178,32 @@ const workingProcess = [
 const additionalFeatures = [
   {
     title: "Multi-Currency Support",
-    description: "Accept payments in multiple currencies.",
+    description: "Receive transactions in multiple currencies.",
     icon: <FaCreditCard className="text-3xl" />,
   },
   {
     title: "Shipping Integration",
-    description: "Seamless integration with major shipping carriers.",
+    description: "Effortless integration with leading delivery providers.",
     icon: <FaTruck className="text-3xl" />,
   },
   {
     title: "Customer Accounts",
-    description: "Secure user accounts with order history.",
+    description: "Encrypted user data with detailed order logs.",
     icon: <FaUserShield className="text-3xl" />,
   },
   {
     title: "Promotions & Discounts",
-    description: "Create and manage special offers.",
+    description: "Create and control promotional campaigns.",
     icon: <FaGift className="text-3xl" />,
   },
   {
     title: "Live Chat Support",
-    description: "Real-time customer assistance.",
+    description: "Instant client support.",
     icon: <FaComments className="text-3xl" />,
   },
   {
     title: "SEO Optimization",
-    description: "Built-in tools for better search visibility.",
+    description: "Inbuilt utilities for improved search exposure.",
     icon: <FaSearch className="text-3xl" />,
   },
 ];
@@ -209,24 +211,24 @@ const additionalFeatures = [
 // FAQs
 const faqs = [
   {
-    question: "How long does it take to develop an ecommerce website?",
+    question: "What platforms do you build your ecommerce site on?",
+    answer:
+      "We build ecommerce websites on platforms like Shopify, WooCommerce, Magento, and custom solutions using modern frameworks.",
+  },
+  {
+    question: "Do you provide mobile friendly and responsive designs?",
+    answer:
+      "Yes, we offer fully responsive designs that work seamlessly across desktops, tablets, and mobile devices.",
+  },
+  {
+    question: "Can you make my e-commerce website SEO - friendly?",
+    answer:
+      "Absolutely. We follow best SEO practices including optimized page structures, metadata, fast load times, and mobile responsiveness.",
+  },
+  {
+    question: "What is your estimated development time?",
     answer:
       "Development time varies based on complexity, typically ranging from 2-4 months for a fully-featured store.",
-  },
-  {
-    question: "Do you provide mobile app development?",
-    answer:
-      "Yes, we offer both responsive web design and native mobile apps for iOS and Android.",
-  },
-  {
-    question: "What payment gateways do you support?",
-    answer:
-      "We integrate with major payment processors including Stripe, PayPal, and local payment methods.",
-  },
-  {
-    question: "Do you offer maintenance and support?",
-    answer:
-      "Yes, we provide ongoing maintenance, updates, and 24/7 technical support.",
   },
 ];
 
@@ -282,27 +284,29 @@ export default function EcommerceWebsiteDevelopment() {
       </motion.section> */}
       <HeroSection
         backgroundImage={heroImg}
-        heading="Web Development"
+        heading="Build a scalable online store that will turn clicks into customers."
         highlight=""
-        subheading="We specialize in creating cutting-edge web applications using the latest technologies."
+        subheading="We help to turn your ideas into future proof eCommerce platforms that are designed to your goals."
         buttonText="Get a Free Consultation"
       />
 
       <DescSection
         heading="Our Web Development Services"
         image="/images/services/WebDevelopment.jpg"
-        title="Modern Web Development Solutions"
-        content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
+        title="Custom Solutions For Your Business "
+        content="SolvitX is here to solve all your complex business problems in the online space with precision and style. Our clean codes, audience centric designs and scalable tech, helps you build responsive web applications that are tailored to your business goals and needs. 
+All you need is an idea, and we make it all possible.
+"
         position="left"
       />
 
-      <DescSection
+      {/* <DescSection
         heading="Custom Solutions for Your Business"
         image="/images/dashboard.jpg"
         title="Custom Web Applications"
         content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
         position="right"
-      />
+      /> */}
 
       {/* Features Section */}
       <motion.section
@@ -314,7 +318,7 @@ export default function EcommerceWebsiteDevelopment() {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Powerful Ecommerce Features
+            Why Do You Need An E-Commerce Web Application?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {ecommerceFeatures.map((feature, index) => (
@@ -336,15 +340,18 @@ export default function EcommerceWebsiteDevelopment() {
 
       {/* Benefits Section */}
       <motion.section className="py-20 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Go Online?
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white p-y-4">
+            Why Do You Need An E-Commerce Web Application?
           </h2>
+          <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
+            The goal is not just about an online presence, but an entire digital
+            image that will build trust and authority for your brand.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
                 className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="text-blue-400 mb-4">{benefit.icon}</div>
@@ -381,12 +388,25 @@ export default function EcommerceWebsiteDevelopment() {
           </div>
         </div>
       </motion.section>
-
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
       {/* Why Choose Us Section */}
       <motion.section className="py-20 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Our Services?
+            Why Should You Collaborate With SolvitX?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (
@@ -432,6 +452,16 @@ export default function EcommerceWebsiteDevelopment() {
           </div>
         </div>
       </motion.section>
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Do Our Clients Say?
+"
+        content={
+          "SolvitX has transformed our offline presence into a seamless e-commerce platform. From product pages to secure checkouts and third party integrations, they handled everything. Our customers loved this new experience and we have even increased our online sales by 40% since the launch. - Benjamin Mosby, CTO"
+        }
+        position="right"
+      />
 
       {/* FAQs Section */}
       <motion.section className="py-20 bg-gray-800">

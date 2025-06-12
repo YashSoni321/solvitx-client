@@ -23,6 +23,7 @@ import {
   FaChartLine,
   FaChevronUp,
   FaChevronDown,
+  FaClipboardList,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
@@ -51,71 +52,101 @@ const staggerContainer = {
 const valuePropositions = [
   {
     title: "End-to-end Product Development",
-    description:
-      "From conceptualization to deployment and maintenance of your app.",
+    description: "From concept to execution and sustained maintenance.",
     icon: <FaLayerGroup className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Native & Cross-platform Expertise",
-    description:
-      "Specialized in iOS, Android, Flutter, and React Native development.",
+    description: "Experienced team in numerous modern app ecosystems.",
     icon: <FaMobile className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Agile & Iterative Approach",
     description:
-      "Flexible development process with regular updates and feedback integration.",
+      "Dynamic workflows with routine developments shaped by client feedback loops.",
     icon: <FaCogs className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "UX/UI Focused Design",
     description:
-      "Creating intuitive, engaging, and visually appealing user experiences.",
+      "Blending aesthetics with functionality for immersive user experiences.",
     icon: <FaTabletAlt className="text-4xl" />,
     color: "text-pink-500",
   },
   {
     title: "API & Backend Integration",
     description:
-      "Seamless connectivity with existing systems and third-party services.",
+      "Flawless syncing with existing legacy systems and modern APIs.",
     icon: <FaServer className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Post-launch Support & Scaling",
     description:
-      "Ongoing maintenance, updates, and scalability solutions as your app grows.",
+      "Regular upgrades, patches, and scaling support with technical upkeep for sustainability.",
     icon: <FaRocket className="text-4xl" />,
     color: "text-red-500",
   },
 ];
-
+const workingProcess = [
+  {
+    step: "1",
+    title: "Requirement Analysis",
+    description:
+      "Align business vision with user expectations with functionality.",
+    icon: <FaClipboardList className="text-3xl" />,
+  },
+  {
+    step: "2",
+    title: "Design & Development",
+    description:
+      "Lay the foundation with interactive prototypes and architect the solution.",
+    icon: <FaCode className="text-3xl" />,
+  },
+  {
+    step: "3",
+    title: "Testing & Optimization",
+    description:
+      "Develop using clean code principles with modularity and precision.",
+    icon: <FaTools className="text-3xl" />,
+  },
+  {
+    step: "4",
+    title: "Launch & Support",
+    description: "Conduct comprehensive tests before deploying with assurance.",
+    icon: <FaRocket className="text-3xl" />,
+  },
+];
 // App Portfolio projects
 const portfolio = [
   {
     title: "HealthTrack Pro",
-    description: "Comprehensive health monitoring and fitness tracking app",
+    description:
+      "All-in-one health and fitness companion for a smarter living.",
     image: "/images/portfolio/app1.jpg",
     tags: ["iOS", "Android", "React Native"],
   },
   {
     title: "ShopEase",
-    description: "E-commerce mobile app with AR product visualization",
+    description:
+      "An innovative retail app experience with AR-powered product previews.",
     image: "/images/portfolio/app2.jpg",
     tags: ["Flutter", "Firebase", "AR Kit"],
   },
   {
     title: "TaskMaster",
-    description: "Team collaboration and project management solution",
+    description:
+      "Collaborative workspace for seamless task flow and communication.",
     image: "/images/portfolio/app3.jpg",
     tags: ["React Native", "Node.js", "MongoDB"],
   },
   {
     title: "FoodDash",
-    description: "Food delivery app with real-time order tracking",
+    description:
+      "Effortless meal delivery with real time delivery insights every step.",
     image: "/images/portfolio/app4.jpg",
     tags: ["iOS (Swift)", "Android (Kotlin)", "Firebase"],
   },
@@ -124,22 +155,23 @@ const portfolio = [
 // FAQs for app development
 const faqs = [
   {
-    question: "How long does it take to build an app?",
+    question:
+      "Can you integrate third party API’s like payment maps or chat into the application? ",
     answer:
       "Development timelines vary based on complexity and features. A simple app might take 2-3 months, while complex applications can take 4-8 months or more. We'll provide a detailed timeline during our initial consultation based on your specific requirements.",
   },
   {
-    question: "What platforms do you support?",
+    question: "Do you offer app maintenance and timely updates?",
     answer:
       "We develop native apps for iOS (using Swift/Objective-C) and Android (using Kotlin/Java), as well as cross-platform solutions using frameworks like React Native and Flutter. The choice depends on your target audience, budget, and specific requirements.",
   },
   {
-    question: "Do you offer post-launch support?",
+    question: "In which industry do you provide your services?",
     answer:
       "Yes, we provide comprehensive post-launch support and maintenance packages to ensure your app remains up-to-date, secure, and functioning optimally. This includes bug fixes, performance optimizations, OS updates compatibility, and feature enhancements.",
   },
   {
-    question: "Will my app be scalable as we grow?",
+    question: "Do you build native or cross platform apps?",
     answer:
       "Absolutely. We design and develop all our apps with scalability in mind. Our architecture allows for easy expansion, handling increased user loads, and adding new features as your business grows. We also use cloud services that can scale resources on demand.",
   },
@@ -307,27 +339,27 @@ export default function AppDevelopmentService() {
       </motion.section>  */}
       <HeroSection
         backgroundImage={isMobile ? heroImgMobile : heroImg}
-        heading="App Development"
+        heading="From ideation to execution - build apps that provide lag-free experiences."
         highlight=""
-        subheading="Build future-ready apps with cutting-edge development solutions."
+        subheading="We help you build apps that bring your vision to life. This is your opportunity for smarter, tech-savvy access to your brand."
         buttonText="Get a Free Consultation"
       />
 
       <DescSection
-        heading="Our Web Development Services"
+        heading="Custom App Development For Your Businesses"
         image="/images/services/WebDevelopment.jpg"
-        title="Modern Web Development Solutions"
-        content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
+        title="Custom App Development"
+        content="In this fast-transforming digital ecospace, we develop modern applications that are tailored for your business. All you need is an idea and a couch to relax. Our expert team will build you high performance Android and iOS apps that are crafted for your audience and help to grow your business."
         position="left"
       />
 
-      <DescSection
+      {/* <DescSection
         heading="Custom Solutions for Your Business"
         image="/images/dashboard.jpg"
         title="Custom Web Applications"
         content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
         position="right"
-      />
+      /> */}
 
       {/* Why Choose SolvitX Section */}
       <div className="py-20 bg-gray-900 text-white">
@@ -399,13 +431,13 @@ export default function AppDevelopmentService() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="border-2 border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300"
             >
               Explore More Projects
-            </motion.button>
+            </motion.button> */}
           </div>
         </div>
       </motion.section>
@@ -444,6 +476,45 @@ export default function AppDevelopmentService() {
           </div>
         </div>
       </motion.section>
+      <motion.section className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Our Development Process
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {workingProcess.map((step, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 relative"
+              >
+                <div className="absolute -top-4 -left-4 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
+                  {step.step}
+                </div>
+                <div className="text-blue-400 mb-4">{step.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {step.title}
+                </h3>
+                <p className="text-gray-300">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
 
       {/* FAQs Section */}
       <motion.section

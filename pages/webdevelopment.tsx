@@ -164,35 +164,35 @@ const valuePropositions = [
   {
     title: "User-First Design Approach",
     description:
-      "We create interfaces that prioritize user experience and engagement.",
+      "Our interface designs center around intuitive engagement and user delight at the forefront.",
     icon: <FaUsers className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Scalable & Secure Code",
     description:
-      "Our solutions grow with your business while maintaining top-level security.",
+      "Future-ready systems that evolve with your business, without compromising security integrity.",
     icon: <FaShieldAlt className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Transparent Process",
     description:
-      "Full visibility and collaboration throughout the development lifecycle.",
+      "Open end-to-end communication and co-creation through every sprint, milestone, and iteration.",
     icon: <FaCheckCircle className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Experienced Full-Stack Team",
     description:
-      "Skilled developers with expertise across the technology spectrum.",
+      "Seasoned engineers versed in modern and legacy systems’ proficiency.",
     icon: <FaCode className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Proven Track Record",
     description:
-      "Successful projects delivered for startups and enterprises alike.",
+      "From lean startups to global enterprises, we provide results beyond measure.",
     icon: <FaChartLine className="text-4xl" />,
     color: "text-yellow-500",
   },
@@ -499,10 +499,11 @@ export default function WebDevelopmentService() {
       </motion.section> */}
       <HeroSection
         backgroundImage={isMobile ? heroImgMobile : heroImg}
-        heading="Web Development"
+        heading="Build An Indelible Digital Image For Your Brand."
         highlight=""
-        subheading="We specialize in creating cutting-edge web applications using the latest technologies."
-        buttonText="Get a Free Consultation"
+        subheading="We help you to solve complex business problems, streamline your workflow, enhance user engagement and provide interactive experiences.
+"
+        buttonText="Get on a consultation call with us."
       />
 
       {/* Web Development Section */}
@@ -515,10 +516,10 @@ export default function WebDevelopmentService() {
       />
 
       <DescSection
-        heading="Custom Solutions for Your Business"
+        heading="Custom Web Applications For Your Business"
         image="/images/dashboard.jpg"
         title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
+        content="Explore our fully tailored responsive websites built from scratch. With neat codes, scalable tech stacks and user-friendly UI/UX designs — you can bring your digital vision to life with precision and quality. Whether you are looking for a sleek online presence or want to scale-up your website functionality, our experts will guide you with our fully customisable web development solutions."
         position="right"
       />
 
@@ -642,6 +643,55 @@ export default function WebDevelopmentService() {
           </div>
         </div>
       </motion.section>
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="Why Should You Collaborate With SolvitX ?"
+        content={[
+          "Collaborate with a team of experts from diverse fields.",
+          "Designed around your unique enterprise needs.",
+          "Our technical support is always there to solve your problems.",
+          "Successful deployments around a variety of fields.",
+        ]}
+        position="left"
+      />
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="Our Development Process
+"
+        content={[
+          "Understanding your commercial objectives and vision. ",
+          "Building an user-friendly and adaptable framework",
+          "Ensuring optimal functionality with data integrity.s",
+          "Setting your platform and ensuring dedicated assistance.",
+        ]}
+        position="left"
+      />
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Do Our Clients Say?
+"
+        content={
+          "SolvitX has helped us redesign our B2B website that has helped us increase our ROI by 140%. Our returning visitors have improved massively on our website. The SolvitX expert team has built us a dynamic website, tested and implemented it on an SEO-ready platform, and also provided support even after the deployment. "
+        }
+        position="right"
+      />
 
       {/* FAQs Section */}
       <motion.section
