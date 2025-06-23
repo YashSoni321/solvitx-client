@@ -6,6 +6,7 @@
     "dev": "DISABLE_ESLINT_PLUGIN=true next dev --turbopack",
     "build": "DISABLE_ESLINT_PLUGIN=true next build",
     "start": "next start",
+     "build:static": "next build && next export",
     "lint": "echo 'ESLint is disabled for this project'",
     "optimize-images": "node scripts/optimize-images.js",
     "update-image-imports": "node scripts/update-image-imports.js",

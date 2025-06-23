@@ -32,6 +32,7 @@ import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/AppDevelopment.jpg";
 import heroImgMobile from "../public/images/hero-mobile/App.jpg";
 import useIsMobile from "@/hooks/useIsMobile";
+import { TechStackSection } from "../components/common/TechStackSection";
 
 // Animation variants
 const fadeInUp = {
@@ -443,7 +444,7 @@ export default function AppDevelopmentService() {
       </motion.section>
 
       {/* Technology Stack Section */}
-      <motion.section variants={staggerContainer} className="py-20 bg-gray-900">
+      {/* <motion.section variants={staggerContainer} className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Our Technology Stack
@@ -475,7 +476,11 @@ export default function AppDevelopmentService() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+      <TechStackSection
+        title="Our Tech Stack"
+        techCategories={techCategories}
+      />
       <motion.section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -514,6 +519,14 @@ export default function AppDevelopmentService() {
           "84+ Clients Worldwide",
         ]}
         position="right"
+      />
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Do Our Clients Say?"
+        content="SolvitX helped us build a telemedicine app that can help us have real time chat and calls with our customers. From the App’s performance, design quality and API integration, all of them have been provided with focus on the user experience. Our team highly recommends their services.   - Dr. Nidhi Bhatia, Founder"
+        position="left"
       />
 
       {/* FAQs Section */}

@@ -99,8 +99,9 @@ const apiServices = [
 // Benefits
 const benefits = [
   {
-    title: "Scalability",
-    description: "Build APIs that scale with your business growth.",
+    title: "Restful APIs",
+    description:
+      "Develop resilient, scalable interfaces designed for your application needs.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
@@ -284,16 +285,16 @@ export default function APIDevelopment() {
 
       <HeroSection
         backgroundImage={isMobile ? heroImgMobile : heroImg}
-        heading="API Development"
+        heading="We help you build a sturdy backbone for your modern software."
         highlight=""
         subheading="Build robust, scalable, and secure APIs that drive your digital transformation."
         buttonText="Get a Free Consultation"
       />
       <DescSection
-        heading="Our Web Development Services"
+        heading="Custom Solutions For Your Business"
         image="/images/services/WebDevelopment.jpg"
-        title="Modern Web Development Solutions"
-        content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
+        title="Custom API Development Solutions"
+        content="This is your opportunity to make your software, devices, and applications future-ready with our customised APIs. Our experts help you to integrate your business's existing infrastructure with our tailored API development solutions. Establish secure transactions, efficient connections, data exchange, and seamless integration with our high-performance APIs. "
         position="left"
       />
 

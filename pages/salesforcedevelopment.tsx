@@ -22,11 +22,13 @@ import {
   FaDatabase,
   FaRocket,
 } from "react-icons/fa";
+import { SiSalesforce, SiHeroku } from "react-icons/si";
 import { useInView } from "react-intersection-observer";
 import heroImg from "../public/images/heroimages/Saleforce_Developement.jpg";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
+import { TechStackSection } from "@/components/common/TechStackSection";
 
 // Animation variants
 const fadeInUp = {
@@ -43,43 +45,150 @@ const staggerContainer = {
   },
 };
 
+const salesforceTechCategories = [
+  {
+    name: "Core Salesforce",
+    technologies: [
+      {
+        name: "Sales Cloud",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "Service Cloud",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-teal-400",
+      },
+      {
+        name: "Marketing Cloud",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-pink-500",
+      },
+      {
+        name: "Experience Cloud",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-indigo-400",
+      },
+    ],
+  },
+  {
+    name: "Development Tools",
+    technologies: [
+      {
+        name: "Apex",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-purple-600",
+      },
+      {
+        name: "Lightning Web Components",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-yellow-400",
+      },
+      {
+        name: "Visualforce",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "Salesforce DX",
+        icon: <FaCogs className="text-3xl" />,
+        color: "text-gray-300",
+      },
+    ],
+  },
+  {
+    name: "Integration & Platform",
+    technologies: [
+      {
+        name: "MuleSoft",
+        icon: <FaCogs className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "Heroku",
+        icon: <SiHeroku className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "REST & SOAP APIs",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-orange-400",
+      },
+      {
+        name: "AppExchange",
+        icon: <SiSalesforce className="text-3xl" />,
+        color: "text-blue-300",
+      },
+    ],
+  },
+  {
+    name: "Security & Analytics",
+    technologies: [
+      {
+        name: "Shield Platform Encryption",
+        icon: <FaShieldAlt className="text-3xl" />,
+        color: "text-red-500",
+      },
+      {
+        name: "Field Audit Trail",
+        icon: <FaShieldAlt className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "Reports & Dashboards",
+        icon: <FaChartLine className="text-3xl" />,
+        color: "text-blue-600",
+      },
+      {
+        name: "Einstein Analytics",
+        icon: <FaChartLine className="text-3xl" />,
+        color: "text-pink-400",
+      },
+    ],
+  },
+];
+
 // Salesforce Services
 const salesforceServices = [
   {
     title: "Custom Development",
     description:
-      "Tailored Salesforce solutions for your unique business needs.",
+      "We build tailored Salesforce software, crafted to solve your unique business needs.",
     icon: <FaCode className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Integration Services",
     description:
-      "Seamless integration with your existing systems and applications.",
+      "We connect seamlessly with our robust API for smooth-running operations.",
     icon: <FaCogs className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Mobile Solutions",
-    description: "Mobile-first Salesforce applications for on-the-go access.",
+    description:
+      "We empower your operations with flexible and secure cross-device solutions.",
     icon: <FaMobile className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Cloud Migration",
-    description: "Smooth transition to Salesforce cloud platform.",
+    description:
+      "We leverage secure cloud services infrastructure to build future-proof software.",
     icon: <FaCloud className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Security Implementation",
-    description: "Robust security measures and compliance solutions.",
+    description:
+      "We protect your software against threats with the best encryption and authentication practices.",
     icon: <FaShieldAlt className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Analytics & Reporting",
-    description: "Advanced analytics and custom reporting solutions.",
+    description:
+      "We make way for actionable insights and interactive dashboards.",
     icon: <FaChartLine className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -236,26 +345,24 @@ export default function SalesforceDevelopment() {
       </motion.section> */}
       <HeroSection
         backgroundImage={heroImg}
-        heading="Salesforce Development"
+        heading="Transform and automate your business with our custom solution"
         highlight=""
-        subheading="Transform your business with custom Salesforce solutions."
-        buttonText="Get a Free Consultation"
+        subheading="Take the lead in the business world by boosting productivity and driving growth to create real results."
+        buttonText="Accelerate your business growth with a free consultation call"
       />
 
       <DescSection
-        heading="Our Web Development Services"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
-        title="Modern Web Development Solutions"
-        content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
+        title="Custom Salesforce Software Development Services"
+        content="Every business is built on its pillars. We craft tailored Salesforce software services that can supercharge all your business operations. From custom app development, Salesforce Customer Relationship Management (CRM) customisation, Service Cloud, Marketing Cloud, to business and workflow automation, we provide end-to-end customised services that can integrate uniquely to your business, and thus enhance the customer experience."
         position="left"
       />
 
-      <DescSection
-        heading="Custom Solutions for Your Business"
-        image="/images/dashboard.jpg"
-        title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
-        position="right"
+      <TechStackSection
+        title="Our Technology Stack"
+        techCategories={salesforceTechCategories}
+        description="We leverage the latest Salesforce technologies to build robust and scalable solutions. Our expertise includes:"
       />
 
       {/* Services Section */}
@@ -268,7 +375,7 @@ export default function SalesforceDevelopment() {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our Salesforce Services
+            Why Build A Salesforce Software?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {salesforceServices.map((service, index) => (
@@ -292,8 +399,13 @@ export default function SalesforceDevelopment() {
       <motion.section className="py-20 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Salesforce?
+            Why Select Solvitx For Salesforce Development Services?
           </h2>
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed text-center my-10">
+            Our experts provide the perfect amalgamation of deep business
+            knowledge and Salesforce capabilities to provide a smooth and
+            accelerated digital transformation.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <motion.div

@@ -238,17 +238,17 @@ export default function iOSAppDevelopment() {
       </motion.section> */}
       <HeroSection
         backgroundImage={heroImg}
-        heading="IOS App Development"
+        heading="Explore the next-gen iOS applications that are engineered for growth."
         highlight=""
-        subheading="Build powerful, scalable, and user-friendly iOS applications."
+        subheading="We help you build apps that the users can trust- a true technological marvel that is made to rule."
         buttonText="Get a Free Consultation"
       />
 
       <DescSection
-        heading="Our Web Development Services"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
-        title="Modern Web Development Solutions"
-        content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
+        title="Custom iOS App Development Services For Your Business"
+        content="We know that one size doesn't fit all. Our iOS apps are customized for your business that are aligned to match your workflows, goals, industry demands, and cater to the audience preferences. We focus on building our apps on a scalable architecture that ensures reliability, performance and uninterrupted user interactions."
         position="left"
       />
 
