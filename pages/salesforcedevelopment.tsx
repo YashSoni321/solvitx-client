@@ -21,6 +21,12 @@ import {
   FaTools,
   FaDatabase,
   FaRocket,
+  FaUserGraduate,
+  FaChalkboardTeacher,
+  FaCalendarCheck,
+  FaBook,
+  FaChartBar,
+  FaComments,
 } from "react-icons/fa";
 import { SiSalesforce, SiHeroku } from "react-icons/si";
 import { useInView } from "react-intersection-observer";
@@ -29,6 +35,9 @@ import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import { TechStackSection } from "@/components/common/TechStackSection";
+import { ServicesSection } from "@/components/common/ServicesSection";
+import { WhySelectSection } from "@/components/common/WhySelectSection";
+import { DevelopmentProcess } from "@/components/common/DevelopmentProcess";
 
 // Animation variants
 const fadeInUp = {
@@ -198,22 +207,26 @@ const salesforceServices = [
 const benefits = [
   {
     title: "Enhanced Productivity",
-    description: "Streamline operations and boost team efficiency.",
+    description:
+      "Our streamlined operations boost the productivity of the entire team.",
     icon: <FaRocket className="text-3xl" />,
   },
   {
     title: "Improved Customer Experience",
-    description: "Deliver exceptional customer service and support.",
+    description:
+      "We deliver personalised and interactive customer experiences.",
     icon: <FaUsers className="text-3xl" />,
   },
   {
     title: "Data Security",
-    description: "Enterprise-grade security and compliance.",
+    description:
+      "We protect the sensitive data of our customers with our robust security system.",
     icon: <FaShieldAlt className="text-3xl" />,
   },
   {
     title: "Scalable Solutions",
-    description: "Grow your business with flexible Salesforce solutions.",
+    description:
+      "Real results are seen through our growth-focused business solutions.",
     icon: <FaChartLine className="text-3xl" />,
   },
 ];
@@ -222,22 +235,24 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "Certified Experts",
-    description: "Team of certified Salesforce developers and consultants.",
+    description: "We work closely with skilled experts in the industry.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Custom Solutions",
-    description: "Tailored to your specific business requirements.",
+    description: "Our software is customised to cater to your business needs.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Round-the-clock technical support and maintenance.",
+    description:
+      "We offer round-the-clock tech help for troubleshooting and updates.",
     icon: <FaHeadset className="text-3xl" />,
   },
   {
     title: "Proven Track Record",
-    description: "Successful implementations across industries.",
+    description:
+      "We rely on our 5+ years of successful implementations and satisfied clients.",
     icon: <FaClipboardList className="text-3xl" />,
   },
 ];
@@ -247,25 +262,28 @@ const workingProcess = [
   {
     step: "1",
     title: "Requirement Analysis",
-    description: "Understanding your business needs and objectives.",
+    description:
+      "Our team collaborates with you directly to understand the problems.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "2",
     title: "Solution Design",
-    description: "Creating a detailed implementation plan.",
+    description:
+      "We build custom solutions to maximise efficiency and usability.",
     icon: <FaCode className="text-3xl" />,
   },
   {
     step: "3",
     title: "Development & Testing",
-    description: "Building and testing the Salesforce solution.",
+    description: "We build and test rigorously before you can use it.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     step: "4",
     title: "Deployment & Support",
-    description: "Launching and maintaining the solution.",
+    description:
+      "We focus on long-term support even after the software deployment.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -366,69 +384,23 @@ export default function SalesforceDevelopment() {
       />
 
       {/* Services Section */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-20 bg-gray-900"
-      >
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Build A Salesforce Software?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {salesforceServices.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className={`${service.color} mb-4`}>{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {service.title}
-                </h3>
-                <p className="text-gray-300">{service.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+      <ServicesSection
+        title="Why Build A Salesforce Software?"
+        whyServicesData={salesforceServices}
+      />
 
       {/* Benefits Section */}
-      <motion.section className="py-20 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Select Solvitx For Salesforce Development Services?
-          </h2>
-          <p className="text-gray-300 text-base md:text-lg leading-relaxed text-center my-10">
-            Our experts provide the perfect amalgamation of deep business
-            knowledge and Salesforce capabilities to provide a smooth and
-            accelerated digital transformation.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="text-blue-400 mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-300">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+      <WhySelectSection
+        title="Why Select Solvitx For Salesforce Development Services?"
+        description="Our experts provide the perfect amalgamation of deep business knowledge and Salesforce capabilities to provide a smooth and accelerated digital transformation."
+        whySelectUs={benefits}
+      />
 
       {/* Why Choose Us Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Our Services?
+            Why Should You Collaborate With SolvitX?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (
@@ -448,35 +420,30 @@ export default function SalesforceDevelopment() {
         </div>
       </motion.section>
 
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
+
       {/* Working Process Section */}
-      <motion.section className="py-20 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our Development Process
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {workingProcess.map((step, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 relative"
-              >
-                <div className="absolute -top-4 -left-4 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
-                  {step.step}
-                </div>
-                <div className="text-blue-400 mb-4">{step.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {step.title}
-                </h3>
-                <p className="text-gray-300">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+
+      <DevelopmentProcess
+        title=" Our Development Process"
+        workingProcess={workingProcess}
+      />
 
       {/* FAQs Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Frequently Asked Questions

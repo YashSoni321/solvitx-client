@@ -273,7 +273,7 @@ const ThankYouPage = () => {
         </section>
 
         {/* Contact Information Section */}
-        <section className="py-20 bg-gray-900 text-white">
+        <section className="py-10 bg-gray-900 text-white">
           <div className="container mx-auto px-4">
             <motion.div
               initial="hidden"

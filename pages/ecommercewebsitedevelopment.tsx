@@ -314,7 +314,7 @@ All you need is an idea, and we make it all possible.
         initial="initial"
         animate={inView ? "animate" : "initial"}
         variants={staggerContainer}
-        className="py-20 bg-gray-900"
+        className="py-10 bg-gray-900"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -339,7 +339,7 @@ All you need is an idea, and we make it all possible.
       </motion.section>
 
       {/* Benefits Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-center mb-12 text-white p-y-4">
             Why Do You Need An E-Commerce Web Application?
@@ -366,7 +366,7 @@ All you need is an idea, and we make it all possible.
       </motion.section>
 
       {/* Additional Features Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Advanced Features
@@ -403,7 +403,7 @@ All you need is an idea, and we make it all possible.
         position="right"
       />
       {/* Why Choose Us Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Should You Collaborate With SolvitX?
@@ -427,7 +427,7 @@ All you need is an idea, and we make it all possible.
       </motion.section>
 
       {/* Working Process Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Our Development Process
@@ -464,7 +464,7 @@ All you need is an idea, and we make it all possible.
       />
 
       {/* FAQs Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Frequently Asked Questions

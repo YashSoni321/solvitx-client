@@ -524,7 +524,7 @@ export default function WebDevelopmentService() {
       />
 
       {/* Why Select SolvitX Section */}
-      <div className="py-20 bg-gray-900 text-white">
+      <div className="py-10 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Select SolvitX for Web Development?
@@ -553,7 +553,7 @@ export default function WebDevelopmentService() {
         initial="initial"
         animate={inView ? "animate" : "initial"}
         variants={staggerContainer}
-        className="py-20 bg-gray-800"
+        className="py-10 bg-gray-800"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -610,7 +610,7 @@ export default function WebDevelopmentService() {
       </motion.section> */}
 
       {/* Technology Stack Section */}
-      <motion.section variants={staggerContainer} className="py-20 bg-gray-900">
+      <motion.section variants={staggerContainer} className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Our Technology Stack
@@ -699,7 +699,7 @@ export default function WebDevelopmentService() {
         initial="initial"
         animate={inView ? "animate" : "initial"}
         variants={staggerContainer}
-        className="py-20 bg-gray-800"
+        className="py-10 bg-gray-800"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">

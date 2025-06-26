@@ -330,7 +330,7 @@ export default function DigitalMarketingService() {
       />
 
       {/* Why Choose SolvitX Section */}
-      <div className="py-20 bg-gray-900 text-white">
+      <div className="py-10 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Choose SolvitX for Digital Marketing?
@@ -354,7 +354,7 @@ export default function DigitalMarketingService() {
       </div>
 
       {/* Our Services Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Our Services
@@ -378,7 +378,7 @@ export default function DigitalMarketingService() {
       </motion.section>
 
       {/* Case Studies Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Case Studies
@@ -438,7 +438,7 @@ export default function DigitalMarketingService() {
       </motion.section>
 
       {/* Tools & Platforms Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Tools & Platforms We Use
@@ -487,7 +487,7 @@ export default function DigitalMarketingService() {
       </motion.section>
 
       {/* FAQs Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Frequently Asked Questions

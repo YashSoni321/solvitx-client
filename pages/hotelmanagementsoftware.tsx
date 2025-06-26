@@ -22,12 +22,31 @@ import {
   FaRocket,
   FaUtensils,
   FaMoneyBillWave,
+  FaReact,
+  FaServer,
+  FaBolt,
+  FaDocker,
+  FaCloud,
+  FaMobileAlt,
+  FaExchangeAlt,
+  FaChartLine,
+  FaComments,
+  FaKey,
+  FaRobot,
+  FaStar,
+  FaSync,
+  FaLock,
+  FaShieldAlt,
+  FaCreditCard,
+  FaGlobe,
+  FaWifi,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/hotelMS.jpg";
+import { TechStackSection } from "@/components/common/TechStackSection";
 
 // Animation variants
 const fadeInUp = {
@@ -185,6 +204,178 @@ const faqs = [
   },
 ];
 
+const hotelTechCategories = [
+  {
+    name: "Backend & Core Systems",
+    technologies: [
+      {
+        name: "Node.js (or Java‑Spring)",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-green-600",
+      },
+      {
+        name: "MongoDB / PostgreSQL",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "Redis (caching)",
+        icon: <FaBolt className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "Microservices (Docker + Kubernetes)",
+        icon: <FaDocker className="text-3xl" />,
+        color: "text-blue-400",
+      },
+    ],
+  },
+  {
+    name: "Web Frontend",
+    technologies: [
+      {
+        name: "React (or Angular/Vue)",
+        icon: <FaReact className="text-3xl" />,
+        color: "text-cyan-500",
+      },
+      {
+        name: "Next.js (SSR)",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "REST / GraphQL API",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-orange-400",
+      },
+    ],
+  },
+  {
+    name: "Mobile App",
+    technologies: [
+      {
+        name: "React Native (or Flutter)",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-pink-500",
+      },
+      {
+        name: "Firebase / Realm (local DB)",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-red-400",
+      },
+      {
+        name: "Push Notifications",
+        icon: <FaBell className="text-3xl" />,
+        color: "text-yellow-600",
+      },
+    ],
+  },
+  {
+    name: "Booking & PMS",
+    technologies: [
+      {
+        name: "Property Management System (PMS)",
+        icon: <FaHotel className="text-3xl" />,
+        color: "text-indigo-500",
+      },
+      {
+        name: "Channel Manager / CRS",
+        icon: <FaExchangeAlt className="text-3xl" />,
+        color: "text-teal-400",
+      },
+      {
+        name: "Revenue Management System (RMS)",
+        icon: <FaChartLine className="text-3xl" />,
+        color: "text-blue-600",
+      },
+    ],
+  },
+  {
+    name: "Guest Engagement",
+    technologies: [
+      {
+        name: "Guest App Messaging",
+        icon: <FaComments className="text-3xl" />,
+        color: "text-green-400",
+      },
+      {
+        name: "Mobile Check‑in / Mobile Key",
+        icon: <FaKey className="text-3xl" />,
+        color: "text-gray-500",
+      },
+      {
+        name: "Chatbot / Voice Assistant",
+        icon: <FaRobot className="text-3xl" />,
+        color: "text-purple-400",
+      },
+    ],
+  },
+  {
+    name: "Analytics & BI",
+    technologies: [
+      {
+        name: "Business Intelligence Tools",
+        icon: <FaChartBar className="text-3xl" />,
+        color: "text-blue-700",
+      },
+      {
+        name: "Sentiment & Review Analysis",
+        icon: <FaStar className="text-3xl" />,
+        color: "text-yellow-400",
+      },
+      {
+        name: "Logging & Monitoring",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-red-600",
+      },
+    ],
+  },
+  {
+    name: "Infrastructure & Security",
+    technologies: [
+      {
+        name: "AWS / GCP / Azure",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "CI/CD (Jenkins, GitHub Actions)",
+        icon: <FaSync className="text-3xl" />,
+        color: "text-gray-600",
+      },
+      {
+        name: "OAuth2 / JWT Auth",
+        icon: <FaLock className="text-3xl" />,
+        color: "text-red-500",
+      },
+      {
+        name: "PCI DSS / GDPR Compliance",
+        icon: <FaShieldAlt className="text-3xl" />,
+        color: "text-blue-600",
+      },
+    ],
+  },
+  {
+    name: "Integrations",
+    technologies: [
+      {
+        name: "Payment Gateway (Stripe/Adyen)",
+        icon: <FaCreditCard className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "OTA/GDS Channels",
+        icon: <FaGlobe className="text-3xl" />,
+        color: "text-teal-500",
+      },
+      {
+        name: "IoT (room control)",
+        icon: <FaWifi className="text-3xl" />,
+        color: "text-indigo-400",
+      },
+    ],
+  },
+];
 export default function HotelManagementSoftware() {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -238,17 +429,18 @@ export default function HotelManagementSoftware() {
 
       <HeroSection
         backgroundImage={heroImg}
-        heading="Hotel Management Software"
+        heading="Build innovative hospitality solutions for exceptional guest experiences."
         highlight=""
-        subheading="Transform your hotel operations with our comprehensive management software."
-        buttonText="Get a Free Consultation"
+        subheading="Rule the hospitality industry with our tailored hotel management software services that will streamline your operations and build memorable experiences for your guests. "
+        buttonText="Get on a free consultation call with us before the next holiday season."
       />
 
       <DescSection
-        heading="Our Web Development Services"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
-        title="Modern Web Development Solutions"
-        content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
+        title="Custom Hotel Management Software Development Services"
+        content="Do you want your guests to choose their stay with you again and again? Yes, it is possible. From boutique resorts to large chains, we provide tailored, interactive, and scalable platforms that will optimise workflows, boost productivity, improve services, and thus provide a memorable experience for all your guests. We let you stay ahead of the competition by providing custom hotel management software solutions that will cover all your industry complexities.
+"
         position="left"
       />
 
@@ -259,6 +451,11 @@ export default function HotelManagementSoftware() {
         content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
         position="right"
       />
+      <TechStackSection
+        techCategories={hotelTechCategories}
+        title="Our Technology Stack "
+        description="We help to streamline your entire operations into a smart, hassle-free, secure, and reliable system. "
+      />
 
       {/* Features Section */}
       <motion.section
@@ -266,7 +463,7 @@ export default function HotelManagementSoftware() {
         initial="initial"
         animate={inView ? "animate" : "initial"}
         variants={staggerContainer}
-        className="py-20 bg-gray-900"
+        className="py-10 bg-gray-900"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -291,7 +488,7 @@ export default function HotelManagementSoftware() {
       </motion.section>
 
       {/* Benefits Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Benefits
@@ -315,7 +512,7 @@ export default function HotelManagementSoftware() {
       </motion.section>
 
       {/* Why Choose Us Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Choose Our Software?
@@ -339,7 +536,7 @@ export default function HotelManagementSoftware() {
       </motion.section>
 
       {/* Working Process Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Implementation Process
@@ -366,7 +563,7 @@ export default function HotelManagementSoftware() {
       </motion.section>
 
       {/* FAQs Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Frequently Asked Questions

@@ -240,7 +240,7 @@ export default function MobileAppDevelopment() {
         initial="initial"
         animate={inView ? "animate" : "initial"}
         variants={staggerContainer}
-        className="py-20 bg-gray-900"
+        className="py-10 bg-gray-900"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -266,7 +266,7 @@ export default function MobileAppDevelopment() {
       </motion.section>
 
       {/* Benefits Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Choose Mobile App Development?
@@ -290,7 +290,7 @@ export default function MobileAppDevelopment() {
       </motion.section>
 
       {/* Why Choose Us Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Choose Our Services?
@@ -314,7 +314,7 @@ export default function MobileAppDevelopment() {
       </motion.section>
 
       {/* Working Process Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Our Development Process
@@ -341,7 +341,7 @@ export default function MobileAppDevelopment() {
       </motion.section>
 
       {/* FAQs Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Frequently Asked Questions

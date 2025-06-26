@@ -21,12 +21,21 @@ import {
   FaTools,
   FaDatabase,
   FaRocket,
+  FaChartLine,
+  FaMobileAlt,
+  FaServer,
+  FaCalendarCheck,
+  FaComments,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/School.jpg";
+import { TechStackSection } from "@/components/common/TechStackSection";
+import { ServicesSection } from "@/components/common/ServicesSection";
+import { WhySelectSection } from "@/components/common/WhySelectSection";
+import WhyChooseUsSection from "@/components/common/WhyChooseUsSection";
 
 // Animation variants
 const fadeInUp = {
@@ -88,22 +97,23 @@ const schoolFeatures = [
 const benefits = [
   {
     title: "Streamlined Operations",
-    description: "Automate administrative tasks and reduce paperwork.",
+    description: "We automate administrative tasks and reduce paperwork.",
     icon: <FaRocket className="text-3xl" />,
   },
   {
     title: "Enhanced Communication",
-    description: "Improve interaction between staff, students, and parents.",
+    description: "We improve interaction between staff, students, and parents.",
     icon: <FaBell className="text-3xl" />,
   },
   {
     title: "Data Security",
-    description: "Secure storage and management of sensitive information.",
+    description:
+      "We ensure secure storage and management of sensitive information.",
     icon: <FaDatabase className="text-3xl" />,
   },
   {
     title: "Scalable Solution",
-    description: "Grow with your institution's needs.",
+    description: "We grow with your institution’s evolving needs.",
     icon: <FaChartBar className="text-3xl" />,
   },
 ];
@@ -112,22 +122,26 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "Expert Team",
-    description: "Experienced developers in education technology.",
+    description:
+      "We work closely with skilled experts in the educational industry.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Custom Solutions",
-    description: "Tailored to your institution's specific needs.",
+    description:
+      "Our tech solutions are customised to solve your unique business problems.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Round-the-clock technical assistance.",
+    description:
+      "Our team is available around the clock to solve all your tech problems.",
     icon: <FaHeadset className="text-3xl" />,
   },
   {
-    title: "Proven Success",
-    description: "Successful implementations in educational institutions.",
+    title: "Proven Track Record ",
+    description:
+      "We rely on our 5+ years of satisfied clients in the education sector.",
     icon: <FaClipboardList className="text-3xl" />,
   },
 ];
@@ -184,6 +198,155 @@ const faqs = [
   },
 ];
 
+const techCategories = [
+  {
+    name: "Native Mobile",
+    technologies: [
+      {
+        name: "iOS (Swift)",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "Android (Kotlin)",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "Objective-C",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-orange-500",
+      },
+      {
+        name: "Java",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-red-500",
+      },
+    ],
+  },
+  {
+    name: "Cross-Platform",
+    technologies: [
+      {
+        name: "Flutter",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "React Native",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-blue-600",
+      },
+      {
+        name: "Xamarin",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "Ionic",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-blue-300",
+      },
+    ],
+  },
+  {
+    name: "Backend",
+    technologies: [
+      {
+        name: "Firebase",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "Node.js",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-green-600",
+      },
+      {
+        name: "MongoDB",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "GraphQL",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-pink-500",
+      },
+    ],
+  },
+  {
+    name: "DevOps & Tools",
+    technologies: [
+      {
+        name: "CI/CD",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-purple-600",
+      },
+      {
+        name: "TestFlight",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "App Center",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "Analytics",
+        icon: <FaChartLine className="text-3xl" />,
+        color: "text-red-400",
+      },
+    ],
+  },
+];
+
+// School Management Services
+const schoolManagementServices = [
+  {
+    title: "Student Management",
+    description:
+      "Our comprehensive student information and academic tracking system keeps everything organized in one place.",
+    icon: <FaUserGraduate className="text-4xl" />,
+    color: "text-blue-500",
+  },
+  {
+    title: "Teacher Management",
+    description:
+      "With our teacher scheduling and performance monitoring features, managing faculty becomes effortless.",
+    icon: <FaChalkboardTeacher className="text-4xl" />,
+    color: "text-purple-500",
+  },
+  {
+    title: "Attendance System",
+    description:
+      "We automate attendance tracking and generate reports through our efficient tools.",
+    icon: <FaCalendarCheck className="text-4xl" />,
+    color: "text-green-500",
+  },
+  {
+    title: "Academic Management",
+    description:
+      "We simplify curriculum planning and grade management with our robust system.",
+    icon: <FaBook className="text-4xl" />,
+    color: "text-yellow-500",
+  },
+  {
+    title: "Performance Analytics",
+    description:
+      "Thanks to our detailed analytics and reporting features, we gain deeper insights that drive smarter decisions.",
+    icon: <FaChartBar className="text-4xl" />,
+    color: "text-red-500",
+  },
+  {
+    title: "Communication Tools",
+    description:
+      "We keep everyone connected and informed through our integrated messaging and notification system.",
+    icon: <FaComments className="text-4xl" />,
+    color: "text-pink-500",
+  },
+];
+
 export default function SchoolManagementSoftware() {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -237,35 +400,66 @@ export default function SchoolManagementSoftware() {
 
       <HeroSection
         backgroundImage={heroImg}
-        heading="School Management Software"
+        heading="Empowering the education system starts with the integration of reliable tech"
         highlight=""
-        subheading="Transform your educational institution with our comprehensive school management software."
-        buttonText="Get a Free Consultation"
+        subheading="We help to empower societies by building smarter schools with tailored School Management systems."
+        buttonText="Get on a free consultation call with our experts"
       />
 
       <DescSection
-        heading="Our Web Development Services"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
-        title="Modern Web Development Solutions"
-        content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
+        title="Custom School Management Software Development Services"
+        content="We develop bespoke school management systems that enhance the communications, streamline all the operations, and provide user-friendly solutions for all your complex problems. Whether it is attendance tracking, grade management, fee collection, timetable management, or student reports, we help you to build a customised solution that elevates the educational experiences for the management, teachers, students, and their parents."
         position="left"
       />
 
+      <TechStackSection
+        title="Our Technology Stack"
+        techCategories={techCategories}
+        description="At Solvitx, we dream of building schools that align with the interests and talents of each and every student. And for that to happen, we need a better school management system that can streamline all its operations under one single, intuitive, responsive, and secure dashboard."
+      />
+
+      {/* Services Section */}
+      <ServicesSection
+        title="Why Build A Salesforce Software?"
+        whyServicesData={schoolManagementServices}
+      />
+
+      {/* Why Select Us Section */}
+      <WhySelectSection
+        title="Why Choose Solvitx For School Management Software Development Services?"
+        description="Our education-focused solutions help you to simplify the redundant management tasks, reduce the administration burden, and thus improve the quality of education."
+        whySelectUs={benefits}
+      />
+
+      <WhyChooseUsSection
+        title="Why Should You Collaborate With SolvitX?"
+        whyChooseUs={whyChooseUs}
+      />
+
       <DescSection
-        heading="Custom Solutions for Your Business"
-        image="/images/dashboard.jpg"
-        title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
         position="right"
       />
 
       {/* Features Section */}
-      <motion.section
+      {/* <motion.section
         ref={ref}
         initial="initial"
         animate={inView ? "animate" : "initial"}
         variants={staggerContainer}
-        className="py-20 bg-gray-900"
+        className="py-10 bg-gray-900"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -287,10 +481,10 @@ export default function SchoolManagementSoftware() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* Benefits Section */}
-      <motion.section className="py-20 bg-gray-800">
+      {/* <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Benefits
@@ -311,10 +505,10 @@ export default function SchoolManagementSoftware() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* Why Choose Us Section */}
-      <motion.section className="py-20 bg-gray-900">
+      {/* <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Choose Our Software?
@@ -335,10 +529,10 @@ export default function SchoolManagementSoftware() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* Working Process Section */}
-      <motion.section className="py-20 bg-gray-800">
+      <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Implementation Process
@@ -365,7 +559,7 @@ export default function SchoolManagementSoftware() {
       </motion.section>
 
       {/* FAQs Section */}
-      <motion.section className="py-20 bg-gray-900">
+      <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Frequently Asked Questions

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaCheckCircle } from "react-icons/fa"; // Custom bullet icon
 
 interface DescSectionProps {
   image: string;
@@ -22,7 +23,7 @@ const DescSection = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-20 bg-gray-900"
+      className="py-10 bg-gray-900"
     >
       <div className="container mx-auto px-4">
         {heading && (
@@ -39,6 +40,9 @@ const DescSection = ({
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full" />
           </motion.div>
         )}
+        <h2 className="text-3xl md:text-4xl text-center font-bold mb-8 text-white ">
+          {title}
+        </h2>
         <div
           className={`flex flex-col ${
             position === "right" ? "md:flex-row-reverse" : "md:flex-row"
@@ -51,7 +55,7 @@ const DescSection = ({
             viewport={{ once: true }}
             className="w-full md:w-1/2"
           >
-            <div className="relative h-[300px] md:h-[400px] w-full rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative h-[300px] md:h-[400px] w-full rounded-xl overflow-hidden shadow-2xl ring-2 ring-purple-500/20">
               <Image
                 src={image}
                 alt={title}
@@ -61,6 +65,7 @@ const DescSection = ({
               />
             </div>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: position === "left" ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -68,18 +73,20 @@ const DescSection = ({
             viewport={{ once: true }}
             className="w-full md:w-1/2"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-              {title}
-            </h2>
-            {/* <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-              {content}
-            </p> */}
             {Array.isArray(content) ? (
-              <ul className="list-disc pl-6 space-y-2 text-white">
-                {content.map((point, index) => (
-                  <li key={index}>{point}</li>
+              <div className="space-y-4">
+                {content.map((point: string, index: number) => (
+                  <div
+                    key={index}
+                    className="flex items-start p-4 bg-gray-800 hover:bg-gray-700 rounded-xl shadow-lg transition duration-300"
+                  >
+                    <FaCheckCircle className="text-green-400 mt-1 mr-3 flex-shrink-0" />
+                    <p className="text-gray-300 text-base leading-relaxed">
+                      {point}
+                    </p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             ) : (
               <p className="text-gray-300 text-base md:text-lg leading-relaxed">
                 {content}
