@@ -173,7 +173,7 @@ export default function About() {
       />
 
       {/* Our Story Section */}
-      <section id="our-story" className="py-24 bg-black">
+      <section id="our-story" className="py-10 bg-black">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -232,7 +232,7 @@ export default function About() {
       </section>
 
       {/* Mission and Values */}
-      <section className="py-24 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-10 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -324,7 +324,7 @@ export default function About() {
       </section>
 
       {/* Meet the Founders */}
-      <section className="py-24 bg-gray-900">
+      <section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -394,7 +394,7 @@ export default function About() {
       </section>
 
       {/* How We Help - Stepper */}
-      <section className="py-24 bg-black">
+      <section className="py-10 bg-black">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

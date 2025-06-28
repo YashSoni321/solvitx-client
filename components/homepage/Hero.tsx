@@ -24,7 +24,7 @@ const HeroSection = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative min-h-[70vh] flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-24 md:py-32 overflow-hidden">
+    <section className="relative min-h-[70vh] flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-10 md:py-32 overflow-hidden">
       {/* Background logo image */}
       <OptimizedImage
         src={backgroundImage}

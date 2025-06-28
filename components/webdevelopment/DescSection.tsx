@@ -34,13 +34,13 @@ const DescSection = ({
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
               {heading}
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full" />
           </motion.div>
         )}
-        <h2 className="text-3xl md:text-4xl text-center font-bold mb-8 text-white ">
+        <h2 className="text-3xl md:text-2xl text-center font-bold mb-8 text-white ">
           {title}
         </h2>
         <div
