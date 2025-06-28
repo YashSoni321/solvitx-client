@@ -254,7 +254,7 @@ export default function Services() {
               <h3 className="relative text-2xl font-bold text-white mb-4">
                 {service.title}
               </h3>
-              <p className="relative text-gray-300 mb-6">
+              <p className="relative text-justify text-gray-300 mb-6">
                 {service.description}
               </p>
 
