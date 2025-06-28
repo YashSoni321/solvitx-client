@@ -300,7 +300,7 @@ export default function Services() {
       />
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-t from-gray-900 to-black py-20 px-4">
+      <div className="bg-gradient-to-t from-gray-900 to-black py-8 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}

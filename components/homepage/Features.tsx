@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import SectionHeading from "../common/SectionHeading";
+import Slider from "react-slick";
+import { sliderSettings } from "./StageOfWork";
 
 const features = [
   {
@@ -48,15 +50,13 @@ const Features = () => {
         {/* Header Section */}
         <SectionHeading
           title="FEATURES"
-          description=" We let our work speak for itself — transforming ideas into
-              results, and creativity into impact. Our goal is to design experiences that inspire people, spark
-              emotion, and create lasting value."
+          description="We let our work speak for itself — transforming ideas into results, and creativity into impact. Our goal is to design experiences that inspire people, spark emotion, and create lasting value."
           theme="gradient"
           titleSize="large"
         />
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Desktop Grid */}
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           {features.map((feature, index) => (
             <motion.div
               key={feature.id}
@@ -76,13 +76,35 @@ const Features = () => {
                 </h2>
                 <p className="text-sm text-gray-300">{feature.description}</p>
               </div>
-              <div className="mt-6">
-                {/* <button className="text-white hover:underline font-medium text-sm">
-                  Learn More →
-                </button> */}
-              </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="block sm:hidden mt-10 px-10">
+          <Slider {...sliderSettings}>
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.id}
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={cardVariants}
+                className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-6 h-[300px] flex flex-col justify-between shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <div>
+                  <p className="text-sm font-semibold text-white mb-2">
+                    {feature.id}
+                  </p>
+                  <h2 className="text-xl font-bold mb-2 text-white">
+                    {feature.title}
+                  </h2>
+                  <p className="text-sm text-gray-300">{feature.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </Slider>
         </div>
       </div>
     </div>

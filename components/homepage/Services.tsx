@@ -146,7 +146,7 @@ const Services = () => {
 
   return (
     <section
-      className="bg-gradient-to-b from-black to-gray-900 relative overflow-hidden py-20"
+      className="bg-gradient-to-b from-black to-gray-900 relative overflow-hidden py-8"
       ref={containerRef}
     >
       {/* Animated Background Particles */}

@@ -250,7 +250,7 @@ export default function Contact() {
       />
 
       {/* Contact Form Section */}
-      <section id="contact-form" className="bg-black py-20 px-4">
+      <section id="contact-form" className="bg-black py-8 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">

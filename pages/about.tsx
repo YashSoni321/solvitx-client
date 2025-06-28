@@ -124,7 +124,7 @@ export default function About() {
         </div>
 
      
-        <div className="relative z-10 container mx-auto px-4 py-20 text-center">
+        <div className="relative z-10 container mx-auto px-4 py-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -487,7 +487,7 @@ export default function About() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-8 bg-gradient-to-b from-gray-900 to-black">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

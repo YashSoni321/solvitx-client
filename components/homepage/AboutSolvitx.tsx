@@ -63,7 +63,7 @@ export default function HeroSection() {
     <div className="container mx-auto px-1 py-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
         <motion.div
-          className="  gap-8 items-center"
+          className="gap-8 items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ amount: 0.3 }} // Removed 'once: true' so it animates every time

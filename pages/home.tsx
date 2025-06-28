@@ -34,7 +34,7 @@ const StatisticsSection = dynamic(
 const StagesSection = dynamic(
   () => import("@/components/homepage/StageOfWork"),
   {
-    loading: () => <div className="h-96 bg-gray-900 animate-pulse" />,
+    loading: () => <div className=" bg-gray-900 animate-pulse" />,
     ssr: false,
   }
 );

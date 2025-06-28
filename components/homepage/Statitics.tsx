@@ -17,7 +17,7 @@ const fadeInUp = {
 
 export default function StatsSection() {
   return (
-    <section className="py-10  text-black relative overflow-hidden">
+    <section className="py-10 text-black relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -38,6 +38,7 @@ export default function StatsSection() {
           <rect width="100%" height="100%" fill="url(#smallGrid)" />
         </svg>
       </div>
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial="hidden"
@@ -48,20 +49,14 @@ export default function StatsSection() {
         >
           <SectionHeading
             title="Our Achievements"
-            description=" Our track record reflects our commitment to excellence and client
-              success."
+            description="Our track record reflects our commitment to excellence and client success."
             theme="dark"
             titleSize="large"
           />
-          {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-            Numbers That Speak Volumes
-          </h2>
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Our track record reflects our commitment to excellence and client
-            success.
-          </p> */}
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {[
             { value: 250, label: "Projects Delivered", suffix: "+" },
             { value: 98, label: "Client Satisfaction", suffix: "%" },
@@ -75,13 +70,13 @@ export default function StatsSection() {
               variants={fadeInUp}
               custom={index}
               viewport={{ once: true }}
-              className="text-center bg-gry-200 p-8 rounded-xl backdrop-blur-sm hover:bg-black/10 transition-all duration-300"
+              className="text-center bg-gray-100 p-6 rounded-xl backdrop-blur-sm hover:bg-black/10 transition-all duration-300"
             >
-              <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
+              <div className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-1">
                 <CountUpAnimation target={stat.value} />
                 {stat.suffix}
               </div>
-              <div className="text-black-300 text-lg">{stat.label}</div>
+              <div className="text-black text-lg">{stat.label}</div>
             </motion.div>
           ))}
         </div>
