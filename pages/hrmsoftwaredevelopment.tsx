@@ -23,12 +23,28 @@ import {
   FaMoneyBillWave,
   FaUserClock,
   FaTasks,
+  FaReact,
+  FaPalette,
+  FaUserShield,
+  FaServer,
+  FaCloud,
+  FaMoneyCheckAlt,
+  FaLock,
+  FaBolt,
+  FaFire,
+  FaDocker,
+  FaSync,
+  FaShieldAlt,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/HRM.jpg";
+import { TechStackSection } from "@/components/common/TechStackSection";
+import { ServicesSection } from "@/components/common/ServicesSection";
+import { WhySelectSection } from "@/components/common/WhySelectSection";
+import WhyChooseUsSection from "@/components/common/WhyChooseUsSection";
 
 // Animation variants
 const fadeInUp = {
@@ -49,37 +65,37 @@ const staggerContainer = {
 const hrmFeatures = [
   {
     title: "Employee Management",
-    description: "Comprehensive employee data and profile management system.",
+    description: "We centralise our workforce management to boost efficiency.",
     icon: <FaUsers className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Attendance Tracking",
-    description: "Automated attendance and time tracking system.",
+    description: "We leverage advanced technology for real-time attendance records.",
     icon: <FaUserClock className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Leave Management",
-    description: "Streamlined leave request and approval process.",
+    description: "We streamline the leave request and approval process.",
     icon: <FaCalendarAlt className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Performance Management",
-    description: "Track and evaluate employee performance effectively.",
+    description: "We automate goal-setting, KPI tracking, and advanced indicators for maximum productivity.",
     icon: <FaChartBar className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Payroll Processing",
-    description: "Automated salary calculation and payment processing.",
+    description: "We provide error-free payroll processing to ensure employee satisfaction.",
     icon: <FaMoneyBillWave className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Task Management",
-    description: "Assign and track employee tasks and projects.",
+    description: "Optimise the workflows and manage tasks efficiently through automated systems.",
     icon: <FaTasks className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -89,22 +105,22 @@ const hrmFeatures = [
 const benefits = [
   {
     title: "Operational Efficiency",
-    description: "Streamline HR processes and reduce manual work.",
+    description: "We streamline all our operations and task assignments for a productive workplace.",
     icon: <FaRocket className="text-3xl" />,
   },
   {
     title: "Data Accuracy",
-    description: "Maintain accurate and up-to-date employee records.",
+    description: "We avoid human errors with automated audit trails and error analysis.",
     icon: <FaDatabase className="text-3xl" />,
   },
   {
     title: "Cost Reduction",
-    description: "Lower HR operational costs through automation.",
+    description: "We minimise manual tasks and reduce redundant tech to effectively manage our cost budgets.",
     icon: <FaMoneyBillWave className="text-3xl" />,
   },
   {
     title: "Employee Satisfaction",
-    description: "Improve employee experience with self-service features.",
+    description: "We foster a positive and healthy workplace culture through transparent feedback and employee portals.",
     icon: <FaUsers className="text-3xl" />,
   },
 ];
@@ -112,23 +128,23 @@ const benefits = [
 // Why Choose Us
 const whyChooseUs = [
   {
-    title: "HR Technology Experts",
-    description: "Experienced team in HR software development.",
+    title: "Industry Experts",
+    description: "Our teams comprise experts who have served in the HRM industry for years.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Custom Solutions",
-    description: "Tailored to your organization's HR needs.",
+    description: "We provide you with tailored solutions that are unique to your business.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Round-the-clock technical assistance.",
+    description: "We are always there to provide you with help in case of bugs or troubleshooting.",
     icon: <FaHeadset className="text-3xl" />,
   },
   {
-    title: "Proven Success",
-    description: "Successful implementations across industries.",
+    title: "Proven Track Record",
+    description: "We rely on your 10+ years of successful implementations and satisfied clients.",
     icon: <FaClipboardList className="text-3xl" />,
   },
 ];
@@ -138,25 +154,25 @@ const workingProcess = [
   {
     step: "1",
     title: "Requirement Analysis",
-    description: "Understanding your HR processes and needs.",
+    description: "You get on a call with us to discuss all your tech requirements.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "2",
     title: "System Design",
-    description: "Creating a detailed implementation plan.",
+    description: "We build a system that will solve your unique business needs.",
     icon: <FaCode className="text-3xl" />,
   },
   {
     step: "3",
     title: "Development & Testing",
-    description: "Building and testing the software solution.",
+    description: "We develop the software and train it rigorously so that it performs efficiently.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     step: "4",
     title: "Deployment & Training",
-    description: "Launching the system and training staff.",
+    description: "Our software is trained and deployed under the latest technology guidelines.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -184,6 +200,110 @@ const faqs = [
       "Yes, we offer comprehensive training for HR teams and ongoing technical support to ensure smooth operations.",
   },
 ];
+
+const hrmTechCategories = [
+  {
+    name: "Front End",
+    technologies: [
+      {
+        name: "React (or Angular)",
+        icon: <FaReact className="text-3xl" />,
+        color: "text-cyan-500",
+      },
+      {
+        name: "Next.js (for dashboards & SSR)",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "Tailwind CSS / Material UI",
+        icon: <FaPalette className="text-3xl" />,
+        color: "text-pink-400",
+      },
+      {
+        name: "Role-based Access UI",
+        icon: <FaUserShield className="text-3xl" />,
+        color: "text-yellow-600",
+      },
+    ],
+  },
+  {
+    name: "Back End",
+    technologies: [
+      {
+        name: "Node.js / Java Spring Boot",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-green-600",
+      },
+      {
+        name: "REST / GraphQL API",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-orange-400",
+      },
+      {
+        name: "Payroll Processing Engine",
+        icon: <FaMoneyCheckAlt className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "Authentication & Role Management",
+        icon: <FaLock className="text-3xl" />,
+        color: "text-red-500",
+      },
+    ],
+  },
+  {
+    name: "Database",
+    technologies: [
+      {
+        name: "PostgreSQL / MySQL",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "Redis (caching sessions)",
+        icon: <FaBolt className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "MongoDB (NoSQL HR docs)",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-green-700",
+      },
+      {
+        name: "Firebase (notifications/user auth)",
+        icon: <FaFire className="text-3xl" />,
+        color: "text-red-400",
+      },
+    ],
+  },
+  {
+    name: "DevOps",
+    technologies: [
+      {
+        name: "Docker + Kubernetes (modular HR modules)",
+        icon: <FaDocker className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "CI/CD (GitHub Actions, Jenkins)",
+        icon: <FaSync className="text-3xl" />,
+        color: "text-gray-600",
+      },
+      {
+        name: "Cloud Hosting (AWS / Azure / GCP)",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "Security Compliance (GDPR / ISO 27001)",
+        icon: <FaShieldAlt className="text-3xl" />,
+        color: "text-blue-600",
+      },
+    ],
+  },
+];
+
 
 export default function HRMSoftwareDevelopment() {
   const [ref, inView] = useInView({
@@ -238,30 +358,36 @@ export default function HRMSoftwareDevelopment() {
 
       <HeroSection
         backgroundImage={heroImg}
-        heading="HRM Software Development"
+        heading="Fast And Efficient HR Solutions For Your Business"
         highlight=""
-        subheading="Transform your HR operations with our comprehensive management solution."
-        buttonText="Get a Free Consultation"
+        subheading="Empower your workforce with smarter, AI-driven human resource management software solutions."
+        buttonText="Get on a consultation call with us today."
       />
 
       <DescSection
-        heading="Our Web Development Services"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
-        title="Modern Web Development Solutions"
-        content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
+        title="Custom HRM Software Development"
+        content="SolvITx crafts bespoke online recruitment solutions to streamline hiring processes. From candidate sourcing, automated screening, and interview scheduling to advanced analytics and seamless integrations with job boards and social platforms, we customize systems to meet your unique recruitment needs. Our scalable platforms support high-volume hiring, remote recruitment, and enhanced candidate experiences, ensuring a smooth and efficient talent acquisition process tailored to your business."
         position="left"
       />
 
-      <DescSection
+      <TechStackSection
+        techCategories={hrmTechCategories}
+        title="Our Technology Stack "
+        description="SolvITx offers flexible, secure, and user-friendly platforms that simplify recruitment workflows and optimize talent management. Choose us for reliable, innovative, and tailored recruitment technology. "
+      />
+
+      {/* <DescSection
         heading="Custom Solutions for Your Business"
         image="/images/dashboard.jpg"
         title="Custom Web Applications"
         content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
         position="right"
-      />
+      /> */}
 
       {/* Features Section */}
-      <motion.section
+      {/* <motion.section
         ref={ref}
         initial="initial"
         animate={inView ? "animate" : "initial"}
@@ -288,10 +414,15 @@ export default function HRMSoftwareDevelopment() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+      <ServicesSection
+        title="Why Do You Need A HRM Software?"
+        whyServicesData={hrmFeatures}
+      />
 
       {/* Benefits Section */}
-      <motion.section className="py-10 bg-gray-800">
+      {/* <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Benefits
@@ -312,10 +443,16 @@ export default function HRMSoftwareDevelopment() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+      <WhySelectSection
+        title="Why Choose SolveitX For HRM Software Development Services?"
+        description="Our expertise in recruitment software ensures reduced time-to-hire, improved candidate quality, and enhanced collaboration. With advanced features like AI-driven matching, real-time reporting, and customizable dashboards, we empower HR teams to make data-driven decisions and attract top talent effortlessly."
+        whySelectUs={benefits}
+      />
 
       {/* Why Choose Us Section */}
-      <motion.section className="py-10 bg-gray-900">
+      {/* <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Choose Our Software?
@@ -336,13 +473,33 @@ export default function HRMSoftwareDevelopment() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+      <WhyChooseUsSection
+        title="Why Should You Collaborate With SolvitX?"
+        whyChooseUs={whyChooseUs}
+      />
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
 
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Implementation Process
+            Our Development Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {workingProcess.map((step, index) => (

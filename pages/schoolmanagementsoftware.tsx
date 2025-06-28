@@ -422,7 +422,7 @@ export default function SchoolManagementSoftware() {
 
       {/* Services Section */}
       <ServicesSection
-        title="Why Build A Salesforce Software?"
+        title="Why Build A School Management Software?"
         whyServicesData={schoolManagementServices}
       />
 

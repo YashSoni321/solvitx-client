@@ -23,12 +23,27 @@ import {
   FaFileAlt,
   FaUsers,
   FaMoneyBillWave,
+  FaReact,
+  FaPalette,
+  FaComments,
+  FaServer,
+  FaCloud,
+  FaLock,
+  FaTasks,
+  FaBolt,
+  FaFire,
+  FaDocker,
+  FaSync,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/ORS.jpg";
+import { TechStackSection } from "@/components/common/TechStackSection";
+import { ServicesSection } from "@/components/common/ServicesSection";
+import { WhySelectSection } from "@/components/common/WhySelectSection";
+import WhyChooseUsSection from "@/components/common/WhyChooseUsSection";
 
 // Animation variants
 const fadeInUp = {
@@ -49,38 +64,38 @@ const staggerContainer = {
 const recruitmentFeatures = [
   {
     title: "Job Posting",
-    description: "Create and manage job listings across multiple platforms.",
+    description: "Explore our AI-driven job posting search to help you communicate more effectively.",
     icon: <FaFileAlt className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Candidate Search",
     description:
-      "Advanced search and filtering capabilities for finding the right talent.",
+      "We enable you with AI-driven candidate matching for your job requirements.",
     icon: <FaSearch className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Interview Scheduling",
-    description: "Automated interview scheduling and calendar management.",
+    description: "We automate your interviews and calls to a more efficient recruitment process.",
     icon: <FaCalendarAlt className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Resume Management",
-    description: "Organize and track candidate resumes and applications.",
+    description: "We channelise your resume management process to avoid confusion.",
     icon: <FaUserTie className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Analytics & Reporting",
-    description: "Comprehensive recruitment metrics and insights.",
+    description: "We make use of the advanced analytics tool for a sound decision.",
     icon: <FaChartBar className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Team Collaboration",
-    description: "Collaborative tools for hiring teams.",
+    description: "We let you collaborate with your entire hiring team online.",
     icon: <FaUsers className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -90,23 +105,23 @@ const recruitmentFeatures = [
 const benefits = [
   {
     title: "Time Efficiency",
-    description: "Streamline recruitment processes and reduce hiring time.",
+    description: "Manage your workflows efficiently to boost productivity and growth.",
     icon: <FaRocket className="text-3xl" />,
   },
   {
     title: "Better Hiring Decisions",
     description:
-      "Make data-driven decisions with comprehensive candidate insights.",
+      "We provide you with a complete candidate certificate so that you can make the best choice.",
     icon: <FaChartBar className="text-3xl" />,
   },
   {
     title: "Cost Reduction",
-    description: "Lower recruitment costs through automation and efficiency.",
+    description: "You can cut out on the redundant cost as everything comes under one whole system.",
     icon: <FaMoneyBillWave className="text-3xl" />,
   },
   {
     title: "Enhanced Candidate Experience",
-    description: "Provide a smooth and professional application process.",
+    description: "Provide a seamless experience for your candidates so that they choose you.",
     icon: <FaUserTie className="text-3xl" />,
   },
 ];
@@ -115,22 +130,22 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "HR Technology Experts",
-    description: "Experienced team in recruitment technology.",
+    description: "We work closely with industry experts who have helped countless recruiters..",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Custom Solutions",
-    description: "Tailored to your organization's hiring needs.",
+    description: "We provide you with tailored solutions that can solve your unique problems.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Round-the-clock technical assistance.",
+    description: "We are there around the clock to help your business.",
     icon: <FaHeadset className="text-3xl" />,
   },
   {
-    title: "Proven Success",
-    description: "Successful implementations across industries.",
+    title: "Proven Track Record",
+    description: "We rely on your 10+ years of successful implementations and satisfied clients.",
     icon: <FaClipboardList className="text-3xl" />,
   },
 ];
@@ -140,25 +155,25 @@ const workingProcess = [
   {
     step: "1",
     title: "Requirement Analysis",
-    description: "Understanding your recruitment needs and processes.",
+    description: "Our team reaches out to you directly to understand your tech problems.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "2",
     title: "System Design",
-    description: "Creating a detailed implementation plan.",
+    description: "We customise a system that will solve your unique business problems.",
     icon: <FaCode className="text-3xl" />,
   },
   {
     step: "3",
     title: "Development & Testing",
-    description: "Building and testing the software solution.",
+    description: "We develop the software and train it rigorously so that you don’t have to panic.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     step: "4",
     title: "Deployment & Training",
-    description: "Launching the system and training staff.",
+    description: "Our softwares are trained and deployed under the latest technology guidelines.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -186,6 +201,110 @@ const faqs = [
       "Yes, we offer comprehensive training for HR teams and ongoing technical support to ensure smooth operations.",
   },
 ];
+
+const recruitmentTechCategories = [
+  {
+    name: "Front End",
+    technologies: [
+      {
+        name: "React (or Angular/Vue)",
+        icon: <FaReact className="text-3xl" />,
+        color: "text-cyan-500",
+      },
+      {
+        name: "Next.js (SEO-friendly pages)",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "Tailwind CSS (UI Styling)",
+        icon: <FaPalette className="text-3xl" />,
+        color: "text-pink-400",
+      },
+      {
+        name: "Chatbot / Live Chat Integration",
+        icon: <FaComments className="text-3xl" />,
+        color: "text-green-400",
+      },
+    ],
+  },
+  {
+    name: "Back End",
+    technologies: [
+      {
+        name: "Node.js (or Django/.NET)",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-green-600",
+      },
+      {
+        name: "REST / GraphQL API",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-orange-400",
+      },
+      {
+        name: "OAuth2 / SSO Integration",
+        icon: <FaLock className="text-3xl" />,
+        color: "text-red-500",
+      },
+      {
+        name: "ATS Logic (Application Tracking)",
+        icon: <FaTasks className="text-3xl" />,
+        color: "text-blue-500",
+      },
+    ],
+  },
+  {
+    name: "Database",
+    technologies: [
+      {
+        name: "PostgreSQL / MySQL",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "Elasticsearch (resume search)",
+        icon: <FaSearch className="text-3xl" />,
+        color: "text-yellow-600",
+      },
+      {
+        name: "Redis (caching sessions)",
+        icon: <FaBolt className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "Firebase (notifications/user auth)",
+        icon: <FaFire className="text-3xl" />,
+        color: "text-red-400",
+      },
+    ],
+  },
+  {
+    name: "DevOps",
+    technologies: [
+      {
+        name: "Docker + Kubernetes",
+        icon: <FaDocker className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "CI/CD (GitHub Actions, Jenkins)",
+        icon: <FaSync className="text-3xl" />,
+        color: "text-gray-600",
+      },
+      {
+        name: "AWS / GCP (scalable infra)",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "Monitoring (Prometheus / Grafana)",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-red-600",
+      },
+    ],
+  },
+];
+
 
 export default function OnlineRecruitmentSoftware() {
   const [ref, inView] = useInView({
@@ -240,30 +359,36 @@ export default function OnlineRecruitmentSoftware() {
 
       <HeroSection
         backgroundImage={heroImg}
-        heading="Online Recruitment Software"
+        heading="Drive Growth With AI-Powered Smart Hiring Process"
         highlight=""
-        subheading="Transform your hiring process with our comprehensive recruitment solution."
-        buttonText="Get a Free Consultation"
+        subheading="Streamline your hiring process with our expert team to choose the best candidate for your job."
+        buttonText="Get on a free consultation call with us."
       />
 
       <DescSection
-        heading="Our Web Development Services"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
-        title="Modern Web Development Solutions"
-        content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
+        title="Custom Online Recruitment Software Development"
+        content="No need to haggle over the hundreds of resumes and job postings. From AI-driven candidate sourcing to job posting, interview scheduling, resume management, and advanced analytics, we help you do it under one custom-built software. Our software solutions allow you to integrate with the popular job boards through robust APIs and thus enable efficient communications for a wider reach."
         position="left"
       />
 
-      <DescSection
+      <TechStackSection
+        techCategories={recruitmentTechCategories}
+        title="Our Technology Stack "
+        description="Our softwares are designed with scalable architecture that provides intuitive interfaces, secure data encryption, and maximum functionality. "
+      />
+
+      {/* <DescSection
         heading="Custom Solutions for Your Business"
         image="/images/dashboard.jpg"
         title="Custom Web Applications"
         content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
         position="right"
-      />
+      /> */}
 
       {/* Features Section */}
-      <motion.section
+      {/* <motion.section
         ref={ref}
         initial="initial"
         animate={inView ? "animate" : "initial"}
@@ -290,10 +415,15 @@ export default function OnlineRecruitmentSoftware() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+      <ServicesSection
+        title="Why Build An Online Recruitment Software?"
+        whyServicesData={recruitmentFeatures}
+      />
 
       {/* Benefits Section */}
-      <motion.section className="py-10 bg-gray-800">
+      {/* <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Benefits
@@ -314,10 +444,16 @@ export default function OnlineRecruitmentSoftware() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+      <WhySelectSection
+        title="Why Choose SolvitX For Online Recruitment Software Development Services?"
+        description="We help you build an online recruitment service software that helps you to streamline the hiring process with maximum efficiency. We leverage the advanced AI models to provide you with candidate rankings so that you can make a better and sound decision while hiring."
+        whySelectUs={benefits}
+      />
 
       {/* Why Choose Us Section */}
-      <motion.section className="py-10 bg-gray-900">
+      {/* <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Choose Our Software?
@@ -338,13 +474,33 @@ export default function OnlineRecruitmentSoftware() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+      <WhyChooseUsSection
+        title="Why Should You Collaborate With SolvitX?"
+        whyChooseUs={whyChooseUs}
+      />
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
 
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Implementation Process
+            Our Development Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {workingProcess.map((step, index) => (

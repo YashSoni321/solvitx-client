@@ -47,6 +47,9 @@ import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/hotelMS.jpg";
 import { TechStackSection } from "@/components/common/TechStackSection";
+import { ServicesSection } from "@/components/common/ServicesSection";
+import { WhySelectSection } from "@/components/common/WhySelectSection";
+import WhyChooseUsSection from "@/components/common/WhyChooseUsSection";
 
 // Animation variants
 const fadeInUp = {
@@ -67,37 +70,37 @@ const staggerContainer = {
 const hotelFeatures = [
   {
     title: "Reservation Management",
-    description: "Efficient booking and room allocation system.",
+    description: "We provide an efficient booking and room allocation system.",
     icon: <FaCalendarAlt className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Front Desk Operations",
-    description: "Streamlined check-in/check-out and guest management.",
+    description: "We offer streamlined check-in/check-out and guest management.",
     icon: <FaHotel className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Housekeeping",
-    description: "Automated room status and cleaning schedules.",
+    description: "We automate room status updates and cleaning schedules.",
     icon: <FaUsers className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Restaurant Management",
-    description: "Integrated food and beverage management system.",
+    description: "We manage food and beverage services through our integrated system.",
     icon: <FaUtensils className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Financial Management",
-    description: "Comprehensive accounting and reporting tools.",
+    description: "We use our comprehensive accounting and reporting tools to ensure financial clarity.",
     icon: <FaMoneyBillWave className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Analytics & Reporting",
-    description: "Detailed performance metrics and insights.",
+    description: "We track detailed performance metrics and insights to guide continual improvement.",
     icon: <FaChartBar className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -107,23 +110,22 @@ const hotelFeatures = [
 const benefits = [
   {
     title: "Operational Efficiency",
-    description: "Streamline hotel operations and reduce manual work.",
+    description: "We streamline hotel operations and reduce manual work.",
     icon: <FaRocket className="text-3xl" />,
   },
   {
     title: "Enhanced Guest Experience",
-    description: "Improve guest satisfaction with better service management.",
+    description: "We enhance guest experience by improving service management to boost satisfaction.",
     icon: <FaUsers className="text-3xl" />,
   },
   {
     title: "Revenue Optimization",
-    description:
-      "Maximize revenue through better pricing and inventory management.",
+    description: "We optimize revenue through better pricing and inventory management.",
     icon: <FaMoneyBillWave className="text-3xl" />,
   },
   {
     title: "Data Security",
-    description: "Secure storage and management of sensitive information.",
+    description: "We ensure secure storage and management of sensitive information with our robust data security.",
     icon: <FaDatabase className="text-3xl" />,
   },
 ];
@@ -132,22 +134,22 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "Industry Experts",
-    description: "Experienced team in hospitality technology.",
+    description: "Work closely with skilled experts in the industry.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Custom Solutions",
-    description: "Tailored to your hotel's specific needs.",
+    description: "We provide you with tailored solutions that are unique to your business.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Round-the-clock technical assistance.",
+    description: "We are always there to provide you with help in case of bugs or troubleshooting.",
     icon: <FaHeadset className="text-3xl" />,
   },
   {
-    title: "Proven Success",
-    description: "Successful implementations in hotels worldwide.",
+    title: "Proven Track Record",
+    description: "We rely on your 10+ years of successful implementations and satisfied clients.",
     icon: <FaClipboardList className="text-3xl" />,
   },
 ];
@@ -157,25 +159,25 @@ const workingProcess = [
   {
     step: "1",
     title: "Requirement Analysis",
-    description: "Understanding your hotel's operations and needs.",
+    description: "You get on a call with us to discuss all your tech requirements.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "2",
     title: "System Design",
-    description: "Creating a detailed implementation plan.",
+    description: "We build a system that will cater to your unique business needs.",
     icon: <FaCode className="text-3xl" />,
   },
   {
     step: "3",
     title: "Development & Testing",
-    description: "Building and testing the software solution.",
+    description: "We develop the software and train it rigorously so that it performs efficiently.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     step: "4",
     title: "Deployment & Training",
-    description: "Launching the system and training staff.",
+    description: "Our softwares are trained and deployed under the latest technology guidelines.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -206,32 +208,7 @@ const faqs = [
 
 const hotelTechCategories = [
   {
-    name: "Backend & Core Systems",
-    technologies: [
-      {
-        name: "Node.js (or Java‑Spring)",
-        icon: <FaServer className="text-3xl" />,
-        color: "text-green-600",
-      },
-      {
-        name: "MongoDB / PostgreSQL",
-        icon: <FaDatabase className="text-3xl" />,
-        color: "text-blue-500",
-      },
-      {
-        name: "Redis (caching)",
-        icon: <FaBolt className="text-3xl" />,
-        color: "text-yellow-500",
-      },
-      {
-        name: "Microservices (Docker + Kubernetes)",
-        icon: <FaDocker className="text-3xl" />,
-        color: "text-blue-400",
-      },
-    ],
-  },
-  {
-    name: "Web Frontend",
+    name: "Front End",
     technologies: [
       {
         name: "React (or Angular/Vue)",
@@ -244,64 +221,9 @@ const hotelTechCategories = [
         color: "text-purple-500",
       },
       {
-        name: "REST / GraphQL API",
-        icon: <FaCloud className="text-3xl" />,
-        color: "text-orange-400",
-      },
-    ],
-  },
-  {
-    name: "Mobile App",
-    technologies: [
-      {
         name: "React Native (or Flutter)",
         icon: <FaMobileAlt className="text-3xl" />,
         color: "text-pink-500",
-      },
-      {
-        name: "Firebase / Realm (local DB)",
-        icon: <FaDatabase className="text-3xl" />,
-        color: "text-red-400",
-      },
-      {
-        name: "Push Notifications",
-        icon: <FaBell className="text-3xl" />,
-        color: "text-yellow-600",
-      },
-    ],
-  },
-  {
-    name: "Booking & PMS",
-    technologies: [
-      {
-        name: "Property Management System (PMS)",
-        icon: <FaHotel className="text-3xl" />,
-        color: "text-indigo-500",
-      },
-      {
-        name: "Channel Manager / CRS",
-        icon: <FaExchangeAlt className="text-3xl" />,
-        color: "text-teal-400",
-      },
-      {
-        name: "Revenue Management System (RMS)",
-        icon: <FaChartLine className="text-3xl" />,
-        color: "text-blue-600",
-      },
-    ],
-  },
-  {
-    name: "Guest Engagement",
-    technologies: [
-      {
-        name: "Guest App Messaging",
-        icon: <FaComments className="text-3xl" />,
-        color: "text-green-400",
-      },
-      {
-        name: "Mobile Check‑in / Mobile Key",
-        icon: <FaKey className="text-3xl" />,
-        color: "text-gray-500",
       },
       {
         name: "Chatbot / Voice Assistant",
@@ -311,31 +233,61 @@ const hotelTechCategories = [
     ],
   },
   {
-    name: "Analytics & BI",
+    name: "Back End",
     technologies: [
       {
-        name: "Business Intelligence Tools",
-        icon: <FaChartBar className="text-3xl" />,
-        color: "text-blue-700",
+        name: "Node.js (or Java‑Spring)",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-green-600",
       },
       {
-        name: "Sentiment & Review Analysis",
-        icon: <FaStar className="text-3xl" />,
-        color: "text-yellow-400",
+        name: "REST / GraphQL API",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-orange-400",
       },
       {
-        name: "Logging & Monitoring",
-        icon: <FaTools className="text-3xl" />,
-        color: "text-red-600",
+        name: "OAuth2 / JWT Auth",
+        icon: <FaLock className="text-3xl" />,
+        color: "text-red-500",
+      },
+      {
+        name: "Property Management System (PMS)",
+        icon: <FaHotel className="text-3xl" />,
+        color: "text-indigo-500",
       },
     ],
   },
   {
-    name: "Infrastructure & Security",
+    name: "Database",
     technologies: [
       {
-        name: "AWS / GCP / Azure",
-        icon: <FaCloud className="text-3xl" />,
+        name: "MongoDB",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-green-700",
+      },
+      {
+        name: "PostgreSQL",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "Redis (caching)",
+        icon: <FaBolt className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "Firebase / Realm (local DB)",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-red-400",
+      },
+    ],
+  },
+  {
+    name: "DevOps",
+    technologies: [
+      {
+        name: "Docker + Kubernetes",
+        icon: <FaDocker className="text-3xl" />,
         color: "text-blue-400",
       },
       {
@@ -344,38 +296,19 @@ const hotelTechCategories = [
         color: "text-gray-600",
       },
       {
-        name: "OAuth2 / JWT Auth",
-        icon: <FaLock className="text-3xl" />,
-        color: "text-red-500",
+        name: "AWS / GCP / Azure",
+        icon: <FaCloud className="text-3xl" />,
+        color: "text-blue-400",
       },
       {
-        name: "PCI DSS / GDPR Compliance",
-        icon: <FaShieldAlt className="text-3xl" />,
-        color: "text-blue-600",
-      },
-    ],
-  },
-  {
-    name: "Integrations",
-    technologies: [
-      {
-        name: "Payment Gateway (Stripe/Adyen)",
-        icon: <FaCreditCard className="text-3xl" />,
-        color: "text-green-500",
-      },
-      {
-        name: "OTA/GDS Channels",
-        icon: <FaGlobe className="text-3xl" />,
-        color: "text-teal-500",
-      },
-      {
-        name: "IoT (room control)",
-        icon: <FaWifi className="text-3xl" />,
-        color: "text-indigo-400",
+        name: "Logging & Monitoring",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-red-600",
       },
     ],
   },
 ];
+
 export default function HotelManagementSoftware() {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -429,7 +362,7 @@ export default function HotelManagementSoftware() {
 
       <HeroSection
         backgroundImage={heroImg}
-        heading="Build innovative hospitality solutions for exceptional guest experiences."
+        heading="Build Hospitality Solutions For Unique Guest Experiences"
         highlight=""
         subheading="Rule the hospitality industry with our tailored hotel management software services that will streamline your operations and build memorable experiences for your guests. "
         buttonText="Get on a free consultation call with us before the next holiday season."
@@ -444,21 +377,22 @@ export default function HotelManagementSoftware() {
         position="left"
       />
 
-      <DescSection
+      {/* <DescSection
         heading="Custom Solutions for Your Business"
         image="/images/dashboard.jpg"
         title="Custom Web Applications"
         content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
         position="right"
-      />
+      /> */}
+
       <TechStackSection
         techCategories={hotelTechCategories}
         title="Our Technology Stack "
         description="We help to streamline your entire operations into a smart, hassle-free, secure, and reliable system. "
       />
 
-      {/* Features Section */}
-      <motion.section
+      {/* Services Section */}
+      {/* <motion.section
         ref={ref}
         initial="initial"
         animate={inView ? "animate" : "initial"}
@@ -485,10 +419,15 @@ export default function HotelManagementSoftware() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+      <ServicesSection
+        title="Why Build A Hotel Management Software?"
+        whyServicesData={hotelFeatures}
+      />
 
       {/* Benefits Section */}
-      <motion.section className="py-10 bg-gray-800">
+      {/* <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Benefits
@@ -509,10 +448,16 @@ export default function HotelManagementSoftware() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+      <WhySelectSection
+        title="Why Choose Solvitx For Hotel Management Software Development Services?"
+        description="Our services cover all your operations- front desk management, reservation systems, billing, housekeeping coordination, loyalty packages, and even securely integrating your existing systems with external third-party services and online travel agencies for enhanced visibility and maximum reach, and efficiency."
+        whySelectUs={benefits}
+      />
 
       {/* Why Choose Us Section */}
-      <motion.section className="py-10 bg-gray-900">
+      {/* <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Why Choose Our Software?
@@ -533,13 +478,33 @@ export default function HotelManagementSoftware() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+      <WhyChooseUsSection
+        title="Why Should You Collaborate With SolvitX?"
+        whyChooseUs={whyChooseUs}
+      />
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
 
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Implementation Process
+            Our Development And Implementation Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {workingProcess.map((step, index) => (
