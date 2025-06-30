@@ -1019,13 +1019,6 @@ const LandingPage = () => {
             {clients.map((client, i) => (
               <SwiperSlide key={i} className="flex items-center justify-center">
                 <div className="h-24 w-40 flex items-center justify-center p-2">
-                  {/* <Image
-                    src={`https://dummyimage.com/600x400/000/fff`}
-                    alt={`Client ${i} Logo`}
-                    width={150}
-                    height={60}
-                    className="max-h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
-                  /> */}
                   <img
                     width={150}
                     height={60}

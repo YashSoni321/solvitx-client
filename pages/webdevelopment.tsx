@@ -32,6 +32,7 @@ import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/Web_Development.jpg";
 import heroImgMobile from "../public/images/hero-mobile/WebDev.jpg";
 import useIsMobile from "@/hooks/useIsMobile";
+import { TechStackSection } from "@/components/common/TechStackSection";
 
 // Animation variants
 const fadeInUp = {
@@ -507,18 +508,18 @@ export default function WebDevelopmentService() {
       />
 
       {/* Web Development Section */}
-      <DescSection
+      {/* <DescSection
         heading="Our Web Development Services"
         image="/images/services/WebDevelopment.jpg"
         title="Modern Web Development Solutions"
         content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
         position="left"
-      />
+      /> */}
 
       <DescSection
-        heading="Custom Web Applications For Your Business"
+        heading=""
         image="/images/dashboard.jpg"
-        title="Custom Web Applications"
+        title="Custom Web Applications For Your Business"
         content="Explore our fully tailored responsive websites built from scratch. With neat codes, scalable tech stacks and user-friendly UI/UX designs — you can bring your digital vision to life with precision and quality. Whether you are looking for a sleek online presence or want to scale-up your website functionality, our experts will guide you with our fully customisable web development solutions."
         position="right"
       />
@@ -610,7 +611,14 @@ export default function WebDevelopmentService() {
       </motion.section> */}
 
       {/* Technology Stack Section */}
-      <motion.section variants={staggerContainer} className="py-10 bg-gray-900">
+
+      <TechStackSection
+        techCategories={techCategories}
+        title="Our Technology Stack "
+        description="In this fast-growing digital ecosystem, we give your brand a modernised online face with our modern web development solutions. From React to Node.js and Python, our web applications are strategically built to rule in this modern digital landscape."
+      />
+
+      {/* <motion.section variants={staggerContainer} className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Our Technology Stack
@@ -642,7 +650,7 @@ export default function WebDevelopmentService() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
       <DescSection
         heading=""
         image="/images/services/WebDevelopment.jpg"

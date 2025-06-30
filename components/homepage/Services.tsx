@@ -133,6 +133,21 @@ const Services = () => {
   // }, [hoveringItem]);
 
   // Background particles
+
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setActiveService((prevValue) => {
+  //       // logic 
+  //       if(prevValue >= 4){
+  //         return 1
+  //       }else{
+  //         return prevValue + 1
+  //       }
+  //     })
+  //   }, 2000);
+  // }, [])
+  
+
   const particleCount = 30;
   const particles = Array.from({ length: particleCount }).map((_, i) => ({
     id: i,

@@ -51,7 +51,7 @@ const SectionHeading = ({
 
   // Description size and color
   const descriptionClasses =
-    "text-base md:text-lg max-w-3xl " +
+    "text-base md:text-lg max-w-4xl " +
     (theme === "dark" ? "text-gray-600" : "text-gray-300");
 
   // Subtitle classes
