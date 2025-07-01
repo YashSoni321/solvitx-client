@@ -61,7 +61,7 @@ const SectionHeading = ({
 
   return (
     <motion.div
-      className={`${alignmentClasses[alignment]} mb-12 md:mb-16 ${className}`}
+      className={`${alignmentClasses[alignment]} mb-4 md:mb-4 ${className}`}
     >
       {subtitle && subtitlePosition === "above" && (
         <p className={`${subtitleClasses} mb-3`}>{subtitle}</p>

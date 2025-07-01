@@ -6,7 +6,7 @@
     "dev": "DISABLE_ESLINT_PLUGIN=true next dev --turbopack",
     "build": "DISABLE_ESLINT_PLUGIN=true next build",
     "start": "next start",
-     "build:static": "next build && next export",
+    "build:static": "next build && next export",
     "lint": "echo 'ESLint is disabled for this project'",
     "optimize-images": "node scripts/optimize-images.js",
     "update-image-imports": "node scripts/update-image-imports.js",
@@ -23,6 +23,8 @@
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
     "react-markdown": "^10.1.0",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
     "swiper": "^11.2.7"
   },
   "devDependencies": {
@@ -32,6 +34,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-slick": "^0.23.13",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "imagemin": "^9.0.1",

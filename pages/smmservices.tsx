@@ -330,7 +330,7 @@ export default function SocialMediaMarketingService() {
                 <h3 className="text-xl font-semibold mb-2 text-white">
                   {service.title}
                 </h3>
-                <p className="text-gray-300">{service.description}</p>
+                <p className="text-gray-300 text-justify">{service.description}</p>
               </motion.div>
             ))}
           </div>
@@ -405,7 +405,7 @@ export default function SocialMediaMarketingService() {
                 <h3 className="text-xl font-semibold mb-2 text-white">
                   {step.title}
                 </h3>
-                <p className="text-gray-300">{step.description}</p>
+                <p className="text-gray-300 text-justify">{step.description}</p>
               </motion.div>
             ))}
           </div>

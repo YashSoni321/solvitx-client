@@ -2,7 +2,20 @@
 import React from "react";
 import BriefingCard from "./StageWorkBox";
 import SectionHeading from "../common/SectionHeading";
-import { motion } from "framer-motion";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+export const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  autoplay: true,
+  autoplaySpeed: 3000,
+};
 
 const stages = [
   {
@@ -32,22 +45,17 @@ const stages = [
 
 const StagesSection = () => {
   return (
-    <div className="min-h-screen bg-black px-6 py-10">
+    <div className="  bg-black px-6 py-10">
       <SectionHeading
         title="STAGES OF WORK"
         theme="gradient"
         titleSize="large"
       />
-      <div className="container mx-auto flex flex-col lg:flex-row gap-6">
-        {/* Left - Timeline */}
-        {/*  */}
 
-        {/* Right - Detailed Cards */}
+      {/* Desktop Grid */}
+      <div className="container mx-auto hidden lg:flex flex-col lg:flex-row gap-6">
         {stages.map((stage, index) => (
-          <div
-            key={index}
-            className="w-full lg:w-[calc(50%-0.75rem)]" // 50% width minus half of gap (6 = 1.5rem)
-          >
+          <div key={index} className="w-full lg:w-[calc(50%-0.75rem)]">
             <BriefingCard
               link={stage?.link}
               title={stage?.title}
@@ -56,6 +64,22 @@ const StagesSection = () => {
             />
           </div>
         ))}
+      </div>
+
+      {/* Mobile Slider */}
+      <div className="lg:hidden block">
+        <Slider {...sliderSettings}>
+          {stages.map((stage, index) => (
+            <div key={index} className="px-2">
+              <BriefingCard
+                link={stage?.link}
+                title={stage?.title}
+                index={index}
+                desc={stage?.description}
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
     </div>
   );

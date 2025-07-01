@@ -61,7 +61,7 @@ const ThankYouPage = () => {
       <Navbar />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-24 md:py-32 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-10 md:py-32 overflow-hidden">
           {/* Background Image */}
           <Image
             src={heroImg}
@@ -193,7 +193,7 @@ const ThankYouPage = () => {
         </section>
 
         {/* What's Next Section */}
-        <section className="py-20 bg-white">
+        <section className="py-8 bg-white">
           <div className="container mx-auto px-4">
             <motion.div
               initial="hidden"
@@ -262,7 +262,7 @@ const ThankYouPage = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed text-justify">
                       {item.description}
                     </p>
                   </div>

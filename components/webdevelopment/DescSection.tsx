@@ -23,7 +23,7 @@ const DescSection = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-10 bg-gray-900"
+      className="py-4 bg-gray-900"
     >
       <div className="container mx-auto px-4">
         {heading && (
@@ -34,7 +34,7 @@ const DescSection = ({
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
               {heading}
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full" />
@@ -88,7 +88,7 @@ const DescSection = ({
                 ))}
               </div>
             ) : (
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed text-justify">
                 {content}
               </p>
             )}

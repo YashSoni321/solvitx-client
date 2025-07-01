@@ -16,6 +16,7 @@ import {
   FaLightbulb,
   FaPencilRuler,
   FaChartLine,
+  FaCode,
 } from "react-icons/fa";
 import Image from "next/image";
 import SectionHeading from "../common/SectionHeading";
@@ -32,7 +33,12 @@ const services = [
     content:
       "Lightning fast, functional, responsive websites tailored to your brand and business goals- built to perform.",
     link: "/webdevelopment",
-    benefits: ["Ecommerce Website Development"],
+    benefits: [
+      {
+        name: "Ecommerce Website Development",
+        link: "/ecommercewebsitedevelopment",
+      },
+    ],
     imageUrl: WebDevelopmentImage,
     color: "from-pink-600 to-purple-600",
   },
@@ -45,9 +51,18 @@ const services = [
     content:
       " Let your ideas reach out to the mass with our interactive apps that deliver seamless user experience and real results.",
     benefits: [
-      "IOS App Development",
-      "Android App Development",
-      "API Development",
+      {
+      name: "IOS App Development",
+      link: "/iosappdevelopment",
+      },
+      {
+      name: "Android App Development",
+      link: "/androidappdevelopment",
+      },
+      {
+      name: "API Development",
+      link: "/apidevelopment",
+      },      
     ],
     imageUrl: AppDevelopmentImage,
     color: "from-yellow-500 to-orange-600",
@@ -61,14 +76,34 @@ const services = [
     content:
       "Take a leap in your digital presence with our strategic digital marketing services. We create visibility, drive engagement, and deliver results that cuts through noise and drives growth",
     benefits: [
-      "SEO Services",
-      "SMM Services",
-      "PPC Marketing Services",
-      "ASO Services",
-      "Brand Development",
-      "Video Editing",
-      "Content Marketing",
-      ,
+      {
+      name: "SEO Services",
+      link: "/seoservices",
+      },
+      {
+      name: "SMM Services",
+      link: "/smmservices",
+      },
+      {
+      name: "PPC Marketing Services",
+      link: "/ppcmarketing",
+      },
+      {
+      name: "ASO Services",
+      link: "/asoservices",
+      },
+      {
+      name: "UI UX Design",
+      link: "/uiuxdesign",
+      },
+      {
+      name: "Video Editing",
+      link: "/videoediting",
+      },
+      {
+      name: "Content Marketing",
+      link: "/contentmarketing",
+      },
     ],
     imageUrl: DigitalMarketingImage,
     color: "from-blue-600 to-teal-500",
@@ -77,18 +112,31 @@ const services = [
     id: "Software-Development",
     title: "Software Development",
     link: "/softwaredevelopment",
-    icon: <FaChartLine className="text-blue-500 text-3xl" />,
+    icon: <FaCode className="text-blue-500 text-3xl" />,
     shortDesc: "",
     content:
       "Channelise all your work through a single software system. If you can think of it, we can build it for you.",
     benefits: [
-      " Salesforce Development",
-      "School Management Software",
-      "Hotel Management Software",
-      "Online Recruitment Software",
-      "HRM Software Development",
-
-      ,
+      {
+      name: " Salesforce Development",
+      link: "/salesforcedevelopment",
+      },
+      {
+        name: "School Management Software",
+        link: "/schoolmanagementsoftware",
+      },
+      {
+        name: "Hotel Management Software",
+        link: "/hotelmanagementsoftware",
+      },
+      {
+        name: "Online Recruitment Software",
+        link: "/onlinerecruitmentsoftware",
+      },
+      {
+        name: "HRM Software Development",
+        link: "/hrmsoftwaredevelopment",
+      },
     ],
     imageUrl: SoftwareDevelopmentImage,
     color: "from-pink-600 to-purple-600",
@@ -161,7 +209,7 @@ const Services = () => {
 
   return (
     <section
-      className="bg-gradient-to-b from-black to-gray-900 relative overflow-hidden py-20"
+      className="bg-gradient-to-b from-black to-gray-900 relative overflow-hidden py-8"
       ref={containerRef}
     >
       {/* Animated Background Particles */}
@@ -288,7 +336,12 @@ const Services = () => {
                                   className="flex items-center text-white text-sm font-bold"
                                 >
                                   <span className="mr-2 text-xs">●</span>
-                                  {benefit}
+                                  <Link
+                                    href={benefit.link}
+                                    className="hover:underline"
+                                  >
+                                    {benefit.name}
+                                  </Link>
                                 </li>
                               ))}
                             </ul>

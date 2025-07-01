@@ -434,7 +434,7 @@ export default function SEOService() {
                 <h3 className="text-xl font-semibold mb-2 text-white">
                   {feature.title}
                 </h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-gray-300 text-justify">{feature.description}</p>
               </motion.div>
             ))}
           </div>

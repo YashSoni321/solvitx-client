@@ -53,7 +53,7 @@ export default function BlogList() {
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
 
-        <div className="relative z-10 container mx-auto px-4 py-20 text-center">
+        <div className="relative z-10 container mx-auto px-4 py-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export default function BlogList() {
       </div>
 
       {/* Blog List Section */}
-      <section className="py-20 bg-black">
+      <section className="py-8 bg-black">
         <div className="container mx-auto px-4">
           <motion.div
             variants={staggerContainer}
@@ -168,7 +168,7 @@ export default function BlogList() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-8 bg-gradient-to-b from-gray-900 to-black">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

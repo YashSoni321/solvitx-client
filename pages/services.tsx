@@ -16,6 +16,9 @@ import { link } from "fs";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/service_page.jpeg";
+import SectionHeading from "@/components/common/SectionHeading";
+import Slider from "react-slick";
+import { sliderSettings } from "@/components/homepage/StageOfWork";
 
 // Service Data
 const services = [
@@ -193,32 +196,26 @@ export default function Services() {
       </div>
 
       {/* Services Header */}
-      <div className="bg-gradient-to-b from-gray-900 to-black py-24 px-4">
+      <div className="bg-gradient-to-b from-gray-900 to-black py-10 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20"
+            className="flex flex-col justify-center items-center gap-12 "
           >
-            <h2 className="text-5xl lg:text-7xl font-extrabold text-white leading-tight">
-              Service <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-                Overview
-              </span>
+            <h2 className="text-5xl lg:text-4xl font-extrabold text-white leading-tight">
+              Service Overview
             </h2>
-            <div className="max-w-2xl">
+            <div className="text-justify">
               <p className="text-xl lg:text-2xl text-gray-200 mb-6">
                 We’re not here to just check boxes and wait for results to pop
                 up magically. We’re here to <b>solve real world problems</b>, to
                 amplify your brand, and make your <b>digital presence </b>{" "}
-                undeniably memorable.
-              </p>
-              <p className="text-gray-400">
-                Whether you’re a startup looking towards building a presence or
-                an enterprise expanding your reach to the globe stage — SolvitX
-                is here to support every such bold move.
+                undeniably memorable. Whether you’re a startup looking towards
+                building a presence or an enterprise expanding your reach to the
+                globe stage — SolvitX is here to support every such bold move.
               </p>
             </div>
           </motion.div>
@@ -226,13 +223,66 @@ export default function Services() {
       </div>
 
       {/* Services Grid */}
+
       <div className="bg-black py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-4">
+          Types Of Services
+        </h2>
+
+        {/* Carousel for mobile */}
+        <div className="block md:hidden max-w-2xl mx-auto">
+          <Slider {...sliderSettings}>
+            {services.map((service, index) => (
+              <div key={index} className="px-2">
+                <motion.div
+                  variants={fadeInUp}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 p-8 shadow-md hover:shadow-xl transition-all duration-300"
+                >
+                  <div
+                    className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-br ${service.color}`}
+                  />
+                  <div className="relative mb-6">{service.icon}</div>
+                  <h3 className="relative text-2xl font-bold text-white mb-4">
+                    {service.title}
+                  </h3>
+                  <p className="relative text-justify text-gray-300 mb-6">
+                    {service.description}
+                  </p>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => router.push(service.link)}
+                    className={`relative mt-4 inline-flex items-center text-sm font-semibold bg-gradient-to-r ${service.color} text-white px-5 py-2 rounded-full`}
+                  >
+                    Learn More
+                    <svg
+                      className="ml-2 w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </motion.button>
+                </motion.div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+
+        {/* Grid for tablet & desktop */}
         <motion.div
           variants={staggerContainer}
-          // initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="hidden md:grid max-w-7xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
         >
           {services.map((service, index) => (
             <motion.div
@@ -240,25 +290,18 @@ export default function Services() {
               variants={fadeInUp}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 p-8 transition-all duration-300 shadow-md hover:shadow-xl"
+              className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 p-8 shadow-md hover:shadow-xl transition-all duration-300"
             >
-              {/* Background gradient that changes on hover */}
               <div
                 className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-br ${service.color}`}
               />
-
-              {/* Service icon */}
               <div className="relative mb-6">{service.icon}</div>
-
-              {/* Service content */}
               <h3 className="relative text-2xl font-bold text-white mb-4">
                 {service.title}
               </h3>
               <p className="relative text-justify text-gray-300 mb-6">
                 {service.description}
               </p>
-
-              {/* Learn more button */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -300,7 +343,7 @@ export default function Services() {
       />
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-t from-gray-900 to-black py-20 px-4">
+      <div className="bg-gradient-to-t from-gray-900 to-black py-8 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}

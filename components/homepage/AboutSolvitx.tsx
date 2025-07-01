@@ -5,6 +5,9 @@ import SectionContent from "../common/SectionContent";
 // import LogoImage from "../../public/images/solvitx.png";
 import LogoImage from "../../public/images/solvitx.png";
 import Image from "next/image";
+import Slider from "react-slick";
+import { sliderSettings } from "./StageOfWork";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -59,11 +62,73 @@ export default function HeroSection() {
     },
   ];
 
+  const isMobile = useIsMobile()
+
+  const renderAboutImageSliderSection =     <div className="block ">
+  <Slider {...sliderSettings}>
+    {imageData.map((img, index) => (
+      <div key={index} className="px-2">
+        <motion.div className="group relative overflow-hidden rounded-xl bg-white">
+          <div className="relative h-64 w-full overflow-hidden">
+            {/* <Image
+              src={imageData.src}
+              alt={imageData.alt}
+              fill
+              sizes="100vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              priority={index < 3}
+            /> */}
+            <motion.img
+              key={index}
+              alt={img.alt}
+              src={img.src}
+              variants={fadeIn}
+              custom={index * 0.2}
+              className="h-[400px] w-full object-cover rounded-lg shadow-md"
+            />
+          </div>
+        </motion.div>
+      </div>
+    ))}
+  </Slider>
+</div>
+
+const renderAboutImageSection =    <motion.div
+initial="hidden"
+whileInView="visible"
+viewport={{ amount: 0.3 }}
+className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
+>
+{imageData.map((project, index) => (
+  <motion.div
+    key={index}
+    className="group relative overflow-hidden rounded-xl transition-shadow duration-300 hover:shadow-2xl bg-white"
+  >
+    <div className="relative h-64 w-full overflow-hidden">
+      <Image
+        src={project.src}
+        alt={project.alt}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="object-cover transition-transform duration-500 group-hover:scale-110"
+        priority={index < 3}
+      />
+    </div>
+  </motion.div>
+))}
+</motion.div>
+
+
+const renderPhotos = {
+  1: renderAboutImageSliderSection,
+  2: renderAboutImageSection
+}
+
   return (
     <div className="container mx-auto px-1 py-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
         <motion.div
-          className="  gap-8 items-center"
+          className="gap-8 items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ amount: 0.3 }} // Removed 'once: true' so it animates every time
@@ -102,25 +167,11 @@ At SolvitX, we don’t just build websites, apps, and campaigns — we create po
           <i className="fas fa-bars text-2xl" />
         </motion.div>
       </div>
+      <div className="mt-12">
 
-      {/* Image Grid with Animation */}
-      <motion.div
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ amount: 0.3 }}
-      >
-        {imageData.map((img, idx) => (
-          <motion.img
-            key={idx}
-            alt={img.alt}
-            src={img.src}
-            variants={fadeIn}
-            custom={idx * 0.2}
-            className="h-[400px] w-full object-cover rounded-lg shadow-md"
-          />
-        ))}
-      </motion.div>
+            {/* {isMobile ? renderAboutImageSliderSection : renderAboutImageSection} */}
+            {renderPhotos[isMobile? 1 : 2]}
+      </div>
     </div>
   );
 }

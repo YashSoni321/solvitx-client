@@ -17,7 +17,7 @@ const Section = ({
   containerClassName = "",
 }: SectionProps) => {
   return (
-    <section id={id} className={`py-16 md:py-24 ${className}`}>
+    <section id={id} className={`py-16 md:py-10 ${className}`}>
       {fullWidth ? (
         children
       ) : (

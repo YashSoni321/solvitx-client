@@ -27,12 +27,12 @@ export const TechStackSection = ({
   description,
 }: TechStackSectionProps) => {
   return (
-    <motion.section variants={staggerContainer} className="py-10 bg-gray-900">
+    <motion.section variants={staggerContainer} className="py-4 bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-white">
+        <h2 className="text-4xl font-bold text-center mb-4 text-white">
           {title ? title : "Our Technology Stack"}
         </h2>
-        <p className="text-gray-300 text-base md:text-lg leading-relaxed text-center my-10">
+        <p className="text-gray-300 text-base md:text-lg leading-relaxed  text-justify my-6">
           {description}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
