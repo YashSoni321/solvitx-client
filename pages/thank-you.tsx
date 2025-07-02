@@ -61,7 +61,7 @@ const ThankYouPage = () => {
       <Navbar />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-center px-4py-4 md:py-32 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-10 md:py-32 overflow-hidden">
           {/* Background Image */}
           <Image
             src={heroImg}

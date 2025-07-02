@@ -63,7 +63,7 @@ const HeroSection = ({
       </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <ContactUsForm />
+        <ContactUsForm onClose={() => setIsModalOpen(false)} />
       </Modal>
     </section>
   );

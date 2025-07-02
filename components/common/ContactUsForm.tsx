@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { emailConfig } from "@/config/emailConfig";
 import { required } from "@/pages/contact";
+import { X } from "lucide-react";
 
 export const budgetOptions = [
   "Select a budget range",
@@ -12,7 +13,7 @@ export const budgetOptions = [
   "₹25,00,000+",
 ];
 
-const ContactUsForm: React.FC = () => {
+const ContactUsForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -80,160 +81,132 @@ const ContactUsForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 shadow-xl">
-      {submitSuccess && (
-        <div className="bg-green-600/20 border border-green-600 text-green-100 px-4 py-3 rounded-lg mb-6 flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 mr-2"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <span>Thank you! Your message has been sent successfully.</span>
-        </div>
-      )}
-      {submitError && (
-        <div className="bg-red-600/20 border border-red-600 text-red-100 px-4 py-3 rounded-lg mb-6 flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 mr-2"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <span>{submitError}</span>
-        </div>
-      )}
-      <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div>
-            <label className="block text-gray-300 mb-2" htmlFor="firstName">
-              First Name {required}
-            </label>
-            <input
-              id="firstName"
-              name="firstName"
-              type="text"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-              className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder="John"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-300 mb-2" htmlFor="lastName">
-              Last Name {required}
-            </label>
-            <input
-              id="lastName"
-              name="lastName"
-              type="text"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-              className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder="Doe"
-            />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div>
-            <label className="block text-gray-300 mb-2" htmlFor="email">
-              Email {required}
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder="john@example.com"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-300 mb-2" htmlFor="phone">
-              Phone Number {required}
-            </label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              placeholder="+91 9876543210"
-            />
-          </div>
-        </div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 mt-28 sm:mt-0">
+      <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-2xl w-full max-w-4xl p-4 sm:p-6 md:p-10 overflow-y-auto max-h-[90vh]">
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-white hover:text-red-400 transition"
+          aria-label="Close form"
+        >
+          <X className="w-6 h-6" />
+        </button>
 
-        <div className="mb-6">
-          <label className="block text-gray-300 mb-2" htmlFor="message">
-            Message {required}
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows={5}
-            className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-            placeholder="Tell us about your project and requirements..."
-          ></textarea>
-        </div>
-        <div>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={`w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all ${
-              isSubmitting ? "opacity-70 cursor-not-allowed" : ""
-            }`}
-          >
-            {isSubmitting ? (
-              <span className="flex items-center justify-center">
-                <svg
-                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-                Sending...
-              </span>
-            ) : (
-              "Send Message"
+        {/* Content Wrapper */}
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* Left Section – Offer Pitch */}
+          <div className="lg:w-1/2 space-y-5">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+              🎁 Get a{" "}
+              <span className="text-pink-400">FREE 30-min Consultation</span>
+            </h2>
+            <p className="text-gray-300 text-sm">
+              Let us help you turn your idea into reality with no commitment
+              required!
+            </p>
+
+            <ul className="space-y-2 text-sm text-white">
+              <li className="bg-gray-800 border border-gray-700 rounded-xl px-4 py-2">
+                ✅ Personalized Development Roadmap
+              </li>
+              <li className="bg-gray-800 border border-gray-700 rounded-xl px-4 py-2">
+                ✅ Tech Stack & Budget Planning Guide
+              </li>
+              <li className="bg-gray-800 border border-gray-700 rounded-xl px-4 py-2">
+                ✅ ₹4,999 Value Consultation –{" "}
+                <span className="text-green-400 font-semibold">
+                  Absolutely FREE
+                </span>
+              </li>
+              <li className="bg-gray-800 border border-gray-700 rounded-xl px-4 py-2">
+                ✅ End-to-End Support for Your Vision
+              </li>
+            </ul>
+          </div>
+
+          {/* Right Section – Form */}
+          <div className="lg:w-1/2 bg-gray-900 border border-gray-700 rounded-2xl p-5 sm:p-6">
+            {submitSuccess && (
+              <div className="bg-green-600/20 border border-green-600 text-green-100 px-4 py-3 rounded-lg mb-4">
+                ✅ Thank you! Your message has been sent successfully.
+              </div>
             )}
-          </button>
+            {submitError && (
+              <div className="bg-red-600/20 border border-red-600 text-red-100 px-4 py-3 rounded-lg mb-4">
+                ❌ {submitError}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  className="bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 placeholder-gray-400"
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  className="bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 placeholder-gray-400"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 placeholder-gray-400"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 placeholder-gray-400"
+                />
+              </div>
+
+              <textarea
+                name="message"
+                placeholder="Tell us about your project..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 mb-4 placeholder-gray-400"
+              />
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-semibold py-3 rounded-lg shadow-lg transition-all ${
+                  isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                }`}
+              >
+                {isSubmitting ? "Sending..." : "Book My Free Consultation"}
+              </button>
+            </form>
+
+            <p className="text-xs text-center text-gray-500 mt-4">
+              🔐 Your data is confidential. No spam – guaranteed.
+            </p>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
