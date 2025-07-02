@@ -30,7 +30,7 @@ export default function Home() {
           property="og:description"
           content="From startups to enterprises, SolvitX crafts digital experiences that solve real business problems."
         />
-        <meta property="og:image" content="/images/heroImg.jpg" />
+        <meta property="og:image" content="/images/solvitx.png" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

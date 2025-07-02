@@ -104,7 +104,7 @@ export default function About() {
           property="og:description"
           content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
         />
-        <meta property="og:image" content="/images/heroImg.jpg" />
+        <meta property="og:image" content="/images/solvitx.png" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -124,7 +124,7 @@ export default function About() {
         </div>
 
      
-        <div className="relative z-10 container mx-auto px-4 py-8 text-center">
+        <div className="relative z-10 container mx-auto px-4 py-4 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -239,7 +239,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto mb-16"
+            className="max-w-3xl mx-auto mb-8"
           >
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Our Vision & Mission
@@ -331,7 +331,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Meet Our Founders
@@ -414,7 +414,7 @@ export default function About() {
           </motion.div>
 
           {/* Desktop Stepper */}
-          <div className="hidden lg:grid grid-cols-4 gap-4 mb-16">
+          <div className="hidden lg:grid grid-cols-4 gap-4 mb-8">
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.title}
@@ -487,7 +487,7 @@ export default function About() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-8 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-4 bg-gradient-to-b from-gray-900 to-black">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

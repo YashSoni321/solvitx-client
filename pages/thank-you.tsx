@@ -61,7 +61,7 @@ const ThankYouPage = () => {
       <Navbar />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-10 md:py-32 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center text-center px-4py-4 md:py-32 overflow-hidden">
           {/* Background Image */}
           <Image
             src={heroImg}
@@ -193,14 +193,14 @@ const ThankYouPage = () => {
         </section>
 
         {/* What's Next Section */}
-        <section className="py-8 bg-white">
+        <section className="py-4 bg-white">
           <div className="container mx-auto px-4">
             <motion.div
               initial="hidden"
               whileInView="visible"
               variants={fadeInUp}
               viewport={{ once: true, amount: 0.3 }}
-              className="text-center max-w-3xl mx-auto mb-16"
+              className="text-center max-w-3xl mx-auto mb-8"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 What Happens Next?
@@ -280,7 +280,7 @@ const ThankYouPage = () => {
               whileInView="visible"
               variants={fadeInUp}
               viewport={{ once: true, amount: 0.3 }}
-              className="text-center max-w-3xl mx-auto mb-16"
+              className="text-center max-w-3xl mx-auto mb-8"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Need Immediate Assistance?

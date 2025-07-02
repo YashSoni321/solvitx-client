@@ -45,7 +45,7 @@ export default function StatsSection() {
           whileInView="visible"
           variants={fadeInUp}
           viewport={{ once: true, amount: 0.3 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-8"
         >
           <SectionHeading
             title="Our Achievements"

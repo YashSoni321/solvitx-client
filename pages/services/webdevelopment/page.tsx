@@ -37,7 +37,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Service Overview */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-4 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">What is Web Development?</h2>
           <p className="text-lg text-gray-700 mb-8">
@@ -49,7 +49,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Key Features / Capabilities */}
-      <section className="py-8 bg-white">
+      <section className="py-4 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-8">Key Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -99,7 +99,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-8 bg-gray-100">
+      <section className="py-4 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
             Benefits of Our Web Development Services
@@ -122,7 +122,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Development Process */}
-      <section className="py-8 bg-white">
+      <section className="py-4 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Our Development Process</h2>
           <div className="flex flex-col md:flex-row justify-center">
@@ -141,7 +141,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="py-8 bg-gray-100">
+      <section className="py-4 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Our Work</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -184,7 +184,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-8 bg-white">
+      <section className="py-4 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">What Our Clients Say</h2>
           <div className="flex flex-col md:flex-row justify-center">
@@ -208,7 +208,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* FAQs Section */}
-      <section className="py-8 bg-gray-100">
+      <section className="py-4 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
             Frequently Asked Questions
@@ -237,7 +237,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Pricing or Engagement Models Section */}
-      <section className="py-8 bg-white">
+      <section className="py-4 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Engagement Models</h2>
           <p className="text-lg text-gray-700 mb-8">
@@ -252,7 +252,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Technology Stack Section */}
-      <section className="py-8 bg-gray-100">
+      <section className="py-4 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Technology Stack</h2>
           <div className="flex flex-wrap justify-center">
@@ -271,7 +271,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-8 bg-gradient-to-r from-purple-900 to-blue-900 text-white text-center">
+      <section className="py-4 bg-gradient-to-r from-purple-900 to-blue-900 text-white text-center">
         <h2 className="text-4xl font-bold mb-6">
           Ready to Start Your Project?
         </h2>
@@ -284,7 +284,7 @@ export default function WebDevelopmentService() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-8 bg-white">
+      <section className="py-4 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Quick Inquiry</h2>
           <form className="max-w-lg mx-auto">

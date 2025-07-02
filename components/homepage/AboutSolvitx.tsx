@@ -62,15 +62,16 @@ export default function HeroSection() {
     },
   ];
 
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
 
-  const renderAboutImageSliderSection =     <div className="block ">
-  <Slider {...sliderSettings}>
-    {imageData.map((img, index) => (
-      <div key={index} className="px-2">
-        <motion.div className="group relative overflow-hidden rounded-xl bg-white">
-          <div className="relative h-64 w-full overflow-hidden">
-            {/* <Image
+  const renderAboutImageSliderSection = (
+    <div className="block ">
+      <Slider {...sliderSettings}>
+        {imageData.map((img, index) => (
+          <div key={index} className="px-2">
+            <motion.div className="group relative overflow-hidden rounded-xl bg-white">
+              <div className="relative h-64 w-full overflow-hidden">
+                {/* <Image
               src={imageData.src}
               alt={imageData.alt}
               fill
@@ -78,54 +79,56 @@ export default function HeroSection() {
               className="object-cover transition-transform duration-500 group-hover:scale-110"
               priority={index < 3}
             /> */}
-            <motion.img
-              key={index}
-              alt={img.alt}
-              src={img.src}
-              variants={fadeIn}
-              custom={index * 0.2}
-              className="h-[400px] w-full object-cover rounded-lg shadow-md"
+                <motion.img
+                  key={index}
+                  alt={img.alt}
+                  src={img.src}
+                  variants={fadeIn}
+                  custom={index * 0.2}
+                  className="h-[400px] w-full object-cover rounded-lg shadow-md"
+                />
+              </div>
+            </motion.div>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  );
+
+  const renderAboutImageSection = (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3 }}
+      className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
+    >
+      {imageData.map((project, index) => (
+        <motion.div
+          key={index}
+          className="group relative overflow-hidden rounded-xl transition-shadow duration-300 hover:shadow-2xl bg-white"
+        >
+          <div className="relative h-64 w-full overflow-hidden">
+            <Image
+              src={project.src}
+              alt={project.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              priority={index < 3}
             />
           </div>
         </motion.div>
-      </div>
-    ))}
-  </Slider>
-</div>
+      ))}
+    </motion.div>
+  );
 
-const renderAboutImageSection =    <motion.div
-initial="hidden"
-whileInView="visible"
-viewport={{ amount: 0.3 }}
-className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
->
-{imageData.map((project, index) => (
-  <motion.div
-    key={index}
-    className="group relative overflow-hidden rounded-xl transition-shadow duration-300 hover:shadow-2xl bg-white"
-  >
-    <div className="relative h-64 w-full overflow-hidden">
-      <Image
-        src={project.src}
-        alt={project.alt}
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="object-cover transition-transform duration-500 group-hover:scale-110"
-        priority={index < 3}
-      />
-    </div>
-  </motion.div>
-))}
-</motion.div>
-
-
-const renderPhotos = {
-  1: renderAboutImageSliderSection,
-  2: renderAboutImageSection
-}
+  const renderPhotos = {
+    1: renderAboutImageSliderSection,
+    2: renderAboutImageSection,
+  };
 
   return (
-    <div className="container mx-auto px-1 py-8">
+    <div className="container mx-auto px-1 py-4">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
         <motion.div
           className="gap-8 items-center"
@@ -168,9 +171,8 @@ At SolvitX, we don’t just build websites, apps, and campaigns — we create po
         </motion.div>
       </div>
       <div className="mt-12">
-
-            {/* {isMobile ? renderAboutImageSliderSection : renderAboutImageSection} */}
-            {renderPhotos[isMobile? 1 : 2]}
+        {/* {isMobile ? renderAboutImageSliderSection : renderAboutImageSection} */}
+        {renderPhotos[isMobile ? 1 : 2]}
       </div>
     </div>
   );

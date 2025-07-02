@@ -167,7 +167,7 @@ export default function Services() {
             heading="This Is Your Opportunity To Lead The Digital Space"
             // highlight="into Digital Reality We don’t offer ‘services’ - we deliver impact — across tech, marketing, and your brand."
             // subheading="SolvitX delivers reliable web, app, and marketing solutions trusted by businesses worldwide. Let us help you build your digital future with confidence."
-            buttonText="Request for a free consultation →"
+            buttonText="Request for a free consultation"
             subheading=""
             // heading=""
             highlight=""
@@ -196,7 +196,7 @@ export default function Services() {
       </div>
 
       {/* Services Header */}
-      <div className="bg-gradient-to-b from-gray-900 to-black py-10 px-4">
+      <div className="bg-gradient-to-b from-gray-900 to-black py-4 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -205,7 +205,7 @@ export default function Services() {
             viewport={{ once: true }}
             className="flex flex-col justify-center items-center gap-12 "
           >
-            <h2 className="text-5xl lg:text-4xl font-extrabold text-white leading-tight">
+            <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl font-extrabold text-white leading-tight">
               Service Overview
             </h2>
             <div className="text-justify">
@@ -282,7 +282,7 @@ export default function Services() {
           variants={staggerContainer}
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="hidden md:grid max-w-7xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+          className="hidden md:grid max-w-7xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {services.map((service, index) => (
             <motion.div
@@ -327,11 +327,16 @@ export default function Services() {
           ))}
         </motion.div>
       </div>
+      <p className="text-base md:text-lg text-white bg-black text-center py-4 leading-relaxed">
+        “People don't buy what you do; they buy{" "}
+        <span className="text-blue-400">why</span> you do it. And what you do
+        simply proves what you believe.” — <u>Simon Sinek</u>
+      </p>
 
       <DescSection
         heading="Why Our Services Work"
         image="/images/services/WebDevelopment.jpg"
-        title={`"People don't buy what you do; they buy why you do it. And what you do simply proves what you believe.” — Simon Sinek`}
+        title={""}
         content={[
           "At SolvitX, we focus on your WHY, collaborate with you on your HOW, and help you successfully achieve your WHAT.",
           "We start with your goals — not our process.",
@@ -343,9 +348,9 @@ export default function Services() {
       />
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-t from-gray-900 to-black py-8 px-4">
+      <div className="bg-gradient-to-t from-gray-900 to-black py-4 px-4">
         <div className="max-w-5xl mx-auto text-center">
-          <motion.h2
+          {/* <motion.h4
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -354,7 +359,11 @@ export default function Services() {
           >
             You Know What You Want. <br />
             We Know How to Build It.
-          </motion.h2>
+          </motion.h4> */}
+          <SectionHeading
+            title="You Know What You Want. We Know How to Build It. "
+            theme="light"
+          />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

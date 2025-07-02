@@ -24,7 +24,7 @@ const HeroSection = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative min-h-[70vh] flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-10 md:py-32 overflow-hidden">
+    <section className="relative min-h-[70vh] flex flex-col justify-center items-center bg-cover bg-center text-center px-4 py-10 sm:py-32 md:py-32 overflow-hidden ">
       {/* Background logo image */}
       <OptimizedImage
         src={backgroundImage}
@@ -38,43 +38,26 @@ const HeroSection = ({
 
       {/* Foreground content */}
       <div className="relative z-10 flex flex-col justify-center items-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl mt-8 md:text-5xl font-extrabold text-white mb-6"
-        >
+        <h1 className="text-4xl mt-14 md:text-5xl font-extrabold text-white mb-6">
           {heading}
           <br />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-pink-500">
             {highlight}
           </span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto"
-        >
+        <motion.p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto">
           {subheading}
         </motion.p>
 
         <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
           onClick={() => setIsModalOpen(true)}
-          className="bg-gradient-to-r from-blue-600 to-pink-500 text-white px-8 py-4 rounded-full shadow-lg text-lg font-semibold flex items-center gap-2 mx-auto mb-8 hover:from-pink-500 hover:to-blue-600 transition-all"
+          className="bg-gradient-to-r from-blue-600 to-pink-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg text-base md:text-lg font-semibold flex items-center gap-2 mx-auto mb-6 hover:from-pink-500 hover:to-blue-600 transition-all"
         >
           {buttonText} <FaArrowRight />
         </motion.button>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.7 }}
-          className="flex flex-col items-center gap-4"
-        >
+        <motion.div className="flex flex-col items-center gap-4">
           {/* Optional: Insert trust indicators here */}
         </motion.div>
       </div>

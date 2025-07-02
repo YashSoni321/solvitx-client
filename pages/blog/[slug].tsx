@@ -116,7 +116,7 @@ export default function BlogDetail() {
       </div>
 
       {/* Content Section */}
-      <article className="py-8 bg-black text-white">
+      <article className="py-4 bg-black text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -310,7 +310,7 @@ export default function BlogDetail() {
       </article>
 
       {/* Related Posts */}
-      <section className="py-8 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-4 bg-gradient-to-b from-gray-900 to-black">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

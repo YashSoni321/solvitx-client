@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
     <div className="bg-white min-h-screen flex flex-col">
       {/* Header */}
       <div className="bg-gray-900 text-white">
-        <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="container mx-auto px-4 py-4 md:py-16">
           <div className="max-w-4xl mx-auto">
             <Link
               href="/"
@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Content */}
-      <div className="flex-grow container mx-auto px-4 py-12">
+      <div className="flex-grow container mx-auto px-4 py-4">
         <div className="max-w-4xl mx-auto prose prose-lg">
           <section className="mb-10">
             <h2 className="text-2xl font-semibold mb-4 text-gray-900">

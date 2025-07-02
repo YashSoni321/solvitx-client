@@ -45,7 +45,7 @@ const stages = [
 
 const StagesSection = () => {
   return (
-    <div className="  bg-black px-6 py-10">
+    <div className="  bg-black px-6py-4">
       <SectionHeading
         title="STAGES OF WORK"
         theme="gradient"

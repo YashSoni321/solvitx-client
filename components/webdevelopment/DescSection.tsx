@@ -32,7 +32,7 @@ const DescSection = ({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
             <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
               {heading}

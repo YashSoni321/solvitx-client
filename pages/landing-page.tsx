@@ -277,7 +277,7 @@ const LandingPage = () => {
       </div>
 
       {/* About Us Section - Black theme, but with better contrast and form */}
-      <section id="about" className="py-12 md:py-12 bg-gray-900 text-white">
+      <section id="about" className="py-4 md:py-4 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <motion.div
@@ -512,7 +512,7 @@ const LandingPage = () => {
         </div>
       </section>
       {/* Stats Section - Black - Animated numbers and more dynamic background */}
-      <section className="py-12 md:py-12 bg-gray-900 text-white relative overflow-hidden">
+      <section className="py-4 md:py-4 bg-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -570,7 +570,7 @@ const LandingPage = () => {
       {/* Services Section - White */}
       <section
         id="services"
-        className="py-12 md:py-12 bg-white relative overflow-hidden"
+        className="py-4 md:py-4 bg-white relative overflow-hidden"
       >
         <div className="absolute inset-0 opacity-[0.02]"></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -740,14 +740,14 @@ const LandingPage = () => {
       </section>
 
       {/* Testimonials Section - White */}
-      <section className="py-12 md:py-12 bg-white">
+      <section className="py-4 md:py-4 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
             viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-8"
           >
             <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2 block">
               Client Testimonials
@@ -819,22 +819,22 @@ const LandingPage = () => {
       </section>
 
       {/* Why Choose Us - Black */}
-      <section className="py-12 md:py-12 bg-gray-900 text-white">
+      <section className="py-4 md:py-4 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
             viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-8"
           >
             <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-2 block">
               Our Commitment
             </span>
-            <h2 className="text-3xl md:text-3xl lg:text-3xl font-bold mb-6">
+            <h4 className="text-3xl md:text-3xl lg:text-3xl font-bold mb-6">
               People don't buy what you do; they buy why you do it. And what you
               do simply proves what you believe.” — <u>Simon Sinek</u>
-            </h2>
+            </h4>
             <p className="text-gray-300 text-lg leading-relaxed">
               And at SolvitX, we focus on your WHY, collaborate with you on your
               HOW, and help you successfully achieve your WHAT.
@@ -903,14 +903,14 @@ const LandingPage = () => {
       </section>
 
       {/* FAQ Section - Enhanced visual hierarchy */}
-      <section className="py-12 md:py-12 bg-white">
+      <section className="py-4 md:py-4 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
             viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-8"
           >
             <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2 block">
               Got Questions?
@@ -988,7 +988,7 @@ const LandingPage = () => {
       </section>
 
       {/* Client Logo Slider Section - White */}
-      <section id="clients" className="py-12 bg-gray-100">
+      <section id="clients" className="py-4 bg-gray-100">
         <div className="container mx-auto px-4">
           <motion.h2
             initial="hidden"
@@ -1034,14 +1034,14 @@ const LandingPage = () => {
       </section>
 
       {/* Process Section - Black */}
-      <section id="process" className="py-12 md:py-12 bg-black text-white">
+      <section id="process" className="py-4 md:py-4 bg-black text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
             viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-8"
           >
             <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-2 block">
               Our Methodology
@@ -1112,7 +1112,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section id="contact-form" className="bg-black py-12 px-4">
+      <section id="contact-form" className="bg-black py-4 px-4">
         <div className="container mx-auto">
           {/* Contact Form */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">

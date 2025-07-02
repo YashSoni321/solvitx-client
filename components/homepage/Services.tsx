@@ -52,17 +52,17 @@ const services = [
       " Let your ideas reach out to the mass with our interactive apps that deliver seamless user experience and real results.",
     benefits: [
       {
-      name: "IOS App Development",
-      link: "/iosappdevelopment",
+        name: "IOS App Development",
+        link: "/iosappdevelopment",
       },
       {
-      name: "Android App Development",
-      link: "/androidappdevelopment",
+        name: "Android App Development",
+        link: "/androidappdevelopment",
       },
       {
-      name: "API Development",
-      link: "/apidevelopment",
-      },      
+        name: "API Development",
+        link: "/apidevelopment",
+      },
     ],
     imageUrl: AppDevelopmentImage,
     color: "from-yellow-500 to-orange-600",
@@ -77,32 +77,32 @@ const services = [
       "Take a leap in your digital presence with our strategic digital marketing services. We create visibility, drive engagement, and deliver results that cuts through noise and drives growth",
     benefits: [
       {
-      name: "SEO Services",
-      link: "/seoservices",
+        name: "SEO Services",
+        link: "/seoservices",
       },
       {
-      name: "SMM Services",
-      link: "/smmservices",
+        name: "SMM Services",
+        link: "/smmservices",
       },
       {
-      name: "PPC Marketing Services",
-      link: "/ppcmarketing",
+        name: "PPC Marketing Services",
+        link: "/ppcmarketing",
       },
       {
-      name: "ASO Services",
-      link: "/asoservices",
+        name: "ASO Services",
+        link: "/asoservices",
       },
       {
-      name: "UI UX Design",
-      link: "/uiuxdesign",
+        name: "UI UX Design",
+        link: "/uiuxdesign",
       },
       {
-      name: "Video Editing",
-      link: "/videoediting",
+        name: "Video Editing",
+        link: "/videoediting",
       },
       {
-      name: "Content Marketing",
-      link: "/contentmarketing",
+        name: "Content Marketing",
+        link: "/contentmarketing",
       },
     ],
     imageUrl: DigitalMarketingImage,
@@ -118,8 +118,8 @@ const services = [
       "Channelise all your work through a single software system. If you can think of it, we can build it for you.",
     benefits: [
       {
-      name: " Salesforce Development",
-      link: "/salesforcedevelopment",
+        name: " Salesforce Development",
+        link: "/salesforcedevelopment",
       },
       {
         name: "School Management Software",
@@ -185,7 +185,7 @@ const Services = () => {
   // useEffect(() => {
   //   setInterval(() => {
   //     setActiveService((prevValue) => {
-  //       // logic 
+  //       // logic
   //       if(prevValue >= 4){
   //         return 1
   //       }else{
@@ -194,7 +194,6 @@ const Services = () => {
   //     })
   //   }, 2000);
   // }, [])
-  
 
   const particleCount = 30;
   const particles = Array.from({ length: particleCount }).map((_, i) => ({
@@ -209,7 +208,7 @@ const Services = () => {
 
   return (
     <section
-      className="bg-gradient-to-b from-black to-gray-900 relative overflow-hidden py-8"
+      className="bg-gradient-to-b from-black to-gray-900 relative overflow-hidden py-4"
       ref={containerRef}
     >
       {/* Animated Background Particles */}
@@ -242,7 +241,7 @@ const Services = () => {
       {/* Header - "GROW SERVICES" */}
       <motion.div
         // style={{ y: headerY, o }}
-        className="container mx-auto px-4 mb-20"
+        className="container mx-auto px-4 mb-10"
       >
         <div className="text-center">
           {/* <motion.h2
@@ -473,7 +472,7 @@ const Services = () => {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full font-semibold hover:from-purple-700 hover:to-pink-600 transition-all duration-300 shadow-lg"
           >
-            Get in Touch →
+            Get in Touch  
           </motion.button> */}
         </div>
       </motion.div>

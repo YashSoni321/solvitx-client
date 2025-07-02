@@ -218,7 +218,7 @@ export default function Contact() {
           property="og:description"
           content="Reach out to SolvitX and let's discuss how we can help bring your vision to life with cutting-edge technology solutions."
         />
-        <meta property="og:image" content="/images/heroImg.jpg" />
+        <meta property="og:image" content="/images/solvitx.png" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -250,9 +250,9 @@ export default function Contact() {
       />
 
       {/* Contact Form Section */}
-      <section id="contact-form" className="bg-black py-8 px-4">
+      <section id="contact-form" className="bg-black py-4 px-4">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Get In Touch
             </h2>
@@ -436,7 +436,7 @@ export default function Contact() {
             {/* About SolvitX & Social Links */}
             <div>
               {/* About SolvitX */}
-              <div className="mb-16 relative">
+              <div className="mb-8 relative">
                 <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-600 to-pink-600"></div>
                 <h3 className="text-3xl font-bold text-white mb-6">
                   About SolvitX

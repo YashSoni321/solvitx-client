@@ -45,7 +45,7 @@ const cardVariants = {
 
 const Features = () => {
   return (
-    <div className="bg-black text-white w-full py-10 px-4">
+    <div className="bg-black text-white w-fullpy-4 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <SectionHeading
