@@ -6,9 +6,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaHome, FaArrowLeft } from "react-icons/fa";
 import LogoImage from "../public/images/solvitx.png";
-import type { NextPage } from "next";
 
-const Custom404: NextPage = () => {
+const Custom404 = () => {
   const router = useRouter();
 
   // Animation variants
