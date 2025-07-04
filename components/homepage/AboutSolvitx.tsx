@@ -100,14 +100,14 @@ export default function HeroSection() {
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3 }}
-      className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
+      className="hidden md:grid grid-cols-2 lg:grid-cols-6 gap-2 "
     >
       {imageData.map((project, index) => (
         <motion.div
           key={index}
-          className="group relative overflow-hidden rounded-xl transition-shadow duration-300 hover:shadow-2xl bg-white"
+          className="group relative overflow-hidden transition-shadow duration-300 hover:shadow-2xl bg-white"
         >
-          <div className="relative h-64 w-full overflow-hidden">
+          <div className="relative h-72 w-full overflow-hidden">
             <Image
               src={project.src}
               alt={project.alt}

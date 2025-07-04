@@ -123,7 +123,7 @@ export default function BriefingCard({
 
         <div className="mt-4">
           <p className="text-lg text-gray-200 leading-relaxed">{desc}</p>
-
+          {/* 
           <motion.button
             onClick={() => router.push(link)}
             whileHover={{ x: 5 }}
@@ -144,7 +144,7 @@ export default function BriefingCard({
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
-          </motion.button>
+          </motion.button> */}
         </div>
       </div>
     </motion.div>

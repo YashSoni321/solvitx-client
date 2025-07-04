@@ -13,9 +13,12 @@ import {
   FaChartLine,
   FaVideo,
   FaPenFancy,
+  FaArrowRight,
 } from "react-icons/fa";
 import Image from "next/image";
 import LogoImage from "../public/images/solvitx.png";
+import Modal from "./common/Modal";
+import ContactUsForm from "./common/ContactUsForm";
 
 // Simplified menu structure
 const navItems = [
@@ -27,24 +30,24 @@ const navItems = [
     subMenu: [
       {
         name: "Web Development",
-        path: "/webdevelopment",
+        path: "/web-development",
         icon: <FaLaptopCode className="text-xl text-blue-500" />,
         subItems: ["Ecommerce Website Development"],
       },
       {
         name: "App Development",
-        path: "/appdevelopment",
+        path: "/mobile-app-development",
         icon: <FaMobileAlt className="text-xl text-green-500" />,
         subItems: ["IOS App Development", "Android App Development"],
       },
       {
         name: "API Development",
-        path: "/apidevelopment",
+        path: "/api-development",
         icon: <FaCode className="text-xl text-purple-500" />,
       },
       {
         name: "Software Development",
-        path: "/softwaredevelopment",
+        path: "/software-development",
         icon: <FaLaptopCode className="text-xl text-red-500" />,
         subItems: [
           "Salesforce Development",
@@ -62,7 +65,7 @@ const navItems = [
     subMenu: [
       {
         name: "Digital Marketing",
-        path: "/digitalmarketing",
+        path: "/digital-marketing",
         icon: <FaChartLine className="text-xl text-yellow-500" />,
         subItems: [
           "SEO Services",
@@ -73,17 +76,17 @@ const navItems = [
       },
       {
         name: "Video Editing",
-        path: "/videoediting",
+        path: "/video-editing",
         icon: <FaVideo className="text-xl text-pink-500" />,
       },
       {
         name: "UI UX Design",
-        path: "/uiuxdesign",
+        path: "/ui-ux-design",
         icon: <FaVideo className="text-xl text-pink-500" />,
       },
       {
         name: "Content Marketing",
-        path: "/contentmarketing",
+        path: "/content-marketing",
         icon: <FaPenFancy className="text-xl text-indigo-500" />,
       },
     ],
@@ -92,6 +95,7 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -215,7 +219,7 @@ const Navbar = () => {
                               key={nestedIdx}
                               href={`/${nestedItem
                                 .toLowerCase()
-                                .replace(/\s+/g, "")}`}
+                                .replace(/\s+/g, "-")}`}
                             >
                               <div className="px-5 py-3 hover:bg-blue-50 text-blue-900">
                                 {nestedItem}
@@ -231,11 +235,17 @@ const Navbar = () => {
             </div>
           ))}
 
-          <Link href="/contact">
+          {/* <Link href="/contact">
             <span className="bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md hover:shadow-pink-500/30 hover:scale-105 transition-transform duration-300">
               Get Started
             </span>
-          </Link>
+          </Link> */}
+          <motion.button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-gradient-to-r from-blue-600 to-pink-500 px-5 py-2  text-white rounded-full shadow-lg text-base md:text-lg font-semibold flex items-center gap-2 mx-auto hover:from-pink-500 hover:to-blue-600 transition-all"
+          >
+            Get Started
+          </motion.button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -329,7 +339,7 @@ const Navbar = () => {
                                         key={nestedIdx}
                                         href={`/${nestedItem
                                           .toLowerCase()
-                                          .replace(/\s+/g, "")}`}
+                                          .replace(/\s+/g, "-")}`}
                                         onClick={handleNestedLinkClick}
                                       >
                                         <span className="block py-1 text-blue-700 hover:text-pink-600">
@@ -357,14 +367,23 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            <Link href="/contact" onClick={closeMobileMenu} className="mt-6">
+            {/* <Link href="/contact" onClick={closeMobileMenu} className="mt-6">
               <span className="block w-full bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-3 rounded-full text-center font-semibold text-white">
                 Get Started
               </span>
-            </Link>
+            </Link> */}
+            <motion.button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-gradient-to-r from-blue-600 to-pink-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg text-base md:text-lg font-semibold flex items-center gap-2 mx-auto mb-6 hover:from-pink-500 hover:to-blue-600 transition-all"
+            >
+              Get Started 121
+            </motion.button>
           </div>
         )}
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <ContactUsForm onClose={() => setIsModalOpen(false)} />
+      </Modal>
     </nav>
   );
 };

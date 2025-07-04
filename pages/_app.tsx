@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   // Define routes where Navbar should be hidden
-  const hideNavbarRoutes = ["/landing-page", "/thank-you"];
+  const hideNavbarRoutes = ["/landing-page", "/thank-you", "/404"];
   const shouldShowNavbar = !hideNavbarRoutes.includes(router.pathname);
 
   return (

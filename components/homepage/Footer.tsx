@@ -23,11 +23,11 @@ const Footer = () => {
       title: "Services",
       links: [
         { href: "/services", label: "Services" },
-        { href: "/webdevelopment", label: "Web Development" },
-        { href: "mobileappdevelopment", label: "Mobile Applications" },
-        { href: "uiuxdesign", label: "UI/UX Design" },
-        { href: "/digitalmarketing", label: "Digital Marketing" },
-        { href: "/seoservices", label: "SEO Optimization" },
+        { href: "/web-development", label: "Web Development" },
+        { href: "/mobile-app-development", label: "Mobile Applications" },
+        { href: "/ui-ux-design", label: "UI/UX Design" },
+        { href: "/digital-marketing", label: "Digital Marketing" },
+        { href: "/seo-services", label: "SEO Optimization" },
       ],
     },
     {
