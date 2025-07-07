@@ -32,6 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           property="og:title"
           content="SolvitX — We Solve IT Problems with Expertise"
         />
+        <link rel="canonical" href="https://www.solvitx.com/" />
         <meta
           property="og:description"
           content="From startups to enterprises, SolvitX crafts digital experiences that solve real business problems."
@@ -39,6 +40,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <meta property="og:image" content="/images/solvitx.png" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-WMPZXCG4DL"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-WMPZXCG4DL');
+            `,
+          }}
+        />
       </Head>
       <HeroSection
         backgroundImage={heroImg}
