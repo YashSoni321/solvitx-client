@@ -40,6 +40,26 @@ export default function Document() {
             src: url('/fonts/your-main-font.woff2') format('woff2');
           }
         `}</style>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Best Digital Marketing Agency & Advertising Agency in Jaipur, India",
+              alternateName:
+                "SolvitX - Website Development & Digital Marketing Company",
+              url: "https://www.solvitx.com/",
+              logo: "https://www.solvitx.com/_next/static/media/solvitx.57238ed4.png",
+              sameAs: [
+                "https://www.instagram.com/solvitx_/",
+                "https://www.facebook.com/people/SolvitX/61574497884915/",
+                "https://linkedin.com/company/SolvitX",
+                "https://www.solvitx.com/",
+              ],
+            }),
+          }}
+        />
       </Head>
       <body className="antialiased">
         <noscript>
