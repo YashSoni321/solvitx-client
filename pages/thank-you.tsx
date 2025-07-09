@@ -329,10 +329,10 @@ const ThankYouPage = () => {
                   Speak directly with our experts
                 </p>
                 <a
-                  href="tel:+919782025577"
+                  href="tel:+917232899120"
                   className="text-purple-400 hover:text-purple-300 font-semibold text-lg"
                 >
-                  +91 9782025577
+                  +91 7232899120
                 </a>
               </motion.div>
             </motion.div>

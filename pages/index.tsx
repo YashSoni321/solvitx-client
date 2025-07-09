@@ -1,15 +1,59 @@
 import Head from "next/head";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import AboutSolvitx from "@/components/homepage/AboutSolvitx";
-import OurWorks from "@/components/homepage/OurWorks";
-import Services from "@/components/homepage/Services";
-import StatisticsSection from "@/components/homepage/Statitics";
-import StagesSection from "@/components/homepage/StageOfWork";
-import Teams from "@/components/homepage/Teams";
-import Features from "@/components/homepage/Features";
-import Testimonial from "../components/homepage/Testimonial";
-import Footer from "@/components/homepage/Footer";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/hero_image.jpg";
+
+// Lazy load below-the-fold components
+const OurWorks = dynamic(() => import("@/components/homepage/OurWorks"), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg" />,
+  ssr: true,
+});
+
+const Services = dynamic(() => import("@/components/homepage/Services"), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg" />,
+  ssr: true,
+});
+
+const StatisticsSection = dynamic(
+  () => import("@/components/homepage/Statitics"),
+  {
+    loading: () => (
+      <div className="h-64 bg-gray-100 animate-pulse rounded-lg" />
+    ),
+    ssr: true,
+  }
+);
+
+const StagesSection = dynamic(
+  () => import("@/components/homepage/StageOfWork"),
+  {
+    loading: () => (
+      <div className="h-96 bg-gray-100 animate-pulse rounded-lg" />
+    ),
+    ssr: true,
+  }
+);
+
+const Teams = dynamic(() => import("@/components/homepage/Teams"), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg" />,
+  ssr: true,
+});
+
+const Features = dynamic(() => import("@/components/homepage/Features"), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg" />,
+  ssr: true,
+});
+
+const Testimonial = dynamic(() => import("@/components/homepage/Testimonial"), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse rounded-lg" />,
+  ssr: true,
+});
+
+const Footer = dynamic(() => import("@/components/homepage/Footer"), {
+  ssr: true,
+});
 
 export default function Home() {
   return (
@@ -35,7 +79,12 @@ export default function Home() {
         <meta property="og:image" content="/images/solvitx.png" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
-        {/* Google tag (gtag.js) */}
+
+        {/* Preload critical resources */}
+        <link rel="preload" as="image" href="/images/hero_image.jpg" />
+        <link rel="preload" as="image" href="/images/solvitx.png" />
+
+        {/* Google tag (gtag.js) - Load asynchronously */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-WMPZXCG4DL"
@@ -51,6 +100,8 @@ export default function Home() {
           }}
         />
       </Head>
+
+      {/* Above the fold content - Load immediately */}
       <HeroSection
         backgroundImage={heroImg}
         heading="Empowering Your Digital Growth"
@@ -59,14 +110,55 @@ export default function Home() {
         buttonText="Get Started"
       />
       <AboutSolvitx />
-      <OurWorks />
-      <Services />
-      <StatisticsSection />
-      <StagesSection />
-      <Teams />
-      <Features />
-      <Testimonial />
-      <Footer />
+
+      {/* Below the fold content - Lazy load */}
+      <Suspense
+        fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg" />}
+      >
+        <OurWorks />
+      </Suspense>
+
+      <Suspense
+        fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg" />}
+      >
+        <Services />
+      </Suspense>
+
+      <Suspense
+        fallback={<div className="h-64 bg-gray-100 animate-pulse rounded-lg" />}
+      >
+        <StatisticsSection />
+      </Suspense>
+
+      <Suspense
+        fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg" />}
+      >
+        <StagesSection />
+      </Suspense>
+
+      <Suspense
+        fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg" />}
+      >
+        <Teams />
+      </Suspense>
+
+      <Suspense
+        fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg" />}
+      >
+        <Features />
+      </Suspense>
+
+      <Suspense
+        fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-lg" />}
+      >
+        <Testimonial />
+      </Suspense>
+
+      <Suspense
+        fallback={<div className="h-32 bg-gray-100 animate-pulse rounded-lg" />}
+      >
+        <Footer />
+      </Suspense>
     </>
   );
 }
