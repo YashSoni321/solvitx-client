@@ -249,25 +249,25 @@ export default function PPCMarketingService() {
 
       <HeroSection
         backgroundImage={heroImg}
-        heading="PPC Marketing"
+        heading="Turn Every Click Into A Valuable Customer"
         highlight=""
-        subheading="Drive targeted traffic and maximize ROI with our data-driven pay-per-click advertising strategies."
-        buttonText="Get a Free Consultation"
+        subheading="At SolvitX, we run targeted ad campaigns that speak to the right audience at the right time — generating leads, driving traffic, and ensuring your ad spend delivers measurable returns."
+        buttonText="Book a free consultation today"
       />
 
-      <DescSection
+      {/* <DescSection
         heading="Our Web Development Services"
         image="/images/services/WebDevelopment.jpg"
         title="Modern Web Development Solutions"
         content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
         position="left"
-      />
+      /> */}
 
       <DescSection
-        heading="Custom Solutions for Your Business"
+        heading=""
         image="/images/dashboard.jpg"
-        title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
+        title="Custom PPC Marketing For Your Business"
+        content="Whether you're looking to build brand awareness, boost sales, or get more qualified leads, our PPC experts design, test, and optimize performance marketing campaigns across platforms that actually convert. With precision targeting, competitive bidding, and A/B testing, we scale what works for you and stop what doesn’t."
         position="right"
       />
 

@@ -146,6 +146,7 @@ const services = [
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
   const [hoveringItem, setHoveringItem] = useState<number | null>(null);
+  const [first, setfirst] = useState(0)
   const containerRef = useRef(null);
   const galleryRef = useRef(null);
   const router = useRouter();
@@ -168,32 +169,41 @@ const Services = () => {
   const headerOpacity = useTransform(smoothProgress, [0, 0.2, 0.3], [1, 1, 0]);
   const servicesScale = useTransform(smoothProgress, [0.2, 0.4], [0.8, 1]);
   const servicesOpacity = useTransform(smoothProgress, [0.2, 0.4], [0, 1]);
+  let numTime = 0
+  let time = 0;
 
-  // Automatic rotation if no user interaction
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (hoveringItem === null) {
-  //       setActiveService((prev) => (prev + 1) % services.length);
-  //     }
-  //   }, 5000);
+    // useEffect(() => {
+      useEffect(() => {
+        // alert("yhi bhi chalega")
+     
+        
+        setInterval(() => {
+          // if(time == 4){
+          //   time = 0;
+          // }
+          // console.log("active Service",{activeService,time});
+          // setActiveService(time);
+          // time = time + 1;
+          // if(IsTimerPaused == true ){
 
-  //   return () => clearInterval(interval);
-  // }, [hoveringItem]);
+          // }else{
 
-  // Background particles
+          // }
+          setActiveService((prev) => {
+          if(prev === 3){
+            return 0
+          }
+          return prev + 1
+          })
+        }, 3000)
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setActiveService((prevValue) => {
-  //       // logic
-  //       if(prevValue >= 4){
-  //         return 1
-  //       }else{
-  //         return prevValue + 1
-  //       }
-  //     })
-  //   }, 2000);
-  // }, [])
+     
+      }, [])
+      
+      
+    
+
+    // Write the reoccuring event to update the activeService in every 3 secs
 
   const particleCount = 30;
   const particles = Array.from({ length: particleCount }).map((_, i) => ({
@@ -320,7 +330,7 @@ const Services = () => {
                           {service.shortDesc}
                         </p>
 
-                        {activeService === index && (
+                        {activeService === index ? (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
@@ -353,7 +363,7 @@ const Services = () => {
                               <FaArrowRight className="ml-2 text-xs" />
                             </motion.button>
                           </motion.div>
-                        )}
+                        ) : <></>}
                       </div>
                     </div>
                   </motion.div>

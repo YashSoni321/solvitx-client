@@ -33,6 +33,7 @@ import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/SMS.jpg";
+import { SiCoinmarketcap } from "react-icons/si";
 
 // Animation variants
 const fadeInUp = {
@@ -54,39 +55,45 @@ const socialMediaServices = [
   {
     title: "Content Creation",
     description:
-      "Engaging posts, stories, and videos that resonate with your audience.",
+      "We help you create memorable and share worthy content.",
     icon: <FaCamera className="text-4xl" />,
     color: "text-pink-500",
   },
   {
     title: "Community Management",
-    description: "Build and nurture an active community around your brand.",
+    description: "We help you build engaging communities and build trust through active engagement.",
     icon: <FaUsers className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Paid Advertising",
-    description: "Targeted campaigns to reach your ideal customers.",
+    description: "Run targeted cross platform ads to boost engagement.",
     icon: <FaChartLine className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Video Marketing",
-    description: "Create compelling video content for social platforms.",
+    description: "We create videos for you that can entertain and inform the audience.",
     icon: <FaVideo className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Influencer Marketing",
-    description: "Partner with relevant influencers to expand your reach.",
+    description: "We help you collaborate with trusted influencers who can amplify your reach.",
     icon: <FaHashtag className="text-4xl" />,
     color: "text-orange-500",
   },
   {
-    title: "Social Listening",
-    description: "Monitor and respond to conversations about your brand.",
+    title: "PR Marketing",
+    description: "With our swift and strategic PR solutions, we help to protect your brand and amplify it's credibility.",
     icon: <FaComment className="text-4xl" />,
     color: "text-yellow-500",
+  },
+  {
+    title: "Analytics And Reporting",
+    description: "Track and analyse every step to optimise it for better performance.",
+    icon: <SiCoinmarketcap className="text-4xl" />,
+    color: "text-blue-500",
   },
 ];
 
@@ -94,22 +101,22 @@ const socialMediaServices = [
 const socialMediaBenefits = [
   {
     title: "Brand Awareness",
-    description: "Increase your brand's visibility and recognition.",
+    description: "Make a bold digital presence for your brand with memorable content.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "Customer Engagement",
-    description: "Build meaningful relationships with your audience.",
+    description: "Engage in real conversations with your customers to build strong relationships.",
     icon: <FaUsers className="text-3xl" />,
   },
   {
     title: "Lead Generation",
-    description: "Convert social media followers into customers.",
+    description: "Convert likes and shares into leads and valuable customers.",
     icon: <FaRocket className="text-3xl" />,
   },
   {
     title: "Customer Support",
-    description: "Provide quick and efficient customer service.",
+    description: "You can be present and responsive to all the problems of your customers.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
 ];
@@ -143,25 +150,25 @@ const whyChooseUs = [
   {
     title: "Expert Team",
     description:
-      "Our team of social media experts stays ahead of trends and platform updates.",
+      "Our team comprises digital marketers with 10+ years of experience.",
     icon: <FaUsers className="text-3xl" />,
   },
   {
     title: "Data-Driven Approach",
     description:
-      "We use analytics and insights to optimize your social media performance.",
+      "Every strategy we put forward is backed by proper data and analysis- not guesswork.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "Creative Content",
     description:
-      "Engaging, platform-specific content that resonates with your audience.",
+      "Our creative team helps you generate interactive content with precision and purpose.",
     icon: <FaPalette className="text-3xl" />,
   },
   {
     title: "24/7 Support",
     description:
-      "Round-the-clock monitoring and support for your social media presence.",
+      "We are always there when you need it.",
     icon: <FaHeadset className="text-3xl" />,
   },
 ];
@@ -171,66 +178,66 @@ const workingProcess = [
     step: "1",
     title: "Strategy Development",
     description:
-      "Analyze your brand, audience, and goals to create a customized social media strategy.",
+      "Get on a call with us to discuss your goals.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "2",
     title: "Content Planning",
     description:
-      "Develop a content calendar and create engaging posts for each platform.",
+      "We design the content from scratch, and tailored to your requirements.",
     icon: <FaCalendarAlt className="text-3xl" />,
   },
   {
     step: "3",
     title: "Community Management",
     description:
-      "Engage with your audience, respond to comments, and build relationships.",
+      "We engage productivity and respond with sincerity to help you grow the community.",
     icon: <FaComments className="text-3xl" />,
   },
   {
     step: "4",
     title: "Performance Analysis",
     description:
-      "Monitor metrics, analyze results, and optimize strategies for better results.",
+      "Review the social media metrics to run targeted campaigns.",
     icon: <FaChartBar className="text-3xl" />,
   },
 ];
 
-const keyFeatures = [
-  {
-    title: "Content Creation",
-    description:
-      "High-quality, platform-specific content including images, videos, and copy.",
-    icon: <FaCamera className="text-3xl" />,
-  },
-  {
-    title: "Paid Advertising",
-    description:
-      "Strategic ad campaigns to reach your target audience effectively.",
-    icon: <FaAd className="text-3xl" />,
-  },
-  {
-    title: "Influencer Marketing",
-    description: "Partner with relevant influencers to expand your reach.",
-    icon: <FaUserFriends className="text-3xl" />,
-  },
-  {
-    title: "Social Listening",
-    description: "Monitor brand mentions and industry conversations.",
-    icon: <FaSearch className="text-3xl" />,
-  },
-  {
-    title: "Crisis Management",
-    description: "Proactive handling of negative feedback and PR issues.",
-    icon: <FaShieldAlt className="text-3xl" />,
-  },
-  {
-    title: "Analytics & Reporting",
-    description: "Detailed performance reports with actionable insights.",
-    icon: <FaChartPie className="text-3xl" />,
-  },
-];
+// const keyFeatures = [
+//   {
+//     title: "Content Creation",
+//     description:
+//       "High-quality, platform-specific content including images, videos, and copy.",
+//     icon: <FaCamera className="text-3xl" />,
+//   },
+//   {
+//     title: "Paid Advertising",
+//     description:
+//       "Strategic ad campaigns to reach your target audience effectively.",
+//     icon: <FaAd className="text-3xl" />,
+//   },
+//   {
+//     title: "Influencer Marketing",
+//     description: "Partner with relevant influencers to expand your reach.",
+//     icon: <FaUserFriends className="text-3xl" />,
+//   },
+//   {
+//     title: "Social Listening",
+//     description: "Monitor brand mentions and industry conversations.",
+//     icon: <FaSearch className="text-3xl" />,
+//   },
+//   {
+//     title: "Crisis Management",
+//     description: "Proactive handling of negative feedback and PR issues.",
+//     icon: <FaShieldAlt className="text-3xl" />,
+//   },
+//   {
+//     title: "Analytics & Reporting",
+//     description: "Detailed performance reports with actionable insights.",
+//     icon: <FaChartPie className="text-3xl" />,
+//   },
+// ];
 
 export default function SocialMediaMarketingService() {
   const [ref, inView] = useInView({
@@ -285,63 +292,33 @@ export default function SocialMediaMarketingService() {
 
       <HeroSection
         backgroundImage={heroImg}
-        heading="Social Media Marketing"
+        heading="Build A Bold Social Presence"
         highlight=""
-        subheading="Grow your brand, engage your audience, and drive results with our proven social media strategies."
-        buttonText="Get a Free Consultation"
+        subheading="We help businesses spark engagement, build a loyal community, and convert followers into customers through powerful storytelling and platform-native strategies."
+        buttonText="Get a free social media consultation"
       />
 
-      <DescSection
+      {/* <DescSection
         heading="Our Web Development Services"
         image="/images/services/WebDevelopment.jpg"
         title="Modern Web Development Solutions"
         content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
         position="left"
-      />
+      /> */}
 
       <DescSection
-        heading="Custom Solutions for Your Business"
+        heading=""
         image="/images/dashboard.jpg"
-        title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
+        title="Custom Social Media Marketing For Your Brand"
+        content="From Instagram reels to LinkedIn thought leadership — we craft platform-specific content and campaign strategies designed to resonate with your audience and elevate your digital voice. Whether you’re a startup or a legacy brand, we ensure every post aligns with your mission and drives tangible business results."
         position="right"
       />
-
-      {/* Our Services Section */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-10 bg-gray-900"
-      >
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our Social Media Services
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {socialMediaServices.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className={`${service.color} mb-4`}>{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {service.title}
-                </h3>
-                <p className="text-gray-300 text-justify">{service.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
 
       {/* Benefits Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Invest in Social Media Marketing?
+            Why Do You Need SMM For Your Business?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {socialMediaBenefits.map((benefit, index) => (
@@ -361,11 +338,43 @@ export default function SocialMediaMarketingService() {
         </div>
       </motion.section>
 
+      {/* Our Services Section */}
+      <motion.section
+        ref={ref}
+        initial="initial"
+        animate={inView ? "animate" : "initial"}
+        variants={staggerContainer}
+        className="py-10 bg-gray-900"
+      >
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Our SMM Services
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {socialMediaServices.map((service, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className={`${service.color} mb-4`}>{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 text-justify">
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* Why Choose Us Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Our Social Media Services?
+            Why Should You Collaborate With SolvitX?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (
@@ -385,11 +394,26 @@ export default function SocialMediaMarketingService() {
         </div>
       </motion.section>
 
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
+
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our Social Media Management Process
+            Our Development Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {workingProcess.map((step, index) => (
@@ -413,7 +437,7 @@ export default function SocialMediaMarketingService() {
       </motion.section>
 
       {/* Key Features Section */}
-      <motion.section className="py-10 bg-gray-800">
+      {/* <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Comprehensive Social Media Services
@@ -434,7 +458,7 @@ export default function SocialMediaMarketingService() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* FAQs Section */}
       <motion.section className="py-10 bg-gray-900">
