@@ -56,42 +56,42 @@ const contentServices = [
   {
     title: "Blog Writing",
     description:
-      "Engaging, SEO-optimized blog posts that drive traffic and establish authority.",
+      "We help you generate informative and engaging blogs that reflect the expertise in your niche.",
     icon: <FaBlog className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Video Content",
     description:
-      "Professional video production for tutorials, testimonials, and brand stories.",
+      "We help you generate visually attractive videos that speak for itself.",
     icon: <FaVideo className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Infographics",
     description:
-      "Visually appealing infographics that simplify complex information.",
+      "We help you engage your audience with visually attractive graphics.",
     icon: <FaImage className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Social Media Content",
     description:
-      "Platform-specific content that engages and converts your audience.",
+      "We post consistently over social media to boost visibility and engagement.",
     icon: <FaUsers className="text-4xl" />,
     color: "text-pink-500",
   },
   {
     title: "Email Marketing",
     description:
-      "Compelling email campaigns that nurture leads and drive sales.",
+      "We help you generate leads and retain customers with impactful emails.",
     icon: <FaEnvelope className="text-4xl" />,
     color: "text-orange-500",
   },
   {
     title: "Content Strategy",
     description:
-      "Comprehensive content planning and execution for maximum impact.",
+      "We build you a tailored content strategy according to your brand's voice.",
     icon: <FaClipboardList className="text-4xl" />,
     color: "text-yellow-500",
   },
@@ -102,25 +102,25 @@ const contentBenefits = [
   {
     title: "Brand Authority",
     description:
-      "Establish your brand as an industry leader through valuable content.",
+      "Establish your business as a trusted expert in your chosen niche.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "Lead Generation",
     description:
-      "Attract and convert high-quality leads with targeted content.",
+      "Make your content valuable to attract leads and conversions.",
     icon: <FaRocket className="text-3xl" />,
   },
   {
     title: "Customer Engagement",
     description:
-      "Build lasting relationships with your audience through valuable content.",
+      "Create content for your audience the care about.",
     icon: <FaUsers className="text-3xl" />,
   },
   {
     title: "SEO Performance",
     description:
-      "Improve search rankings with optimized, high-quality content.",
+      "You can boost the brand visibility and organic rankings with keyword rich content.",
     icon: <FaSearch className="text-3xl" />,
   },
 ];
@@ -130,25 +130,25 @@ const whyChooseUs = [
   {
     title: "Expert Writers",
     description:
-      "Our team of professional writers creates compelling, industry-specific content.",
+      "We have a team of writers with 7+ years of industry experience.",
     icon: <FaPenAlt className="text-3xl" />,
   },
   {
     title: "SEO Integration",
     description:
-      "All content is optimized for search engines and user experience.",
+      "We generate SEO optimised content so that you rank in the Google results.",
     icon: <FaSearch className="text-3xl" />,
   },
   {
     title: "Data-Driven Approach",
     description:
-      "Content strategies based on analytics and performance metrics.",
+      "Our content is backed by heavy research and customer data, not just assumptions.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "Consistent Quality",
     description:
-      "Maintain high standards across all content types and platforms.",
+      "We deliver consistency that reflects professionalism and creates an impact.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
 ];
@@ -159,28 +159,28 @@ const workingProcess = [
     step: "1",
     title: "Content Audit",
     description:
-      "Analyze existing content and identify gaps and opportunities.",
+      "We assess your current assets to identify the gaps in consumer engagement.",
     icon: <FaFileAlt className="text-3xl" />,
   },
   {
     step: "2",
     title: "Strategy Development",
     description:
-      "Create a comprehensive content strategy aligned with your goals.",
+      "We develop a strategy that is built to reflect your brand's goals and audience needs.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "3",
     title: "Content Creation",
     description:
-      "Produce high-quality, engaging content across multiple formats.",
+      "We generate high quality, SEO optimised content for maximum engagement.",
     icon: <FaPenAlt className="text-3xl" />,
   },
   {
     step: "4",
     title: "Distribution & Promotion",
     description:
-      "Share content across relevant channels and optimize for reach.",
+      "We publish, share and promote content across the right platforms.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -262,26 +262,53 @@ export default function ContentMarketingService() {
 
       <HeroSection
         backgroundImage={isMobile ? heroImgMobile : heroImg}
-        heading="Content Marketing"
+        heading="Turn Readers Into Loyal Customers"
         highlight=""
-        subheading="Drive engagement and growth with our expert content marketing services."
-        buttonText="Get a Free Consultation"
+        subheading="We don’t just write content — we create strategic stories that educate, engage, and convert across every stage of your customer journey."
+        buttonText="Get a tailored content calendar today."
       />
-      <DescSection
+      {/* <DescSection
         heading="Our Web Development Services"
         image="/images/services/WebDevelopment.jpg"
         title="Modern Web Development Solutions"
         content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
         position="left"
-      />
+      /> */}
 
       <DescSection
-        heading="Custom Solutions for Your Business"
+        heading=""
         image="/images/dashboard.jpg"
-        title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
+        title="Custom Content Marketing Services For Your Business"
+        content="At SolvitX, we combine creativity with SEO-driven strategies to position your brand as an industry leader. From blog articles and whitepapers to email newsletters and LinkedIn thought leadership — our content speaks your brand's truth while serving real business goals.
+
+Whether you're B2B or B2C, startup or enterprise — we tailor content that builds trust, drives action, and boosts ROI.
+"
         position="right"
       />
+
+      {/* Benefits Section */}
+      <motion.section className="py-10 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          Why Do You Need Content Marketing For Your Business?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {contentBenefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="text-green-400 mb-4">{benefit.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-300">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
       {/* Our Services Section */}
       <motion.section
@@ -313,35 +340,13 @@ export default function ContentMarketingService() {
         </div>
       </motion.section>
 
-      {/* Benefits Section */}
-      <motion.section className="py-10 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Invest in Content Marketing?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contentBenefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="text-green-400 mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-300">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+      
 
       {/* Why Choose Us Section */}
       <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Our Content Marketing Services?
+          Why Should You Collaborate With SolvitX?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (
@@ -361,11 +366,26 @@ export default function ContentMarketingService() {
         </div>
       </motion.section>
 
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
+
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our Content Marketing Process
+          Our Development Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {workingProcess.map((step, index) => (

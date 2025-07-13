@@ -50,37 +50,37 @@ const staggerContainer = {
 const uiUxServices = [
   {
     title: "User Research",
-    description: "In-depth analysis of user needs and behaviors.",
+    description: "Our experts undergo deep research to understand the core issues with the user experiences.",
     icon: <FaUserFriends className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Wireframing",
-    description: "Create detailed wireframes for your digital products.",
+    description: "We work on convertible blueprints for seamless designs.",
     icon: <FaPen className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "UI Design",
-    description: "Beautiful and intuitive user interfaces.",
+    description: "We make visually striking interfaces according to your brand's identity.",
     icon: <FaPalette className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "UX Design",
-    description: "Optimize user experience and interactions.",
+    description: "We build designs that are not only attractive but user friendly.",
     icon: <FaDesktop className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Prototyping",
-    description: "Interactive prototypes for user testing.",
+    description: "We provide you interactive interfaces for real time iteration and feedback.",
     icon: <FaLayerGroup className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Mobile Design",
-    description: "Responsive designs for all devices.",
+    description: "We develop a fully responsive layout for a smoother mobile experience.",
     icon: <FaMobile className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -90,22 +90,22 @@ const uiUxServices = [
 const benefits = [
   {
     title: "Enhanced Usability",
-    description: "Intuitive interfaces that users love.",
+    description: "Make your products easy to use, accessible and users centric.",
     icon: <FaChartBar className="text-3xl" />,
   },
   {
     title: "Higher Engagement",
-    description: "Keep users engaged with your product.",
+    description: "Design attractive interfaces to keep the customers flowing in.",
     icon: <FaChartPie className="text-3xl" />,
   },
   {
     title: "Better Conversion",
-    description: "Optimized designs that drive results.",
+    description: "With a proper interface you can optimise the user journey for better conversion.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "Brand Consistency",
-    description: "Maintain a cohesive brand identity.",
+    description: "With a single design across multiple platforms you can build an authority and identity for your brand.",
     icon: <FaPalette className="text-3xl" />,
   },
 ];
@@ -114,22 +114,22 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "Expert Designers",
-    description: "Experienced UI/UX professionals.",
+    description: "We have a team of experts with 7+ years of industry experience.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "User-Centered Approach",
-    description: "Designs focused on user needs.",
+    description: "We design with empathy that solve real problems.",
     icon: <FaUserFriends className="text-3xl" />,
   },
   {
     title: "Latest Tools",
-    description: "Using modern design tools and techniques.",
+    description: "We use the latest tools of Sigma Adobe and sketch to stay ahead of the crowd.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "Continuous Support",
-    description: "Ongoing design support and updates.",
+    description: "Our collaboration does not end with the product lawns but it is long term support.",
     icon: <FaHeadset className="text-3xl" />,
   },
 ];
@@ -139,25 +139,25 @@ const workingProcess = [
   {
     step: "1",
     title: "Research",
-    description: "Understand user needs and business goals.",
+    description: "Our team sit with you to analyse and research your business needs.",
     icon: <FaSearch className="text-3xl" />,
   },
   {
     step: "2",
     title: "Design",
-    description: "Create wireframes and visual designs.",
+    description: "We design the content aligned with your brand's voice.",
     icon: <FaPen className="text-3xl" />,
   },
   {
     step: "3",
     title: "Prototype",
-    description: "Build interactive prototypes.",
+    description: "We turn our designs into interactive interfaces.",
     icon: <FaLayerGroup className="text-3xl" />,
   },
   {
     step: "4",
     title: "Test & Iterate",
-    description: "User testing and design refinement.",
+    description: "We test our content rigorously and bring real feedback before launch.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -238,63 +238,33 @@ export default function UIUXDesign() {
 
       <HeroSection
         backgroundImage={isMobile ? heroImgMobile : heroImg}
-        heading="UI/UX Design"
+        heading="Design That Blends Function With Emotion"
         highlight=""
-        subheading="Create beautiful, intuitive, and user-centered digital experiences."
-        buttonText="Get a Free Consultation"
+        subheading="We build user-centric interfaces that are not only beautiful to look at, but also intuitive, and accessible."
+        buttonText="Get a free design consultation with us."
       />
 
-      <DescSection
+      {/* <DescSection
         heading="Our Web Development Services"
         image="/images/services/WebDevelopment.jpg"
         title="Modern Web Development Solutions"
         content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
         position="left"
-      />
+      /> */}
 
       <DescSection
-        heading="Custom Solutions for Your Business"
+        heading=""
         image="/images/dashboard.jpg"
-        title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
+        title="Custom UI UX Design Services For Your Business"
+        content="At SolvitX, we don’t just design screens, we design customer journeys. Whether it’s a mobile app, SaaS platform, or responsive web portal, our UI/UX team works with strategy, empathy, and pixel-perfect execution. We ensure that your digital product feels like second nature to your users."
         position="right"
       />
-
-      {/* Services Section */}
-      <motion.section
-        ref={ref}
-        initial="initial"
-        animate={inView ? "animate" : "initial"}
-        variants={staggerContainer}
-        className="py-10 bg-gray-900"
-      >
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our UI/UX Design Services
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {uiUxServices.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className={`${service.color} mb-4`}>{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {service.title}
-                </h3>
-                <p className="text-gray-300">{service.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
 
       {/* Benefits Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Invest in UI/UX Design?
+          Why Do You Need UI UX Design Services For Your Business?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -314,11 +284,43 @@ export default function UIUXDesign() {
         </div>
       </motion.section>
 
+      {/* Services Section */}
+      <motion.section
+        ref={ref}
+        initial="initial"
+        animate={inView ? "animate" : "initial"}
+        variants={staggerContainer}
+        className="py-10 bg-gray-900"
+      >
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Our UI/UX Services
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {uiUxServices.map((service, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className={`${service.color} mb-4`}>{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300">{service.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      
+
       {/* Why Choose Us Section */}
       <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Our Services?
+          Why Should You Collaborate With SolvitX?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (
@@ -338,11 +340,26 @@ export default function UIUXDesign() {
         </div>
       </motion.section>
 
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
+
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our Design Process
+          Our Development Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {workingProcess.map((step, index) => (

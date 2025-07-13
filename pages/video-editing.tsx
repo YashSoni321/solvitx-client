@@ -55,37 +55,37 @@ const staggerContainer = {
 const services = [
   {
     title: "Professional Video Editing",
-    description: "High-quality video editing for all your content needs.",
+    description: "With the help of our expert team you can create attractive shoots for your brand.",
     icon: <FaVideo className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Motion Graphics",
-    description: "Dynamic animations and visual effects for your videos.",
+    description: "Add animations, unique icons and other graphics to boost engagement.",
     icon: <FaFilm className="text-4xl" />,
     color: "text-orange-500",
   },
   {
     title: "Audio Enhancement",
-    description: "Professional audio mixing and sound design.",
+    description: "Our videos have balanced music and noise reduction for a better impact.",
     icon: <FaMusic className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Color Grading",
-    description: "Expert color correction and grading services.",
+    description: "Enhance the visual tones, mood and aesthetics with our experts.",
     icon: <FaMagic className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Video Production",
-    description: "Complete video production from concept to final cut.",
+    description: "From scripting to editing, we have got you all covered.",
     icon: <FaCamera className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Social Media Content",
-    description: "Optimized video content for all social platforms.",
+    description: "We help you create short, reel worthy videos that are designed to grab the attention.",
     icon: <FaPlay className="text-4xl" />,
     color: "text-indigo-500",
   },
@@ -95,22 +95,22 @@ const services = [
 const benefits = [
   {
     title: "Professional Quality",
-    description: "Broadcast-quality video production and editing.",
+    description: "Stand out among the noise with our sleek visuals.",
     icon: <FaStar className="text-3xl" />,
   },
   {
     title: "Fast Turnaround",
-    description: "Quick delivery without compromising quality.",
+    description: "Attract the audience with ease and turn them into valuable customers.",
     icon: <FaBolt className="text-3xl" />,
   },
   {
     title: "Creative Excellence",
-    description: "Innovative and engaging video content.",
+    description: "Build a brand identity within the creative space.",
     icon: <FaMagic className="text-3xl" />,
   },
   {
     title: "Multi-Platform Ready",
-    description: "Optimized for all devices and platforms.",
+    description: "Optimise your content into marketable products across different platforms.",
     icon: <FaGlobe className="text-3xl" />,
   },
 ];
@@ -119,22 +119,22 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "Expert Editors",
-    description: "Experienced professionals with industry expertise.",
+    description: "Our expert Editors have 7+ years of industry experience.",
     icon: <FaUsers className="text-3xl" />,
   },
   {
     title: "Advanced Tools",
-    description: "State-of-the-art editing software and equipment.",
+    description: "We use premium tools and softwares to give your audience the best experience.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Round-the-clock assistance and revisions.",
+    description: "We are there to assist you anytime, anywhere.",
     icon: <FaHeadset className="text-3xl" />,
   },
   {
     title: "Quality Assurance",
-    description: "Rigorous quality checks at every stage.",
+    description: "Every video is crafted with clarity and will be consistent to your brand's voice.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
 ];
@@ -143,26 +143,26 @@ const whyChooseUs = [
 const workingProcess = [
   {
     step: "1",
-    title: "Consultation",
-    description: "Understanding your vision and requirements.",
+    title: "Scripting And Ideation",
+    description: "Our experts get on a call with you to understand your message and turn it to a script.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "2",
-    title: "Pre-production",
-    description: "Planning and storyboarding your video.",
+    title: "Editing And Animation ",
+    description: "We polish the raw clips with effects, clean audio and attractive visuals.",
     icon: <FaFileAlt className="text-3xl" />,
   },
   {
     step: "3",
-    title: "Production",
-    description: "Shooting and capturing your content.",
+    title: "Review & Feedback",
+    description: "We review, post and then we refine it to perfection, until it is just right.",
     icon: <FaCamera className="text-3xl" />,
   },
   {
     step: "4",
-    title: "Post-production",
-    description: "Editing, effects, and final touches.",
+    title: "Final Delivery",
+    description: "We post the videos by optimising them for the platform of your choice.",
     icon: <FaVideo className="text-3xl" />,
   },
 ];
@@ -268,27 +268,54 @@ export default function VideoEditing() {
 
       <HeroSection
         backgroundImage={isMobile ? heroImgMobile : heroImg}
-        heading="Video Editing"
+        heading="Edits That Enthrals The Audience "
         highlight=""
-        subheading="Transform your raw footage into engaging content."
-        buttonText="Get a Free Consultation"
+        subheading="Whether you're looking to engage, educate, or entertain, we can craft you cinematic experiences through sleek editing, motion graphics, and interactive storytelling."
+        buttonText="Book a free consultation with our creative team."
       />
 
-      <DescSection
+      {/* <DescSection
         heading="Our Web Development Services"
         image="/images/services/WebDevelopment.jpg"
         title="Modern Web Development Solutions"
         content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
         position="left"
-      />
+      /> */}
 
       <DescSection
-        heading="Custom Solutions for Your Business"
+        heading=""
         image="/images/dashboard.jpg"
-        title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
+        title="Custom Video Editing For Your Business "
+        content="Videos are the most powerful tools for digital engagement at the present time. From YouTube intros to branded reels, testimonial shoots to promotion trailers, at SolveitX, our creative team can bring your message to life with attention to detail, style, and clarity.
+
+We make your brand memorable through captivating visual stories.
+"
         position="right"
       />
+
+      {/* Benefits Section */}
+      <motion.section className="py-10 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          Why Do You Need Video Editing Services For Your Business?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="text-red-400 mb-4">{benefit.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-300">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
       {/* Services Section */}
       <motion.section
@@ -320,35 +347,13 @@ export default function VideoEditing() {
         </div>
       </motion.section>
 
-      {/* Benefits Section */}
-      <motion.section className="py-10 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Video Editing?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="text-red-400 mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-300">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+      
 
       {/* Why Choose Us Section */}
       <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Our Services?
+          Why Should You Collaborate With SolvitX?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (
@@ -368,11 +373,26 @@ export default function VideoEditing() {
         </div>
       </motion.section>
 
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
+
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our Production Process
+            Our Development Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {workingProcess.map((step, index) => (
@@ -396,7 +416,7 @@ export default function VideoEditing() {
       </motion.section>
 
       {/* Additional Features Section */}
-      <motion.section className="py-10 bg-gray-900">
+      {/* <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Advanced Features
@@ -417,7 +437,7 @@ export default function VideoEditing() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* FAQs Section */}
       <motion.section className="py-10 bg-gray-800">
