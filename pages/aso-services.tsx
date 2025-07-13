@@ -52,37 +52,37 @@ const staggerContainer = {
 const asoServices = [
   {
     title: "Keyword Research",
-    description: "Comprehensive keyword analysis for optimal app visibility.",
+    description: "We help you identify the high impact and low competitive keywords that your ideal customers search for.",
     icon: <FaSearch className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "App Store Optimization",
-    description: "Optimize your app listing for better discoverability.",
+    description: "We help you get proper titles, descriptions, tags and icons for better rankings.",
     icon: <FaMobileAlt className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Review Management",
-    description: "Monitor and respond to app reviews effectively.",
+    description: "We will help you manage the negative feedback gracefully and thus higher up your rankings in the app store",
     icon: <FaStar className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Localization",
-    description: "Adapt your app for global markets and languages.",
+    description: "With region specific listings and languages you can make your app go global",
     icon: <FaGlobe className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Performance Tracking",
-    description: "Monitor and analyze app performance metrics.",
+    description: "Track and analyse your metrics to optimise it for better performance.",
     icon: <FaChartLine className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Visual Optimization",
-    description: "Optimize app screenshots and preview videos.",
+    description: "We help you design interactive app icons and screenshots that boost user engagement.",
     icon: <FaImage className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -92,22 +92,22 @@ const asoServices = [
 const benefits = [
   {
     title: "Increased Visibility",
-    description: "Improve your app's discoverability in app stores.",
+    description: "Be noticeable to your ideal customers who are actively searching in the app stores.",
     icon: <FaSearch className="text-3xl" />,
   },
   {
     title: "Higher Rankings",
-    description: "Achieve better rankings in app store search results.",
+    description: "Outperform your  competitors by taking your brand at the top of the search results.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "More Downloads",
-    description: "Drive more organic downloads to your app.",
+    description: "With proper ASO, you can get a better listing which means more clicks and more installs.",
     icon: <FaRocket className="text-3xl" />,
   },
   {
     title: "Better ROI",
-    description: "Maximize your return on investment with ASO.",
+    description: "Get more organic growth with expert ASO services.",
     icon: <FaStar className="text-3xl" />,
   },
 ];
@@ -116,22 +116,22 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "ASO Experts",
-    description: "Experienced team in app store optimization.",
+    description: "Our team comprises ASO Experts with 7+ years of industry experience.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Data-Driven Approach",
-    description: "Strategies based on comprehensive analytics.",
+    description: "Every strategy we put forward is backed by proper data and analysis- not guesswork.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Round-the-clock technical assistance.",
+    description: "We are always there for help whenever you need it.",
     icon: <FaHeadset className="text-3xl" />,
   },
   {
     title: "Proven Results",
-    description: "Successful ASO campaigns across industries.",
+    description: "Our strategies have scaled apps to thousands of downloads organically.",
     icon: <FaClipboardList className="text-3xl" />,
   },
 ];
@@ -242,27 +242,51 @@ export default function ASOServices() {
 
       <HeroSection
         backgroundImage={isMobile ? heroImgMobile : heroImg}
-        heading="App Store Optimization"
+        heading="Boost App Visibility and Ratings Organically"
         highlight=""
-        subheading="Boost your app's visibility and drive more organic downloads with our expert ASO services."
-        buttonText="Get a Free Audit"
+        subheading="We help your app rank higher in app stores, get discovered by the right users, and build a loyal install base through proven ASO strategies."
+        buttonText="Get a free consultation today."
       />
 
-      <DescSection
+      {/* <DescSection
         heading="Our Web Development Services"
         image="/images/services/WebDevelopment.jpg"
         title="Modern Web Development Solutions"
         content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
         position="left"
-      />
+      /> */}
 
       <DescSection
-        heading="Custom Solutions for Your Business"
+        heading=""
         image="/images/dashboard.jpg"
-        title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
+        title="Custom ASO Strategies For Your Business"
+        content="Launching an app is only the beginning — the real game is discoverability. At SolvitX, we optimize every aspect of your app listing to improve visibility, attract organic downloads, and enhance user trust. From metadata optimization to A/B testing screenshots, our ASO strategies are tailored for results."
         position="right"
       />
+
+      {/* Benefits Section */}
+      <motion.section className="py-10 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          Why Do You Need ASO Services For Your Business?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="text-blue-400 mb-4">{benefit.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-300">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
       {/* Services Section */}
       <motion.section
@@ -294,35 +318,13 @@ export default function ASOServices() {
         </div>
       </motion.section>
 
-      {/* Benefits Section */}
-      <motion.section className="py-10 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Benefits
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="text-blue-400 mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-300">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+      
 
       {/* Why Choose Us Section */}
       <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Our ASO Services?
+          Why Should You Collaborate With SolvitX?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (
@@ -343,7 +345,7 @@ export default function ASOServices() {
       </motion.section>
 
       {/* Working Process Section */}
-      <motion.section className="py-10 bg-gray-800">
+      {/* <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Our ASO Process
@@ -367,7 +369,22 @@ export default function ASOServices() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
+
+<DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
 
       {/* FAQs Section */}
       <motion.section className="py-10 bg-gray-900">
