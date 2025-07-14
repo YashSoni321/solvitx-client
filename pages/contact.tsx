@@ -180,6 +180,9 @@ export default function Contact() {
         console.log("Email sent successfully!", response);
         setIsSubmitting(false);
         setSubmitSuccess(true);
+        setTimeout(() => {
+          window.location.href = "/thank-you";
+        }, 1500);
         setFormData({
           firstName: "",
           lastName: "",

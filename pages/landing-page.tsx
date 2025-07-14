@@ -1349,7 +1349,7 @@ const LandingPage = () => {
                         href="tel:+919782025577"
                         className="text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1"
                       >
-                        +91 9782025577
+                        +91 7232899120
                       </a>
                       <p className="text-gray-300 text-sm">
                         Available Mon-Fri, 9:00 AM - 6:00 PM IST

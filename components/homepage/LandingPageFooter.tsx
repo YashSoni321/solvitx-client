@@ -90,7 +90,7 @@ const LandingPageFooter = () => {
                 href="tel:+919782025577"
                 className="hover:text-purple-300 transition-colors"
               >
-                +91 9782025577
+                +91 7232899120
               </a>
             </div>
           </div>
