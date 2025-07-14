@@ -120,7 +120,7 @@ export default function PrivacyPolicy() {
             </p>
             <div className="pl-5 text-gray-700">
               <p>Email: solvitxsolutions@gmail.com</p>
-              <p>Phone: +91 7232899120</p>
+              <p>Phone: +91 9782025577</p>
               <p>
                 Address: Hn. 359, Gopal Ji Ka Rasta, Tripolia Bazar, Jaipur,
                 Rajasthan 302003

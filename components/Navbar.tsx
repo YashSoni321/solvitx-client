@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -17,13 +17,8 @@ import {
 } from "react-icons/fa";
 import Image from "next/image";
 import LogoImage from "../public/images/solvitx.png";
-import dynamic from "next/dynamic";
-
-// Dynamically import heavy components
-const Modal = dynamic(() => import("./common/Modal"), { ssr: false });
-const ContactUsForm = dynamic(() => import("./common/ContactUsForm"), {
-  ssr: false,
-});
+import Modal from "./common/Modal";
+import ContactUsForm from "./common/ContactUsForm";
 
 // Simplified menu structure
 const navItems = [
@@ -106,15 +101,11 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
 
-  // Optimize scroll handler with useCallback
-  const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > 50);
-  }, []);
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+  }, []);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -126,53 +117,41 @@ const Navbar = () => {
   }, [isOpen]);
 
   // Function to close mobile menu
-  const closeMobileMenu = useCallback(() => {
+  const closeMobileMenu = () => {
     setIsOpen(false);
     setActiveMenu(null);
     setActiveSubMenu(null);
-  }, []);
+  };
 
-  const handleMenuToggle = useCallback(
-    (e: any, name: any) => {
-      e.stopPropagation();
-      setActiveMenu(activeMenu === name ? null : name);
-      setActiveSubMenu(null);
-    },
-    [activeMenu]
-  );
+  const handleMenuToggle = (e: any, name: any) => {
+    e.stopPropagation();
+    setActiveMenu(activeMenu === name ? null : name);
+    setActiveSubMenu(null);
+  };
 
-  const handleSubMenuToggle = useCallback(
-    (e: any, name: any) => {
-      e.stopPropagation();
-      setActiveSubMenu(activeSubMenu === name ? null : name);
-    },
-    [activeSubMenu]
-  );
+  const handleSubMenuToggle = (e: any, name: any) => {
+    e.stopPropagation();
+    setActiveSubMenu(activeSubMenu === name ? null : name);
+  };
 
   // Handle link clicks - close menu for links, keep open for expandable items
-  const handleLinkClick = useCallback(
-    (item: any, e: any) => {
-      // If item has submenu, don't close the menu, just navigate
-      if (!item.subMenu) {
-        closeMobileMenu();
-      }
-    },
-    [closeMobileMenu]
-  );
+  const handleLinkClick = (item: any, e: any) => {
+    // If item has submenu, don't close the menu, just navigate
+    if (!item.subMenu) {
+      closeMobileMenu();
+    }
+  };
 
-  const handleSubLinkClick = useCallback(
-    (subItem: any, e: any) => {
-      // If subItem has subItems, don't close the menu
-      if (!subItem.subItems) {
-        closeMobileMenu();
-      }
-    },
-    [closeMobileMenu]
-  );
+  const handleSubLinkClick = (subItem: any, e: any) => {
+    // If subItem has subItems, don't close the menu
+    if (!subItem.subItems) {
+      closeMobileMenu();
+    }
+  };
 
-  const handleNestedLinkClick = useCallback(() => {
+  const handleNestedLinkClick = () => {
     closeMobileMenu();
-  }, [closeMobileMenu]);
+  };
 
   return (
     <nav
@@ -188,7 +167,6 @@ const Navbar = () => {
             alt="SolvitX"
             className="h-10 w-auto drop-shadow-md"
             priority
-            sizes="(max-width: 768px) 100px, 150px"
           />
           <div className="px-4 py-1"></div>
         </Link>
@@ -220,20 +198,22 @@ const Navbar = () => {
                   {item.subMenu.map((subItem, idx) => (
                     <div key={idx} className="relative group/sub">
                       <Link href={subItem.path}>
-                        <div className="flex items-center p-3 hover:bg-gray-50 transition-colors">
-                          {subItem.icon}
-                          <span className="ml-3 text-gray-700 hover:text-blue-600">
-                            {subItem.name}
-                          </span>
+                        <div className="flex items-center justify-between px-5 py-3 hover:bg-blue-50">
+                          <div className="flex items-center">
+                            <span className="mr-3">{subItem.icon}</span>
+                            <span className="text-blue-900">
+                              {subItem.name}
+                            </span>
+                          </div>
                           {subItem.subItems && (
-                            <FaChevronRight className="ml-auto text-xs text-gray-400 group-hover/sub:text-blue-500 transition-colors" />
+                            <FaChevronRight className="text-xs text-blue-900" />
                           )}
                         </div>
                       </Link>
 
-                      {/* Nested Submenu */}
+                      {/* Nested Dropdown */}
                       {subItem.subItems && (
-                        <div className="absolute invisible group-hover/sub:visible opacity-0 group-hover/sub:opacity-100 left-full top-0 ml-1 w-64 bg-white/95 border border-gray-100 rounded-lg shadow-lg transition-all duration-300 origin-left">
+                        <div className="absolute invisible group-hover/sub:visible opacity-0 group-hover/sub:opacity-100 top-0 left-full ml-2 w-64 bg-white/95 border border-gray-100 rounded-lg shadow-lg transition-all duration-300">
                           {subItem.subItems.map((nestedItem, nestedIdx) => (
                             <Link
                               key={nestedIdx}
@@ -241,10 +221,8 @@ const Navbar = () => {
                                 .toLowerCase()
                                 .replace(/\s+/g, "-")}`}
                             >
-                              <div className="p-3 hover:bg-gray-50 transition-colors">
-                                <span className="text-gray-700 hover:text-blue-600">
-                                  {nestedItem}
-                                </span>
+                              <div className="px-5 py-3 hover:bg-blue-50 text-blue-900">
+                                {nestedItem}
                               </div>
                             </Link>
                           ))}
@@ -257,110 +235,104 @@ const Navbar = () => {
             </div>
           ))}
 
-          {/* CTA Button */}
+          {/* <Link href="/contact">
+            <span className="bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-2 rounded-full text-sm font-semibold text-white shadow-md hover:shadow-pink-500/30 hover:scale-105 transition-transform duration-300">
+              Get Started
+            </span>
+          </Link> */}
           <motion.button
             onClick={() => setIsModalOpen(true)}
-            className="bg-gradient-to-r from-blue-600 to-pink-500 text-white px-6 py-2 rounded-full font-semibold hover:from-pink-500 hover:to-blue-600 transition-all duration-300 flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-blue-600 to-pink-500 px-5 py-2  text-white rounded-full shadow-lg text-base md:text-lg font-semibold flex items-center gap-2 mx-auto hover:from-pink-500 hover:to-blue-600 transition-all"
           >
-            Get Started <FaArrowRight className="text-sm" />
+            Get Started
           </motion.button>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <button
           onClick={(e) => {
             e.stopPropagation();
             setIsOpen(!isOpen);
           }}
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          className="md:hidden relative z-50 p-2 focus:outline-none"
+          aria-label="Toggle Menu"
         >
           {isOpen ? (
-            <FaTimes className="text-xl text-gray-700" />
+            <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200">
+              <FaTimes className="text-red-600 text-xl" />
+            </div>
           ) : (
-            <FaBars className="text-xl text-gray-700" />
+            <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200">
+              <FaBars className="text-blue-900 text-xl" />
+            </div>
           )}
         </button>
-      </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white border-t border-gray-100 shadow-lg"
-        >
-          <div className="container mx-auto px-4 py-4">
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-white/95 backdrop-blur-md border-t border-gray-100 flex flex-col p-6 pt-20 overflow-y-auto z-40">
             {navItems.map((item) => (
-              <div key={item.name} className="mb-2">
+              <div key={item.name} className="py-2 border-b border-gray-200">
                 {item.subMenu ? (
                   <div>
-                    <div
-                      className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg cursor-pointer"
-                      onClick={(e) => handleMenuToggle(e, item.name)}
-                    >
+                    <div className="flex items-center justify-between py-2">
                       <Link
                         href={item.path}
                         onClick={(e) => handleLinkClick(item, e)}
+                        className="flex-1"
                       >
-                        <span className="text-gray-700 font-medium">
+                        <span className="text-blue-900 text-lg font-medium">
                           {item.name}
                         </span>
                       </Link>
-                      <FaChevronDown
-                        className={`text-xs text-gray-500 transition-transform ${
-                          activeMenu === item.name ? "rotate-180" : ""
-                        }`}
-                      />
+                      <button
+                        onClick={(e) => handleMenuToggle(e, item.name)}
+                        className="p-2 ml-2"
+                      >
+                        <FaChevronDown
+                          className={`text-blue-900 transition-transform ${
+                            activeMenu === item.name ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
                     </div>
 
                     {activeMenu === item.name && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="ml-4 mt-2 space-y-1"
-                      >
+                      <div className="pl-4 py-2 space-y-2">
                         {item.subMenu.map((subItem, idx) => (
-                          <div key={idx}>
-                            <div
-                              className="flex items-center justify-between p-2 hover:bg-gray-50 rounded cursor-pointer"
-                              onClick={(e) =>
-                                handleSubMenuToggle(e, subItem.name)
-                              }
-                            >
+                          <div key={idx} className="py-1">
+                            <div className="flex items-center justify-between">
                               <Link
                                 href={subItem.path}
                                 onClick={(e) => handleSubLinkClick(subItem, e)}
+                                className="flex-1"
                               >
-                                <div className="flex items-center">
-                                  {subItem.icon}
-                                  <span className="ml-2 text-gray-600">
-                                    {subItem.name}
-                                  </span>
-                                </div>
+                                <span className="flex items-center text-blue-800">
+                                  <span className="mr-2">{subItem.icon}</span>
+                                  {subItem.name}
+                                </span>
                               </Link>
                               {subItem.subItems && (
-                                <FaChevronRight
-                                  className={`text-xs text-gray-500 transition-transform ${
-                                    activeSubMenu === subItem.name
-                                      ? "rotate-90"
-                                      : ""
-                                  }`}
-                                />
+                                <button
+                                  onClick={(e) =>
+                                    handleSubMenuToggle(e, subItem.name)
+                                  }
+                                  className="p-2 ml-2"
+                                >
+                                  <FaChevronDown
+                                    className={`text-blue-900 text-xs transition-transform ${
+                                      activeSubMenu === subItem.name
+                                        ? "rotate-180"
+                                        : ""
+                                    }`}
+                                  />
+                                </button>
                               )}
                             </div>
 
                             {subItem.subItems &&
                               activeSubMenu === subItem.name && (
-                                <motion.div
-                                  initial={{ opacity: 0, height: 0 }}
-                                  animate={{ opacity: 1, height: "auto" }}
-                                  exit={{ opacity: 0, height: 0 }}
-                                  className="ml-4 mt-1 space-y-1"
-                                >
+                                <div className="pl-6 py-2 space-y-2">
                                   {subItem.subItems.map(
                                     (nestedItem, nestedIdx) => (
                                       <Link
@@ -370,57 +342,48 @@ const Navbar = () => {
                                           .replace(/\s+/g, "-")}`}
                                         onClick={handleNestedLinkClick}
                                       >
-                                        <div className="p-2 hover:bg-gray-50 rounded">
-                                          <span className="text-gray-500 text-sm">
-                                            {nestedItem}
-                                          </span>
-                                        </div>
+                                        <span className="block py-1 text-blue-700 hover:text-pink-600">
+                                          {nestedItem}
+                                        </span>
                                       </Link>
                                     )
                                   )}
-                                </motion.div>
+                                </div>
                               )}
                           </div>
                         ))}
-                      </motion.div>
+                      </div>
                     )}
                   </div>
                 ) : (
-                  <Link href={item.path} onClick={closeMobileMenu}>
-                    <div className="p-3 hover:bg-gray-50 rounded-lg">
-                      <span className="text-gray-700 font-medium">
-                        {item.name}
-                      </span>
-                    </div>
+                  <Link
+                    href={item.path}
+                    onClick={(e) => handleLinkClick(item, e)}
+                  >
+                    <span className="block py-2 text-blue-900 text-lg font-medium">
+                      {item.name}
+                    </span>
                   </Link>
                 )}
               </div>
             ))}
-
-            {/* Mobile CTA Button */}
-            <div className="mt-4 pt-4 border-t border-gray-200">
-              <motion.button
-                onClick={() => {
-                  setIsModalOpen(true);
-                  closeMobileMenu();
-                }}
-                className="w-full bg-gradient-to-r from-blue-600 to-pink-500 text-white py-3 rounded-full font-semibold hover:from-pink-500 hover:to-blue-600 transition-all duration-300 flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Get Started <FaArrowRight className="text-sm" />
-              </motion.button>
-            </div>
+            {/* <Link href="/contact" onClick={closeMobileMenu} className="mt-6">
+              <span className="block w-full bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-3 rounded-full text-center font-semibold text-white">
+                Get Started
+              </span>
+            </Link> */}
+            <motion.button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-gradient-to-r from-blue-600 to-pink-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg text-base md:text-lg font-semibold flex items-center gap-2 mx-auto mb-6 hover:from-pink-500 hover:to-blue-600 transition-all"
+            >
+              Get Started 121
+            </motion.button>
           </div>
-        </motion.div>
-      )}
-
-      {/* Contact Modal */}
-      {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          <ContactUsForm onClose={() => setIsModalOpen(false)} />
-        </Modal>
-      )}
+        )}
+      </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <ContactUsForm onClose={() => setIsModalOpen(false)} />
+      </Modal>
     </nav>
   );
 };

@@ -32,9 +32,8 @@
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "pages/404.js"
-  ],
+    ".next/types/**/*.ts"
+, "pages/404.js"  ],
   "exclude": [
     "node_modules"
   ]
