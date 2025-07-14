@@ -36,7 +36,7 @@ const navItems = [
       },
       {
         name: "App Development",
-        path: "/mobile-app-development",
+        path: "/app-development",
         icon: <FaMobileAlt className="text-xl text-green-500" />,
         subItems: ["IOS App Development", "Android App Development"],
       },

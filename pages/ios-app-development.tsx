@@ -25,12 +25,15 @@ import {
   FaServer,
   FaCloud,
   FaLock,
+  FaMobileAlt,
+  FaChartLine,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import heroImg from "../public/images/heroimages/IOS.jpg";
 import Footer from "@/components/homepage/Footer";
 import DescSection from "@/components/webdevelopment/DescSection";
 import HeroSection from "@/components/homepage/Hero";
+import { TechStackSection } from "@/components/common/TechStackSection";
 
 // Animation variants
 const fadeInUp = {
@@ -47,41 +50,145 @@ const staggerContainer = {
   },
 };
 
+// Technology categories for ios development
+const techCategories = [
+  {
+    name: "Native Mobile",
+    technologies: [
+      {
+        name: "iOS (Swift)",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "Android (Kotlin)",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "Objective-C",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-orange-500",
+      },
+      {
+        name: "Java",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-red-500",
+      },
+    ],
+  },
+  {
+    name: "Cross-Platform",
+    technologies: [
+      {
+        name: "Flutter",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "React Native",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-blue-600",
+      },
+      {
+        name: "Xamarin",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "Ionic",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-blue-300",
+      },
+    ],
+  },
+  {
+    name: "Backend",
+    technologies: [
+      {
+        name: "Firebase",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "Node.js",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-green-600",
+      },
+      {
+        name: "MongoDB",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "GraphQL",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-pink-500",
+      },
+    ],
+  },
+  {
+    name: "DevOps & Tools",
+    technologies: [
+      {
+        name: "CI/CD",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-purple-600",
+      },
+      {
+        name: "TestFlight",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "App Center",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "Analytics",
+        icon: <FaChartLine className="text-3xl" />,
+        color: "text-red-400",
+      },
+    ],
+  },
+];
+
 // iOS Services
 const iosServices = [
   {
     title: "Native iOS Development",
-    description: "Custom iOS apps built with Swift and Objective-C.",
+    description: "Bespoke iOS solutions leveraging Swift and Objective-C frameworks.",
     icon: <FaApple className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "UI/UX Design",
-    description: "Human Interface Guidelines compliant, elegant interfaces.",
+    description: "Visually aesthetic interfaces compliant with HIG standards are built for usability and grace.",
     icon: <FaMobile className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Backend Integration",
-    description: "Seamless integration with RESTful APIs and databases.",
+    description: "Smooth API consumption with real-time data repositories.",
     icon: <FaServer className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Cloud Services",
-    description: "Integration with iCloud and other cloud platforms.",
+    description: "iCloud-enabled capabilities with broader cloud service support.",
     icon: <FaCloud className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Security Implementation",
-    description: "Advanced security features and data protection.",
+    description: "Built-in security protocols to keep sensitive information encrypted.",
     icon: <FaLock className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Performance Optimization",
-    description: "Optimized for speed, battery life, and memory usage.",
+    description: "Engineered for effortless operation and minimal power consumption.",
     icon: <FaRocket className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -91,22 +198,22 @@ const iosServices = [
 const benefits = [
   {
     title: "Premium User Base",
-    description: "Access to high-value iOS users worldwide.",
+    description: "Global exposure to a premium, tech-savvy user base via the iOS ecosystem.",
     icon: <FaGlobe className="text-3xl" />,
   },
   {
     title: "Custom Solutions",
-    description: "Tailored apps for your specific business needs.",
+    description: "Purpose-driven solutions moulded to your unique workflows.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "Higher Revenue",
-    description: "iOS users typically spend more on apps and in-app purchases.",
+    description: "Monetise effectively by engaging with the customer base.",
     icon: <FaChartBar className="text-3xl" />,
   },
   {
     title: "Easy Integration",
-    description: "Seamless integration with Apple services.",
+    description: "Seamless integration with Apple’s built-in frameworks.",
     icon: <FaCode className="text-3xl" />,
   },
 ];
@@ -115,22 +222,22 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "Expert Team",
-    description: "Certified iOS developers with years of experience.",
+    description: "Accredited iOS specialists backed by extensive hands-on expertise.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Latest Technologies",
-    description: "Using modern iOS development tools and practices.",
+    description: "Equipped with current-gen iOS tech for optimal execution.",
     icon: <FaCode className="text-3xl" />,
   },
   {
     title: "Quality Assurance",
-    description: "Rigorous testing across multiple devices.",
+    description: "Thorough multi-device testing to ensure flawless performance.",
     icon: <FaShieldAlt className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Continuous support and maintenance services.",
+    description: "Proactive upkeep with ongoing app updates to ensure long-term app health.",
     icon: <FaHeadset className="text-3xl" />,
   },
 ];
@@ -140,25 +247,25 @@ const workingProcess = [
   {
     step: "1",
     title: "Requirement Analysis",
-    description: "Understand your app requirements and target audience.",
+    description: "Align business vision with user expectations with functionality.",
     icon: <FaSearch className="text-3xl" />,
   },
   {
     step: "2",
     title: "Design & Planning",
-    description: "Create wireframes and plan the development process.",
+    description: "Lay the foundation with interactive prototypes and architect the solution.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "3",
     title: "Development",
-    description: "Build your app with best practices and standards.",
+    description: "Develop using clean code principles with modularity and precision. ",
     icon: <FaCode className="text-3xl" />,
   },
   {
     step: "4",
     title: "Testing & Launch",
-    description: "Test thoroughly and launch on App Store.",
+    description: "Conduct comprehensive tests before deploying with assurance.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -238,7 +345,7 @@ export default function iOSAppDevelopment() {
       </motion.section> */}
       <HeroSection
         backgroundImage={heroImg}
-        heading="Explore the next-gen iOS applications that are engineered for growth."
+        heading="Explore The Next-Gen iOS Applications."
         highlight=""
         subheading="We help you build apps that the users can trust- a true technological marvel that is made to rule."
         buttonText="Get a Free Consultation"
@@ -252,13 +359,19 @@ export default function iOSAppDevelopment() {
         position="left"
       />
 
-      <DescSection
+      <TechStackSection
+                    techCategories={techCategories}
+                    title="Our Technology Stack "
+                    description="At SolvitX, we build our applications from scratch, using the latest frameworks, security protocols, and wireframes that don't just perform well, but bring real results."
+                  />
+
+      {/* <DescSection
         heading="Custom Solutions for Your Business"
         image="/images/dashboard.jpg"
         title="Custom Web Applications"
         content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
         position="right"
-      />
+      /> */}
 
       {/* Services Section */}
       <motion.section
@@ -270,8 +383,11 @@ export default function iOSAppDevelopment() {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our iOS Development Services
+          Why Should You Build An iOS Application? 
           </h2>
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed text-center my-10">
+          With interactive next-gen iOS applications, you can work seamlessly among your high-end user base.
+        </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {iosServices.map((service, index) => (
               <motion.div
@@ -294,7 +410,7 @@ export default function iOSAppDevelopment() {
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose iOS Development?
+          Our Special iOS Development Features 
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -318,7 +434,7 @@ export default function iOSAppDevelopment() {
       <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Our Services?
+          Why Should You Collaborate With SolvitX?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (
@@ -337,6 +453,21 @@ export default function iOSAppDevelopment() {
           </div>
         </div>
       </motion.section>
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
 
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-800">
@@ -364,6 +495,15 @@ export default function iOSAppDevelopment() {
           </div>
         </div>
       </motion.section>
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Do Our Clients Say?"
+        content="SolvitX helped us craft a sleek and fast high and iOS app that bless beautifully with our customers ecosystem. The design is very interactive, intuitive and the performance it provides is top-notch. - Ritika Singh, Product Manager 
+"
+        position="left"
+      />
 
       {/* FAQs Section */}
       <motion.section className="py-10 bg-gray-900">

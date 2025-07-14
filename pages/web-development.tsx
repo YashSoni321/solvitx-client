@@ -24,6 +24,9 @@ import {
   FaLightbulb,
   FaChevronUp,
   FaChevronDown,
+  FaTools,
+  FaHeadset,
+  FaClipboardList,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
@@ -332,6 +335,59 @@ const processSteps = [
   },
 ];
 
+// Why Choose Us
+const whyChooseUs = [
+  {
+    title: "Expert Team",
+    description: "Collaborate with a team of experts from diverse fields.",
+    icon: <FaCheckCircle className="text-3xl" />,
+  },
+  {
+    title: "Custom Solutions",
+    description: "Designed around your unique enterprise needs.",
+    icon: <FaTools className="text-3xl" />,
+  },
+  {
+    title: "24/7 Support",
+    description:
+      "Our technical support is always there to solve your problems.",
+    icon: <FaHeadset className="text-3xl" />,
+  },
+  {
+    title: "Deployments",
+    description: "Successful deployments around a variety of fields.",
+    icon: <FaClipboardList className="text-3xl" />,
+  },
+];
+
+// Working Process
+const workingProcess = [
+  {
+    step: "1",
+    title: "Requirement Analysis",
+    description: "Understanding your commercial objectives and vision.",
+    icon: <FaClipboardList className="text-3xl" />,
+  },
+  {
+    step: "2",
+    title: "Design & Development",
+    description: "Building an user-friendly and adaptable framework",
+    icon: <FaCode className="text-3xl" />,
+  },
+  {
+    step: "3",
+    title: "Testing & Optimization",
+    description: "Ensuring optimal functionality with data integrity.",
+    icon: <FaTools className="text-3xl" />,
+  },
+  {
+    step: "4",
+    title: "Launch & Support",
+    description: "Setting your platform and ensuring dedicated assistance.",
+    icon: <FaRocket className="text-3xl" />,
+  },
+];
+
 // Technology categories
 const techCategories = [
   {
@@ -524,6 +580,12 @@ export default function WebDevelopmentService() {
         position="right"
       />
 
+<TechStackSection
+        techCategories={techCategories}
+        title="Our Technology Stack "
+        description="In this fast-growing digital ecosystem, we give your brand a modernised online face with our modern web development solutions. From React to Node.js and Python, our web applications are strategically built to rule in this modern digital landscape."
+      />
+
       {/* Why Select SolvitX Section */}
       <div className="py-4 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
@@ -612,11 +674,7 @@ export default function WebDevelopmentService() {
 
       {/* Technology Stack Section */}
 
-      <TechStackSection
-        techCategories={techCategories}
-        title="Our Technology Stack "
-        description="In this fast-growing digital ecosystem, we give your brand a modernised online face with our modern web development solutions. From React to Node.js and Python, our web applications are strategically built to rule in this modern digital landscape."
-      />
+      
 
       {/* <motion.section variants={staggerContainer} className="py-4 bg-gray-900">
         <div className="container mx-auto px-4">
@@ -651,18 +709,30 @@ export default function WebDevelopmentService() {
           </div>
         </div>
       </motion.section> */}
-      <DescSection
-        heading=""
-        image="/images/services/WebDevelopment.jpg"
-        title="Why Should You Collaborate With SolvitX ?"
-        content={[
-          "Collaborate with a team of experts from diverse fields.",
-          "Designed around your unique enterprise needs.",
-          "Our technical support is always there to solve your problems.",
-          "Successful deployments around a variety of fields.",
-        ]}
-        position="left"
-      />
+      {/* Why Choose Us Section */}
+            <motion.section className="py-10 bg-gray-800">
+              <div className="container mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center mb-12 text-white">
+                  Why Should You Collaborate With SolvitX?
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {whyChooseUs.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      variants={fadeInUp}
+                      className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <div className="text-blue-400 mb-4">{item.icon}</div>
+                      <h3 className="text-xl font-semibold mb-2 text-white">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-300">{item.description}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.section>
+
       <DescSection
         heading=""
         image="/images/services/WebDevelopment.jpg"
@@ -677,26 +747,41 @@ export default function WebDevelopmentService() {
         ]}
         position="right"
       />
-      <DescSection
-        heading=""
-        image="/images/services/WebDevelopment.jpg"
-        title="Our Development Process
-"
-        content={[
-          "Understanding your commercial objectives and vision. ",
-          "Building an user-friendly and adaptable framework",
-          "Ensuring optimal functionality with data integrity.s",
-          "Setting your platform and ensuring dedicated assistance.",
-        ]}
-        position="left"
-      />
+
+      {/* Working Process Section */}
+            <motion.section className="py-10 bg-gray-900">
+              <div className="container mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center mb-12 text-white">
+                  Our Development Process
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {workingProcess.map((step, index) => (
+                    <motion.div
+                      key={index}
+                      variants={fadeInUp}
+                      className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 relative"
+                    >
+                      <div className="absolute -top-4 -left-4 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
+                        {step.step}
+                      </div>
+                      <div className="text-blue-400 mb-4">{step.icon}</div>
+                      <h3 className="text-xl font-semibold mb-2 text-white">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-300">{step.description}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.section>
+
       <DescSection
         heading=""
         image="/images/services/WebDevelopment.jpg"
         title="What Do Our Clients Say?
 "
         content={
-          "SolvitX has helped us redesign our B2B website that has helped us increase our ROI by 140%. Our returning visitors have improved massively on our website. The SolvitX expert team has built us a dynamic website, tested and implemented it on an SEO-ready platform, and also provided support even after the deployment. "
+          "SolvitX has helped us redesign our B2B website that has helped us increase our ROI by 140%. Our returning visitors have improved massively on our website. The SolvitX expert team has built us a dynamic website, tested and implemented it on an SEO-ready platform, and also provided support even after the deployment.      - Kailash Patel, Founder"
         }
         position="right"
       />
