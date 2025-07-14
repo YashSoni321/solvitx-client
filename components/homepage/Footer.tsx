@@ -81,7 +81,7 @@ const Footer = () => {
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500"></div>
       <div className="fixed right-4 md:right-6 bottom-4 md:bottom-6 z-[100] flex flex-col gap-3">
         <motion.a
-          href="https://wa.me/919782025577"
+          href="https://wa.me/917232899120"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.15, rotate: 5 }}
@@ -92,7 +92,7 @@ const Footer = () => {
           <FaWhatsapp size={20} />
         </motion.a>
         <motion.a
-          href="tel:+919782025577"
+          href="tel:+917232899120"
           whileHover={{ scale: 1.15, rotate: -5 }}
           whileTap={{ scale: 0.9 }}
           className="bg-blue-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:bg-blue-600 transition-all"
