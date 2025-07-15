@@ -24,6 +24,7 @@ import {
   FaChevronUp,
   FaChevronDown,
   FaClipboardList,
+  FaHeadset,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
@@ -180,6 +181,30 @@ const faqs = [
     question: "How do you handle app store submissions?",
     answer:
       "We manage the entire app store submission process for both Apple App Store and Google Play Store. This includes preparing all necessary assets, documentation, complying with guidelines, and addressing any feedback from the review process.",
+  },
+];
+
+// Why Choose Us
+const whyChooseUs = [
+  {
+    title: "Expert Team",
+    description: "Accredited specialists backed by extensive hands-on expertise.",
+    icon: <FaCheckCircle className="text-3xl" />,
+  },
+  {
+    title: "Latest Technologies",
+    description: "Equipped with current-gen tech for optimal execution.",
+    icon: <FaCode className="text-3xl" />,
+  },
+  {
+    title: "Quality Assurance",
+    description: "Thorough multi-device testing to ensure flawless performance.",
+    icon: <FaShieldAlt className="text-3xl" />,
+  },
+  {
+    title: "24/7 Support",
+    description: "Proactive upkeep with ongoing app updates to ensure long-term app health.",
+    icon: <FaHeadset className="text-3xl" />,
   },
 ];
 
@@ -340,19 +365,25 @@ export default function AppDevelopmentService() {
       </motion.section>  */}
       <HeroSection
         backgroundImage={isMobile ? heroImgMobile : heroImg}
-        heading="From ideation to execution - build apps that provide lag-free experiences."
+        heading="Build Apps That Provide Lag-Free Experiences."
         highlight=""
         subheading="We help you build apps that bring your vision to life. This is your opportunity for smarter, tech-savvy access to your brand."
         buttonText="Get a Free Consultation"
       />
 
       <DescSection
-        heading="Custom App Development For Your Businesses"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
-        title="Custom App Development"
+        title="Custom App Development For Your Businesses"
         content="In this fast-transforming digital ecospace, we develop modern applications that are tailored for your business. All you need is an idea and a couch to relax. Our expert team will build you high performance Android and iOS apps that are crafted for your audience and help to grow your business."
         position="left"
       />
+
+      <TechStackSection
+              techCategories={techCategories}
+              title="Our Technology Stack "
+              description="At SolvitX, we leverage the latest technological innovations, frameworks, design principles, and customer-centric approach to build scalable applications that improve engagement and solve real-world problems for you."
+            />
 
       {/* <DescSection
         heading="Custom Solutions for Your Business"
@@ -477,10 +508,46 @@ export default function AppDevelopmentService() {
           </div>
         </div>
       </motion.section> */}
-      <TechStackSection
-        title="Our Tech Stack"
-        techCategories={techCategories}
+
+      {/* Why Choose Us Section */}
+            <motion.section className="py-10 bg-gray-900">
+              <div className="container mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center mb-12 text-white">
+                Why Should You Collaborate With SolvitX?
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {whyChooseUs.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      variants={fadeInUp}
+                      className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <div className="text-green-400 mb-4">{item.icon}</div>
+                      <h3 className="text-xl font-semibold mb-2 text-white">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-300">{item.description}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.section>
+
+            <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
       />
+
       <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -506,20 +573,6 @@ export default function AppDevelopmentService() {
           </div>
         </div>
       </motion.section>
-      <DescSection
-        heading=""
-        image="/images/services/WebDevelopment.jpg"
-        title="What Makes SolvitX A Trusted Global Partner?
-"
-        content={[
-          "10+ Years of Experience ",
-          "97% Customer Satisfaction",
-          "520+ Successful Projects",
-          "20+ IT Experts",
-          "84+ Clients Worldwide",
-        ]}
-        position="right"
-      />
 
       <DescSection
         heading=""

@@ -28,6 +28,12 @@ import {
   FaBolt,
   FaExchangeAlt,
   FaBell,
+  FaProjectDiagram,
+  FaChartBar,
+  FaKey,
+  FaCogs,
+  FaCodeBranch,
+  FaTachometerAlt,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
@@ -36,6 +42,7 @@ import HeroSection from "@/components/homepage/Hero";
 import heroImg from "../public/images/heroimages/Api_Development.jpg";
 import heroImgMobile from "../public/images/hero-mobile/API.jpg";
 import useIsMobile from "@/hooks/useIsMobile";
+import { TechStackSection } from "@/components/common/TechStackSection";
 
 // Animation variants
 const fadeInUp = {
@@ -52,45 +59,154 @@ const staggerContainer = {
   },
 };
 
+const apiTechCategories = [
+  {
+    name: "API Types & Protocols",
+    technologies: [
+      {
+        name: "RESTful APIs",
+        icon: <FaExchangeAlt className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "GraphQL",
+        icon: <FaProjectDiagram className="text-3xl" />,
+        color: "text-pink-500",
+      },
+      {
+        name: "gRPC",
+        icon: <FaCogs className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "WebSockets",
+        icon: <FaCodeBranch className="text-3xl" />,
+        color: "text-green-600",
+      },
+    ],
+  },
+  {
+    name: "Backend Frameworks",
+    technologies: [
+      {
+        name: "Node.js",
+        icon: <FaCogs className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "Express.js",
+        icon: <FaCogs className="text-3xl" />,
+        color: "text-gray-500",
+      },
+      {
+        name: "Django (Python)",
+        icon: <FaCogs className="text-3xl" />,
+        color: "text-blue-700",
+      },
+      {
+        name: "Laravel (PHP)",
+        icon: <FaCogs className="text-3xl" />,
+        color: "text-red-600",
+      },
+    ],
+  },
+  {
+    name: "Authentication & Security",
+    technologies: [
+      {
+        name: "OAuth 2.0",
+        icon: <FaLock className="text-3xl" />,
+        color: "text-purple-600",
+      },
+      {
+        name: "JWT",
+        icon: <FaKey className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "API Rate Limiting",
+        icon: <FaShieldAlt className="text-3xl" />,
+        color: "text-red-500",
+      },
+      {
+        name: "CORS Management",
+        icon: <FaShieldAlt className="text-3xl" />,
+        color: "text-indigo-500",
+      },
+    ],
+  },
+  {
+    name: "Monitoring & Tools",
+    technologies: [
+      {
+        name: "Postman",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-orange-500",
+      },
+      {
+        name: "Swagger / OpenAPI",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "Logging & Monitoring",
+        icon: <FaChartBar className="text-3xl" />,
+        color: "text-green-400",
+      },
+      {
+        name: "API Gateway",
+        icon: <FaProjectDiagram className="text-3xl" />,
+        color: "text-gray-600",
+      },
+    ],
+  },
+];
+
 // API Services
 const apiServices = [
   {
     title: "RESTful APIs",
     description:
-      "Design and develop scalable RESTful APIs for your applications.",
+      "Develop resilient, scalable interfaces designed for your application needs.",
     icon: <FaCode className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "GraphQL APIs",
     description:
-      "Build efficient and flexible GraphQL APIs for modern applications.",
+      "Construct dynamic GraphQL solutions to streamline data delivery.",
     icon: <FaServer className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "API Security",
     description:
-      "Implement robust security measures and authentication systems.",
+      "Enforce strong encryption and access control for secure APIs.",
     icon: <FaShieldAlt className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "API Integration",
     description:
-      "Seamlessly integrate with third-party services and platforms.",
+      "Stable integration with custom or third party APIs, CRMs and databases. ",
     icon: <FaExchangeAlt className="text-4xl" />,
     color: "text-red-500",
   },
   {
-    title: "Performance Optimization",
-    description: "Optimize API performance for speed and reliability.",
+    title: "Performance",
+    description: "Establish smooth communication with third-party infrastructures.",
     icon: <FaBolt className="text-4xl" />,
     color: "text-green-500",
   },
   {
+    title: "Optimisation",
+    description: "Achieve reliable, low-latency data exchanges through optimisation.",
+    icon: <FaTachometerAlt className="text-4xl" />,
+    color: "text-green-500",
+  },
+  {
     title: "API Documentation",
-    description: "Comprehensive documentation for easy integration.",
+    description: "Enable quick onboarding with usage guides and schemas.",
     icon: <FaFileAlt className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -99,24 +215,24 @@ const apiServices = [
 // Benefits
 const benefits = [
   {
-    title: "Restful APIs",
+    title: "Scalability",
     description:
-      "Develop resilient, scalable interfaces designed for your application needs.",
+      "Future-proof interfaces that handle growing traffic with ease.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "Security",
-    description: "Enterprise-grade security for your APIs.",
+    description: "Protect sensitive data to defend against data breaches.",
     icon: <FaLock className="text-3xl" />,
   },
   {
     title: "Performance",
-    description: "High-performance APIs with minimal latency.",
+    description: "Lean architecture delivering performance at scale with minimal data lag.",
     icon: <FaBolt className="text-3xl" />,
   },
   {
     title: "Global Reach",
-    description: "APIs accessible from anywhere in the world.",
+    description: "Borderless connectivity with scalable cloud networks.",
     icon: <FaGlobe className="text-3xl" />,
   },
 ];
@@ -125,22 +241,22 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "API Experts",
-    description: "Experienced team in API development and integration.",
+    description: "Proven API strategists across diverse API ecosystems.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Best Practices",
-    description: "Follow industry best practices and standards.",
+    description: "Adhere to structured coding, error handling, and logging norms.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Round-the-clock technical assistance.",
+    description: "Round-the-clock tech help for troubleshooting and updates. ",
     icon: <FaHeadset className="text-3xl" />,
   },
   {
     title: "Proven Success",
-    description: "Successful API implementations across industries.",
+    description: "Trusted by brands in building reliable API rollouts across verticals.",
     icon: <FaStar className="text-3xl" />,
   },
 ];
@@ -150,25 +266,25 @@ const workingProcess = [
   {
     step: "1",
     title: "Requirement Analysis",
-    description: "Understanding your API needs and specifications.",
+    description: "Translate technical needs and specifications into structured APIs.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "2",
     title: "API Design",
-    description: "Creating a detailed API architecture and documentation.",
+    description: "Blueprints API schemas with complete route mapping.",
     icon: <FaCode className="text-3xl" />,
   },
   {
     step: "3",
     title: "Development & Testing",
-    description: "Building and testing the API implementation.",
+    description: "Build backend logic and validate load testing.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     step: "4",
     title: "Deployment & Monitoring",
-    description: "Launching the API and monitoring performance.",
+    description: "Deploy endpoints to production with proactive troubleshooting.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -177,32 +293,32 @@ const workingProcess = [
 const additionalFeatures = [
   {
     title: "Rate Limiting",
-    description: "Control API usage with rate limiting.",
+    description: "Manage traffic with usage thresholds and quotas.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "Caching",
-    description: "Implement caching for better performance.",
+    description: "Enhance API efficiency by implementing cache strategies.",
     icon: <FaDatabase className="text-3xl" />,
   },
   {
     title: "Versioning",
-    description: "Support multiple API versions.",
+    description: "Facilitate user transitions with structured API releases.",
     icon: <FaCode className="text-3xl" />,
   },
   {
     title: "Analytics",
-    description: "Track API usage and performance metrics.",
+    description: "Audit API interactions to optimise performance and load.",
     icon: <FaChartLine className="text-3xl" />,
   },
   {
     title: "Webhooks",
-    description: "Real-time event notifications.",
+    description: "Notify clients of event-driven updates with webhook support.",
     icon: <FaBell className="text-3xl" />,
   },
   {
     title: "SDK Generation",
-    description: "Generate SDKs for multiple platforms.",
+    description: "Equip developers with SDKs to speed up cross-platform integration.",
     icon: <FaCode className="text-3xl" />,
   },
 ];
@@ -285,9 +401,9 @@ export default function APIDevelopment() {
 
       <HeroSection
         backgroundImage={isMobile ? heroImgMobile : heroImg}
-        heading="We help you build a sturdy backbone for your modern software."
+        heading="A Sturdy Backbone For Your Modern Software."
         highlight=""
-        subheading="Build robust, scalable, and secure APIs that drive your digital transformation."
+        subheading="We build clean and layered architecture that emphasises testability, versioning, and CI/CD pipelines that accelerate your entire DevOps workflow."
         buttonText="Get a Free Consultation"
       />
       <DescSection
@@ -298,12 +414,10 @@ export default function APIDevelopment() {
         position="left"
       />
 
-      <DescSection
-        heading="Custom Solutions for Your Business"
-        image="/images/dashboard.jpg"
-        title="Custom Web Applications"
-        content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."
-        position="right"
+      <TechStackSection
+        techCategories={apiTechCategories}
+        title="Our Technology Stack "
+        description="At SolvitX, with our expertise, we let you build responsive apps and user-friendly software that enables efficient and integrated workflows, especially in the fields of healthcare, education, communications, and hospitality."
       />
 
       {/* Services Section */}
@@ -316,9 +430,12 @@ export default function APIDevelopment() {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our API Services
+          Why Build APIs?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed text-center my-10">
+          Modern applications and software are not just about appealing designs —it is about extended functionality, interoperability, cross-platform communications, scalability, and security
+        </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {apiServices.map((service, index) => (
               <motion.div
                 key={index}
@@ -340,7 +457,7 @@ export default function APIDevelopment() {
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Build APIs?
+          Our Special API Development Features 
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -388,7 +505,7 @@ export default function APIDevelopment() {
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Our Services?
+          Why Choose SolvitX For API Development Services?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (
@@ -407,6 +524,21 @@ export default function APIDevelopment() {
           </div>
         </div>
       </motion.section>
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
 
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-900">
@@ -434,6 +566,14 @@ export default function APIDevelopment() {
           </div>
         </div>
       </motion.section>
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Do Our Clients Say?"
+        content="SolvitX team has deep technical knowledge and built us a set of scalable APIs for our internal operations, making communication between our app, CRM and inventory systems seamless. - Aditya Sharma, Operations Lead."
+        position="left"
+      />
 
       {/* FAQs Section */}
       <motion.section className="py-10 bg-gray-800">

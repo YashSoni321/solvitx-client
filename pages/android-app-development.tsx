@@ -26,10 +26,14 @@ import {
   FaServer,
   FaCloud,
   FaLock,
+  FaChartLine,
+  FaMobileAlt,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Footer from "@/components/homepage/Footer";
 import HeroSection from "@/components/homepage/Hero";
+import DescSection from "@/components/webdevelopment/DescSection";
+import { TechStackSection } from "@/components/common/TechStackSection";
 
 // Animation variants
 const fadeInUp = {
@@ -46,41 +50,145 @@ const staggerContainer = {
   },
 };
 
+// Technology categories for android development
+const techCategories = [
+  {
+    name: "Native Mobile",
+    technologies: [
+      {
+        name: "iOS (Swift)",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "Android (Kotlin)",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "Objective-C",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-orange-500",
+      },
+      {
+        name: "Java",
+        icon: <FaCode className="text-3xl" />,
+        color: "text-red-500",
+      },
+    ],
+  },
+  {
+    name: "Cross-Platform",
+    technologies: [
+      {
+        name: "Flutter",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-blue-400",
+      },
+      {
+        name: "React Native",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-blue-600",
+      },
+      {
+        name: "Xamarin",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "Ionic",
+        icon: <FaMobileAlt className="text-3xl" />,
+        color: "text-blue-300",
+      },
+    ],
+  },
+  {
+    name: "Backend",
+    technologies: [
+      {
+        name: "Firebase",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-yellow-500",
+      },
+      {
+        name: "Node.js",
+        icon: <FaServer className="text-3xl" />,
+        color: "text-green-600",
+      },
+      {
+        name: "MongoDB",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-green-500",
+      },
+      {
+        name: "GraphQL",
+        icon: <FaDatabase className="text-3xl" />,
+        color: "text-pink-500",
+      },
+    ],
+  },
+  {
+    name: "DevOps & Tools",
+    technologies: [
+      {
+        name: "CI/CD",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-purple-600",
+      },
+      {
+        name: "TestFlight",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-blue-500",
+      },
+      {
+        name: "App Center",
+        icon: <FaTools className="text-3xl" />,
+        color: "text-purple-500",
+      },
+      {
+        name: "Analytics",
+        icon: <FaChartLine className="text-3xl" />,
+        color: "text-red-400",
+      },
+    ],
+  },
+];
+
 // Android Services
 const androidServices = [
   {
     title: "Native Android Development",
-    description: "Custom Android apps built with Kotlin and Java.",
+    description: "Personalised Android applications using robust frameworks like Kotlin and Java.",
     icon: <FaAndroid className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "UI/UX Design",
-    description: "Material Design compliant, user-friendly interfaces.",
+    description: "Visually appealing interfaces built on Material Design principles.",
     icon: <FaMobile className="text-4xl" />,
     color: "text-blue-500",
   },
   {
     title: "Backend Integration",
-    description: "Seamless integration with RESTful APIs and databases.",
+    description: "Harmonised interactions with cloud APIs and structured data systems. ",
     icon: <FaServer className="text-4xl" />,
     color: "text-purple-500",
   },
   {
     title: "Cloud Services",
-    description: "Integration with Firebase and other cloud platforms.",
+    description: "Unified cloud functionality with Firebase and beyond.",
     icon: <FaCloud className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Security Implementation",
-    description: "Advanced security features and data protection.",
+    description: "Fortified with layers of encryption and secure auth frameworks.",
     icon: <FaLock className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Performance Optimization",
-    description: "Optimized for speed, battery life, and memory usage.",
+    description: "High-performance code with maximum resource efficiency.",
     icon: <FaRocket className="text-4xl" />,
     color: "text-orange-500",
   },
@@ -90,22 +198,22 @@ const androidServices = [
 const benefits = [
   {
     title: "Wide Market Reach",
-    description: "Access to billions of Android users worldwide.",
+    description: "Unlock Android’s vast global user base.",
     icon: <FaGlobe className="text-3xl" />,
   },
   {
     title: "Custom Solutions",
-    description: "Tailored apps for your specific business needs.",
+    description: "Custom-fit mobile solutions designed to match your vision.",
     icon: <FaTools className="text-3xl" />,
   },
   {
     title: "Cost-Effective",
-    description: "Lower development costs compared to other platforms.",
+    description: "Budget-friendly mobile solutions for rapid deployment.",
     icon: <FaChartBar className="text-3xl" />,
   },
   {
     title: "Easy Integration",
-    description: "Seamless integration with Google services.",
+    description: "Native compatibility with Google's ecosystem of services.",
     icon: <FaCode className="text-3xl" />,
   },
 ];
@@ -114,22 +222,22 @@ const benefits = [
 const whyChooseUs = [
   {
     title: "Expert Team",
-    description: "Certified Android developers with years of experience.",
+    description: "Veteran Android developers with deep platform knowledge.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
   {
     title: "Latest Technologies",
-    description: "Using modern Android development tools and practices.",
+    description: "Up to date with the latest Android tech stack.",
     icon: <FaCode className="text-3xl" />,
   },
   {
     title: "Quality Assurance",
-    description: "Rigorous testing across multiple devices.",
+    description: "Comprehensive validation across multiple devices to ensure universal compatibility.",
     icon: <FaShieldAlt className="text-3xl" />,
   },
   {
     title: "24/7 Support",
-    description: "Continuous support and maintenance services.",
+    description: "Sustained improvements and bug monitoring. ",
     icon: <FaHeadset className="text-3xl" />,
   },
 ];
@@ -139,25 +247,25 @@ const workingProcess = [
   {
     step: "1",
     title: "Requirement Analysis",
-    description: "Understand your app requirements and target audience.",
+    description: "Define goals based on market insights and customer behaviour.",
     icon: <FaSearch className="text-3xl" />,
   },
   {
     step: "2",
     title: "Design & Planning",
-    description: "Create wireframes and plan the development process.",
+    description: "Blueprint user flows and architect the visual prototypes.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "3",
     title: "Development",
-    description: "Build your app with best practices and standards.",
+    description: "Apply efficient industry-aligned engineering for stable builds.",
     icon: <FaCode className="text-3xl" />,
   },
   {
     step: "4",
     title: "Testing & Launch",
-    description: "Test thoroughly and launch on Google Play Store.",
+    description: "Validate rigorously before Play Store deployment.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -237,11 +345,26 @@ export default function AndroidAppDevelopment() {
       </motion.section> */}
       <HeroSection
         backgroundImage={heroImg}
-        heading="Android App Development"
+        heading="We Are Engineered For Growth."
         highlight=""
-        subheading="Build powerful, scalable, and user-friendly Android applications."
+        subheading="With our intuitive designs, efficient code, and easy compatibility, we let your ideas reach a million audience."
         buttonText="Get a Free Consultation"
       />
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="Custom Android App Development Services For Your Business"
+        content="We know that one size doesn't fit all. So here at Solvitx, we give your business a new identity with customised android app development solutions crafted to your needs. It is your idea and our expertise that can transform your growth vision into scalable opportunities and will bring real results."
+        position="left"
+      />
+
+      <TechStackSection
+                          techCategories={techCategories}
+                          title="Our Technology Stack "
+                          description="Our expert team utilises Kotlin, Java, Jetpack libraries and other latest technology stack to develop user friendly apps that are compatible across Android smartphones, tablets and wearables."
+                        />
+
       {/* Services Section */}
       <motion.section
         ref={ref}
@@ -252,8 +375,11 @@ export default function AndroidAppDevelopment() {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Our Android Development Services
+          Why Should You Build An Android Application?
           </h2>
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed text-center my-10">
+          With scalable, robust, and interactive Android applications, you can reach a wider audience and stand out among millions in the Play Store.
+        </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {androidServices.map((service, index) => (
               <motion.div
@@ -276,7 +402,7 @@ export default function AndroidAppDevelopment() {
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Choose Android Development?
+          Our Special Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -320,6 +446,21 @@ export default function AndroidAppDevelopment() {
         </div>
       </motion.section>
 
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Makes SolvitX A Trusted Global Partner?
+"
+        content={[
+          "10+ Years of Experience ",
+          "97% Customer Satisfaction",
+          "520+ Successful Projects",
+          "20+ IT Experts",
+          "84+ Clients Worldwide",
+        ]}
+        position="right"
+      />
+
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
@@ -346,6 +487,14 @@ export default function AndroidAppDevelopment() {
           </div>
         </div>
       </motion.section>
+
+      <DescSection
+        heading=""
+        image="/images/services/WebDevelopment.jpg"
+        title="What Do Our Clients Say?"
+        content="The Android application developed by SolvitX helped us scale all our logistic operations with ease. They provided faster delivery, a smooth transitioning, and a clean and robust code. - Sanya Upadhyay, Product Manager"
+        position="left"
+      />
 
       {/* FAQs Section */}
       <motion.section className="py-10 bg-gray-900">
