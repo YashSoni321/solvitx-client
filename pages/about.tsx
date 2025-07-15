@@ -48,7 +48,13 @@ const founders = [
     name: "Pratham Mittal",
     role: "Founder & CEO",
     image: "/images/user.jpg",
-    bio: "A visionary entrepreneur with a passion for creating digital experiences that transform businesses. With over 8 years in tech leadership, Yash founded SolvitX to bridge the gap between technical excellence and business success.",
+    bio: `Hi, I am Pratham Mittal, the founder of SolvitX. With over 10 years of experience as a digital marketer and business analyst, I have worked closely with hundreds of brands.
+
+My goal is to make digital marketing simple, smart and effective so that businesses can focus more on what they do best while we help them thrive online.
+
+I have partnered with both B2B and B2C companies, analysed their critical pain points and developed strategies to solve them that blend creativity with data driven inside.
+
+SolveitX is a product of all the experiences that I have acquired from this industry. Whether it is social media marketing PPC campaigns over building and to and digital strategies my focus is always on driving the real and measurable growth. `,
     quote:
       "Technology should solve real problems, not create new ones. Our mission is to deliver solutions that make a tangible difference.",
   },

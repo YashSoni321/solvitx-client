@@ -1346,7 +1346,7 @@ const LandingPage = () => {
                         Call Us
                       </h4>
                       <a
-                        href="tel:+919782025577"
+                        href="tel:+917232899120"
                         className="text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1"
                       >
                         +91 7232899120
