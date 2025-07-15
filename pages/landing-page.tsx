@@ -1415,7 +1415,7 @@ const LandingPage = () => {
                       <FaEnvelope className="text-white text-xl" />
                     </a>
                     <a
-                      href="tel:+919782025577"
+                      href="tel:+917232899120"
                       className="bg-green-600 hover:bg-green-700 p-3 rounded-full transition-colors duration-300 transform hover:scale-110"
                     >
                       <FaPhone className="text-white text-xl" />
