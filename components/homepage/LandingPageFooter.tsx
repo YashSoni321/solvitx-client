@@ -24,7 +24,7 @@ const LandingPageFooter = () => {
       {/* Floating action buttons (WhatsApp & Call) */}
       <div className="fixed right-4 md:right-6 bottom-4 md:bottom-6 z-[100] flex flex-col gap-3">
         <motion.a
-          href="https://wa.me/917232899120"
+          href="https://wa.me/+917232899120"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.15, rotate: 5 }}

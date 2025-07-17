@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -57,21 +56,6 @@ import SectionHeading from "@/components/common/SectionHeading";
 import LandingPageNavbar from "@/components/common/LandingPageNavbar";
 // import LandingPageFooter from "@/components/homepage/landingPageFooter";
 import LandingPageFooter from "../components/homepage/LandingPageFooter";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
 
 // Function to animate numbers
 export const CountUpAnimation = ({ target }: { target: number }) => {
@@ -280,12 +264,7 @@ const LandingPage = () => {
       <section id="about" className="py-4 md:py-4 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={staggerContainer}
-              viewport={{ once: true, amount: 0.3 }}
-            >
+            <div>
               <SectionHeading
                 title="SolvitX: Turn Ideas into Smart Digital Solutions"
                 subtitle="Who We Are"
@@ -294,10 +273,7 @@ const LandingPage = () => {
                 subtitlePosition="above"
                 alignment="left"
               />
-              <motion.div
-                variants={fadeInUp}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4"
-              >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
                 {[
                   {
                     icon: <FaLaptopCode className="text-blue-400" />,
@@ -327,17 +303,11 @@ const LandingPage = () => {
                     <span className="text-gray-200">{item.label}</span>
                   </div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeInUp}
-              viewport={{ once: true, amount: 0.3 }}
-              className="bg-gradient-to-br border-amber-50 border-4  p-8 md:p-10 rounded-2xl shadow-2xl"
-            >
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center text-white">
+            <div className="bg-gradient-to-br border-amber-50 border-4 p-4 md:p-8 lg:p-10 rounded-2xl shadow-2xl">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-center text-white">
                 Ready to Start? Get a Free Quote!
               </h3>
               {submitSuccess && (
@@ -507,7 +477,7 @@ const LandingPage = () => {
                   </button>
                 </div>
               </form>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -541,28 +511,25 @@ const LandingPage = () => {
             theme="light"
             subtitlePosition="above"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {[
               { value: 10, label: "Years of experience", suffix: "+" },
               { value: 200, label: "Happy Clients", suffix: "%" },
               { value: 100, label: "Websites built", suffix: "+" },
               { value: 25, label: "Team of Professionals", suffix: "+" },
             ].map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInUp}
-                custom={index}
-                viewport={{ once: true }}
-                className="text-center bg-white/5 p-8 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+                className="text-center bg-white/5 p-4 md:p-8 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
               >
-                <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
-                  <CountUpAnimation target={stat.value} />
+                <div className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
+                  {stat.value}
                   {stat.suffix}
                 </div>
-                <div className="text-gray-300 text-lg">{stat.label}</div>
-              </motion.div>
+                <div className="text-gray-300 text-xs md:text-base">
+                  {stat.label}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -607,133 +574,139 @@ const LandingPage = () => {
             {activeTab === "web" &&
               [
                 {
-                  icon: <FaLaptopCode className="text-blue-600 text-3xl" />,
+                  icon: (
+                    <FaLaptopCode className="text-blue-600 text-2xl md:text-3xl" />
+                  ),
                   title: "Responsive Web Design",
                   description:
                     "Create responsive and user friendly websites to build greater digital experience .",
                 },
                 {
-                  icon: <FaServer className="text-blue-600 text-3xl" />,
+                  icon: (
+                    <FaServer className="text-blue-600 text-2xl md:text-3xl" />
+                  ),
                   title: "E-commerce Powerhouses",
                   description:
                     "We help to turn your ideas into future proof eCommerce platforms that are designed to your goals.",
                 },
                 {
-                  icon: <FaShoppingCart className="text-blue-600 text-3xl" />,
+                  icon: (
+                    <FaShoppingCart className="text-blue-600 text-2xl md:text-3xl" />
+                  ),
                   title: "Dynamic CMS Development",
                   description:
                     "We let you enjoy a dynamic Content Management Systems where you can functionable website with no programming knowledge.",
                 },
               ].map((service, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
+                  className="bg-white p-4 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
                 >
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-all duration-300">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 md:mb-6 group-hover:bg-blue-600 transition-all duration-300">
                     {React.cloneElement(service.icon, {
                       className:
-                        "text-blue-600 text-3xl group-hover:text-white transition-all duration-300",
+                        "text-blue-600 text-2xl md:text-3xl group-hover:text-white transition-all duration-300",
                     })}
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 text-gray-900">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
-                </motion.div>
+                </div>
               ))}
 
             {activeTab === "digital" &&
               [
                 {
-                  icon: <FaSearch className="text-purple-600 text-3xl" />,
+                  icon: (
+                    <FaSearch className="text-purple-600 text-2xl md:text-3xl" />
+                  ),
                   title: "Targeted SEO Strategies",
                   description:
                     "Make your website visible with proven organic SEO strategies that not only boosts visibility but bring real conversions.",
                 },
                 {
-                  icon: <FaChartLine className="text-purple-600 text-3xl" />,
+                  icon: (
+                    <FaChartLine className="text-purple-600 text-2xl md:text-3xl" />
+                  ),
                   title: "Engaging Social Media Marketing",
                   description:
                     "Build a future proof digital brand & impactful campaigns through customer trust in this evolving digital world and impactful campaigns. ",
                 },
                 {
-                  icon: <FaRegLightbulb className="text-purple-600 text-3xl" />,
+                  icon: (
+                    <FaRegLightbulb className="text-purple-600 text-2xl md:text-3xl" />
+                  ),
                   title: "PPC & Ad Campaigns",
                   description:
                     "We help you maximize your revenue by targeted Pay-Per-Click advertising and interactive marketing campaigns that bring real results.",
                 },
               ].map((service, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
+                  className="bg-white p-4 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
                 >
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-all duration-300">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4 md:mb-6 group-hover:bg-purple-600 transition-all duration-300">
                     {React.cloneElement(service.icon, {
                       className:
-                        "text-purple-600 text-3xl group-hover:text-white transition-all duration-300",
+                        "text-purple-600 text-2xl md:text-3xl group-hover:text-white transition-all duration-300",
                     })}
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 text-gray-900">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
-                </motion.div>
+                </div>
               ))}
 
             {activeTab === "app" &&
               [
                 {
-                  icon: <FaMobileAlt className="text-pink-600 text-3xl" />,
+                  icon: (
+                    <FaMobileAlt className="text-pink-600 text-2xl md:text-3xl" />
+                  ),
                   title: "Native iOS Development",
                   description:
                     "Explore tailored iOS solutions leveraging Swift and Objective-C frameworks that aligns well with your goals.",
                 },
                 {
-                  icon: <FaMobileAlt className="text-pink-600 text-3xl" />,
+                  icon: (
+                    <FaMobileAlt className="text-pink-600 text-2xl md:text-3xl" />
+                  ),
                   title: "Robust Android Development",
                   description:
                     "Explore visually appealing custom Android solutions built on robust frameworks like Kotlin and Java.",
                 },
                 {
-                  icon: <FaSyncAlt className="text-pink-600 text-3xl" />,
+                  icon: (
+                    <FaSyncAlt className="text-pink-600 text-2xl md:text-3xl" />
+                  ),
                   title: "Cross-Platform Solutions",
                   description:
                     "We provide dynamic future proof interfaces, strong encryption and cross platform solutions that provide seamless & reliable experiences.",
                 },
               ].map((service, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
+                  className="bg-white p-4 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
                 >
-                  <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-pink-600 transition-all duration-300">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-pink-100 rounded-full flex items-center justify-center mb-4 md:mb-6 group-hover:bg-pink-600 transition-all duration-300">
                     {React.cloneElement(service.icon, {
                       className:
-                        "text-pink-600 text-3xl group-hover:text-white transition-all duration-300",
+                        "text-pink-600 text-2xl md:text-3xl group-hover:text-white transition-all duration-300",
                     })}
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 text-gray-900">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
-                </motion.div>
+                </div>
               ))}
           </div>
         </div>
@@ -742,26 +715,14 @@ const LandingPage = () => {
       {/* Testimonials Section - White */}
       <section className="py-4 md:py-4 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-8"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-8">
             <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2 block">
               Client Testimonials
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900"></h2>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {[
               {
                 name: "Akash Chauhan",
@@ -790,13 +751,12 @@ const LandingPage = () => {
                 color: "bg-pink-500",
               },
             ].map((client, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={fadeInUp}
-                className="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 relative"
+                className="bg-gray-50 p-4 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 relative"
               >
                 <FaQuoteLeft className="text-3xl text-blue-300 absolute top-6 left-6 opacity-50" />
-                <p className="text-gray-600 mb-6 italic text-lg leading-relaxed pt-8">
+                <p className="text-gray-600 mb-6 italic text-sm md:text-base lg:text-lg leading-relaxed pt-8">
                   "{client.testimonial}"
                 </p>
                 <div className="flex items-center">
@@ -806,42 +766,38 @@ const LandingPage = () => {
                     {client.avatarInitial}
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-lg">
+                    <h4 className="font-bold text-gray-900 text-base md:text-lg">
                       {client.name}
                     </h4>
-                    <p className="text-gray-500 text-sm">{client.company}</p>
+                    <p className="text-gray-500 text-xs md:text-sm">
+                      {client.company}
+                    </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Why Choose Us - Black */}
       <section className="py-4 md:py-4 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-8"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-8">
             <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-2 block">
               Our Commitment
             </span>
-            <h4 className="text-3xl md:text-3xl lg:text-3xl font-bold mb-6">
+            <h4 className="text-2xl md:text-3xl font-bold mb-6">
               People don't buy what you do; they buy why you do it. And what you
               do simply proves what you believe.” — <u>Simon Sinek</u>
             </h4>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
               And at SolvitX, we focus on your WHY, collaborate with you on your
               HOW, and help you successfully achieve your WHAT.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {[
               {
                 title: "Seasoned Experts",
@@ -880,23 +836,18 @@ const LandingPage = () => {
                 icon: <FaShieldAlt className="text-blue-400" />,
               },
             ].map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInUp}
-                custom={index}
-                viewport={{ once: true }}
-                className="bg-gray-800 p-8 rounded-xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-2 shadow-lg"
+                className="bg-gray-800 p-4 md:p-8 rounded-xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-2 shadow-lg"
               >
                 <div className="text-4xl mb-5">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-white">
+                <h3 className="text-lg md:text-xl font-bold mb-3 text-white">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-justify">
+                <p className="text-sm md:text-base text-gray-400 leading-relaxed text-justify">
                   {item.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -905,13 +856,7 @@ const LandingPage = () => {
       {/* FAQ Section - Enhanced visual hierarchy */}
       <section className="py-4 md:py-4 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-8"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-8">
             <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-2 block">
               Got Questions?
             </span>
@@ -929,16 +874,11 @@ const LandingPage = () => {
               theme="dark"
               subtitlePosition="above"
             />
-          </motion.div>
+          </div>
 
           <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, index) => (
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInUp}
-                custom={index}
-                viewport={{ once: true }}
+              <div
                 key={index}
                 className="bg-gray-50 rounded-xl shadow-md overflow-hidden"
               >
@@ -946,13 +886,10 @@ const LandingPage = () => {
                   onClick={() => toggleFaq(index)}
                   className="flex justify-between items-center w-full p-5 md:p-6 text-left hover:bg-gray-100 transition-all"
                 >
-                  <span className="font-semibold text-lg text-gray-800">
+                  <span className="font-semibold text-base md:text-lg text-gray-800">
                     {faq.question}
                   </span>
-                  <motion.div
-                    animate={{ rotate: activeFaq === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
+                  <div>
                     <svg
                       className="w-6 h-6 text-blue-600"
                       fill="none"
@@ -966,22 +903,16 @@ const LandingPage = () => {
                         d="M19 9l-7 7-7-7"
                       ></path>
                     </svg>
-                  </motion.div>
+                  </div>
                 </button>
                 {activeFaq === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="px-5 md:px-6 pb-5"
-                  >
-                    <p className="text-gray-600 leading-relaxed">
+                  <div className="px-5 md:px-6 pb-5">
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                       {faq.answer}
                     </p>
-                  </motion.div>
+                  </div>
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -990,15 +921,9 @@ const LandingPage = () => {
       {/* Client Logo Slider Section - White */}
       <section id="clients" className="py-4 bg-gray-100">
         <div className="container mx-auto px-4">
-          <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-700"
-          >
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-700">
             Trusted By Visionary Brands & Ambitious Startups
-          </motion.h2>
+          </h2>
 
           <Swiper
             modules={[Autoplay]}
@@ -1036,13 +961,7 @@ const LandingPage = () => {
       {/* Process Section - Black */}
       <section id="process" className="py-4 md:py-4 bg-black text-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeInUp}
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center max-w-3xl mx-auto mb-8"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-8">
             <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-2 block">
               Our Methodology
             </span>
@@ -1060,7 +979,7 @@ const LandingPage = () => {
               theme="light"
               subtitlePosition="above"
             />
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -1089,25 +1008,20 @@ const LandingPage = () => {
                   "Seamless deployment followed by ongoing support and optimization for sustained growth.",
               },
             ].map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeInUp}
-                custom={index}
-                viewport={{ once: true }}
                 className="relative p-8 bg-gray-900 rounded-2xl hover:shadow-blue-500/30 shadow-lg transition-all duration-300 transform hover:-translate-y-2"
               >
-                <div className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 absolute -top-5 -left-3 opacity-30 group-hover:opacity-70 transition-opacity">
+                <div className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 absolute -top-5 -left-3 opacity-30 group-hover:opacity-70 transition-opacity">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white relative z-10">
+                <h3 className="text-lg md:text-xl font-bold mb-3 text-white relative z-10">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 relative z-10 leading-relaxed">
+                <p className="text-sm md:text-base text-gray-400 relative z-10 leading-relaxed">
                   {item.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -1288,22 +1202,22 @@ const LandingPage = () => {
             {/* About SolvitX */}
 
             {/* Contact Info */}
-            <div className="mb-10">
-              <div className="grid grid-cols-1 gap-6">
+            <div className="mb-6 md:mb-10">
+              <div className="grid grid-cols-1 gap-4 md:gap-6">
                 {/* Location */}
-                <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg">
-                      <FaMapMarkerAlt className="text-white text-xl" />
+                <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-4 md:p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="flex items-start space-x-3 md:space-x-4">
+                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 md:p-4 rounded-full shadow-lg flex-shrink-0">
+                      <FaMapMarkerAlt className="text-white text-lg md:text-xl" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-white font-semibold text-lg mb-2">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-white font-semibold text-base md:text-lg mb-1 md:mb-2">
                         Our Office
                       </h4>
-                      <p className="text-xl text-white font-bold mb-1">
+                      <p className="text-base md:text-xl text-white font-bold mb-1 break-words">
                         Jaipur, Rajasthan 302003
                       </p>
-                      <p className="text-gray-300 text-sm">
+                      <p className="text-gray-300 text-xs md:text-sm">
                         Visit us at our creative workspace where innovation
                         meets execution
                       </p>
@@ -1312,22 +1226,22 @@ const LandingPage = () => {
                 </div>
 
                 {/* Email */}
-                <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg">
-                      <FaEnvelope className="text-white text-xl" />
+                <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-4 md:p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="flex items-start space-x-3 md:space-x-4">
+                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 md:p-4 rounded-full shadow-lg flex-shrink-0">
+                      <FaEnvelope className="text-white text-lg md:text-xl" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-white font-semibold text-lg mb-2">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-white font-semibold text-base md:text-lg mb-1 md:mb-2">
                         Email Us
                       </h4>
                       <a
                         href="mailto:solvitxsolutions@gmail.com"
-                        className="text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1"
+                        className="text-base md:text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1 break-all"
                       >
                         solvitxsolutions@gmail.com
                       </a>
-                      <p className="text-gray-300 text-sm">
+                      <p className="text-gray-300 text-xs md:text-sm">
                         We typically respond within 2-4 hours during business
                         days
                       </p>
@@ -1336,22 +1250,22 @@ const LandingPage = () => {
                 </div>
 
                 {/* Phone */}
-                <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg">
-                      <FaPhone className="text-white text-xl" />
+                <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-4 md:p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="flex items-start space-x-3 md:space-x-4">
+                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 md:p-4 rounded-full shadow-lg flex-shrink-0">
+                      <FaPhone className="text-white text-lg md:text-xl" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-white font-semibold text-lg mb-2">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-white font-semibold text-base md:text-lg mb-1 md:mb-2">
                         Call Us
                       </h4>
                       <a
                         href="tel:+917232899120"
-                        className="text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1"
+                        className="text-base md:text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1 break-words"
                       >
                         +91 7232899120
                       </a>
-                      <p className="text-gray-300 text-sm">
+                      <p className="text-gray-300 text-xs md:text-sm">
                         Available Mon-Fri, 9:00 AM - 6:00 PM IST
                       </p>
                     </div>
@@ -1359,36 +1273,36 @@ const LandingPage = () => {
                 </div>
 
                 {/* Response Time Info */}
-                <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-6 rounded-xl border border-blue-500/30">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="bg-blue-500 p-2 rounded-full">
-                      <FaRegLightbulb className="text-white text-lg" />
+                <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-4 md:p-6 rounded-xl border border-blue-500/30">
+                  <div className="flex items-center space-x-2 md:space-x-3 mb-3">
+                    <div className="bg-blue-500 p-2 rounded-full flex-shrink-0">
+                      <FaRegLightbulb className="text-white text-base md:text-lg" />
                     </div>
-                    <h4 className="text-white font-semibold text-lg">
+                    <h4 className="text-white font-semibold text-base md:text-lg">
                       Quick Response Guarantee
                     </h4>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
                       <span className="text-gray-300">
                         Email replies within 2-4 hours
                       </span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
                       <span className="text-gray-300">
                         Free consultation calls
                       </span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
                       <span className="text-gray-300">
                         Project quotes within 24 hours
                       </span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
                       <span className="text-gray-300">
                         24/7 support for live projects
                       </span>
