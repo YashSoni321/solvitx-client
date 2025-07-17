@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   FaLinkedin,
@@ -10,13 +10,16 @@ import {
   FaMapMarkerAlt,
   FaArrowRight,
   FaWhatsapp,
+  FaTimes,
+  FaTwitter,
 } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import LogoImage from "../../public/images/solvitx.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [showModal, setShowModal] = useState(false);
 
   const footerLinks = [
     {
@@ -103,7 +106,7 @@ const Footer = () => {
       </div>
       <div className="container mx-auto px-4 md:px-6">
         {/* Top section: Logo, brief description, and main CTA */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-10 md:mb-12 pb-10 border-b border-gray-700/50">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-10 md:mb-12 pb-10 border-b border-gray-700/50">
           <div className="md:col-span-1 flex flex-col items-center md:items-start">
             <Link href="/" className="inline-block mb-3">
               <Image
@@ -133,7 +136,142 @@ const Footer = () => {
               <FaArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
+        </div> */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-10 md:mb-12 pb-10 border-b border-gray-700/50">
+          {/* Logo + tagline */}
+          <div className="md:col-span-1 flex flex-col items-center md:items-start">
+            <Link href="/" className="inline-block mb-3">
+              <Image
+                src={LogoImage}
+                alt="SolvitX"
+                height={40}
+                width={130}
+                className="invert brightness-0 filter"
+                priority
+              />
+            </Link>
+            <p className="text-xs text-gray-400 max-w-xs text-center md:text-left">
+              Crafting digital excellence and innovative solutions for
+              sustainable business growth.
+            </p>
+          </div>
+
+          {/* Let's Talk */}
+          <div className="md:col-span-2 flex flex-col sm:flex-row justify-center md:justify-end items-center gap-4 sm:gap-6">
+            <p className="text-lg font-semibold text-white text-center sm:text-left">
+              Ready to elevate your digital presence?
+            </p>
+            <button
+              onClick={() => setShowModal(true)}
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full font-medium hover:from-purple-700 hover:to-pink-600 transition-all duration-300 shadow-lg group text-base whitespace-nowrap"
+            >
+              Let's Talk
+              <FaArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+          </div>
         </div>
+
+        {/* Modal */}
+        <AnimatePresence>
+          {showModal && (
+            <>
+              {/* Overlay */}
+              <motion.div
+                className="fixed inset-0 bg-black bg-opacity-60 z-40"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setShowModal(false)}
+              />
+
+              {/* Modal content */}
+              <motion.div
+  className="fixed z-[9999] inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 0.3 }}
+>
+  <motion.div
+    className="relative w-full max-w-xl bg-white text-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-purple-100"
+    initial={{ scale: 0.8, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    exit={{ scale: 0.8, opacity: 0 }}
+    transition={{ duration: 0.4 }}
+  >
+    {/* Header */}
+    <div className="bg-gradient-to-r from-purple-700 via-pink-500 to-red-400 p-6 text-white">
+      <h2 className="text-3xl font-bold flex items-center gap-3">
+        ✨ Let’s Talk!
+      </h2>
+      <p className="text-sm mt-2 opacity-90">
+        Turning bold ideas into beautiful realities.
+      </p>
+      <button
+        onClick={() => setShowModal(false)}
+        className="absolute top-4 right-4 text-white hover:text-gray-200 transition"
+      >
+        <FaTimes className="h-5 w-5" />
+      </button>
+    </div>
+
+    {/* Body */}
+    <div className="p-6">
+      <p className="mb-4 text-[15px] leading-relaxed text-gray-700">
+        We’re more than developers — we’re digital partners helping you unlock
+        the next level of your business. Let’s create something extraordinary.
+      </p>
+
+      <div className="space-y-3 text-sm">
+        <div className="flex items-center gap-2">
+          <span className="text-purple-600 text-lg">📧</span>
+          <a
+            href="mailto:solvitxsolutions@gmail.com"
+            className="text-purple-700 font-semibold hover:underline"
+          >
+         solvitxsolutions@gmail.com
+          </a>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-purple-600 text-lg">📞</span>
+          <a
+            href="tel:+917232899120"
+            className="text-purple-700 font-semibold hover:underline"
+          >
+          +91 7232899120
+          </a>
+        </div>
+      </div>
+
+      {/* Call to Action */}
+      <div className="mt-6 text-center">
+        <a
+          href="/contact"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-full shadow-md transition duration-300"
+        >
+          Let’s Build Together <FaArrowRight className="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+
+    {/* Optional Social Icons */}
+    {/* <div className="px-6 pb-6 pt-3 border-t border-gray-100 flex justify-center gap-4 text-gray-500 text-lg">
+      <a href="https://linkedin.com" target="_blank" className="hover:text-purple-600 transition">
+        <FaLinkedin />
+      </a>
+      <a href="https://twitter.com" target="_blank" className="hover:text-purple-600 transition">
+        <FaTwitter />
+      </a>
+      <a href="mailto:hello@solvitx.com" className="hover:text-purple-600 transition">
+        <FaEnvelope />
+      </a>
+    </div> */}
+  </motion.div>
+</motion.div>
+
+            </>
+          )}
+        </AnimatePresence>
 
         {/* Main footer content sections */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-10 text-sm mb-10 md:mb-12">
