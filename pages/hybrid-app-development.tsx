@@ -238,7 +238,7 @@ export default function HybridAppDevelopment() {
       </motion.section>
 
       <DescSection
-        heading="Our Web Development Services"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
         title="Modern Web Development Solutions"
         content="We specialize in creating cutting-edge web applications using the latest technologies. Our team of expert developers delivers scalable, secure, and high-performance solutions tailored to your business needs. From responsive design to complex web applications, we ensure your digital presence stands out in today's competitive market."
@@ -246,7 +246,7 @@ export default function HybridAppDevelopment() {
       />
 
       <DescSection
-        heading="Custom Solutions for Your Business"
+        heading=""
         image="/images/dashboard.jpg"
         title="Custom Web Applications"
         content="Our custom web applications are built with precision and attention to detail. We focus on creating intuitive user interfaces, seamless user experiences, and robust backend systems. Whether you need an e-commerce platform, a content management system, or a complex web application, we've got you covered."

@@ -194,13 +194,15 @@ const apiServices = [
   },
   {
     title: "Performance",
-    description: "Establish smooth communication with third-party infrastructures.",
+    description:
+      "Establish smooth communication with third-party infrastructures.",
     icon: <FaBolt className="text-4xl" />,
     color: "text-green-500",
   },
   {
     title: "Optimisation",
-    description: "Achieve reliable, low-latency data exchanges through optimisation.",
+    description:
+      "Achieve reliable, low-latency data exchanges through optimisation.",
     icon: <FaTachometerAlt className="text-4xl" />,
     color: "text-green-500",
   },
@@ -227,7 +229,8 @@ const benefits = [
   },
   {
     title: "Performance",
-    description: "Lean architecture delivering performance at scale with minimal data lag.",
+    description:
+      "Lean architecture delivering performance at scale with minimal data lag.",
     icon: <FaBolt className="text-3xl" />,
   },
   {
@@ -246,7 +249,8 @@ const whyChooseUs = [
   },
   {
     title: "Best Practices",
-    description: "Adhere to structured coding, error handling, and logging norms.",
+    description:
+      "Adhere to structured coding, error handling, and logging norms.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
@@ -256,7 +260,8 @@ const whyChooseUs = [
   },
   {
     title: "Proven Success",
-    description: "Trusted by brands in building reliable API rollouts across verticals.",
+    description:
+      "Trusted by brands in building reliable API rollouts across verticals.",
     icon: <FaStar className="text-3xl" />,
   },
 ];
@@ -266,7 +271,8 @@ const workingProcess = [
   {
     step: "1",
     title: "Requirement Analysis",
-    description: "Translate technical needs and specifications into structured APIs.",
+    description:
+      "Translate technical needs and specifications into structured APIs.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
@@ -284,7 +290,8 @@ const workingProcess = [
   {
     step: "4",
     title: "Deployment & Monitoring",
-    description: "Deploy endpoints to production with proactive troubleshooting.",
+    description:
+      "Deploy endpoints to production with proactive troubleshooting.",
     icon: <FaRocket className="text-3xl" />,
   },
 ];
@@ -318,7 +325,8 @@ const additionalFeatures = [
   },
   {
     title: "SDK Generation",
-    description: "Equip developers with SDKs to speed up cross-platform integration.",
+    description:
+      "Equip developers with SDKs to speed up cross-platform integration.",
     icon: <FaCode className="text-3xl" />,
   },
 ];
@@ -407,7 +415,7 @@ export default function APIDevelopment() {
         buttonText="Get a Free Consultation"
       />
       <DescSection
-        heading="Custom Solutions For Your Business"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
         title="Custom API Development Solutions"
         content="This is your opportunity to make your software, devices, and applications future-ready with our customised APIs. Our experts help you to integrate your business's existing infrastructure with our tailored API development solutions. Establish secure transactions, efficient connections, data exchange, and seamless integration with our high-performance APIs. "
@@ -430,11 +438,13 @@ export default function APIDevelopment() {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Why Build APIs?
+            Why Build APIs?
           </h2>
           <p className="text-gray-300 text-base md:text-lg leading-relaxed text-center my-10">
-          Modern applications and software are not just about appealing designs —it is about extended functionality, interoperability, cross-platform communications, scalability, and security
-        </p>
+            Modern applications and software are not just about appealing
+            designs —it is about extended functionality, interoperability,
+            cross-platform communications, scalability, and security
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {apiServices.map((service, index) => (
               <motion.div
@@ -457,7 +467,7 @@ export default function APIDevelopment() {
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Our Special API Development Features 
+            Our Special API Development Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -505,7 +515,7 @@ export default function APIDevelopment() {
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Why Choose SolvitX For API Development Services?
+            Why Choose SolvitX For API Development Services?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (

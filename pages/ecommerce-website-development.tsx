@@ -291,7 +291,7 @@ export default function EcommerceWebsiteDevelopment() {
       />
 
       <DescSection
-        heading="Our Web Development Services"
+        heading=""
         image="/images/services/WebDevelopment.jpg"
         title="Custom Solutions For Your Business "
         content="SolvitX is here to solve all your complex business problems in the online space with precision and style. Our clean codes, audience centric designs and scalable tech, helps you build responsive web applications that are tailored to your business goals and needs. 
@@ -342,7 +342,7 @@ All you need is an idea, and we make it all possible.
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-center mb-12 text-white p-y-4">
-          Why Go Online?
+            Why Go Online?
           </h2>
           {/* <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
             The goal is not just about an online presence, but an entire digital
@@ -369,7 +369,7 @@ All you need is an idea, and we make it all possible.
       <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Our Special Features
+            Our Special Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {additionalFeatures.map((feature, index) => (
@@ -388,30 +388,29 @@ All you need is an idea, and we make it all possible.
           </div>
         </div>
 
-      {/* Why Choose Us Section */}
-      <motion.section className="py-10 mt-8 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
-            Why Should You Collaborate With SolvitX?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUs.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="text-blue-400 mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-white">
-                  {item.title}
-                </h3>
-                <p className="text-gray-300">{item.description}</p>
-              </motion.div>
-            ))}
+        {/* Why Choose Us Section */}
+        <motion.section className="py-10 mt-8 bg-gray-800">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-12 text-white">
+              Why Should You Collaborate With SolvitX?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {whyChooseUs.map((item, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeInUp}
+                  className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="text-blue-400 mb-4">{item.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-300">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </motion.section>
-
+        </motion.section>
       </motion.section>
       <DescSection
         heading=""
@@ -427,7 +426,6 @@ All you need is an idea, and we make it all possible.
         ]}
         position="right"
       />
-      
 
       {/* Working Process Section */}
       <motion.section className="py-10 bg-gray-900">

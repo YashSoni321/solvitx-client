@@ -88,7 +88,7 @@ const DescSection = ({
                 ))}
               </div>
             ) : (
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed text-justify">
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed tracking-normal">
                 {content}
               </p>
             )}
