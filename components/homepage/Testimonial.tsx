@@ -98,9 +98,9 @@ const Testimonial = () => {
         variants={fadeVariants}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-3xl md:text-4xl font-extrabold mb-6 bg-gradient-to-r from-gray-400 via-grey-500 to-gray-800 bg-clip-text text-transparent">
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-6 bg-gradient-to-r from-gray-400 via-grey-500 to-gray-800 bg-clip-text text-transparent">
           We let our work speak for itself.
-        </h1>
+        </h2>
         <p className="text-lg md:text-xl text-gray-300 max-w-3xl">
           Explore our portfolio to see how we turn ideas into results,
           creativity into impact, and vision into awards.

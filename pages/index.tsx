@@ -16,10 +16,17 @@ export default function Home() {
     <>
       {/* Meta Tags for SEO */}
       <Head>
-        <title>SolvitX — We Solve IT Problems with Expertise</title>
+        <title>
+          Best Digital Marketing & Web Development Company in Jaipur, India |
+          SolvitX
+        </title>
         <meta
           name="description"
-          content="SolvitX is your technology partner for scalable websites, apps, and digital solutions. We deliver results-driven IT services with precision."
+          content="SolvitX is a top digital marketing agency in Jaipur offering SEO, social media marketing, web development, app development & IT solutions to grow your brand."
+        />
+        <meta
+          name="keywords"
+          content="digital marketing agency in jaipur, best digital marketing company in jaipur, website development in jaipur, social media marketing in jaipur, web development company in jaipur, advertising agency in jaipur, top digital marketing companies in jaipur, SEO company in jaipur, app development jaipur, software development jaipur, digital marketing services in jaipur"
         />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
