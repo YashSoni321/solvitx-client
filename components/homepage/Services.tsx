@@ -36,7 +36,7 @@ const services = [
     benefits: [
       {
         name: "Ecommerce Website Development",
-        link: "/ecommercewebsitedevelopment",
+        link: "/ecommerce-website-development",
       },
     ],
     imageUrl: WebDevelopmentImage,
@@ -47,21 +47,21 @@ const services = [
     title: "App Development",
     icon: <FaLightbulb className="text-yellow-500 text-3xl" />,
     shortDesc: "",
-    link: "/appdevelopment",
+    link: "/app-development",
     content:
       " Let your ideas reach out to the mass with our interactive apps that deliver seamless user experience and real results.",
     benefits: [
       {
         name: "IOS App Development",
-        link: "/iosappdevelopment",
+        link: "/ios-app-development",
       },
       {
         name: "Android App Development",
-        link: "/androidappdevelopment",
+        link: "/android-app-development",
       },
       {
         name: "API Development",
-        link: "/apidevelopment",
+        link: "/api-development",
       },
     ],
     imageUrl: AppDevelopmentImage,
@@ -70,7 +70,7 @@ const services = [
   {
     id: "digital-marketing",
     title: "Digital Marketing",
-    link: "/digitalmarketing",
+    link: "/digital-marketing",
     icon: <FaChartLine className="text-blue-500 text-3xl" />,
     shortDesc: "",
     content:
@@ -78,19 +78,19 @@ const services = [
     benefits: [
       {
         name: "SEO Services",
-        link: "/seoservices",
+        link: "/seo-services",
       },
       {
         name: "SMM Services",
-        link: "/smmservices",
+        link: "/smm-services",
       },
       {
         name: "PPC Marketing Services",
-        link: "/ppcmarketing",
+        link: "/ppc-marketing",
       },
       {
         name: "ASO Services",
-        link: "/asoservices",
+        link: "/aso-services",
       },
       {
         name: "UI UX Design",
@@ -98,11 +98,11 @@ const services = [
       },
       {
         name: "Video Editing",
-        link: "/videoediting",
+        link: "/video-editing",
       },
       {
         name: "Content Marketing",
-        link: "/contentmarketing",
+        link: "/content-marketing",
       },
     ],
     imageUrl: DigitalMarketingImage,
@@ -111,7 +111,7 @@ const services = [
   {
     id: "Software-Development",
     title: "Software Development",
-    link: "/softwaredevelopment",
+    link: "/software-development",
     icon: <FaCode className="text-blue-500 text-3xl" />,
     shortDesc: "",
     content:
@@ -119,23 +119,23 @@ const services = [
     benefits: [
       {
         name: " Salesforce Development",
-        link: "/salesforcedevelopment",
+        link: "/salesforce-development",
       },
       {
         name: "School Management Software",
-        link: "/schoolmanagementsoftware",
+        link: "/school-management-software",
       },
       {
         name: "Hotel Management Software",
-        link: "/hotelmanagementsoftware",
+        link: "/hotel-management-software",
       },
       {
         name: "Online Recruitment Software",
-        link: "/onlinerecruitmentsoftware",
+        link: "/online-recruitment-software",
       },
       {
         name: "HRM Software Development",
-        link: "/hrmsoftwaredevelopment",
+        link: "/hrm-software-development",
       },
     ],
     imageUrl: SoftwareDevelopmentImage,
@@ -146,7 +146,7 @@ const services = [
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
   const [hoveringItem, setHoveringItem] = useState<number | null>(null);
-  const [first, setfirst] = useState(0)
+  const [first, setfirst] = useState(0);
   const containerRef = useRef(null);
   const galleryRef = useRef(null);
   const router = useRouter();
@@ -169,41 +169,35 @@ const Services = () => {
   const headerOpacity = useTransform(smoothProgress, [0, 0.2, 0.3], [1, 1, 0]);
   const servicesScale = useTransform(smoothProgress, [0.2, 0.4], [0.8, 1]);
   const servicesOpacity = useTransform(smoothProgress, [0.2, 0.4], [0, 1]);
-  let numTime = 0
+  let numTime = 0;
   let time = 0;
 
-    // useEffect(() => {
-      useEffect(() => {
-        // alert("yhi bhi chalega")
-     
-        
-        setInterval(() => {
-          // if(time == 4){
-          //   time = 0;
-          // }
-          // console.log("active Service",{activeService,time});
-          // setActiveService(time);
-          // time = time + 1;
-          // if(IsTimerPaused == true ){
+  // useEffect(() => {
+  useEffect(() => {
+    // alert("yhi bhi chalega")
 
-          // }else{
+    setInterval(() => {
+      // if(time == 4){
+      //   time = 0;
+      // }
+      // console.log("active Service",{activeService,time});
+      // setActiveService(time);
+      // time = time + 1;
+      // if(IsTimerPaused == true ){
 
-          // }
-          setActiveService((prev) => {
-          if(prev === 3){
-            return 0
-          }
-          return prev + 1
-          })
-        }, 3000)
+      // }else{
 
-     
-      }, [])
-      
-      
-    
+      // }
+      setActiveService((prev) => {
+        if (prev === 3) {
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 3000);
+  }, []);
 
-    // Write the reoccuring event to update the activeService in every 3 secs
+  // Write the reoccuring event to update the activeService in every 3 secs
 
   const particleCount = 30;
   const particles = Array.from({ length: particleCount }).map((_, i) => ({
@@ -363,7 +357,9 @@ const Services = () => {
                               <FaArrowRight className="ml-2 text-xs" />
                             </motion.button>
                           </motion.div>
-                        ) : <></>}
+                        ) : (
+                          <></>
+                        )}
                       </div>
                     </div>
                   </motion.div>
