@@ -319,11 +319,28 @@ export default function HRMSoftwareDevelopment() {
   return (
     <>
       <Head>
-        <title>HRM Software Development | SolvitX</title>
+        <title>HRMS Software Development Solutions India | Custom HRM Software - SolvitX</title>
         <meta
           name="description"
-          content="Comprehensive HRM software development by SolvitX. Streamline HR processes, enhance employee management, and optimize HR operations."
+          content="SolvitX offers custom HRMS software development solutions in India with AI-powered HRM tools for payroll, performance, leave, and attendance management."
         />
+        <meta
+          name="keywords"
+          content="hrms software development, hrm software development, hrms software development solutions, human resource management software India, HR software development services, payroll processing system, leave management software, attendance tracking system, custom HRMS India, HR software company"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/hrm-software-development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

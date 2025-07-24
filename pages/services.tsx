@@ -113,10 +113,14 @@ export default function Services() {
   return (
     <>
       <Head>
-        <title>Our Services — SolvitX | Innovative IT Solutions</title>
+        <title>Digital Marketing & Web Development Services in  India  | SolvitX</title>
         <meta
           name="description"
-          content="Explore SolvitX's comprehensive range of IT services including web development, mobile apps, cloud solutions, and digital marketing."
+          content="Explore SolvitX  digital marketing, SEO, app, and web development services in Jaipur. We help startups & enterprises build bold, results-driven digital solutions."
+        />
+        <meta
+          name="keywords"
+          content="digital marketing services in jaipur, digital marketing agency in jaipur, best digital marketing company in jaipur, website development in jaipur, web development company in jaipur, SEO company in jaipur, app development jaipur, software development jaipur, UI UX design jaipur, social media marketing in jaipur, advertising agency in jaipur, web development company in usa, digital marketing agency in usa, SEO services in usa, app development company in usa, digital marketing company in australia, web development australia, SEO company australia, app developers australia, software company australia"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
@@ -129,6 +133,7 @@ export default function Services() {
         />
         <meta property="og:image" content="/images/services-hero.jpg" />
         <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/services" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

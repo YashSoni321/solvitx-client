@@ -308,11 +308,28 @@ export default function iOSAppDevelopment() {
   return (
     <>
       <Head>
-        <title>iOS App Development Services | SolvitX</title>
+        <title>iOS App Development Company | Custom iOS App Services – SolvitX</title>
         <meta
           name="description"
-          content="Expert iOS app development services by SolvitX. We build native iOS applications using Swift and Objective-C."
+          content="SolvitX offers custom iOS app development services using Swift & Objective-C. Build secure, scalable iOS apps with a top-rated iOS development agency."
         />
+        <meta
+          name="keywords"
+          content="ios app development, ios app development company, ios app development services, ios app development agency, online ios app development, custom ios app development, best ios app developers, swift app development, ios developers in india, ios app agency usa"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/ios-app-development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

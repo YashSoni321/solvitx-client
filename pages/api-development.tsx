@@ -370,11 +370,28 @@ export default function APIDevelopment() {
   return (
     <>
       <Head>
-        <title>API Development Services | SolvitX</title>
+        <title>Custom API Development Company in India & USA | SolvitX</title>
         <meta
           name="description"
-          content="Professional API development services by SolvitX. Build scalable, secure, and high-performance APIs for your applications."
+          content="SolvitX is a leading API development company in India & USA offering secure, scalable, and custom web API solutions for seamless integration and digital growth."
         />
+        <meta
+          name="keywords"
+          content="api development company, api development company india, api development company usa, custom api development company, web api development company, hotel booking api development company, rest api development, graphql api development, api integration company, secure api development, api developers in india, best api development agency"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/api-development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

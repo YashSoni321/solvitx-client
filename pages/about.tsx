@@ -96,10 +96,14 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Us — SolvitX | Where Vision Meets Technology</title>
+        <title>About SolvitX – Digital Marketing & Web Development Experts in Jaipur, India</title>
         <meta
           name="description"
-          content="Discover SolvitX's story, our passionate team, and our mission to transform businesses through innovative digital solutions and exceptional service."
+          content="Learn about SolvitX, a leading digital marketing and web development company in Jaipur. Discover our mission, values, and team driving digital transformation."
+        />
+        <meta
+          name="keywords"
+          content="about solvitx, digital marketing experts jaipur, web development company in jaipur, IT company in jaipur, best marketing agency jaipur, solvitx team, digital transformation agency, top digital marketing agency in jaipur"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
@@ -112,6 +116,7 @@ export default function About() {
         />
         <meta property="og:image" content="/images/solvitx.png" />
         <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/about" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

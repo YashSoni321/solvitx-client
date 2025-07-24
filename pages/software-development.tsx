@@ -233,11 +233,28 @@ export default function SoftwareDevelopment() {
   return (
     <>
       <Head>
-        <title>Software Development | SolvitX</title>
+        <title>Custom Software Development Company in India | SolvitX</title>
         <meta
           name="description"
-          content="Professional software development services by SolvitX. Custom solutions for your business needs."
+          content="SolvitX is a top software development company in India delivering custom software solutions, web apps, and mobile apps for startups and enterprises globally."
         />
+        <meta
+          name="keywords"
+          content="software development company, custom software development company, software development company in india, top software development companies, enterprise software solutions, web application development, mobile app development, cloud software company, offshore software development, software developers india"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/software-development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

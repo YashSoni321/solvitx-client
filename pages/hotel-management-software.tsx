@@ -323,11 +323,28 @@ export default function HotelManagementSoftware() {
   return (
     <>
       <Head>
-        <title>Hotel Management Software | SolvitX</title>
+        <title>Best Hotel Booking Software & Management System | SolvitX</title>
         <meta
           name="description"
-          content="Comprehensive hotel management software by SolvitX. Streamline operations, enhance guest experience, and optimize revenue."
+          content="SolvitX builds custom hotel management software with booking systems, front desk automation, restaurant integration, and analytics to enhance guest experiences."
         />
+        <meta
+          name="keywords"
+          content="software hotel booking system, best hotel booking software, booking platform development, hotel reservation software, property management system, hospitality management software, hotel front desk software, custom hotel booking platform, hotel POS integration, hotel analytics system"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/hotel-management-software" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

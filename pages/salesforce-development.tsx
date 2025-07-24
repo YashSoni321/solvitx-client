@@ -326,11 +326,28 @@ export default function SalesforceDevelopment() {
   return (
     <>
       <Head>
-        <title>Salesforce Development Services | SolvitX</title>
+        <title>Salesforce Development Company in USA & India | SolvitX</title>
         <meta
           name="description"
-          content="Expert Salesforce development services by SolvitX. Custom solutions, integration, and implementation for your business needs."
+          content="SolvitX is a leading Salesforce development company offering custom Salesforce CRM, app development, and cloud solutions in the USA, India, and globally."
         />
+        <meta
+          name="keywords"
+          content="salesforce development company, salesforce development company in usa, custom salesforce development services, salesforce crm development company, salesforce application development services, salesforce app development company, best company for salesforce developer, salesforce experts usa, salesforce customization services, salesforce developers india"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/salesforce-development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

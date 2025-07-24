@@ -246,11 +246,28 @@ export default function EcommerceWebsiteDevelopment() {
   return (
     <>
       <Head>
-        <title>Ecommerce Website Development | SolvitX</title>
+        <title>Best eCommerce Website Development Company in India & USA | SolvitX</title>
         <meta
           name="description"
-          content="Professional ecommerce website development by SolvitX. Create a powerful online store with advanced features and seamless user experience."
+          content="SolvitX offers scalable, secure eCommerce website development for brands in India & USA. Get custom online stores with responsive design, SEO, and payment integration."
         />
+        <meta
+          name="keywords"
+          content="best ecommerce website development company in india, ecommerce website development usa, ecommerce website design services, custom ecommerce solutions, scalable online store development, ecommerce web development company usa, ecommerce website india, ecommerce developers in usa, ecommerce website development with SEO, ecommerce mobile responsive design"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/ecommerce-website-development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

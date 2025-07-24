@@ -268,11 +268,28 @@ export default function DigitalMarketingService() {
   return (
     <>
       <Head>
-        <title>Digital Marketing Services | SolvitX</title>
+        <title>Best Digital Marketing Company in Jaipur & Dubai | SolvitX Agency</title>
         <meta
           name="description"
-          content="Expert digital marketing services by SolvitX. Results-driven SEO, social media, PPC, and content marketing strategies to grow your business."
+          content="SolvitX is a top digital marketing agency in Jaipur & Dubai offering SEO, PPC, content, and social media management services to grow your brand online."
         />
+        <meta
+          name="keywords"
+          content="digital marketing services in jaipur, best digital marketing company in jaipur, best digital marketing agency in jaipur, marketing agency in jaipur, social media management company dubai, best social media company dubai, seo services jaipur, ppc services dubai, online marketing dubai, branding agency jaipur"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/digital-marketing" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

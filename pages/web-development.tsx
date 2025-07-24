@@ -518,11 +518,28 @@ export default function WebDevelopmentService() {
   return (
     <>
       <Head>
-        <title>Web Development Services | SolvitX</title>
+        <title>Web Design & Development Company – India, USA & Australia | SolvitX</title>
         <meta
           name="description"
-          content="Expert web development services by SolvitX. Building modern, scalable web applications with cutting-edge technologies."
+          content="SolvitX is a web design & development company offering scalable, secure, and custom website development services in India, USA, and Australia."
         />
+        <meta
+          name="keywords"
+          content="web design & development company, web design development services, best website development services, website development in usa, web development company in usa, web design services australia, web development company in australia, custom web application usa, scalable website development australia, full stack development company, responsive website development usa, best web development company in india"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/web-development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

@@ -320,11 +320,28 @@ export default function OnlineRecruitmentSoftware() {
   return (
     <>
       <Head>
-        <title>Online Recruitment Software | SolvitX</title>
+        <title>Job Portal Development Company | Custom Recruitment Software - SolvitX</title>
         <meta
           name="description"
-          content="Comprehensive online recruitment software by SolvitX. Streamline hiring processes, enhance candidate experience, and make better hiring decisions."
+          content="SolvitX is a top job portal development company building custom online recruitment software with AI-based hiring, resume search, and interview scheduling tools."
         />
+        <meta
+          name="keywords"
+          content="job portal development, job portal development company, online recruitment software, ATS development, AI hiring platform, resume management software, recruitment CRM, custom hiring software, interview scheduling tool, recruitment analytics dashboard"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/online-recruitment-software" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

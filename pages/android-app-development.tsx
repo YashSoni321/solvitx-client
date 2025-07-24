@@ -308,11 +308,28 @@ export default function AndroidAppDevelopment() {
   return (
     <>
       <Head>
-        <title>Android App Development Services | SolvitX</title>
+        <title>Android App Development Company in India & US | SolvitX</title>
         <meta
           name="description"
-          content="Expert Android app development services by SolvitX. We build native Android applications using Kotlin and Java."
+          content="SolvitX is a leading Android app development company in India & US, offering secure, scalable, and custom mobile app solutions for startups and enterprises."
         />
+        <meta
+          name="keywords"
+          content="android app development company, android app development company in india, android mobile app development company, android app development companies in us, custom android apps, kotlin app development, java android app developers, android app agency usa, mobile app development india, scalable android applications"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/android-app-development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

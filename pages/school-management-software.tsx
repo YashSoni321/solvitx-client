@@ -361,11 +361,28 @@ export default function SchoolManagementSoftware() {
   return (
     <>
       <Head>
-        <title>School Management Software | SolvitX</title>
+        <title>School Management Software in India | Custom LMS for Schools - SolvitX</title>
         <meta
           name="description"
-          content="Comprehensive school management software by SolvitX. Streamline administrative tasks, enhance communication, and improve academic management."
+          content="SolvitX develops custom school management systems in India with attendance tracking, fee management, analytics, and learning management tools for schools."
         />
+        <meta
+          name="keywords"
+          content="school management software, school management system software in india, learning management software for schools, custom school ERP development, education software development, school attendance system, school communication tools, school fee management software"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/school-management-software" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}

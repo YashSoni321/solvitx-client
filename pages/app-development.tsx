@@ -327,11 +327,28 @@ export default function AppDevelopmentService() {
   return (
     <>
       <Head>
-        <title>App Development Services | SolvitX</title>
+        <title>Mobile App Development Services | Expert App Developers – SolvitX</title>
         <meta
           name="description"
-          content="Expert mobile app development services by SolvitX. Building innovative, user-friendly mobile applications for iOS and Android."
+          content="SolvitX offers custom mobile application development services for Android, iOS & hybrid apps. Hire expert app developers for scalable and secure mobile apps."
         />
+        <meta
+          name="keywords"
+          content="mobile application development, mobile app development services, app developers, android app development, ios app developers, hybrid mobile apps, mobile application developers usa, mobile app development india, mobile development company, cross-platform mobile apps, best mobile app developers in usa"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="About Us — SolvitX | Where Vision Meets Technology"
+        />
+        <meta
+          property="og:description"
+          content="Meet the team behind SolvitX and learn about our journey to create digital experiences that drive real business results."
+        />
+        <meta property="og:image" content="/images/solvitx.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://www.solvitx.com/app-development" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}
