@@ -591,7 +591,7 @@ export default function WebDevelopmentService() {
 
       <DescSection
         heading=""
-        image="/images/dashboard.jpg"
+        image="/images/services-new/website development /Custom Web Applications For Your Business.jpg"
         title="Custom Web Applications For Your Business"
         content="Explore our fully tailored responsive websites built from scratch. With neat codes, scalable tech stacks and user-friendly UI/UX designs — you can bring your digital vision to life with precision and quality. Whether you are looking for a sleek online presence or want to scale-up your website functionality, our experts will guide you with our fully customisable web development solutions."
         position="right"
@@ -752,7 +752,7 @@ export default function WebDevelopmentService() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/website development /What Makes SolvitX A Trusted Global Partner_.jpg"
         title="What Makes SolvitX A Trusted Global Partner?
 "
         content={[
@@ -794,7 +794,7 @@ export default function WebDevelopmentService() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/website development /What Do Our Clients Say_.jpg"
         title="What Do Our Clients Say?
 "
         content={

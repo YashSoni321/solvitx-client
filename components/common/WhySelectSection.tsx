@@ -33,7 +33,7 @@ export const WhySelectSection = ({
             whySelectUs.map((benefit, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="text-blue-400 mb-4">{benefit.icon}</div>

@@ -250,7 +250,7 @@ export default function MobileAppDevelopment() {
             {appTypes.map((type, index) => (
               <Link href={type.link} key={index}>
                 <motion.div
-                  variants={fadeInUp}
+                  // variants={fadeInUp}
                   className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
                 >
                   <div className={`${type.color} mb-4`}>{type.icon}</div>
@@ -275,7 +275,7 @@ export default function MobileAppDevelopment() {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="text-blue-400 mb-4">{benefit.icon}</div>
@@ -299,7 +299,7 @@ export default function MobileAppDevelopment() {
             {whyChooseUs.map((item, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="text-blue-400 mb-4">{item.icon}</div>
@@ -323,7 +323,7 @@ export default function MobileAppDevelopment() {
             {workingProcess.map((step, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 relative"
               >
                 <div className="absolute -top-4 -left-4 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
@@ -350,7 +350,7 @@ export default function MobileAppDevelopment() {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="mb-6 rounded-xl bg-gray-800 overflow-hidden"
               >
                 <button
@@ -385,20 +385,20 @@ export default function MobileAppDevelopment() {
       <motion.section className="py-16 bg-gradient-to-r from-blue-900 to-indigo-900">
         <div className="container mx-auto px-4 text-center">
           <motion.h2
-            variants={fadeInUp}
+            // variants={fadeInUp}
             className="text-3xl md:text-4xl font-bold mb-6 text-white"
           >
             Ready to Build Your Mobile App?
           </motion.h2>
           <motion.p
-            variants={fadeInUp}
+            // variants={fadeInUp}
             className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto"
           >
             Get a free consultation and discover how we can help you create a
             powerful mobile application.
           </motion.p>
           <motion.button
-            variants={fadeInUp}
+            // variants={fadeInUp}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-white text-blue-800 px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"

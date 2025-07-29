@@ -20,7 +20,7 @@ const SectionContent = ({
     switch (animation) {
       case "fadeIn":
         return {
-          initial: { opacity: 0 },
+          initial: { opacity: 1 },
           whileInView: { opacity: 1 },
           transition: { duration: 0.8, delay: animationDelay },
         };

@@ -370,7 +370,7 @@ export default function iOSAppDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/ios-app-development/representation-user-experience-interface-design_23-2150169863.jpg"
         title="Custom iOS App Development Services For Your Business"
         content="We know that one size doesn't fit all. Our iOS apps are customized for your business that are aligned to match your workflows, goals, industry demands, and cater to the audience preferences. We focus on building our apps on a scalable architecture that ensures reliability, performance and uninterrupted user interactions."
         position="left"
@@ -473,7 +473,7 @@ export default function iOSAppDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/ios-app-development/high-angle-hands-holding-paper_23-2149930977.jpg"
         title="What Makes SolvitX A Trusted Global Partner?
 "
         content={[
@@ -515,7 +515,7 @@ export default function iOSAppDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/ios-app-development/portrait-handsome-men-with-computer-phone-together_484921-12953.jpg"
         title="What Do Our Clients Say?"
         content="SolvitX helped us craft a sleek and fast high and iOS app that bless beautifully with our customers ecosystem. The design is very interactive, intuitive and the performance it provides is top-notch. - Ritika Singh, Product Manager 
 "

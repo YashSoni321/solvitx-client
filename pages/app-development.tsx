@@ -390,7 +390,7 @@ export default function AppDevelopmentService() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/app-development/app-development-banner.jpg"
         title="Custom App Development For Your Businesses"
         content="In this fast-transforming digital ecospace, we develop modern applications that are tailored for your business. All you need is an idea and a couch to relax. Our expert team will build you high performance Android and iOS apps that are crafted for your audience and help to grow your business."
         position="left"
@@ -552,7 +552,7 @@ export default function AppDevelopmentService() {
 
             <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/app-development/What Makes SolvitX A Trusted Global Partner_.jpg"
         title="What Makes SolvitX A Trusted Global Partner?
 "
         content={[
@@ -593,7 +593,7 @@ export default function AppDevelopmentService() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/app-development/What Do Our Clients Say_.jpg"
         title="What Do Our Clients Say?"
         content="SolvitX helped us build a telemedicine app that can help us have real time chat and calls with our customers. From the App’s performance, design quality and API integration, all of them have been provided with focus on the user experience. Our team highly recommends their services.   - Dr. Nidhi Bhatia, Founder"
         position="left"

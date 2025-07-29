@@ -172,30 +172,7 @@ const Services = () => {
   let numTime = 0;
   let time = 0;
 
-  // useEffect(() => {
-  useEffect(() => {
-    // alert("yhi bhi chalega")
-
-    setInterval(() => {
-      // if(time == 4){
-      //   time = 0;
-      // }
-      // console.log("active Service",{activeService,time});
-      // setActiveService(time);
-      // time = time + 1;
-      // if(IsTimerPaused == true ){
-
-      // }else{
-
-      // }
-      setActiveService((prev) => {
-        if (prev === 3) {
-          return 0;
-        }
-        return prev + 1;
-      });
-    }, 3000);
-  }, []);
+  
 
   // Write the reoccuring event to update the activeService in every 3 secs
 
@@ -304,7 +281,7 @@ const Services = () => {
                           }/20`
                         : "bg-gray-900/40 hover:bg-gray-800/60"
                     }`}
-                    whileHover={{ x: 5 }}
+                    // whileHover={{ x: 5 }}
                   >
                     <div className="flex items-start space-x-4">
                       <div
@@ -326,10 +303,10 @@ const Services = () => {
 
                         {activeService === index ? (
                           <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
+                            // initial={{ opacity: 0, height: 0 }}
+                            // animate={{ opacity: 1, height: "auto" }}
+                            // exit={{ opacity: 0, height: 0 }}
+                            // transition={{ duration: 0.3 }}
                             className="mt-4"
                           >
                             <ul className="grid grid-cols-2 gap-2 mt-4">

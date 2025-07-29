@@ -88,7 +88,7 @@ const ThankYouPage = () => {
             <motion.h1
               initial="hidden"
               animate={mounted ? "visible" : "hidden"}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="text-4xl md:text-6xl font-extrabold text-gray-100 mb-6"
             >
               Thank You for Choosing{" "}
@@ -100,7 +100,7 @@ const ThankYouPage = () => {
             <motion.p
               initial="hidden"
               animate={mounted ? "visible" : "hidden"}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed"
             >
               Your message has been successfully received! Our expert team will
@@ -115,7 +115,7 @@ const ThankYouPage = () => {
               className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 w-full max-w-4xl"
             >
               <motion.div
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-100"
               >
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -131,7 +131,7 @@ const ThankYouPage = () => {
               </motion.div>
 
               <motion.div
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-100"
               >
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -147,7 +147,7 @@ const ThankYouPage = () => {
               </motion.div>
 
               <motion.div
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="bg-white p-6 rounded-xl shadow-lg text-center border border-gray-100"
               >
                 <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -166,7 +166,7 @@ const ThankYouPage = () => {
             <motion.div
               initial="hidden"
               animate={mounted ? "visible" : "hidden"}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <Link href="/landing-page">
@@ -198,7 +198,7 @@ const ThankYouPage = () => {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              variants={fadeInUp}
+              // variants={fadeInUp}
               viewport={{ once: true, amount: 0.3 }}
               className="text-center max-w-3xl mx-auto mb-8"
             >
@@ -249,7 +249,7 @@ const ThankYouPage = () => {
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  variants={fadeInUp}
+                  // variants={fadeInUp}
                   className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-lg border border-gray-100 relative overflow-hidden"
                 >
                   <div className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 absolute -top-5 -right-3 opacity-10">
@@ -278,7 +278,7 @@ const ThankYouPage = () => {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              variants={fadeInUp}
+              // variants={fadeInUp}
               viewport={{ once: true, amount: 0.3 }}
               className="text-center max-w-3xl mx-auto mb-8"
             >
@@ -299,7 +299,7 @@ const ThankYouPage = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
             >
               <motion.div
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="bg-gray-800 p-8 rounded-xl text-center"
               >
                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -318,7 +318,7 @@ const ThankYouPage = () => {
               </motion.div>
 
               <motion.div
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="bg-gray-800 p-8 rounded-xl text-center"
               >
                 <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">

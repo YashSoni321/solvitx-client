@@ -18,7 +18,7 @@ const WhyChooseUsSection = ({ title, whyChooseUs }: WhyChooseUsDataType) => {
           {whyChooseUs.map((item, index) => (
             <motion.div
               key={index}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="text-blue-400 mb-4">{item.icon}</div>

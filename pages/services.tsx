@@ -240,7 +240,7 @@ export default function Services() {
             {services.map((service, index) => (
               <div key={index} className="px-2">
                 <motion.div
-                  variants={fadeInUp}
+                  // variants={fadeInUp}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 p-8 shadow-md hover:shadow-xl transition-all duration-300"
@@ -292,7 +292,7 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               className="relative group overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 p-8 shadow-md hover:shadow-xl transition-all duration-300"

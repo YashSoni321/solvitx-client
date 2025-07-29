@@ -29,7 +29,7 @@ export const DevelopmentProcess = ({
             workingProcess.map((step, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 relative"
               >
                 <div className="absolute -top-4 -left-4 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">

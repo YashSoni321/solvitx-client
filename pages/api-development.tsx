@@ -433,7 +433,7 @@ export default function APIDevelopment() {
       />
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/api-development/Custom API Development Solutions.jpg"
         title="Custom API Development Solutions"
         content="This is your opportunity to make your software, devices, and applications future-ready with our customised APIs. Our experts help you to integrate your business's existing infrastructure with our tailored API development solutions. Establish secure transactions, efficient connections, data exchange, and seamless integration with our high-performance APIs. "
         position="left"
@@ -554,7 +554,7 @@ export default function APIDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/api-development/What Makes SolvitX A Trusted Global Partner_.jpg"
         title="What Makes SolvitX A Trusted Global Partner?
 "
         content={[
@@ -596,7 +596,7 @@ export default function APIDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/api-development/What Do Our Clients Say_.jpg"
         title="What Do Our Clients Say?"
         content="SolvitX team has deep technical knowledge and built us a set of scalable APIs for our internal operations, making communication between our app, CRM and inventory systems seamless. - Aditya Sharma, Operations Lead."
         position="left"

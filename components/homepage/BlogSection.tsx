@@ -58,7 +58,7 @@ export default function BlogSection() {
           {featuredPosts.map((post) => (
             <motion.article
               key={post.id}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <Link href={`/blog/${post.slug}`}>

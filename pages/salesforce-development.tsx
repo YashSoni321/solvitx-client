@@ -388,7 +388,7 @@ export default function SalesforceDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/salesforce-development/people-office-analyzing-checking-finance-graphs_23-2150377138.jpg"
         title="Custom Salesforce Software Development Services"
         content="Every business is built on its pillars. We craft tailored Salesforce software services that can supercharge all your business operations. From custom app development, Salesforce Customer Relationship Management (CRM) customisation, Service Cloud, Marketing Cloud, to business and workflow automation, we provide end-to-end customised services that can integrate uniquely to your business, and thus enhance the customer experience."
         position="left"
@@ -439,7 +439,7 @@ export default function SalesforceDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/salesforce-development/analyst-team-use-bi-dashboard-data-analysis-concord_31965-351878.jpg"
         title="What Makes SolvitX A Trusted Global Partner?
 "
         content={[

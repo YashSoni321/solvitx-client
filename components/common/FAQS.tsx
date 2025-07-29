@@ -23,7 +23,7 @@ export const FAQSSection = ({ faqs }: FAQProps) => {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="mb-6 rounded-xl bg-gray-800 overflow-hidden"
             >
               <button

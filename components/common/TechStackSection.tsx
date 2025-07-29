@@ -39,7 +39,7 @@ export const TechStackSection = ({
           {techCategories.map((category: any, categoryIndex: number) => (
             <motion.div
               key={categoryIndex}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               className="p-6 rounded-xl bg-gray-800"
             >
               <h3 className="text-2xl font-bold mb-6 text-center text-white">

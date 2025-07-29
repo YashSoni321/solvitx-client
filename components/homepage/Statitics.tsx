@@ -43,7 +43,7 @@ export default function StatsSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          variants={fadeInUp}
+          // variants={fadeInUp}
           viewport={{ once: true, amount: 0.3 }}
           className="text-center max-w-3xl mx-auto mb-8"
         >
@@ -67,7 +67,7 @@ export default function StatsSection() {
               key={index}
               initial="hidden"
               whileInView="visible"
-              variants={fadeInUp}
+              // variants={fadeInUp}
               custom={index}
               viewport={{ once: true }}
               className="text-center bg-gray-100 p-6 rounded-xl backdrop-blur-sm hover:bg-black/10 transition-all duration-300"

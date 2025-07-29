@@ -328,7 +328,10 @@ export default function AndroidAppDevelopment() {
         />
         <meta property="og:image" content="/images/solvitx.png" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.solvitx.com/android-app-development" />
+        <link
+          rel="canonical"
+          href="https://www.solvitx.com/android-app-development"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -370,17 +373,17 @@ export default function AndroidAppDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="images/services-new/android-app-development/Custom Android App Development Services For Your Business.jpg"
         title="Custom Android App Development Services For Your Business"
         content="We know that one size doesn't fit all. So here at Solvitx, we give your business a new identity with customised android app development solutions crafted to your needs. It is your idea and our expertise that can transform your growth vision into scalable opportunities and will bring real results."
         position="left"
       />
 
       <TechStackSection
-                          techCategories={techCategories}
-                          title="Our Technology Stack "
-                          description="Our expert team utilises Kotlin, Java, Jetpack libraries and other latest technology stack to develop user friendly apps that are compatible across Android smartphones, tablets and wearables."
-                        />
+        techCategories={techCategories}
+        title="Our Technology Stack "
+        description="Our expert team utilises Kotlin, Java, Jetpack libraries and other latest technology stack to develop user friendly apps that are compatible across Android smartphones, tablets and wearables."
+      />
 
       {/* Services Section */}
       <motion.section
@@ -392,11 +395,13 @@ export default function AndroidAppDevelopment() {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Why Should You Build An Android Application?
+            Why Should You Build An Android Application?
           </h2>
           <p className="text-gray-300 text-base md:text-lg leading-relaxed text-center my-10">
-          With scalable, robust, and interactive Android applications, you can reach a wider audience and stand out among millions in the Play Store.
-        </p>
+            With scalable, robust, and interactive Android applications, you can
+            reach a wider audience and stand out among millions in the Play
+            Store.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {androidServices.map((service, index) => (
               <motion.div
@@ -408,7 +413,9 @@ export default function AndroidAppDevelopment() {
                 <h3 className="text-xl font-semibold mb-2 text-white">
                   {service.title}
                 </h3>
-                <p className="text-gray-300 text-justify">{service.description}</p>
+                <p className="text-gray-300 text-justify">
+                  {service.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -419,7 +426,7 @@ export default function AndroidAppDevelopment() {
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Our Special Features
+            Our Special Features
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -465,7 +472,7 @@ export default function AndroidAppDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="images/services-new/android-app-development/What Makes SolvitX A Trusted Global Partner_.jpg"
         title="What Makes SolvitX A Trusted Global Partner?
 "
         content={[
@@ -507,7 +514,7 @@ export default function AndroidAppDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/android-app-development/What Do Our Clients Say_.jpg"
         title="What Do Our Clients Say?"
         content="The Android application developed by SolvitX helped us scale all our logistic operations with ease. They provided faster delivery, a smooth transitioning, and a clean and robust code. - Sanya Upadhyay, Product Manager"
         position="left"

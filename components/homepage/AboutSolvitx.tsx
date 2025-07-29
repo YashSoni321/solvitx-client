@@ -137,7 +137,7 @@ export default function HeroSection() {
           viewport={{ amount: 0.3 }} // Removed 'once: true' so it animates every time
         >
           {/* <motion.div
-            variants={fadeInUp}
+            // variants={fadeInUp}
             className="text-6xl md:text-8xl text-start font-bold leading-tight"
           >
             <p>SolvitX</p>

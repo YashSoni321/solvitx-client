@@ -309,7 +309,7 @@ export default function EcommerceWebsiteDevelopment() {
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/ecommerce-website-development/Custom Solutions For Your Business.jpg"
         title="Custom Solutions For Your Business "
         content="SolvitX is here to solve all your complex business problems in the online space with precision and style. Our clean codes, audience centric designs and scalable tech, helps you build responsive web applications that are tailored to your business goals and needs. 
 All you need is an idea, and we make it all possible.
@@ -431,7 +431,7 @@ All you need is an idea, and we make it all possible.
       </motion.section>
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/ecommerce-website-development/What Makes SolvitX A Trusted Global Partner_.jpg"
         title="What Makes SolvitX A Trusted Global Partner?
 "
         content={[
@@ -473,7 +473,7 @@ All you need is an idea, and we make it all possible.
 
       <DescSection
         heading=""
-        image="/images/services/WebDevelopment.jpg"
+        image="/images/services-new/ecommerce-website-development/What Do Our Clients Say_.jpg"
         title="What Do Our Clients Say?
 "
         content={
