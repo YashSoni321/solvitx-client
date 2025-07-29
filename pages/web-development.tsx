@@ -518,7 +518,9 @@ export default function WebDevelopmentService() {
   return (
     <>
       <Head>
-        <title>Web Design & Development Company – India, USA & Australia | SolvitX</title>
+        <title>
+          Web Design & Development Company – India, USA & Australia | SolvitX
+        </title>
         <meta
           name="description"
           content="SolvitX is a web design & development company offering scalable, secure, and custom website development services in India, USA, and Australia."
@@ -597,7 +599,7 @@ export default function WebDevelopmentService() {
         position="right"
       />
 
-<TechStackSection
+      <TechStackSection
         techCategories={techCategories}
         title="Our Technology Stack "
         description="In this fast-growing digital ecosystem, we give your brand a modernised online face with our modern web development solutions. From React to Node.js and Python, our web applications are strategically built to rule in this modern digital landscape."
@@ -691,8 +693,6 @@ export default function WebDevelopmentService() {
 
       {/* Technology Stack Section */}
 
-      
-
       {/* <motion.section variants={staggerContainer} className="py-4 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
@@ -727,28 +727,28 @@ export default function WebDevelopmentService() {
         </div>
       </motion.section> */}
       {/* Why Choose Us Section */}
-            <motion.section className="py-10 bg-gray-800">
-              <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-12 text-white">
-                  Why Should You Collaborate With SolvitX?
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {whyChooseUs.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      variants={fadeInUp}
-                      className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                      <div className="text-blue-400 mb-4">{item.icon}</div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-300">{item.description}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.section>
+      <motion.section className="py-10 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Why Should You Collaborate With SolvitX?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChooseUs.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="p-6 rounded-xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="text-blue-400 mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {item.title}
+                </h3>
+                <p className="text-gray-300">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
       <DescSection
         heading=""
@@ -762,35 +762,35 @@ export default function WebDevelopmentService() {
           "20+ IT Experts",
           "84+ Clients Worldwide",
         ]}
-        position="right"
+        position="left"
       />
 
       {/* Working Process Section */}
-            <motion.section className="py-10 bg-gray-900">
-              <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-12 text-white">
-                  Our Development Process
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {workingProcess.map((step, index) => (
-                    <motion.div
-                      key={index}
-                      variants={fadeInUp}
-                      className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 relative"
-                    >
-                      <div className="absolute -top-4 -left-4 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
-                        {step.step}
-                      </div>
-                      <div className="text-blue-400 mb-4">{step.icon}</div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-300">{step.description}</p>
-                    </motion.div>
-                  ))}
+      <motion.section className="py-10 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+            Our Development Process
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {workingProcess.map((step, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 relative"
+              >
+                <div className="absolute -top-4 -left-4 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">
+                  {step.step}
                 </div>
-              </div>
-            </motion.section>
+                <div className="text-blue-400 mb-4">{step.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {step.title}
+                </h3>
+                <p className="text-gray-300">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
       <DescSection
         heading=""

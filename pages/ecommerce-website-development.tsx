@@ -246,7 +246,9 @@ export default function EcommerceWebsiteDevelopment() {
   return (
     <>
       <Head>
-        <title>Best eCommerce Website Development Company in India & USA | SolvitX</title>
+        <title>
+          Best eCommerce Website Development Company in India & USA | SolvitX
+        </title>
         <meta
           name="description"
           content="SolvitX offers scalable, secure eCommerce website development for brands in India & USA. Get custom online stores with responsive design, SEO, and payment integration."
@@ -266,7 +268,10 @@ export default function EcommerceWebsiteDevelopment() {
         />
         <meta property="og:image" content="/images/solvitx.png" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.solvitx.com/ecommerce-website-development" />
+        <link
+          rel="canonical"
+          href="https://www.solvitx.com/ecommerce-website-development"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -479,7 +484,7 @@ All you need is an idea, and we make it all possible.
         content={
           "SolvitX has transformed our offline presence into a seamless e-commerce platform. From product pages to secure checkouts and third party integrations, they handled everything. Our customers loved this new experience and we have even increased our online sales by 40% since the launch. - Benjamin Mosby, CTO"
         }
-        position="right"
+        position="left"
       />
 
       {/* FAQs Section */}
