@@ -164,7 +164,7 @@ const benefits = [
 ];
 
 // Value propositions data
-const valuePropositions = [
+export const valuePropositions = [
   {
     title: "User-First Design Approach",
     description:
