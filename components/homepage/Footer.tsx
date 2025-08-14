@@ -16,6 +16,7 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import LogoImage from "../../public/images/solvitx.png";
+import PartnerLogoImage from "../../public/images/solvitx_partner.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -186,89 +187,102 @@ const Footer = () => {
 
               {/* Modal content */}
               <motion.div
-  className="fixed z-[9999] inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4"
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  exit={{ opacity: 0 }}
-  transition={{ duration: 0.3 }}
->
-  <motion.div
-    className="relative w-full max-w-xl bg-white text-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-purple-100"
-    initial={{ scale: 0.8, opacity: 0 }}
-    animate={{ scale: 1, opacity: 1 }}
-    exit={{ scale: 0.8, opacity: 0 }}
-    transition={{ duration: 0.4 }}
-  >
-    {/* Header */}
-    <div className="bg-gradient-to-r from-purple-700 via-pink-500 to-red-400 p-6 text-white">
-      <h2 className="text-3xl font-bold flex items-center gap-3">
-        ✨ Let’s Talk!
-      </h2>
-      <p className="text-sm mt-2 opacity-90">
-        Turning bold ideas into beautiful realities.
-      </p>
-      <button
-        onClick={() => setShowModal(false)}
-        className="absolute top-4 right-4 text-white hover:text-gray-200 transition"
-      >
-        <FaTimes className="h-5 w-5" />
-      </button>
-    </div>
+                className="fixed z-[9999] inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div
+                  className="relative w-full max-w-xl bg-white text-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-purple-100"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {/* Header */}
+                  <div className="bg-gradient-to-r from-purple-700 via-pink-500 to-red-400 p-6 text-white">
+                    <h2 className="text-3xl font-bold flex items-center gap-3">
+                      ✨ Let’s Talk!
+                    </h2>
+                    <p className="text-sm mt-2 opacity-90">
+                      Turning bold ideas into beautiful realities.
+                    </p>
+                    <button
+                      onClick={() => setShowModal(false)}
+                      className="absolute top-4 right-4 text-white hover:text-gray-200 transition"
+                    >
+                      <FaTimes className="h-5 w-5" />
+                    </button>
+                  </div>
 
-    {/* Body */}
-    <div className="p-6">
-      <p className="mb-4 text-[15px] leading-relaxed text-gray-700">
-        We’re more than developers — we’re digital partners helping you unlock
-        the next level of your business. Let’s create something extraordinary.
-      </p>
+                  {/* Body */}
+                  <div className="p-6">
+                    <p className="mb-4 text-[15px] leading-relaxed text-gray-700">
+                      We’re more than developers — we’re digital partners
+                      helping you unlock the next level of your business. Let’s
+                      create something extraordinary.
+                    </p>
 
-      <div className="space-y-3 text-sm">
-        <div className="flex items-center gap-2">
-          <span className="text-purple-600 text-lg">📧</span>
-          <a
-            href="mailto:solvitxsolutions@gmail.com"
-            className="text-purple-700 font-semibold hover:underline"
-          >
-         solvitxsolutions@gmail.com
-          </a>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-purple-600 text-lg">📞</span>
-          <a
-            href="tel:+917232899120"
-            className="text-purple-700 font-semibold hover:underline"
-          >
-          +91 7232899120
-          </a>
-        </div>
-      </div>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-center gap-2">
+                        <span className="text-purple-600 text-lg">📧</span>
+                        <a
+                          href="mailto:solvitxsolutions@gmail.com"
+                          className="text-purple-700 font-semibold hover:underline"
+                        >
+                          solvitxsolutions@gmail.com
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-purple-600 text-lg">📞</span>
+                        <a
+                          href="tel:+917232899120"
+                          className="text-purple-700 font-semibold hover:underline"
+                        >
+                          +91 7232899120
+                        </a>
+                      </div>
+                    </div>
 
-      {/* Call to Action */}
-      <div className="mt-6 text-center">
-        <a
-          href="/contact"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-full shadow-md transition duration-300"
-        >
-          Let’s Build Together <FaArrowRight className="h-4 w-4" />
-        </a>
-      </div>
-    </div>
+                    {/* Call to Action */}
+                    <div className="mt-6 text-center">
+                      <a
+                        href="/contact"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-full shadow-md transition duration-300"
+                      >
+                        Let’s Build Together{" "}
+                        <FaArrowRight className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
 
-    {/* Optional Social Icons */}
-    {/* <div className="px-6 pb-6 pt-3 border-t border-gray-100 flex justify-center gap-4 text-gray-500 text-lg">
-      <a href="https://linkedin.com" target="_blank" className="hover:text-purple-600 transition">
-        <FaLinkedin />
-      </a>
-      <a href="https://twitter.com" target="_blank" className="hover:text-purple-600 transition">
-        <FaTwitter />
-      </a>
-      <a href="mailto:hello@solvitx.com" className="hover:text-purple-600 transition">
-        <FaEnvelope />
-      </a>
-    </div> */}
-  </motion.div>
-</motion.div>
+                  {/* Optional Social Icons */}
 
+                  {/* <div className="px-6 pb-6 pt-3 border-t border-gray-100 flex justify-center gap-4 text-gray-500 text-lg">
+                    <a
+                      href="https://linkedin.com"
+                      target="_blank"
+                      className="hover:text-purple-600 transition"
+                    >
+                      <FaLinkedin />
+                    </a>
+                    <a
+                      href="https://twitter.com"
+                      target="_blank"
+                      className="hover:text-purple-600 transition"
+                    >
+                      <FaTwitter />
+                    </a>
+                    <a
+                      href="mailto:hello@solvitx.com"
+                      className="hover:text-purple-600 transition"
+                    >
+                      <FaEnvelope />
+                    </a>
+                  </div> */}
+                </motion.div>
+              </motion.div>
             </>
           )}
         </AnimatePresence>
@@ -326,46 +340,52 @@ const Footer = () => {
           </div>
 
           {/* Link Sections Wrapper - Spans full width on mobile, 2/3 on lg. Internally uses columns. */}
-          <div className="lg:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8">
-            {footerLinks.map((section) => (
-              <div key={section.title} className="space-y-1">
-                <h3 className="text-base font-semibold text-white mb-3">
+          <div className="lg:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10 lg:gap-x-10">
+            {footerLinks.map((section, idx) => (
+              <div
+                key={section.title}
+                className={`space-y-2 ${
+                  idx !== 0 ? "lg:border-l lg:pl-6 border-gray-800" : ""
+                }`}
+              >
+                <h3 className="text-lg font-semibold text-white mb-3 tracking-wide">
                   {section.title}
                 </h3>
-                <nav className="flex flex-col space-y-1.5">
+                <nav className="flex flex-col space-y-2">
                   {section.links.map((link) => (
                     <Link
                       key={link.label}
                       href={link.href}
-                      className="hover:text-purple-300 transition-colors flex items-center group text-gray-400 hover:text-purple-300"
+                      className="group flex items-center text-gray-400 hover:text-purple-300 transition-colors"
                     >
-                      <FaArrowRight className="h-2.5 w-2.5 mr-2 text-purple-500/70 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200" />
-                      {link.label}
+                      <FaArrowRight className="h-3 w-3 mr-2 text-purple-500/70 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200 ease-out" />
+                      <span className="relative after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-[1px] after:bg-purple-400 group-hover:after:w-full after:transition-all after:duration-300">
+                        {link.label}
+                      </span>
                     </Link>
                   ))}
                 </nav>
               </div>
             ))}
+
+            <div className="flex flex-col items-center sm:col-span-2 lg:col-span-1 mt-6 lg:mt-0 text-center">
+              <h3 className="text-lg font-semibold text-white tracking-wide mb-4 relative after:block after:w-8 after:h-[2px] after:bg-purple-400 after:mx-auto after:mt-2">
+                Our Partners
+              </h3>
+              <Image
+                onClick={() =>
+                  window.open(
+                    "https://www.designrush.com/agency/profile/solvitx",
+                    "_blank"
+                  )
+                }
+                src={PartnerLogoImage}
+                alt="Studio Adagio's rating on DesignRush, the industry-leading B2B Marketplace connecting brands with agencies"
+                className="w-36 h-38 opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </div>
           </div>
         </div>
-
-        {/* Bottom Copyright & Powered By */}
-        {/* <div className="pt-8 border-t border-gray-700/50 text-center">
-          <p className="text-xs text-gray-500">
-            © {currentYear} SolvitX. All Rights Reserved.
-            <span className="mx-1">|</span>
-            Website by{" "}
-            <a
-              href="https://techieyash.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-purple-300 font-medium"
-            >
-              TechieYash
-            </a>
-            .
-          </p>
-        </div> */}
       </div>
     </footer>
   );

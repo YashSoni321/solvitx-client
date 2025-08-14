@@ -252,15 +252,95 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
       <LandingPageNavbar />
-      <div id="home">
-        <HeroSection
-          backgroundImage={heroImg}
-          heading="Power up your brand with all in one "
-          highlight="Digital marketing & IT solutions"
-          subheading="SolvitX is a top-tier IT & marketing company aligned with your business goals. We offer various services including digital marketing, web development, software development and app development that will make your audience addicted to your brand."
-          buttonText="See it for yourself!"
-        />
-      </div>
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImg.src}
+            alt="Hero Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/80"></div>
+        </div>
+
+        {/* Content */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Transform Your Digital Presence with{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+                SolvitX
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-8">
+              Your one-stop solution for Web Development, App Development, and
+              Digital Marketing. We turn your vision into digital reality.
+            </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {[
+                { value: "250+", label: "Projects Delivered" },
+                { value: "98%", label: "Client Satisfaction" },
+                { value: "15+", label: "Years Experience" },
+                { value: "50+", label: "Expert Team" },
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm rounded-lg p-4"
+                >
+                  <div className="text-2xl md:text-3xl font-bold text-white">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-gray-400">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("contact-form")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
+              >
+                Start Your Project
+              </button>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("services")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="px-8 py-4 bg-white/10 text-white rounded-lg font-bold hover:bg-white/20 transition-all backdrop-blur-sm"
+              >
+                Explore Services
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <svg
+            className="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      </section>
       <section id="about" className="py-4 md:py-4 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
