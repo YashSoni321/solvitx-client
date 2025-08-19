@@ -26,23 +26,9 @@ const DescSection = ({
       className="py-4 bg-gray-900"
     >
       <div className="container mx-auto px-4">
-        {heading && (
-          <motion.div
-            // initial={{ opacity: 0, y: 20 }}
-            // whileInView={{ opacity: 1, y: 0 }}
-            // transition={{ duration: 0.8, delay: 0.2 }}
-            // viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              {heading}
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full" />
-          </motion.div>
-        )}
-        <h2 className="text-3xl md:text-4xl text-center font-bold mb-6 text-white ">
-          {title}
-        </h2>
+        {/* <h2 className="text-3xl md:text-4xl text-center font-bold mb-6 text-white ">
+          {heading || title}
+        </h2> */}
         <div
           className={`flex flex-col ${
             position === "right" ? "md:flex-row-reverse" : "md:flex-row"
@@ -89,6 +75,9 @@ const DescSection = ({
               </div>
             ) : (
               <p className="text-gray-300 text-base md:text-lg leading-relaxed tracking-normal">
+                <h2 className="text-3xl md:text-4xl text-center font-bold mb-6 text-white ">
+                  {heading || title}
+                </h2>
                 {content}
               </p>
             )}

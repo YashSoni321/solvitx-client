@@ -105,7 +105,7 @@ export default function BriefingCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="h-[50vh] w-full max-w-2xl bg-gray-900 text-white rounded-2xl shadow-xl transition-transform duration-300 hover:scale-105 mx-auto overflow-hidden"
+      className="h-[40vh] w-full max-w-2xl bg-gray-900 text-white rounded-2xl shadow-xl transition-transform duration-300 hover:scale-105 mx-auto overflow-hidden"
     >
       {/* Stage Image/Illustration */}
       <div className="h-1/2 relative overflow-hidden">
@@ -118,7 +118,7 @@ export default function BriefingCard({
       </div>
 
       {/* Content Section */}
-      <div className="px-8 py-6 h-1/2 flex flex-col justify-between">
+      <div className="px-4 py-6 h-1/2 flex flex-col justify-between">
         <h2 className="text-2xl font-bold tracking-wide text-white">{title}</h2>
 
         <div className="mt-4">

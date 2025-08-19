@@ -45,7 +45,7 @@ const cardVariants = {
 
 const Features = () => {
   return (
-    <div className="bg-black text-white w-full py-10 px-4">
+    <div className="bg-black text-white w-full py-6 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <SectionHeading
@@ -65,7 +65,7 @@ const Features = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={cardVariants}
-              className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-6 h-[300px] flex flex-col justify-between shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-6 h-[200px] flex flex-col justify-between shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <div>
                 <p className="text-sm font-semibold text-white mb-2">

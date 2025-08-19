@@ -92,7 +92,7 @@ const Testimonial = () => {
     <div className="bg-black text-white font-sans relative overflow-hidden">
       {/* Header */}
       <motion.div
-        className="flex flex-col items-center justify-center my-14 text-center px-6"
+        className="flex flex-col items-center justify-center my-8 text-center px-6"
         initial="initial"
         animate="animate"
         variants={fadeVariants}
@@ -108,7 +108,7 @@ const Testimonial = () => {
       </motion.div>
 
       {/* Testimonial Card */}
-      <div className=" mx-auto w-11/12 md:w-2/3 lg:w-1/2 h-[360px] relative z-10">
+      <div className=" mx-auto w-11/12 md:w-2/3 lg:w-1/2 h-[300px] relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.id}

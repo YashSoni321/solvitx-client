@@ -38,7 +38,7 @@ const SectionHeading = ({
   const titleSizeClasses = {
     small: "text-3xl md:text-3xl",
     medium: "text-3xl md:text-3xl lg:text-3xl",
-    large: "text-3xl md:text-3xl lg:text-3xl",
+    large: "text-3xl md:text-4xl lg:text-4xl",
   };
 
   // Title theme classes

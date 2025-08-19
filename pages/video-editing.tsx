@@ -55,25 +55,29 @@ const staggerContainer = {
 const services = [
   {
     title: "Professional Video Editing",
-    description: "With the help of our expert team you can create attractive shoots for your brand.",
+    description:
+      "With the help of our expert team you can create attractive shoots for your brand.",
     icon: <FaVideo className="text-4xl" />,
     color: "text-red-500",
   },
   {
     title: "Motion Graphics",
-    description: "Add animations, unique icons and other graphics to boost engagement.",
+    description:
+      "Add animations, unique icons and other graphics to boost engagement.",
     icon: <FaFilm className="text-4xl" />,
     color: "text-orange-500",
   },
   {
     title: "Audio Enhancement",
-    description: "Our videos have balanced music and noise reduction for a better impact.",
+    description:
+      "Our videos have balanced music and noise reduction for a better impact.",
     icon: <FaMusic className="text-4xl" />,
     color: "text-yellow-500",
   },
   {
     title: "Color Grading",
-    description: "Enhance the visual tones, mood and aesthetics with our experts.",
+    description:
+      "Enhance the visual tones, mood and aesthetics with our experts.",
     icon: <FaMagic className="text-4xl" />,
     color: "text-green-500",
   },
@@ -85,7 +89,8 @@ const services = [
   },
   {
     title: "Social Media Content",
-    description: "We help you create short, reel worthy videos that are designed to grab the attention.",
+    description:
+      "We help you create short, reel worthy videos that are designed to grab the attention.",
     icon: <FaPlay className="text-4xl" />,
     color: "text-indigo-500",
   },
@@ -100,7 +105,8 @@ const benefits = [
   },
   {
     title: "Fast Turnaround",
-    description: "Attract the audience with ease and turn them into valuable customers.",
+    description:
+      "Attract the audience with ease and turn them into valuable customers.",
     icon: <FaBolt className="text-3xl" />,
   },
   {
@@ -110,7 +116,8 @@ const benefits = [
   },
   {
     title: "Multi-Platform Ready",
-    description: "Optimise your content into marketable products across different platforms.",
+    description:
+      "Optimise your content into marketable products across different platforms.",
     icon: <FaGlobe className="text-3xl" />,
   },
 ];
@@ -124,7 +131,8 @@ const whyChooseUs = [
   },
   {
     title: "Advanced Tools",
-    description: "We use premium tools and softwares to give your audience the best experience.",
+    description:
+      "We use premium tools and softwares to give your audience the best experience.",
     icon: <FaTools className="text-3xl" />,
   },
   {
@@ -134,7 +142,8 @@ const whyChooseUs = [
   },
   {
     title: "Quality Assurance",
-    description: "Every video is crafted with clarity and will be consistent to your brand's voice.",
+    description:
+      "Every video is crafted with clarity and will be consistent to your brand's voice.",
     icon: <FaCheckCircle className="text-3xl" />,
   },
 ];
@@ -144,25 +153,29 @@ const workingProcess = [
   {
     step: "1",
     title: "Scripting And Ideation",
-    description: "Our experts get on a call with you to understand your message and turn it to a script.",
+    description:
+      "Our experts get on a call with you to understand your message and turn it to a script.",
     icon: <FaClipboardList className="text-3xl" />,
   },
   {
     step: "2",
     title: "Editing And Animation ",
-    description: "We polish the raw clips with effects, clean audio and attractive visuals.",
+    description:
+      "We polish the raw clips with effects, clean audio and attractive visuals.",
     icon: <FaFileAlt className="text-3xl" />,
   },
   {
     step: "3",
     title: "Review & Feedback",
-    description: "We review, post and then we refine it to perfection, until it is just right.",
+    description:
+      "We review, post and then we refine it to perfection, until it is just right.",
     icon: <FaCamera className="text-3xl" />,
   },
   {
     step: "4",
     title: "Final Delivery",
-    description: "We post the videos by optimising them for the platform of your choice.",
+    description:
+      "We post the videos by optimising them for the platform of your choice.",
     icon: <FaVideo className="text-3xl" />,
   },
 ];
@@ -297,7 +310,7 @@ We make your brand memorable through captivating visual stories.
       <motion.section className="py-10 bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Why Do You Need Video Editing Services For Your Business?
+            Custom Video Editing For Your Business
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -347,13 +360,11 @@ We make your brand memorable through captivating visual stories.
         </div>
       </motion.section>
 
-      
-
       {/* Why Choose Us Section */}
       <motion.section className="py-10 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Why Should You Collaborate With SolvitX?
+            Why Should You Collaborate With SolvitX?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => (

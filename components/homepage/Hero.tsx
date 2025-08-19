@@ -38,7 +38,7 @@ const HeroSection = ({
 
       {/* Foreground content */}
       <div className="relative z-10 flex flex-col justify-center items-center">
-        <h1 className="text-4xl mt-14 md:text-5xl font-extrabold text-white mb-6">
+        <h1 className="text-3xl mt-14 md:text-5xl font-extrabold text-white mb-6">
           {heading}
           <br />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-pink-500">
