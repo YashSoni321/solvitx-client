@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
 
     // Prepare template parameters for EmailJS
     const templateParams = {
-      from_name: `${formData.firstName} ${formData.lastName} ${formData?.name}`,
+      from_name: `${formData.firstName} ${formData.lastName} `,
       from_email: formData.email,
       phone: formData.phone,
       budget: formData.budget,
