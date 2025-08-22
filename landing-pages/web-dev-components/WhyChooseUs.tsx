@@ -1,40 +1,52 @@
-
-import React from 'react'
-import { CheckCircle, Shield, Clock, Users, Rocket, HeadphonesIcon } from 'lucide-react'
+import React from "react";
+import {
+  CheckCircle,
+  Shield,
+  Clock,
+  Users,
+  Rocket,
+  HeadphonesIcon,
+} from "lucide-react";
 
 const WhyChooseUs: React.FC = () => {
   const reasons = [
     {
       icon: CheckCircle,
-      title: '3+ Years of Expertise',
-      description: 'Proven track record in delivering cutting-edge web and mobile solutions'
+      title: "Client Centric Approach",
+      description:
+        "Understanding business goals & building web applications align with clients' needs & perspective.",
     },
     {
       icon: Rocket,
-      title: 'MERN & Mobile Development Specialists',
-      description: 'Deep expertise in modern tech stack including React, Node.js, and React Native'
+      title: "Proven Track Record",
+      description:
+        "We serve a proven track record of numerous successful projects & clients worldwide for measurable results.",
     },
     {
       icon: Users,
-      title: 'Proven Track Record with Global Clients',
-      description: 'Successfully delivered 200+ projects across 20+ countries worldwide'
+      title: "Scalable & Secure Code",
+      description:
+        "We prioritize clarity by structuring scalable & secure code for a seamless user experience. ",
     },
     {
       icon: Shield,
-      title: 'Scalable & Future-Ready Solutions',
-      description: 'Built to grow with your business using latest technologies and best practices'
+      title: "Customized Digital Solutions",
+      description:
+        "Get a full suite of web development solutions to improve brand value & boost online presence.",
     },
     {
       icon: HeadphonesIcon,
-      title: '24/7 Support',
-      description: 'Round-the-clock technical support and maintenance for peace of mind'
+      title: "Professional Team ",
+      description:
+        "Our team specialize in designing engaging & responsive web applications that align with clients' needs.",
     },
     {
       icon: Clock,
-      title: 'On-Time Delivery Guarantee',
-      description: 'We respect deadlines and deliver projects on schedule, every time'
-    }
-  ]
+      title: "On-Time Delivery Guarantee",
+      description:
+        "We respect deadlines and deliver projects on schedule, every time",
+    },
+  ];
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -42,17 +54,19 @@ const WhyChooseUs: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Why Choose <span className="text-blue-600">Our Agency?</span>
+            Create Top Impression With Solvitx{" : "}
+            <span className="text-blue-600">A trusted Global Partner</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We don't just build websites and apps – we create digital experiences that drive results
+            From concept to launch, Solvitx provides client-centric web
+            solutions that turn websites into leads.
           </p>
         </div>
 
         {/* Reasons Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {reasons.map((reason, index) => {
-            const IconComponent = reason.icon
+            const IconComponent = reason.icon;
             return (
               <div
                 key={index}
@@ -72,7 +86,7 @@ const WhyChooseUs: React.FC = () => {
                   </div>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
 
@@ -80,19 +94,21 @@ const WhyChooseUs: React.FC = () => {
         <div className="bg-white rounded-2xl p-8 shadow-lg">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">200+</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">210+</div>
               <div className="text-gray-600">Projects Completed</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">98%</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">97%</div>
               <div className="text-gray-600">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">50+</div>
+              <div className="text-3xl font-bold text-purple-600 mb-2">47+</div>
               <div className="text-gray-600">Happy Clients</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-orange-600 mb-2">24/7</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">
+                24/7
+              </div>
               <div className="text-gray-600">Support Available</div>
             </div>
           </div>
@@ -102,19 +118,20 @@ const WhyChooseUs: React.FC = () => {
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">
-              Ready to Experience the Difference?
+              Ready to Boost your Brand value?
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Join hundreds of satisfied clients who have transformed their business with our solutions
+              Thousands of satisfied clients have transformed their business
+              with our web solutions
             </p>
             <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-              Start Your Project Today
+              Start Your New Project
             </button>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default WhyChooseUs
+export default WhyChooseUs;

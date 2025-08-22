@@ -1,6 +1,5 @@
-
-import React from 'react'
-import { Users, Award, Globe, Zap } from 'lucide-react'
+import React from "react";
+import { Users, Award, Globe, Zap } from "lucide-react";
 
 const About: React.FC = () => {
   return (
@@ -11,23 +10,28 @@ const About: React.FC = () => {
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                Generate
+                <span className="text-blue-600"> Leads & Conversions</span> with
+                our all-in-one Web Development Solutions
+              </h2>
+              {/* <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 Transforming Ideas Into 
                 <span className="text-blue-600"> Digital Excellence</span>
-              </h2>
+              </h2> */}
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                With over 3 years of expertise in cutting-edge web and mobile development, 
-                we've helped businesses across diverse industries establish powerful digital presences. 
-                Our team of skilled developers and designers specializes in creating scalable, 
-                future-ready solutions that drive real business growth.
+                We build & integrate customized web applications using modern
+                technology to transform your digital presence into success.
+                Whether you want to design a new app from scratch or add new
+                features, our web solutions cover everything.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                From startups to enterprise clients, we've delivered 200+ successful projects 
-                using the latest technologies including MERN stack, React Native, and modern 
-                cloud architectures. Our commitment to excellence and innovation has made us 
-                a trusted partner for companies worldwide.
+                From startup to enterprise, we deliver successful projects by
+                integrating the latest technology & modern cloud infrastructure.
+                Our commitment to innovation makes us a trusted partner
+                worldwide.
               </p>
             </div>
-            
+
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-8">
               <div className="flex items-center space-x-4">
@@ -35,43 +39,43 @@ const About: React.FC = () => {
                   <Users className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">50+</div>
-                  <div className="text-gray-600">Happy Clients</div>
+                  <div className="text-2xl font-bold text-gray-900">10+</div>
+                  <div className="text-gray-600">Years of Expertise</div>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Award className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">15+</div>
-                  <div className="text-gray-600">Awards Won</div>
+                  <div className="text-2xl font-bold text-gray-900">97%</div>
+                  <div className="text-gray-600">Customer Satisfaction</div>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                   <Globe className="w-6 h-6 text-purple-600" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">20+</div>
-                  <div className="text-gray-600">Countries Served</div>
+                  <div className="text-2xl font-bold text-gray-900">210+</div>
+                  <div className="text-gray-600">Successful Projects</div>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                   <Zap className="w-6 h-6 text-orange-600" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">99%</div>
-                  <div className="text-gray-600">Project Success</div>
+                  <div className="text-2xl font-bold text-gray-900">47+</div>
+                  <div className="text-gray-600">Client Served</div>
                 </div>
               </div>
             </div>
           </div>
-          
+
           {/* Right Content - Image */}
           <div className="relative">
             <div className="relative z-10">
@@ -80,7 +84,7 @@ const About: React.FC = () => {
                 alt="Professional development team"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
-              
+
               {/* Floating Achievement Card */}
               <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-xl border border-gray-100">
                 <div className="flex items-center space-x-4">
@@ -88,25 +92,30 @@ const About: React.FC = () => {
                     <Award className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-gray-900">Top Rated</div>
+                    <div className="text-lg font-bold text-gray-900">
+                      Top Rated
+                    </div>
                     <div className="text-gray-600">Development Agency</div>
                     <div className="flex items-center mt-1">
                       {[...Array(5)].map((_, i) => (
-                        <div key={i} className="w-4 h-4 bg-yellow-400 rounded-full mr-1"></div>
+                        <div
+                          key={i}
+                          className="w-4 h-4 bg-yellow-400 rounded-full mr-1"
+                        ></div>
                       ))}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             {/* Background Decoration */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl transform rotate-3 scale-105"></div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

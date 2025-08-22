@@ -59,8 +59,8 @@ const Portfolio: React.FC = () => {
             Our Recent <span className="text-blue-600">Projects</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover how we've helped businesses transform their digital
-            presence and achieve remarkable results
+            Explore how our specialized web solutions help startups/businesses
+            convert leads into loyal customers.
           </p>
         </div>
 
