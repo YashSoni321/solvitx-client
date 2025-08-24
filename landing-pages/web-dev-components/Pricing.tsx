@@ -1,76 +1,94 @@
-import React from "react";
-import { Check, Star, Zap } from "lucide-react";
+// PricingStacksINR.tsx
+import React, { useState } from "react";
+import { Check, Star, Database, Box, Code } from "lucide-react";
 
-const Pricing: React.FC = () => {
+const PricingStacksINR: React.FC = () => {
+  const [selectedAddon, setSelectedAddon] = useState(false);
+
   const packages = [
     {
-      name: "Starter",
-      price: "$2,999",
+      id: "wordpress",
+      name: "WordPress",
+      price: "₹20,000",
       period: "Starting from",
-      description:
-        "Perfect for small businesses and startups looking to establish their online presence",
-      features: [
-        "Responsive Website Design",
-        "Up to 5 Pages",
-        "Mobile Optimization",
-        "Basic SEO Setup",
-        "Contact Form Integration",
-        "3 Months Support",
-        "Social Media Integration",
-        "Google Analytics Setup",
-      ],
-      buttonText: "Get Started",
+      hourly: "₹200 – ₹480/hr",
       popular: false,
-      icon: Star,
-      gradient: "from-blue-500 to-blue-600",
+      description:
+        "Fast, SEO-friendly brochure sites, blogs, and small business sites. Ideal for quick launches and easy content management.",
+      features: [
+        "Custom theme (based on a modern starter)",
+        "Up to 7 pages",
+        "Responsive & accessibility checks",
+        "Basic SEO setup (meta, sitemap)",
+        "Contact form & Google Analytics",
+        "3 months maintenance",
+      ],
+      accent: "from-indigo-500 to-indigo-600",
+      Icon: Box,
+      cta: "Get WordPress",
     },
     {
-      name: "Professional",
-      price: "$7,999",
+      id: "shopify",
+      name: "Shopify",
+      price: "₹32,000",
       period: "Starting from",
+      hourly: "₹240 – ₹640/hr",
+      popular: false,
       description:
-        "Ideal for growing businesses that need advanced features and functionality",
+        "End-to-end eCommerce stores with payment, product management, and conversion-focused UX for small-to-medium stores.",
       features: [
-        "Everything in Starter",
-        "Up to 15 Pages",
-        "Custom CMS Integration",
-        "Advanced SEO Optimization",
-        "E-commerce Functionality",
-        "6 Months Support",
-        "Payment Gateway Integration",
-        "Performance Optimization",
-        "Advanced Analytics",
-        "Live Chat Integration",
+        "Custom store design",
+        "Up to 50 product listings setup",
+        "Payment gateway & shipping setup",
+        "Basic conversions & analytics",
+        "Product import (CSV)",
+        "6 months ecommerce support",
       ],
-      buttonText: "Most Popular",
+      accent: "from-rose-500 to-rose-600",
+      Icon: Star,
+      cta: "Get Shopify",
+    },
+    {
+      id: "laravel",
+      name: "Laravel",
+      price: "₹56,000",
+      period: "Starting from",
+      hourly: "₹280 – ₹960/hr",
       popular: true,
-      icon: Zap,
-      gradient: "from-purple-500 to-purple-600",
+      description:
+        "Robust custom web applications, admin panels, complex backends and integrations for businesses needing secure, scalable systems.",
+      features: [
+        "Custom REST APIs / integrations",
+        "Role-based auth & RBAC",
+        "Admin panel & dashboard",
+        "Automated tests & CI guidance",
+        "6-12 months maintenance options",
+        "Performance & security hardening",
+      ],
+      accent: "from-emerald-500 to-emerald-600",
+      Icon: Database,
+      cta: "Request Laravel",
     },
     {
-      name: "Enterprise",
-      price: "Custom",
-      period: "Quote based",
-      description:
-        "Comprehensive solutions for large businesses with complex requirements",
-      features: [
-        "Everything in Professional",
-        "Unlimited Pages",
-        "Custom Web Application",
-        "Mobile App Development",
-        "Advanced Integrations",
-        "12 Months Support",
-        "Dedicated Project Manager",
-        "Priority Support",
-        "Custom Features",
-        "Scalable Architecture",
-        "Security Audit",
-        "Performance Monitoring",
-      ],
-      buttonText: "Contact Sales",
+      id: "mern",
+      name: "MERN / MEAN",
+      price: "₹44,000",
+      period: "Starting from",
+      hourly: "₹240 – ₹880/hr",
       popular: false,
-      icon: Star,
-      gradient: "from-green-500 to-green-600",
+      description:
+        "Modern single-page apps, realtime features, and full-stack JavaScript solutions — great for interactive products and SaaS MVPs.",
+      features: [
+        "SPA with React/Angular + Node APIs",
+        "JWT auth & role management",
+        "Realtime (Socket) or PWA options",
+        "Deployment pipeline + Docker support",
+        "Testing & code quality setup",
+        "3-6 months maintenance options",
+      ],
+      accent: "from-violet-500 to-violet-600",
+      Icon: Code,
+      cta: "Get MERN/MEAN",
     },
   ];
 
@@ -79,142 +97,164 @@ const Pricing: React.FC = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-gray-50">
+    <section id="pricing-stacks" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Choose Your <span className="text-blue-600">Perfect Package</span>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-3">
+            Build with the Stack that{" "}
+            <span className="text-blue-600">fits your goals</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Transparent pricing with no hidden fees. Every package includes our
-            commitment to excellence and ongoing support.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Clear pricing in INR, included features, optional maintenance
+            bundles, or hourly rates for custom scopes.
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {packages.map((pkg, index) => {
-            const IconComponent = pkg.icon;
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+          {packages.map((pkg) => {
+            const Icon = pkg.Icon;
             return (
               <div
-                key={index}
-                className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden ${
+                key={pkg.id}
+                className={`relative bg-white rounded-2xl shadow-md overflow-hidden transition-transform duration-300 ${
                   pkg.popular
-                    ? "ring-2 ring-purple-500 transform scale-105"
+                    ? "scale-105 ring-2 ring-amber-400"
                     : "hover:-translate-y-2"
                 }`}
               >
-                {/* Popular Badge */}
                 {pkg.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center py-2 text-sm font-semibold">
-                    ⭐ Most Popular Choice
+                  <div className="absolute -top-0 left-1/2 -translate-x-1/2 bg-amber-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow">
+                    Most Popular
                   </div>
                 )}
+                <div className="p-6 pt-10 flex flex-col h-full">
+                  <div
+                    className={`inline-flex items-center justify-center w-14 h-14 rounded-full mb-4 bg-gradient-to-br ${pkg.accent} shadow-lg`}
+                  >
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
 
-                <div className={`p-8 ${pkg.popular ? "pt-16" : ""}`}>
-                  {/* Package Header */}
-                  <div className="text-center mb-8">
-                    <div
-                      className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${pkg.gradient} rounded-full mb-4`}
-                    >
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      {pkg.name}
-                    </h3>
-                    <div className="text-4xl font-bold text-gray-900 mb-1">
+                  <h3 className="text-xl font-bold text-gray-900">
+                    {pkg.name}
+                  </h3>
+
+                  <div className="mt-3">
+                    <div className="text-3xl font-extrabold text-gray-900">
                       {pkg.price}
                     </div>
-                    <div className="text-gray-600">{pkg.period}</div>
-                    <p className="text-gray-600 mt-4 leading-relaxed">
-                      {pkg.description}
-                    </p>
+                    <div className="text-sm text-gray-500">{pkg.period}</div>
+                    <div className="text-sm text-gray-500 mt-1">
+                      Hourly (custom):{" "}
+                      <span className="font-medium text-gray-800">
+                        {pkg.hourly}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Features List */}
-                  <div className="space-y-4 mb-8">
-                    {pkg.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center">
+                  <p className="text-sm text-gray-600 mt-4 flex-0">
+                    {pkg.description}
+                  </p>
+
+                  <ul className="mt-6 space-y-3 flex-1">
+                    {pkg.features.map((f, i) => (
+                      <li key={i} className="flex items-start">
                         <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
-                      </div>
+                        <span className="text-gray-700 text-sm">{f}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
 
-                  {/* CTA Button */}
-                  <button
-                    onClick={scrollToContact}
-                    className={`w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 ${
-                      pkg.popular
-                        ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 shadow-lg hover:shadow-xl"
-                        : "bg-gray-100 text-gray-900 hover:bg-gray-200"
-                    }`}
-                  >
-                    {pkg.buttonText}
-                  </button>
+                  <div className="mt-6">
+                    <button
+                      onClick={scrollToContact}
+                      className={`w-full py-3 rounded-full font-semibold transition ${
+                        pkg.popular
+                          ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md hover:scale-[1.01]"
+                          : "bg-white border border-gray-200 text-gray-800 hover:bg-gray-50"
+                      }`}
+                    >
+                      {pkg.cta}
+                    </button>
+
+                    <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
+                      <label className="inline-flex items-center space-x-2">
+                        <input
+                          type="checkbox"
+                          checked={selectedAddon}
+                          onChange={() => setSelectedAddon((s) => !s)}
+                          className="form-checkbox h-4 w-4 text-blue-600 rounded"
+                        />
+                        <span>Add: Monthly maintenance</span>
+                      </label>
+                      <div className="font-medium text-gray-900">
+                        {selectedAddon ? "₹16,000/mo" : "—"}
+                      </div>
+                    </div>
+
+                    <div className="mt-3 text-xs text-gray-500">
+                      <strong>Note:</strong> Final price depends on scope,
+                      integrations, and third-party subscriptions. Large
+                      enterprise projects are quoted separately.
+                    </div>
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Bottom Section */}
-        <div className="text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Need Something Custom?
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Every business is unique. Let's discuss your specific requirements
-              and create a tailored solution that fits your needs and budget
-              perfectly.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        {/* CTA panel */}
+        <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-100">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900">
+                Not sure which stack?
+              </h3>
+              <p className="text-gray-600 max-w-xl">
+                Share your requirements (scale, features, integrations), and
+                we’ll recommend the perfect stack with a custom scope and
+                estimate.
+              </p>
+            </div>
+            <div className="flex gap-3">
               <button
                 onClick={scrollToContact}
-                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all"
+                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition"
               >
-                Request Custom Quote
+                Request Recommendation
               </button>
-              <button className="inline-flex items-center px-8 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-gray-400 transition-all">
+              <button
+                onClick={() => window.open("#contact", "_self")}
+                className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition"
+              >
                 Schedule a Call
               </button>
             </div>
           </div>
-        </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-16 text-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-6">
             <div>
-              <div className="text-2xl font-bold text-gray-900">3+ Years</div>
-              <div className="text-gray-600 text-sm">
-                Proven industry experience
+              <div className="text-xl font-bold text-gray-900">10+ yrs</div>
+              <div className="text-gray-500 text-sm">Industry experience</div>
+            </div>
+            <div>
+              <div className="text-xl font-bold text-gray-900">Global</div>
+              <div className="text-gray-500 text-sm">
+                Clients across 5 countries
               </div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-gray-900">
-                MERN Experts
-              </div>
-              <div className="text-gray-600 text-sm">
-                Full-stack & mobile solutions
+              <div className="text-xl font-bold text-gray-900">SLA</div>
+              <div className="text-gray-500 text-sm">
+                Maintenance & uptime SLAs
               </div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-gray-900">
-                Global Clients
-              </div>
-              <div className="text-gray-600 text-sm">
-                Trusted across industries
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">
-                24/7 Support
-              </div>
-              <div className="text-gray-600 text-sm">
-                Always here to help you
+              <div className="text-xl font-bold text-gray-900">Support</div>
+              <div className="text-gray-500 text-sm">
+                Priority options available
               </div>
             </div>
           </div>
@@ -224,4 +264,4 @@ const Pricing: React.FC = () => {
   );
 };
 
-export default Pricing;
+export default PricingStacksINR;

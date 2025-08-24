@@ -87,23 +87,24 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact-form" className="bg-black py-4 px-4">
+    <section id="contact-form" className="bg-white py-4 px-4">
       <div className="container mx-auto">
         <div className="mb-6 md:mb-10 mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Let's Build Something{" "}
             <span className="text-blue-600"> Amazing Together</span>{" "}
           </h2>
-          <p className="text-gray-300 mb-6 text-xl">
+          <p className="text-gray-600 mb-6 text-xl">
             Ready to transform your digital presence? Get in touch and let's
             discuss how we can help your business grow.
           </p>
         </div>
+
         {/* Contact Form */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-xl">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-xl">
             {submitSuccess && (
-              <div className="bg-green-600/20 border border-green-600 text-green-100 px-4 py-3 rounded-lg mb-6 flex items-center">
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6 flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 mr-2"
@@ -121,7 +122,7 @@ const Contact: React.FC = () => {
             )}
 
             {submitError && (
-              <div className="bg-red-600/20 border border-red-600 text-red-100 px-4 py-3 rounded-lg mb-6 flex items-center">
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6 flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 mr-2"
@@ -142,7 +143,7 @@ const Contact: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label
-                    className="block text-gray-300 mb-2"
+                    className="block text-gray-700 mb-2"
                     htmlFor="firstName"
                   >
                     First Name
@@ -154,14 +155,14 @@ const Contact: React.FC = () => {
                     value={formData.firstName}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full bg-white border border-gray-300 text-gray-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="John"
                   />
                 </div>
 
                 <div>
                   <label
-                    className="block text-gray-300 mb-2"
+                    className="block text-gray-700 mb-2"
                     htmlFor="lastName"
                   >
                     Last Name
@@ -173,7 +174,7 @@ const Contact: React.FC = () => {
                     value={formData.lastName}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full bg-white border border-gray-300 text-gray-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="Doe"
                   />
                 </div>
@@ -181,7 +182,7 @@ const Contact: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-gray-300 mb-2" htmlFor="email">
+                  <label className="block text-gray-700 mb-2" htmlFor="email">
                     Email
                   </label>
                   <input
@@ -191,13 +192,13 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full bg-white border border-gray-300 text-gray-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="john@example.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 mb-2" htmlFor="phone">
+                  <label className="block text-gray-700 mb-2" htmlFor="phone">
                     Phone Number
                   </label>
                   <input
@@ -207,14 +208,14 @@ const Contact: React.FC = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full bg-white border border-gray-300 text-gray-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="+91 9876543210"
                   />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label className="block text-gray-300 mb-2" htmlFor="message">
+                <label className="block text-gray-700 mb-2" htmlFor="message">
                   Message
                 </label>
                 <textarea
@@ -224,7 +225,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-white border border-gray-300 text-gray-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Tell us about your project and requirements..."
                 ></textarea>
               </div>
@@ -268,25 +269,24 @@ const Contact: React.FC = () => {
               </div>
             </form>
           </div>
-          {/* About SolvitX */}
 
           {/* Contact Info */}
           <div className="mb-6 md:mb-10">
             <div className="grid grid-cols-1 gap-4 md:gap-6">
               {/* Location */}
-              <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-4 md:p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-r from-gray-100 to-gray-200 p-4 md:p-6 rounded-xl border border-gray-300 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex items-start space-x-3 md:space-x-4">
                   <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 md:p-4 rounded-full shadow-lg flex-shrink-0">
                     <FaMapMarkerAlt className="text-white text-lg md:text-xl" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-white font-semibold text-base md:text-lg mb-1 md:mb-2">
+                    <h4 className="text-gray-900 font-semibold text-base md:text-lg mb-1 md:mb-2">
                       Our Office
                     </h4>
-                    <p className="text-base md:text-xl text-white font-bold mb-1 break-words">
+                    <p className="text-base md:text-xl text-gray-800 font-bold mb-1 break-words">
                       Jaipur, Rajasthan 302003
                     </p>
-                    <p className="text-gray-300 text-xs md:text-sm">
+                    <p className="text-gray-600 text-xs md:text-sm">
                       Visit us at our creative workspace where innovation meets
                       execution
                     </p>
@@ -295,22 +295,22 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Email */}
-              <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-4 md:p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-r from-gray-100 to-gray-200 p-4 md:p-6 rounded-xl border border-gray-300 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex items-start space-x-3 md:space-x-4">
                   <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 md:p-4 rounded-full shadow-lg flex-shrink-0">
                     <FaEnvelope className="text-white text-lg md:text-xl" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-white font-semibold text-base md:text-lg mb-1 md:mb-2">
+                    <h4 className="text-gray-900 font-semibold text-base md:text-lg mb-1 md:mb-2">
                       Email Us
                     </h4>
                     <a
                       href="mailto:solvitxsolutions@gmail.com"
-                      className="text-base md:text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1 break-all"
+                      className="text-base md:text-xl text-gray-800 font-bold hover:text-purple-600 transition-colors duration-300 block mb-1 break-all"
                     >
                       solvitxsolutions@gmail.com
                     </a>
-                    <p className="text-gray-300 text-xs md:text-sm">
+                    <p className="text-gray-600 text-xs md:text-sm">
                       We typically respond within 2-4 hours during business days
                     </p>
                   </div>
@@ -318,22 +318,22 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Phone */}
-              <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-4 md:p-6 rounded-xl border border-gray-600 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-r from-gray-100 to-gray-200 p-4 md:p-6 rounded-xl border border-gray-300 hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex items-start space-x-3 md:space-x-4">
                   <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 md:p-4 rounded-full shadow-lg flex-shrink-0">
                     <FaPhone className="text-white text-lg md:text-xl" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-white font-semibold text-base md:text-lg mb-1 md:mb-2">
+                    <h4 className="text-gray-900 font-semibold text-base md:text-lg mb-1 md:mb-2">
                       Call Us
                     </h4>
                     <a
                       href="tel:+917232899120"
-                      className="text-base md:text-xl text-white font-bold hover:text-purple-400 transition-colors duration-300 block mb-1 break-words"
+                      className="text-base md:text-xl text-gray-800 font-bold hover:text-purple-600 transition-colors duration-300 block mb-1 break-words"
                     >
                       +91 7232899120
                     </a>
-                    <p className="text-gray-300 text-xs md:text-sm">
+                    <p className="text-gray-600 text-xs md:text-sm">
                       Available Mon-Fri, 9:00 AM - 6:00 PM IST
                     </p>
                   </div>
@@ -341,76 +341,44 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Response Time Info */}
-              <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-4 md:p-6 rounded-xl border border-blue-500/30">
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 md:p-6 rounded-xl border border-blue-200">
                 <div className="flex items-center space-x-2 md:space-x-3 mb-3">
                   <div className="bg-blue-500 p-2 rounded-full flex-shrink-0">
                     <FaRegLightbulb className="text-white text-base md:text-lg" />
                   </div>
-                  <h4 className="text-white font-semibold text-base md:text-lg">
+                  <h4 className="text-gray-900 font-semibold text-base md:text-lg">
                     Quick Response Guarantee
                   </h4>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-300">
+                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                    <span className="text-gray-600">
                       Email replies within 2-4 hours
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-300">
+                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                    <span className="text-gray-600">
                       Free consultation calls
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-300">
+                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                    <span className="text-gray-600">
                       Project quotes within 24 hours
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-300">
+                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                    <span className="text-gray-600">
                       24/7 support for live projects
                     </span>
                   </div>
                 </div>
               </div>
-
-              {/* Social Media Links */}
-              {/* <div className="bg-gradient-to-r from-gray-800 to-gray-700 p-6 rounded-xl border border-gray-600">
-                    <h4 className="text-white font-semibold text-lg mb-4">
-                      Follow Our Journey
-                    </h4>
-                    <div className="flex space-x-4">
-                      <a
-                        href="#"
-                        className="bg-blue-600 hover:bg-blue-700 p-3 rounded-full transition-colors duration-300 transform hover:scale-110"
-                      >
-                        <FaLinkedin className="text-white text-xl" />
-                      </a>
-                      <a
-                        href="mailto:solvitxsolutions@gmail.com"
-                        className="bg-red-600 hover:bg-red-700 p-3 rounded-full transition-colors duration-300 transform hover:scale-110"
-                      >
-                        <FaEnvelope className="text-white text-xl" />
-                      </a>
-                      <a
-                        href="tel:+917232899120"
-                        className="bg-green-600 hover:bg-green-700 p-3 rounded-full transition-colors duration-300 transform hover:scale-110"
-                      >
-                        <FaPhone className="text-white text-xl" />
-                      </a>
-                    </div>
-                    <p className="text-gray-400 text-sm mt-3">
-                      Stay updated with our latest projects and industry insights
-                    </p>
-                  </div> */}
             </div>
           </div>
-
-          {/* Social Media Links */}
         </div>
       </div>
     </section>
