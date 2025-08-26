@@ -4,55 +4,51 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 const Portfolio: React.FC = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "E-Commerce Website",
       category: "Web Development",
       description:
-        "Modern e-commerce solution with advanced filtering, payment integration, and admin dashboard.",
-      results: "300% increase in online sales, 45% faster page load times",
-      image:
-        "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "A modern e-commerce platform with product catalog, cart, secure checkout, and easy admin management.",
+      results: "Boosted customer engagement and increased online sales.",
+      image: "/images/portfolioImages/Ecommerce.jpg",
       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
       gradient: "from-blue-500 to-purple-600",
     },
     {
-      title: "Healthcare Mobile App",
-      category: "Mobile Development",
+      title: "Hotel Website",
+      category: "Web Design & Development",
       description:
-        "Cross-platform mobile app for healthcare providers with appointment booking and patient management.",
-      results: "50,000+ downloads, 4.8 App Store rating",
-      image:
-        "https://images.pexels.com/photos/7089020/pexels-photo-7089020.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["React Native", "Firebase", "TypeScript"],
+        "Responsive hotel booking website with room listings, booking system, and customer reviews.",
+      results: "Improved booking rates and enhanced user trust.",
+      image: "/images/portfolioImages/HotelWebsite.jpg",
+      technologies: ["Next.js", "TailwindCSS", "Firebase"],
       gradient: "from-green-500 to-emerald-600",
     },
     {
-      title: "SaaS Dashboard",
+      title: "Real Estate Website",
       category: "Web Application",
       description:
-        "Comprehensive analytics dashboard for SaaS companies with real-time data visualization.",
+        "Real estate portal with property listings, advanced search filters, and agent profiles.",
       results:
-        "90% reduction in data processing time, improved user engagement by 60%",
-      image:
-        "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Next.js", "PostgreSQL", "Chart.js", "AWS"],
+        "Helped agents generate more leads and simplified property discovery.",
+      image: "/images/portfolioImages/realestatewebsite.jpg",
+      technologies: ["Next.js", "PostgreSQL", "Mapbox", "AWS"],
       gradient: "from-orange-500 to-red-600",
     },
     {
-      title: "Restaurant Booking System",
+      title: "School Website",
       category: "Full Stack",
       description:
-        "Complete restaurant management system with online booking, menu management, and POS integration.",
-      results: "200% increase in online reservations, streamlined operations",
-      image:
-        "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: ["Vue.js", "Express", "MySQL", "Socket.io"],
+        "School management website with event calendar, admission forms, and student information system.",
+      results: "Streamlined communication and improved parent engagement.",
+      image: "/images/portfolioImages/SchoolWebsite.jpg",
+      technologies: ["Vue.js", "Express", "MySQL"],
       gradient: "from-purple-500 to-pink-600",
     },
   ];
 
   return (
     <section id="portfolio" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -65,12 +61,12 @@ const Portfolio: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="overflow-x-auto py-8">
-          <div className="flex gap-6">
+        <div className="overflow-x-auto py-8 flex justify-center">
+          <div className="flex gap-10">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="min-w-[350px] bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className="min-w-[200px] max-w-[350px] bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Project Image */}
                 <div className="relative overflow-hidden">
@@ -81,9 +77,9 @@ const Portfolio: React.FC = () => {
                   />
                   {/* Category Badge */}
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-medium rounded-full shadow">
+                    {/* <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-medium rounded-full shadow">
                       {project.category}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
 
@@ -107,7 +103,7 @@ const Portfolio: React.FC = () => {
                   </div>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
+                  {/* <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
@@ -116,7 +112,7 @@ const Portfolio: React.FC = () => {
                         {tech}
                       </span>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}

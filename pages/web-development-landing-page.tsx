@@ -78,13 +78,13 @@ function App() {
               {clients.map((client, i) => (
                 <SwiperSlide
                   key={i}
-                  className="flex items-center justify-center"
+                  className="flex items-center justify-center gap-10"
                 >
-                  <div className="h-24 w-40 flex items-center justify-center bg-white shadow-md rounded-xl p-4 hover:shadow-lg transition duration-300">
+                  <div className="h-40 w-80 flex items-center justify-center  rounded-xl p-4 hover:shadow-lg transition duration-300">
                     <img
-                      width={150}
-                      height={60}
-                      className="max-h-20 w-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+                      width={250}
+                      height={100}
+                      className="max-h-40 w-auto object-contain  hover:grayscale-0 transition duration-300"
                       src={client.logo}
                       alt={client.name || "Client Logo"}
                     />
