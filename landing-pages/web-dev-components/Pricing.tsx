@@ -222,10 +222,10 @@ const PricingStacksINR: React.FC = () => {
                 estimate.
               </p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={scrollToContact}
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition"
+                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition"
               >
                 Request Recommendation
               </button>
@@ -233,8 +233,7 @@ const PricingStacksINR: React.FC = () => {
                 href="https://wa.me/+917232899120"
                 target="_blank"
                 rel="noopener noreferrer"
-                // onClick={() => window.open("#contact", "_self")}
-                className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition"
+                className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition"
               >
                 Schedule a Call
               </a>

@@ -46,7 +46,6 @@ const WebDevLandingPageNavbar = () => {
   const navItems = [
     // { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
     // { label: "Why Choose Us", href: "#whychooseus" },
     { label: "Portfolio", href: "#portfolio" },
     { label: "Clients", href: "#clients" },
@@ -170,19 +169,35 @@ const WebDevLandingPageNavbar = () => {
 
             {/* Mobile CTA Button */}
             <div className="px-6 pt-4">
-              <motion.button
+              {/* <motion.button
                 onClick={() => setIsModalOpen(true)}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full bg-gradient-to-r from-blue-600 to-pink-500 text-white py-3 rounded-full font-semibold hover:from-pink-500 hover:to-blue-600 transition-all duration-300 shadow-lg"
               >
                 Get Started
-              </motion.button>
+              </motion.button> */}
+              <a
+                href="https://wa.me/+917232899120"
+                target="_blank"
+                rel="noopener noreferrer"
+                // className="bg-gradient-to-r from-blue-600 to-pink-500 text-white px-6 py-2 rounded-full font-semibold hover:from-pink-500 hover:to-blue-600 transition-all duration-300 shadow-lg w-full"
+                //   className="bg-green-500 text-white p-3 md:p-4 rounded-full shadow-xl hover:bg-green-600 transition-all"
+                // aria-label="Chat on WhatsApp"
+                className="bg-gradient-to-r flex justify-center items-center from-blue-600 to-pink-500 text-white px-6 py-2 rounded-full font-semibold hover:from-pink-500 hover:to-blue-600 transition-all duration-300 shadow-lg"
+                // className="bg-black w-full text-center"
+              >
+                {/* <p className="flex   items-center space-x-2 justify-center"> */}
+                Get Started <FaWhatsapp className="ml-3" size={20} />
+                {/* </p> */}
+              </a>
             </div>
           </div>
         </motion.div>
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          <ContactUsForm onClose={() => setIsModalOpen(false)} />
+          <div className=" mt-10">
+            <ContactUsForm onClose={() => setIsModalOpen(false)} />
+          </div>
         </Modal>
       </div>
     </motion.nav>

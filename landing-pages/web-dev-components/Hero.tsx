@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="group text-center justify-center inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Get a Free Quote
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
