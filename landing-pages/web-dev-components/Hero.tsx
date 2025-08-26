@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRight, Play } from "lucide-react";
+import Modal from "@/components/common/Modal";
+import ContactUsForm from "@/components/common/ContactUsForm";
 
 const Hero: React.FC = () => {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
@@ -52,16 +52,11 @@ const Hero: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button
-                onClick={scrollToContact}
+                onClick={() => setIsModalOpen(true)}
                 className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Get a Free Quote
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <button className="group inline-flex items-center px-8 py-4 border-2 border-white/20 text-white font-semibold rounded-full hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
-                <Play className="mr-2 w-5 h-5" />
-                Build Your Website
               </button>
             </div>
 
@@ -123,6 +118,10 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <ContactUsForm onClose={() => setIsModalOpen(false)} />
+      </Modal>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">

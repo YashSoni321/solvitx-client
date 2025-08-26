@@ -45,7 +45,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="process" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -105,9 +105,9 @@ const Services: React.FC = () => {
           <p className="text-lg text-gray-600 mb-6">
             Need a customized web solution? Our team got you covered
           </p>
-          <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+          {/* <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
             Get a Free Consultation
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

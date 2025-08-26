@@ -87,7 +87,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact-form" className="bg-white py-4 px-4">
+    <section id="contact" className="bg-white py-4 px-4">
       <div className="container mx-auto">
         <div className="mb-6 md:mb-10 mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

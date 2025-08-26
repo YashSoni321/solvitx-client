@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   CheckCircle,
   Shield,
@@ -7,8 +7,11 @@ import {
   Rocket,
   HeadphonesIcon,
 } from "lucide-react";
+import Modal from "@/components/common/Modal";
+import ContactUsForm from "@/components/common/ContactUsForm";
 
 const WhyChooseUs: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const reasons = [
     {
       icon: CheckCircle,
@@ -124,11 +127,17 @@ const WhyChooseUs: React.FC = () => {
               Thousands of satisfied clients have transformed their business
               with our web solutions
             </p>
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+            >
               Start Your New Project
             </button>
           </div>
         </div>
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <ContactUsForm onClose={() => setIsModalOpen(false)} />
+        </Modal>
       </div>
     </section>
   );

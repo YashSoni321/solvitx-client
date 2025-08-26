@@ -124,12 +124,12 @@ const Portfolio: React.FC = () => {
         </div>
 
         {/* View All Projects CTA */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
             View Full Portfolio
             <ArrowRight className="ml-2 w-5 h-5" />
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

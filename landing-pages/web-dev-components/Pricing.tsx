@@ -1,9 +1,12 @@
 // PricingStacksINR.tsx
 import React, { useState } from "react";
 import { Check, Star, Database, Box, Code } from "lucide-react";
+import Modal from "@/components/common/Modal";
+import ContactUsForm from "@/components/common/ContactUsForm";
 
 const PricingStacksINR: React.FC = () => {
   const [selectedAddon, setSelectedAddon] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const packages = [
     {
@@ -93,7 +96,8 @@ const PricingStacksINR: React.FC = () => {
   ];
 
   const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    setIsModalOpen(true);
+    // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -186,7 +190,7 @@ const PricingStacksINR: React.FC = () => {
                           onChange={() => setSelectedAddon((s) => !s)}
                           className="form-checkbox h-4 w-4 text-blue-600 rounded"
                         />
-                        <span>Add: Monthly maintenance</span>
+                        <span>Add: Yearly maintenance</span>
                       </label>
                       <div className="font-medium text-gray-900">
                         {selectedAddon ? "₹16,000/mo" : "—"}
@@ -225,12 +229,15 @@ const PricingStacksINR: React.FC = () => {
               >
                 Request Recommendation
               </button>
-              <button
-                onClick={() => window.open("#contact", "_self")}
+              <a
+                href="https://wa.me/+917232899120"
+                target="_blank"
+                rel="noopener noreferrer"
+                // onClick={() => window.open("#contact", "_self")}
                 className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition"
               >
                 Schedule a Call
-              </button>
+              </a>
             </div>
           </div>
 
@@ -259,6 +266,9 @@ const PricingStacksINR: React.FC = () => {
             </div>
           </div>
         </div>
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <ContactUsForm onClose={() => setIsModalOpen(false)} />
+        </Modal>
       </div>
     </section>
   );

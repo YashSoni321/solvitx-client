@@ -1,22 +1,29 @@
-
-import React from 'react'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import React, { useState } from "react";
+import { ArrowRight, Sparkles } from "lucide-react";
+import Modal from "@/components/common/Modal";
+import ContactUsForm from "@/components/common/ContactUsForm";
 
 const MidPageCTA: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
+    setIsModalOpen(true);
+    // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToProcess = () => {
+    // setIsModalOpen(true);
+    document.getElementById("process")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 relative overflow-hidden">
       {/* Background Pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-30"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
       ></div>
-      
+
       {/* Floating Elements */}
       <div className="absolute top-10 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-10 right-10 w-32 h-32 bg-purple-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
@@ -31,15 +38,15 @@ const MidPageCTA: React.FC = () => {
         {/* Main Content */}
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Ready to Transform Your{' '}
+            Ready to Transform Your{" "}
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               Digital Presence?
             </span>
           </h2>
-          
+
           <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-            Don't let your competitors get ahead. Let's build something amazing together 
-            that drives real results for your business.
+            Don't let your competitors get ahead. Let's build something amazing
+            together that drives real results for your business.
           </p>
 
           {/* CTA Buttons */}
@@ -51,10 +58,14 @@ const MidPageCTA: React.FC = () => {
               Request a Free Consultation
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            
-            <button className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
+
+            <a
+              // href="#process"
+              onClick={scrollToProcess}
+              className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
+            >
               View Our Process
-            </button>
+            </a>
           </div>
 
           {/* Trust Indicators */}
@@ -86,9 +97,12 @@ const MidPageCTA: React.FC = () => {
             <div className="w-12 h-px bg-white/30"></div>
           </div>
         </div>
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <ContactUsForm onClose={() => setIsModalOpen(false)} />
+        </Modal>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default MidPageCTA
+export default MidPageCTA;
