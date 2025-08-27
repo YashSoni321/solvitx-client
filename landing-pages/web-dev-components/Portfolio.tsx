@@ -40,7 +40,7 @@ const Portfolio: React.FC = () => {
       description:
         "School management website with event calendar, admission forms, and student information system.",
       results: "Streamlined communication and improved parent engagement.",
-      image: "/images/portfolioImages/SchoolWebsite.jpg",
+      image: "/images/portfolioImages/Schoolwebsite.jpg",
       technologies: ["Vue.js", "Express", "MySQL"],
       gradient: "from-purple-500 to-pink-600",
     },
