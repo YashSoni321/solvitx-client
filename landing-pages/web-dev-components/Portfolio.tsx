@@ -51,17 +51,17 @@ const Portfolio: React.FC = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Our Recent <span className="text-blue-600">Projects</span>
           </h2>
-          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore how our specialized web solutions help startups/businesses
             convert leads into loyal customers.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -74,6 +74,12 @@ const Portfolio: React.FC = () => {
                   alt={project.title}
                   className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500"
                 />
+                {/* Category Badge */}
+                <div className="absolute top-3 left-3">
+                  {/* <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-medium rounded-full shadow">
+                  {project.category}
+                </span> */}
+                </div>
               </div>
 
               {/* Project Content */}
@@ -98,6 +104,14 @@ const Portfolio: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* View All Projects CTA */}
+        {/* <div className="text-center mt-12">
+        <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+          View Full Portfolio
+          <ArrowRight className="ml-2 w-5 h-5" />
+        </button>
+      </div> */}
       </div>
     </section>
   );
