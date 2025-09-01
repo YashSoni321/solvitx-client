@@ -1,117 +1,281 @@
-import React from "react";
-import { ExternalLink, ArrowRight } from "lucide-react";
+"use client";
+import React, { useState } from "react";
+import {
+  FaApple,
+  FaAndroid,
+  FaExternalLinkAlt,
+  FaUsers,
+  FaStar,
+  FaDownload,
+} from "react-icons/fa";
 
-const Portfolio: React.FC = () => {
-  const projects = [
-    {
-      title: "E-Commerce Website",
-      category: "Web Development",
-      description:
-        "A modern e-commerce platform with product catalog, cart, secure checkout, and easy admin management.",
-      results: "Boosted customer engagement and increased online sales.",
-      image: "/images/portfolioImages/Ecommerce.jpg",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      gradient: "from-blue-500 to-purple-600",
-    },
-    {
-      title: "Hotel Website",
-      category: "Web Design & Development",
-      description:
-        "Responsive hotel booking website with room listings, booking system, and customer reviews.",
-      results: "Improved booking rates and enhanced user trust.",
-      image: "/images/portfolioImages/HotelWebsite.jpg",
-      technologies: ["Next.js", "TailwindCSS", "Firebase"],
-      gradient: "from-green-500 to-emerald-600",
-    },
-    {
-      title: "Real Estate Website",
-      category: "Web Application",
-      description:
-        "Real estate portal with property listings, advanced search filters, and agent profiles.",
-      results:
-        "Helped agents generate more leads and simplified property discovery.",
-      image: "/images/portfolioImages/realestatewebsite.jpg",
-      technologies: ["Next.js", "PostgreSQL", "Mapbox", "AWS"],
-      gradient: "from-orange-500 to-red-600",
-    },
-    {
-      title: "School Website",
-      category: "Full Stack",
-      description:
-        "School management website with event calendar, admission forms, and student information system.",
-      results: "Streamlined communication and improved parent engagement.",
-      image: "/images/portfolioImages/Schoolwebsite.jpg",
-      technologies: ["Vue.js", "Express", "MySQL"],
-      gradient: "from-purple-500 to-pink-600",
-    },
-  ];
+const projects = [
+  {
+    title: "SocialConnect",
+    description:
+      "A revolutionary social networking platform that connects people through shared interests and location-based features.",
+    image: "/images/portfolio/project1.jpg",
+    tags: ["iOS", "Android", "Social", "React Native"],
+    category: "Social",
+    stats: { users: "50K+", rating: "4.8", downloads: "100K+" },
+    features: [
+      "Real-time Chat",
+      "Location Sharing",
+      "Interest Matching",
+      "Video Calls",
+    ],
+    gradient: "from-pink-500 to-rose-500",
+  },
+  {
+    title: "ShopEasy",
+    description:
+      "A comprehensive e-commerce mobile app with AI-powered recommendations and seamless checkout experience.",
+    image: "/images/portfolio/project2.jpg",
+    tags: ["iOS", "Android", "E-commerce", "Flutter"],
+    category: "E-commerce",
+    stats: { users: "25K+", rating: "4.9", downloads: "75K+" },
+    features: [
+      "AI Recommendations",
+      "One-Click Checkout",
+      "Wishlist",
+      "Order Tracking",
+    ],
+    gradient: "from-blue-500 to-cyan-500",
+  },
+  {
+    title: "TaskMaster Pro",
+    description:
+      "An advanced productivity suite designed for remote teams with collaboration tools and project management features.",
+    image: "/images/portfolio/project3.jpg",
+    tags: ["iOS", "Android", "Productivity", "Swift"],
+    category: "Productivity",
+    stats: { users: "15K+", rating: "4.7", downloads: "30K+" },
+    features: [
+      "Team Collaboration",
+      "Time Tracking",
+      "File Sharing",
+      "Analytics",
+    ],
+    gradient: "from-green-500 to-emerald-500",
+  },
+  {
+    title: "HealthTracker",
+    description:
+      "A comprehensive health and fitness app with personalized workout plans and nutrition tracking.",
+    image: "/images/portfolio/project4.jpg",
+    tags: ["iOS", "Android", "Health", "Kotlin"],
+    category: "Health",
+    stats: { users: "40K+", rating: "4.6", downloads: "80K+" },
+    features: [
+      "Workout Plans",
+      "Nutrition Tracking",
+      "Progress Analytics",
+      "Social Features",
+    ],
+    gradient: "from-purple-500 to-indigo-500",
+  },
+  {
+    title: "FinanceFlow",
+    description:
+      "A secure personal finance management app with budgeting tools and investment tracking capabilities.",
+    image: "/images/portfolio/project5.jpg",
+    tags: ["iOS", "Android", "Finance", "React Native"],
+    category: "Finance",
+    stats: { users: "20K+", rating: "4.8", downloads: "45K+" },
+    features: [
+      "Budget Planning",
+      "Investment Tracking",
+      "Bill Reminders",
+      "Expense Analytics",
+    ],
+    gradient: "from-yellow-500 to-orange-500",
+  },
+  {
+    title: "EduLearn",
+    description:
+      "An interactive learning platform with gamified courses and progress tracking for students of all ages.",
+    image: "/images/portfolio/project6.jpg",
+    tags: ["iOS", "Android", "Education", "Flutter"],
+    category: "Education",
+    stats: { users: "35K+", rating: "4.9", downloads: "60K+" },
+    features: [
+      "Interactive Courses",
+      "Progress Tracking",
+      "Gamification",
+      "Offline Learning",
+    ],
+    gradient: "from-teal-500 to-cyan-500",
+  },
+];
+
+const categories = [
+  "All",
+  "Social",
+  "E-commerce",
+  "Productivity",
+  "Health",
+  "Finance",
+  "Education",
+];
+
+const Portfolio = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
 
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+    <section id="portfolio" className="py-20 bg-white">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Our Recent <span className="text-blue-600">Projects</span>
+          <div className="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Our Portfolio
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            Success Stories &
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+              Featured Projects
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore how our specialized web solutions help startups/businesses
-            convert leads into loyal customers.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Discover how we've helped businesses across industries transform
+            their ideas into successful mobile applications that users love and
+            businesses trust.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {projects.map((project, index) => (
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                activeCategory === category
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-52 object-cover hover:scale-110 transition-transform duration-500"
-                />
-                {/* Category Badge */}
-                <div className="absolute top-3 left-3">
-                  {/* <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-medium rounded-full shadow">
-                  {project.category}
-                </span> */}
+              {/* Project Image/Mockup */}
+              <div className="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`}
+                ></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center">
+                    <div className="w-16 h-16 bg-white/30 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                      <FaApple className="text-2xl text-white" />
+                    </div>
+                    <h4 className="text-white font-bold text-lg">
+                      {project.title}
+                    </h4>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4">
+                  <button className="bg-white/20 backdrop-blur-sm p-2 rounded-full text-white hover:bg-white/30 transition-colors">
+                    <FaExternalLinkAlt className="text-sm" />
+                  </button>
                 </div>
               </div>
 
-              {/* Project Content */}
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-3 leading-relaxed line-clamp-3">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
-                {/* Results */}
-                <div className="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg p-2 mb-3">
-                  <div className="text-xs font-medium text-green-800">
-                    Results:
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-4 mb-4 p-4 bg-gray-50 rounded-lg">
+                  <div className="text-center">
+                    <div className="flex items-center justify-center gap-1 text-blue-600 mb-1">
+                      <FaUsers className="text-sm" />
+                      <span className="font-bold text-sm">
+                        {project.stats.users}
+                      </span>
+                    </div>
+                    <span className="text-xs text-gray-500">Users</span>
                   </div>
-                  <div className="text-xs text-green-700">
-                    {project.results}
+                  <div className="text-center">
+                    <div className="flex items-center justify-center gap-1 text-yellow-500 mb-1">
+                      <FaStar className="text-sm" />
+                      <span className="font-bold text-sm">
+                        {project.stats.rating}
+                      </span>
+                    </div>
+                    <span className="text-xs text-gray-500">Rating</span>
                   </div>
+                  <div className="text-center">
+                    <div className="flex items-center justify-center gap-1 text-green-600 mb-1">
+                      <FaDownload className="text-sm" />
+                      <span className="font-bold text-sm">
+                        {project.stats.downloads}
+                      </span>
+                    </div>
+                    <span className="text-xs text-gray-500">Downloads</span>
+                  </div>
+                </div>
+
+                {/* Features */}
+                <div className="mb-4">
+                  <h4 className="font-semibold text-gray-800 mb-2 text-sm">
+                    Key Features:
+                  </h4>
+                  <div className="flex flex-wrap gap-1">
+                    {project.features.map((feature, i) => (
+                      <span
+                        key={i}
+                        className="bg-blue-100 text-blue-600 text-xs font-medium px-2 py-1 rounded"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* View All Projects CTA */}
-        {/* <div className="text-center mt-12">
-        <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-          View Full Portfolio
-          <ArrowRight className="ml-2 w-5 h-5" />
-        </button>
-      </div> */}
+        {/* CTA */}
+        <div className="text-center mt-16">
+          <p className="text-gray-600 mb-6">
+            Ready to see your app idea come to life?
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-8 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
+          >
+            Start Your Project
+            <FaExternalLinkAlt className="text-sm" />
+          </a>
+        </div>
       </div>
     </section>
   );
