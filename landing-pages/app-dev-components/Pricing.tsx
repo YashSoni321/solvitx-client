@@ -11,20 +11,20 @@ const PricingStacksINR: React.FC = () => {
   const packages = [
     {
       id: "startup",
-      name: "Startup MVP",
+      name: "Revenue Starter",
       price: "₹40,000",
-      period: "Starting from",
-      hourly: "₹300 – ₹600/hr",
+      period: "Fixed Price - No Hidden Costs",
+      hourly: "Save 60% vs hourly rates",
       popular: true,
       description:
-        "Perfect for founders who want to launch quickly with a functional prototype that can attract users or investors.",
+        "Launch your revenue-generating app in 60 days. Perfect for startups ready to make money from day one.",
       features: [
-        "Cross-platform app (React Native/Flutter)",
-        "User authentication & profiles",
-        "API integration & database setup",
-        "Basic analytics & push notifications",
-        "Deployment to Play Store & App Store",
-        "3 months support & bug fixes",
+        "✅ 30-day delivery guarantee",
+        "✅ Revenue-optimized design",
+        "✅ Payment gateway integration",
+        "✅ Analytics & user tracking",
+        "✅ App Store approval guaranteed",
+        "✅ 6 months free support",
       ],
       accent: "from-blue-500 to-cyan-500",
       Icon: Code,
@@ -84,14 +84,29 @@ const PricingStacksINR: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {/* Header */}
         <div className="text-center mb-12">
+          <div className="inline-block bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            💰 No Hidden Costs • Fixed Pricing • Transparent Process
+          </div>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-3">
-            Build with the Stack that{" "}
-            <span className="text-blue-600">fits your goals</span>
+            Apps That Generate <span className="text-green-600">300% ROI</span>{" "}
+            in 6 Months
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Clear pricing in INR, included features, optional maintenance
-            bundles, or hourly rates for custom scopes.
+            <span className="font-semibold text-gray-800">
+              Transparent pricing, guaranteed delivery, proven results.
+            </span>
+            Choose your package and start generating revenue in 60 days.
           </p>
+          <div className="flex items-center justify-center gap-4 mt-4 text-sm">
+            <div className="flex items-center gap-2 text-green-600">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span>Limited slots this month</span>
+            </div>
+            <div className="flex items-center gap-2 text-blue-600">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <span>24h response guarantee</span>
+            </div>
+          </div>
         </div>
 
         {/* Cards grid */}
@@ -154,11 +169,11 @@ const PricingStacksINR: React.FC = () => {
                       onClick={scrollToContact}
                       className={`w-full py-3 rounded-full font-semibold transition ${
                         pkg.popular
-                          ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md hover:scale-[1.01]"
-                          : "bg-white border border-gray-200 text-gray-800 hover:bg-gray-50"
+                          ? "bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-md hover:scale-[1.01] animate-pulse"
+                          : "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg"
                       }`}
                     >
-                      {pkg.cta}
+                      {pkg.cta} - Start Today
                     </button>
 
                     <div className="mt-3 flex items-center justify-between text-xs text-gray-500">

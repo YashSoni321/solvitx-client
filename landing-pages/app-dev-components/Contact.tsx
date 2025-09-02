@@ -90,14 +90,34 @@ const Contact: React.FC = () => {
     <section id="contact" className="bg-white py-4 px-4">
       <div className="container mx-auto">
         <div className="mb-6 md:mb-10 mx-auto text-center">
+          <div className="inline-block bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            ⚡ Limited Slots Available - Only 3 Projects This Month
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Let's Build Something{" "}
-            <span className="text-blue-600"> Amazing Together</span>{" "}
+            Get Your App Built in{" "}
+            <span className="text-green-600">60 days or Less</span>{" "}
           </h2>
           <p className="text-gray-600 mb-6 text-xl">
-            Ready to transform your digital presence? Get in touch and let's
-            discuss how we can help your business grow.
+            <span className="font-semibold text-gray-800">
+              Free consultation, 24h response, guaranteed delivery.
+            </span>
+            Join 500+ successful businesses. Start your revenue-generating app
+            today.
           </p>
+          <div className="flex items-center justify-center gap-6 text-sm mb-6">
+            <div className="flex items-center gap-2 text-green-600">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span>Security First</span>
+            </div>
+            <div className="flex items-center gap-2 text-blue-600">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <span>Transparent Process</span>
+            </div>
+            <div className="flex items-center gap-2 text-purple-600">
+              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+              <span>24h response time</span>
+            </div>
+          </div>
         </div>
 
         {/* Contact Form */}
@@ -234,7 +254,7 @@ const Contact: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all ${
+                  className={`w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all animate-pulse ${
                     isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
@@ -263,7 +283,7 @@ const Contact: React.FC = () => {
                       Sending...
                     </span>
                   ) : (
-                    "Send Message"
+                    "Get Free Quote - 24h Response Guaranteed"
                   )}
                 </button>
               </div>
@@ -341,38 +361,42 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Response Time Info */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 md:p-6 rounded-xl border border-blue-200">
+              <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 md:p-6 rounded-xl border border-green-200">
                 <div className="flex items-center space-x-2 md:space-x-3 mb-3">
-                  <div className="bg-blue-500 p-2 rounded-full flex-shrink-0">
+                  <div className="bg-green-500 p-2 rounded-full flex-shrink-0">
                     <FaRegLightbulb className="text-white text-base md:text-lg" />
                   </div>
                   <h4 className="text-gray-900 font-semibold text-base md:text-lg">
-                    Quick Response Guarantee
+                    🚀 What Happens Next?
                   </h4>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm">
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0 animate-pulse"></div>
                     <span className="text-gray-600">
-                      Email replies within 2-4 hours
+                      <span className="font-semibold">24h:</span> Free strategy
+                      call scheduled
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0 animate-pulse"></div>
                     <span className="text-gray-600">
-                      Free consultation calls
+                      <span className="font-semibold">48h:</span> Custom quote &
+                      timeline
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0 animate-pulse"></div>
                     <span className="text-gray-600">
-                      Project quotes within 24 hours
+                      <span className="font-semibold">72h:</span> Project
+                      kickoff (if approved)
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0 animate-pulse"></div>
                     <span className="text-gray-600">
-                      24/7 support for live projects
+                      <span className="font-semibold">60 days:</span> Your app
+                      goes live!
                     </span>
                   </div>
                 </div>

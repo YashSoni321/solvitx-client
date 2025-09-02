@@ -30,15 +30,35 @@ function AppDevelopmentLandingPage() {
 
       <div className="min-h-screen bg-white">
         <WebDevLandingPageNavbar />
+        
+        {/* Hero: Capture Attention & Communicate Value Instantly */}
         <Hero />
-        <About />
-        <Services />
-        <Process />
-        <Technologies />
-        <WhyChooseUs />
-        <Portfolio />
+        
+        {/* Client Success Stories: Build Trust & Credibility */}
         <Testimonials />
+        
+        {/* Company Overview: Establish Authority & Expertise */}
+        <About />
+        
+        {/* App Development Services: Show What You Get */}
+        <Services />
+        
+        {/* Success Portfolio: Prove Results & Quality */}
+        <Portfolio />
+        
+        {/* Unique Advantages: Why We're Your Best Choice */}
+        <WhyChooseUs />
+        
+        {/* Development Process: How We Deliver Success */}
+        <Process />
+        
+        {/* Tech Stack: Modern Tools & Reliable Solutions */}
+        <Technologies />
+        
+        {/* Investment Options: Transparent & Competitive Pricing */}
         <Pricing />
+        
+        {/* Get Started: Convert Visitors to Clients */}
         <Contact />
 
         {/* <Footer /> */}

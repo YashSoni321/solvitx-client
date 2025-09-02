@@ -7,53 +7,63 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: Code,
-      title: "Requirement Analysis",
+      title: "Discovery & Strategy",
       description: [
-        "Understand business objectives and target audience",
-        "Define platform, resources, and technology stack",
-        "Estimate project scope, budget, and timeline",
+        "Revenue-focused app strategy in 24 hours",
+        "Competitor analysis and market positioning",
+        "Fixed-price quote with guaranteed timeline",
       ],
       gradient: "from-blue-500 to-cyan-500",
+      duration: "Days 1-3",
+      deliverable: "Strategy Document + Quote",
     },
     {
       icon: Smartphone,
-      title: "Wireframing",
+      title: "Design & Prototyping",
       description: [
-        "Create blueprints for structure and layout",
-        "Map out user flows and navigation paths",
-        "Focus on functionality before final design",
+        "User-focused wireframes and prototypes",
+        "Conversion-optimized UI/UX design",
+        "Interactive prototype for user testing",
       ],
       gradient: "from-purple-500 to-pink-500",
+      duration: "Days 4-10",
+      deliverable: "Interactive Prototype",
     },
     {
       icon: ShoppingCart,
-      title: "Design & Development",
+      title: "Development Sprint",
       description: [
-        "Craft modern, intuitive UI/UX designs",
-        "Write clean, scalable, and secure code",
-        "Ensure responsive design across devices",
+        "Agile development with weekly updates",
+        "Clean, scalable code with documentation",
+        "Real-time progress tracking dashboard",
       ],
       gradient: "from-green-500 to-emerald-500",
+      duration: "Days 11-25",
+      deliverable: "Functional App Beta",
     },
     {
       icon: Palette,
-      title: "Testing",
+      title: "Testing & QA",
       description: [
-        "Conduct performance and usability testing",
-        "Identify and resolve bugs or errors",
-        "Implement strong security measures",
+        "Automated testing across 50+ devices",
+        "Performance optimization for speed",
+        "Security audit and penetration testing",
       ],
       gradient: "from-orange-500 to-red-500",
+      duration: "Days 26-28",
+      deliverable: "Bug-Free App",
     },
     {
       icon: Search,
-      title: "Launch",
+      title: "Launch & Support",
       description: [
-        "Deploy the application to the live environment",
-        "Provide documentation and knowledge transfer",
-        "Offer continuous support and maintenance",
+        "App Store submission and approval",
+        "Launch marketing strategy included",
+        "6 months free support and updates",
       ],
       gradient: "from-indigo-500 to-purple-500",
+      duration: "Days 29-30",
+      deliverable: "Live App + Support",
     },
   ];
 
@@ -62,14 +72,20 @@ const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
+          <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            ⏱️ 30-Day Guaranteed Process
+          </div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            How Our{" "}
-            <span className="text-blue-600">App Development Process</span>{" "}
-            Works?
+            From Idea to{" "}
+            <span className="text-green-600">Revenue-Generating App</span> in 60
+            days
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We follow a structured process from idea to launch to deliver
-            scalable and impactful solutions.
+            <span className="font-semibold text-gray-800">
+              Proven 5-step process
+            </span>{" "}
+            that has delivered 500+ successful apps. Track progress daily, get
+            weekly updates, launch on time - guaranteed.
           </p>
         </div>
 
@@ -80,10 +96,6 @@ const Services: React.FC = () => {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
                 className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-transparent hover:-translate-y-2"
               >
                 {/* Background Gradient on Hover */}
@@ -104,23 +116,43 @@ const Services: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-gray-800">
-                  {service.title}
-                </h3>
-                <ul className="text-gray-600 leading-relaxed space-y-2 list-disc list-inside">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-gray-800">
+                    {service.title}
+                  </h3>
+                  <span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded font-semibold">
+                    {service.duration}
+                  </span>
+                </div>
+
+                <ul className="text-gray-600 leading-relaxed space-y-2 mb-4">
                   {service.description.map((point, i) => (
-                    <li key={i} className="group-hover:text-gray-700">
+                    <li
+                      key={i}
+                      className="flex items-start group-hover:text-gray-700"
+                    >
+                      <span className="text-green-500 mr-2 mt-1">✓</span>
                       {point}
                     </li>
                   ))}
                 </ul>
 
-                {/* Learn More Link */}
-                <div className="mt-6">
-                  <span className="text-blue-600 font-medium group-hover:text-blue-700 cursor-pointer">
-                    Learn More →
-                  </span>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                  <div className="text-xs font-semibold text-green-800 mb-1">
+                    🚀 Deliverable:
+                  </div>
+                  <div className="text-sm text-green-700 font-medium">
+                    {service.deliverable}
+                  </div>
                 </div>
+
+                <a
+                  href="#contact"
+                  className="text-blue-600 font-semibold hover:text-blue-700 cursor-pointer flex items-center gap-2"
+                >
+                  Start This Step
+                  <FaArrowRight className="text-sm" />
+                </a>
               </motion.div>
             );
           })}

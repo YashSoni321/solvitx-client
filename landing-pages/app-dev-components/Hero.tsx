@@ -1,6 +1,13 @@
 "use client";
 import React from "react";
-import { FaApple, FaAndroid, FaRocket, FaPlay, FaStar } from "react-icons/fa";
+import {
+  FaApple,
+  FaAndroid,
+  FaRocket,
+  FaPlay,
+  FaStar,
+  FaCheckCircle,
+} from "react-icons/fa";
 import Image from "next/image";
 
 const Hero = () => {
@@ -27,21 +34,23 @@ const Hero = () => {
                 ))}
               </div>
               <span className="text-sm opacity-90">
-                Rated 4.9/5 by 200+ clients
+                Rated 4.9/5 by 500+ clients
               </span>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-              Build Amazing
+              Get Your App Built in
               <span className="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                Mobile Apps
+                60 days or Less
               </span>
             </h1>
 
             <p className="text-lg md:text-xl mb-8 opacity-90 max-w-xl mx-auto lg:mx-0">
-              Transform your ideas into powerful mobile experiences. We create
-              stunning iOS and Android apps that users love and businesses
-              trust.
+              Professional mobile apps that generate revenue from day one.
+              <span className="font-semibold">
+                Fixed pricing, guaranteed delivery, lifetime support.
+              </span>
+              Join 500+ successful businesses.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
@@ -59,17 +68,31 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
               <a
                 href="#contact"
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-bold py-4 px-8 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg"
+                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-bold py-4 px-8 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg relative overflow-hidden"
               >
-                Start Your Project
+                <span className="relative z-10">
+                  Get Free Quote - 24h Response
+                </span>
+                <div className="absolute inset-0 bg-white/20 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
               </a>
-              {/* <button className="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold py-4 px-6 rounded-full hover:bg-white/20 transition duration-300">
-                <FaPlay className="text-sm" />
-                Watch Demo
-              </button> */}
+              <div className="flex items-center gap-2 text-sm opacity-90">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span>Limited slots available this month</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-6 text-sm opacity-80">
+              <div className="flex items-center gap-2">
+                <FaCheckCircle className="text-green-400" />
+                <span>Security First</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <FaCheckCircle className="text-green-400" />
+                <span>Transparent Process</span>
+              </div>
             </div>
           </div>
 
